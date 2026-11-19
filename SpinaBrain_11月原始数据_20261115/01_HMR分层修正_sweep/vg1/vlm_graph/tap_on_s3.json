@@ -1,0 +1,545 @@
+{
+ "task": "tap",
+ "instruction": "在桌面 A 点连续点压 3 次:每次压到约 4 牛,然后抬起 1 厘米,再压下一次;3 次后结束。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 3,
+ "hmr": "on",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 31.5
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "stay_over_A",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05,
+      0.0
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 2
+    },
+    "temporal": {
+     "stage": "press",
+     "also_stages": [
+      "lift"
+     ]
+    }
+   },
+   {
+    "id": "_sink",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.01
+     ],
+     "tolerance": 0.004
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "preference",
+     "weight": 1
+    },
+    "temporal": {
+     "stage": "press"
+    },
+    "verify": false
+   },
+   {
+    "id": "press4",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 4.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3,
+     "loss": "quadratic"
+    },
+    "temporal": {
+     "stage": "press",
+     "profile": "ramp",
+     "t_ramp": 0.2
+    }
+   },
+   {
+    "id": "force_limit",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "set",
+     "upper": 8.0,
+     "tolerance": 0.5
+    },
+    "hierarchy": {
+     "level": "hard",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "press",
+     "also_stages": [
+      "lift"
+     ]
+    }
+   },
+   {
+    "id": "liftup",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.01
+     ],
+     "tolerance": 0.004
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.3
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "press",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "press4"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "lift"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail",
+    "max_visits": 3
+   },
+   {
+    "id": "lift",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "all": [
+        {
+         "satisfied": [
+          "liftup"
+         ],
+         "hold_s": 0.1
+        },
+        {
+         "visits_ge": 3
+        }
+       ]
+      },
+      "to": "end"
+     },
+     {
+      "when": {
+       "satisfied": [
+        "liftup"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "press"
+     }
+    ],
+    "timeout_s": 4,
+    "on_timeout": "fail",
+    "max_visits": 5
+   }
+  ],
+  "start": "press",
+  "max_time_s": 40
+ },
+ "status": "end",
+ "oracle_ok": false,
+ "oracle": {
+  "taps": 5,
+  "max_fn": 23.69
+ },
+ "spec_all_pass": true,
+ "stages": [
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 4.519999999999844,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press4'], 'hold_s': 0.2}",
+   "to": "lift",
+   "f_at_switch": 3.718876300804482,
+   "retried": true,
+   "rows": [
+    {
+     "id": "stay_over_A",
+     "pass": true,
+     "measured": [
+      -0.0507,
+      -0.0001
+     ]
+    },
+    {
+     "id": "press4",
+     "pass": false,
+     "measured": [
+      0.8716
+     ]
+    },
+    {
+     "id": "force_limit",
+     "pass": true,
+     "measured": [
+      3.6451
+     ]
+    }
+   ]
+  },
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 4.519999999999844,
+   "t1": 7.320000000000779,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press4'], 'hold_s': 0.2}",
+   "to": "lift",
+   "f_at_switch": 4.404090916398433,
+   "retried": true,
+   "rows": [
+    {
+     "id": "stay_over_A",
+     "pass": true,
+     "measured": [
+      -0.0507,
+      -0.0
+     ]
+    },
+    {
+     "id": "press4",
+     "pass": false,
+     "measured": [
+      6.6675
+     ]
+    },
+    {
+     "id": "force_limit",
+     "pass": true,
+     "measured": [
+      7.4735
+     ]
+    }
+   ]
+  },
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 7.320000000000779,
+   "t1": 10.719999999999498,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press4'], 'hold_s': 0.2}",
+   "to": "lift",
+   "f_at_switch": 4.290939945325299,
+   "retried": true,
+   "rows": [
+    {
+     "id": "stay_over_A",
+     "pass": true,
+     "measured": [
+      -0.0501,
+      -0.0
+     ]
+    },
+    {
+     "id": "press4",
+     "pass": false,
+     "measured": [
+      1.5041
+     ]
+    },
+    {
+     "id": "force_limit",
+     "pass": true,
+     "measured": [
+      4.0044
+     ]
+    }
+   ]
+  },
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 10.719999999999498,
+   "t1": 10.919999999999387,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press4'], 'hold_s': 0.2}",
+   "to": "lift",
+   "f_at_switch": 4.15814588237272,
+   "rows": [
+    {
+     "id": "stay_over_A",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press4",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "force_limit",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 10.919999999999387,
+   "t1": 11.019999999999332,
+   "done": true,
+   "exit": "切换:{'satisfied': ['liftup'], 'hold_s': 0.1}",
+   "to": "press",
+   "f_at_switch": 4.250119456462749,
+   "rows": [
+    {
+     "id": "liftup",
+     "pass": true,
+     "measured": [
+      0.0088
+     ]
+    },
+    {
+     "id": "stay_over_A",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "force_limit",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "press",
+   "visit": 2,
+   "t0": 11.019999999999332,
+   "t1": 11.21999999999922,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press4'], 'hold_s': 0.2}",
+   "to": "lift",
+   "f_at_switch": 3.852849605677853,
+   "rows": [
+    {
+     "id": "stay_over_A",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press4",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "force_limit",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 2,
+   "t0": 11.21999999999922,
+   "t1": 11.319999999999165,
+   "done": true,
+   "exit": "切换:{'satisfied': ['liftup'], 'hold_s': 0.1}",
+   "to": "press",
+   "f_at_switch": 3.779580073612448,
+   "rows": [
+    {
+     "id": "liftup",
+     "pass": true,
+     "measured": [
+      0.0088
+     ]
+    },
+    {
+     "id": "stay_over_A",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "force_limit",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "press",
+   "visit": 3,
+   "t0": 11.319999999999165,
+   "t1": 11.519999999999055,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press4'], 'hold_s': 0.2}",
+   "to": "lift",
+   "f_at_switch": 3.983829258374374,
+   "rows": [
+    {
+     "id": "stay_over_A",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press4",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "force_limit",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 3,
+   "t0": 11.519999999999055,
+   "t1": 11.619999999999,
+   "done": true,
+   "exit": "切换:{'all': [{'satisfied': ['liftup'], 'hold_s': 0.1}, {'visits_ge': 3}]}",
+   "to": "end",
+   "f_at_switch": 4.1466318618246705,
+   "rows": [
+    {
+     "id": "liftup",
+     "pass": true,
+     "measured": [
+      0.0088
+     ]
+    },
+    {
+     "id": "stay_over_A",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "force_limit",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": [
+  {
+   "stage": "press",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['press4']"
+   ]
+  },
+  {
+   "stage": "press",
+   "attempt": 1,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['press4']"
+   ]
+  },
+  {
+   "stage": "press",
+   "attempt": 2,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['force']"
+   ]
+  }
+ ],
+ "hmr_replans": [],
+ "cost_usd": 0.00196,
+ "wall_s": 56.2
+}

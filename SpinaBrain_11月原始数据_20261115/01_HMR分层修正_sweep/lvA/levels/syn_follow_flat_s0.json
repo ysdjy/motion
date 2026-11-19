@@ -1,0 +1,322 @@
+{
+ "probe": "syn_follow",
+ "family": "solver",
+ "task": "follow_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "flat",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00791,
+  "tokens": 16680,
+  "latency_s": 77.3,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "solver"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0002,
+    0.0014,
+    0.1008
+   ],
+   "deviation": [
+    -0.0002,
+    0.0014,
+    0.0008
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.1974
+   ],
+   "deviation": [
+    -0.0026
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 160.2,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['follow']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "阶段末仍不达标 ['follow']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": false,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "follow 的归一化残差长期停在约 15σ 且几乎无收敛斜率，同时 align 在容差边界大幅振荡；这说明不是简单的零点偏差，而是额外策略项（辅助目标/硬姿态或关节约束）把位置目标挤出可行域，改 comp 只会平移目标点，无法解除硬约束。应去掉这些额外策略项，让位置契约直接驱动规划。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 77.26,
+   "helpers_after": [],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.1196,
+      0.012,
+      0.1461
+     ],
+     "deviation": [
+      -0.1196,
+      0.012,
+      0.0461
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.1633
+     ],
+     "deviation": [
+      -0.0367
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "pred_ok": 1.68,
+      "meas_ok": 1.84,
+      "stall": 2.0,
+      "drift": 3.48
+     },
+     "fail_lead_s": 0.18,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 33.03,
+     "p95": 46.69,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0008,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.0002,
+      0.0014,
+      0.1008
+     ],
+     "deviation": [
+      -0.0002,
+      0.0014,
+      0.0008
+     ],
+     "pass": true,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.1974
+     ],
+     "deviation": [
+      -0.0026
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "drift": 14.88,
+      "meas_ok": 15.32,
+      "stall": 15.32,
+      "pred_ok": 15.62
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "drift": 20.32
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 25.28,
+     "p95": 45.25,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0124,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

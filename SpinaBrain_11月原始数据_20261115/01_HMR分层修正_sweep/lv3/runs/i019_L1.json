@@ -1,0 +1,133 @@
+{
+ "id": 19,
+ "arm": "L1",
+ "inst": {
+  "id": 19,
+  "kind": "mixed",
+  "run_seed": 255,
+  "task": "slide_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.018553112529165458,
+   "id": "vy"
+  },
+  "mag_tol": 4.64,
+  "disturb": "slide,2.16,0.63,17.9,-11.8,8.2"
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L1",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.7233,
+   "deviation": -0.2767,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    0.0237
+   ],
+   "deviation": [
+    0.0037
+   ],
+   "pass": true,
+   "target": 0.02
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 26.4,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['keep2']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 阶段末仍不达标 ['keep2']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0177] / [0.006])"
+    }
+   ],
+   "R": 3.436
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 8.42,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      0.0135
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.0135
+     ]
+    }
+   ],
+   "R": 3.434,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 阶段末仍不达标 ['keep2']"
+}

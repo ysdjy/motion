@@ -1,0 +1,176 @@
+{
+ "id": 41,
+ "arm": "L1b#2",
+ "inst": {
+  "id": 41,
+  "kind": "n121",
+  "run_seed": 144,
+  "task": "config_long",
+  "bias": "arm"
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L2",
+  "L1b"
+ ],
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "center",
+   "deviation": null,
+   "pass": false,
+   "target": "left",
+   "elbow_y": -0.0009
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.307,
+    -0.0,
+    0.4869
+   ],
+   "deviation": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 3,
+  "cost_usd": 0.00456
+ },
+ "sim_s": 123.4,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 阶段末仍不达标 ['arm']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.002
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 41.58,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.003
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 9.86,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.005
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 21.16,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 阶段末仍不达标 ['arm']"
+}

@@ -1,0 +1,145 @@
+{
+ "id": 29,
+ "arm": "none",
+ "inst": {
+  "id": 29,
+  "kind": "strategy",
+  "run_seed": 561,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.05191063327226466
+  ]
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "none",
+ "level_path": [],
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "deviation": null,
+   "pass": true,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ],
+    [
+     "lift",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.2862,
+   "deviation": 0.2862,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 6.0,
+   "deviation": -0.0,
+   "pass": true,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.1525
+   ],
+   "deviation": [
+    0.1525
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0529,
+    0.0006
+   ],
+   "deviation": [
+    -0.0029,
+    0.0006
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 21.8,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

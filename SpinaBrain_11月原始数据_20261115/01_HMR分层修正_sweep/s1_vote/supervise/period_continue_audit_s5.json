@@ -1,0 +1,465 @@
+{
+ "task": "period",
+ "probe": null,
+ "intent_probe": null,
+ "bias": null,
+ "seed": 5,
+ "instruction": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上先压稳,然后以 1.2 秒为周期在 2 N 和 6 N 之间反复按压桌面。",
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  },
+  {
+   "id": "tap",
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  }
+ ],
+ "final_report": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.2736,
+   "deviation": 0.0736,
+   "pass": true,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "final_all_pass": true,
+ "sim_s": 51.8,
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "action": "next"
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.2736,
+     "deviation": 0.0736,
+     "pass": true,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.07,
+     "calls": 400
+    }
+   },
+   "action": "next"
+  }
+ ],
+ "audits": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "ok",
+   "veto": false,
+   "n_ok": 3,
+   "n_veto": 0,
+   "n_error": 0,
+   "reason": "当前阶段为 settle（在 A 点先压稳），实测位置符合 A 点坐标要求，且已成功接触桌面压稳。",
+   "checks": [
+    {
+     "requirement": "笔尖位于桌面 A 点 (x = -5 cm, y = 0)",
+     "evidence": "tcp_in_frames_m['surface:table'] x = -0.0499 m, y = -0.0003 m",
+     "expected": [
+      -0.05,
+      0.0
+     ],
+     "measured": [
+      -0.0499,
+      -0.0003
+     ],
+     "tolerance": 0.005,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "在桌面 A 点压稳（接触桌面）",
+     "evidence": "touching_table = true",
+     "expected": true,
+     "measured": true,
+     "tolerance": null,
+     "ok": true,
+     "rule_ok": null
+    }
+   ],
+   "missing_requirements": [
+    "在 A 点先压稳的具体压力数值要求未在验收表中体现"
+   ],
+   "suspect_items": [],
+   "error": null,
+   "raw": null,
+   "votes": [
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为 settle（在 A 点先压稳），实测位置符合 A 点坐标要求，且已成功接触桌面压稳。",
+     "checks": [
+      {
+       "requirement": "笔尖位于桌面 A 点 (x = -5 cm, y = 0)",
+       "evidence": "tcp_in_frames_m['surface:table'] x = -0.0499 m, y = -0.0003 m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0499,
+        -0.0003
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "在桌面 A 点压稳（接触桌面）",
+       "evidence": "touching_table = true",
+       "expected": true,
+       "measured": true,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "在 A 点先压稳的具体压力数值要求未在验收表中体现"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为 settle，要求在桌面 A 点（x = -5 cm, y = 0）压稳。实测位置与要求高度吻合且已接触桌面，符合预期。",
+     "checks": [
+      {
+       "requirement": "笔尖位于桌面 A 点 (x = -5 cm, y = 0)",
+       "evidence": "tcp_in_frames_m['surface:table'] x = -0.0499 m, y = -0.0003 m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0499,
+        -0.0003
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "在 A 点压稳（接触桌面）",
+       "evidence": "touching_table = true",
+       "expected": true,
+       "measured": true,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "在 A 点先压稳的具体位置和接触状态未在验收表中体现"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为 settle，要求在桌面 A 点（x = -5 cm, y = 0）压稳。实测表面坐标符合要求且已接触桌面。",
+     "checks": [
+      {
+       "requirement": "笔尖在桌面 A 点(桌面坐标系 x = -5 cm、y = 0)",
+       "evidence": "tcp_in_frames_m.surface:table",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0499,
+        -0.0003
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "在 A 点先压稳（接触桌面）",
+       "evidence": "touching_table",
+       "expected": true,
+       "measured": true,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "在 A 点先压稳的压紧力数值未在验收表中明确（但实测已接触且位置准确）"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    }
+   ],
+   "observation": {
+    "t_s": 5.5,
+    "tcp_base_m": [
+     0.5001,
+     -0.0003,
+     0.1088
+    ],
+    "tool_tilt_from_down_deg": 0.1,
+    "normal_force_on_table_N": 1.68,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.1931,
+      0.0004,
+      0.3781
+     ],
+     "surface:table": [
+      -0.0499,
+      -0.0003,
+      0.0088
+     ]
+    },
+    "robot_min_gap_to_table_mm": -0.1,
+    "touching_table": true
+   },
+   "latency_s": 17.59,
+   "suggestion": null
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "ok",
+   "veto": false,
+   "n_ok": 3,
+   "n_veto": 0,
+   "n_error": 0,
+   "reason": "当前阶段为在 A 点以 1.2 s 周期按压，实测位置精确在 A 点附近，周期测量值在允许误差范围内，且保持接触桌面，符合用户要求。",
+   "checks": [
+    {
+     "requirement": "在桌面 A 点（桌面坐标系 x = -5 cm、y = 0）进行按压",
+     "evidence": "tcp_in_frames_m.surface:table",
+     "expected": [
+      -0.05,
+      0.0
+     ],
+     "measured": [
+      -0.0501,
+      -0.0
+     ],
+     "tolerance": 0.005,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "以 1.2 秒为周期反复按压",
+     "evidence": "验收表中的 tap 周期测量值",
+     "expected": 1.2,
+     "measured": 1.2736,
+     "tolerance": 0.1,
+     "ok": true,
+     "rule_ok": true
+    }
+   ],
+   "missing_requirements": [
+    "在 2 N 和 6 N 之间反复按压的力幅值范围验收项"
+   ],
+   "suspect_items": [],
+   "error": null,
+   "raw": null,
+   "votes": [
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为在 A 点以 1.2 s 周期按压，实测位置精确在 A 点附近，周期测量值在允许误差范围内，且保持接触桌面，符合用户要求。",
+     "checks": [
+      {
+       "requirement": "在桌面 A 点（桌面坐标系 x = -5 cm、y = 0）进行按压",
+       "evidence": "tcp_in_frames_m.surface:table",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0501,
+        -0.0
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "以 1.2 秒为周期反复按压",
+       "evidence": "验收表中的 tap 周期测量值",
+       "expected": 1.2,
+       "measured": 1.2736,
+       "tolerance": 0.1,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [
+      "在 2 N 和 6 N 之间反复按压的力幅值范围验收项"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为按周期在 A 点反复按压，实测位置在 A 点，周期符合要求，各项指标正常。",
+     "checks": [
+      {
+       "requirement": "在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)位置按压",
+       "evidence": "tcp_in_frames_m['surface:table']",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0501,
+        -0.0
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "以 1.2 秒为周期反复按压",
+       "evidence": "验收表 tap 周期",
+       "expected": 1.2,
+       "measured": 1.2736,
+       "tolerance": 0.1,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [
+      "在 2 N 和 6 N 之间反复按压的幅值要求未在验收表中完全体现"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段在 A 点按指定周期 1.2 s 进行了反复按压，周期和位置均符合原话要求。",
+     "checks": [
+      {
+       "requirement": "在桌面 A 点（桌面坐标系 x = -5 cm、y = 0）",
+       "evidence": "tcp_in_frames_m['surface:table']",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0501,
+        -0.0
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "1.2 秒为周期反复按压",
+       "evidence": "验收表中的 tap 周期测量值",
+       "expected": 1.2,
+       "measured": 1.2736,
+       "tolerance": 0.1,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [
+      "在 2 N 和 6 N 之间反复按压的力幅值范围未在验收表中完整独立列出（但周期符合且有接触）"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    }
+   ],
+   "observation": {
+    "t_s": 13.5,
+    "tcp_base_m": [
+     0.4999,
+     -0.0,
+     0.1088
+    ],
+    "tool_tilt_from_down_deg": 0.1,
+    "normal_force_on_table_N": 3.42,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.1929,
+      0.0001,
+      0.3781
+     ],
+     "surface:table": [
+      -0.0501,
+      -0.0,
+      0.0088
+     ]
+    },
+    "robot_min_gap_to_table_mm": -0.1,
+    "touching_table": true
+   },
+   "latency_s": 13.17,
+   "suggestion": null
+  }
+ ],
+ "repairs": [],
+ "events": [],
+ "timeline": [],
+ "config": {
+  "monitor_cycles": 1,
+  "drift_h": 0.25,
+  "on_fail": "continue",
+  "max_retries": 2,
+  "audit_model": "gemini-flash-lite-latest",
+  "audit_votes": 3,
+  "on_veto": "record"
+ }
+}

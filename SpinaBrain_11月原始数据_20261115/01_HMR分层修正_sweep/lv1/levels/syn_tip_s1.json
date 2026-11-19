@@ -1,0 +1,725 @@
+{
+ "probe": "syn_tip",
+ "family": "solver",
+ "task": "tip_long",
+ "seed": 1,
+ "mode": "decide",
+ "model": null,
+ "expect": [
+  "solver"
+ ],
+ "reached": "solver",
+ "decision_ok": true,
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "tip",
+   "cat": "D4",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0001,
+    -0.0007,
+    0.0291
+   ],
+   "deviation": [
+    0.0001,
+    -0.0007,
+    -0.0009
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.03
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 24.36000000000679,
+   "t1": 36.36000000000596,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "track",
+     "t0": 12.019999999998777,
+     "t1": 24.36000000000679,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.34
+    }
+   ]
+  }
+ ],
+ "sim_s": 59.1,
+ "exec_alarms": 1,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差不变 13.96 → 13.91,持续 1.5 s",
+    "没有约束压着,疑似采样退化 []"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['track']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['tip']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差方向相反([-0.1197, -0.0314, 0.0497] / [-0.1197, 0.0123, 0.0393])"
+    }
+   ],
+   "R": 13.966
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 4.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差方向相反([-0.1197, -0.0212, 0.047] / [-0.1196, 0.0414, 0.0391])"
+    }
+   ],
+   "R": 13.964
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差方向相反([-0.1197, -0.0098, 0.0445] / [-0.1196, 0.0433, 0.0434])"
+    }
+   ],
+   "R": 13.962
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.1197, 0.0, 0.0432] / [-0.1196, 0.0189, 0.0422])"
+    }
+   ],
+   "R": 13.961
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.86,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      -0.1196,
+      0.0,
+      0.0419
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.032,
+      0.0,
+      -0.032
+     ]
+    }
+   ],
+   "R": 13.96,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.88,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.1193, -0.0592, 0.0365] / [-0.1193, -0.022, 0.0414])"
+    }
+   ],
+   "R": 13.919
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.9,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差方向相反([-0.1193, -0.048, 0.0386] / [-0.1192, 0.0289, 0.0342])"
+    }
+   ],
+   "R": 13.915
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.54,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差方向相反([0.0335, -0.0165, -0.0351] / [0.0347, 0.0374, -0.0256])"
+    }
+   ],
+   "R": 3.393
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 16.54,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0339, 0.0, -0.0324] / [0.0348, 0.0753, -0.0298])"
+    }
+   ],
+   "R": 3.236
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 17.54,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0341, 0.0102, -0.0304] / [0.035, 0.085, -0.0394])"
+    }
+   ],
+   "R": 3.262
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 18.54,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0342, 0.0239, -0.0299] / [0.0351, 0.0655, -0.0421])"
+    }
+   ],
+   "R": 3.281
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 18.86,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0347,
+      0.0418,
+      -0.0358
+     ],
+     "c_old": [
+      0.032,
+      0.0,
+      -0.032
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.032,
+      0.0
+     ]
+    }
+   ],
+   "R": 3.286,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 20.86,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      -0.0263,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.032,
+      0.0
+     ],
+     "g_raw": [
+      2.129
+     ],
+     "g": [
+      1.0,
+      2.129,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0197,
+      0.0
+     ]
+    }
+   ],
+   "R": 2.749,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 22.86,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      -0.0128,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0197,
+      0.0
+     ],
+     "g_raw": [
+      1.091
+     ],
+     "g": [
+      1.0,
+      1.091,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0079,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.201,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 24.36,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      -0.0192,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0079,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0113,
+      0.0
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "t": 27.86,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      0.0212,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0113,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0099,
+      0.0
+     ]
+    }
+   ],
+   "R": 1.532,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "t": 29.86,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, -0.0101, 0.0] / [0.0, -0.0205, 0.0])"
+    }
+   ],
+   "R": 0.257
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "t": 29.92,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      -0.0156,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0099,
+      0.0
+     ],
+     "g_raw": [
+      1.736
+     ],
+     "g": [
+      1.0,
+      1.736,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0009,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.313,
+   "problems": []
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 10.4,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 13.96 → 13.91,持续 1.5 s"
+   ],
+   "active": [],
+   "pred_bad": [
+    "tip"
+   ],
+   "cost_min": 631830.875,
+   "ess": 64.4333267211914,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 10.745,
+   "kind": "track",
+   "peak": 0.0195,
+   "thr": 0.015
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tip",
+     "cat": "D4",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0354,
+      -0.0097,
+      -0.0002
+     ],
+     "deviation": [
+      0.0354,
+      -0.0097,
+      -0.0302
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.03
+     ]
+    }
+   ],
+   "monitor": {
+    "tip": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 6.75,
+     "p95": 8.84,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [
+     {
+      "t": 10.745,
+      "kind": "track",
+      "peak": 0.0195,
+      "thr": 0.015
+     }
+    ],
+    "peak": {
+     "track": 0.0195,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L0+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 12.019999999998777,
+   "t1": 24.36000000000679,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tip",
+     "cat": "D4",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0006,
+      -0.0192,
+      0.0298
+     ],
+     "deviation": [
+      0.0006,
+      -0.0192,
+      -0.0002
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.03
+     ]
+    }
+   ],
+   "monitor": {
+    "tip": {
+     "final_pass": false,
+     "samples": 542,
+     "first_alarm": {
+      "meas_ok": 13.54,
+      "pred_ok": 13.54,
+      "drift": 13.6,
+      "stall": 14.48
+     },
+     "fail_lead_s": 10.82,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 6.52,
+     "p95": 8.86,
+     "calls": 617
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0071,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "t0": 24.36000000000679,
+   "t1": 36.36000000000596,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "tip",
+     "cat": "D4",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0001,
+      -0.0007,
+      0.0291
+     ],
+     "deviation": [
+      0.0001,
+      -0.0007,
+      -0.0009
+     ],
+     "pass": true,
+     "target": [
+      0.0,
+      0.0,
+      0.03
+     ]
+    }
+   ],
+   "monitor": {
+    "tip": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 25.88,
+      "pred_ok": 25.88,
+      "drift": 26.08,
+      "stall": 26.36
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 6.82,
+     "p95": 10.08,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.005,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

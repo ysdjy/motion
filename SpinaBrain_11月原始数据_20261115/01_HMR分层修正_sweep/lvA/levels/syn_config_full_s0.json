@@ -1,0 +1,271 @@
+{
+ "probe": "syn_config",
+ "family": "solver_x",
+ "task": "config_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "full",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00163,
+  "tokens": 3230,
+  "latency_s": 33.2,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "solver"
+ ],
+ "reached": "L1b",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0836
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.307,
+    0.0001,
+    0.4869
+   ],
+   "deviation": [
+    -0.0,
+    0.0001,
+    -0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 8.000000000001005,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 63.7,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.01
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 33.16,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": 0.0001
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      -0.0001,
+      0.4869
+     ],
+     "deviation": [
+      -0.0,
+      -0.0001,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.34,
+     "p95": 17.33,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0001,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.0836
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0001,
+      0.4869
+     ],
+     "deviation": [
+      -0.0,
+      0.0001,
+      -0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 6.68,
+     "p95": 12.15,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0029,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

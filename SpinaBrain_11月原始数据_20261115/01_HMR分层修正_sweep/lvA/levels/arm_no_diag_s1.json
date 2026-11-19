@@ -1,0 +1,375 @@
+{
+ "probe": "arm",
+ "family": "n121",
+ "task": "config_long",
+ "seed": 1,
+ "mode": "llm",
+ "cond": "no_diag",
+ "llm": {
+  "calls": 2,
+  "cost_usd": 0.00497,
+  "tokens": 9351,
+  "latency_s": 53.6,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L1b",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "3cd64d01d032",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0427
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.307,
+    0.0001,
+    0.4869
+   ],
+   "deviation": [
+    -0.0001,
+    0.0001,
+    -0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 15.999999999996572,
+   "t1": 24.00000000000635,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 8.000000000001005,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 8.000000000001005,
+     "t1": 15.999999999996572,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 90.4,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.01
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 11.35,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.05
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 42.3,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": 0.0001
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.19,
+     "p95": 8.72,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0002,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": 0.0003
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 7.25,
+     "p95": 12.19,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0004,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "t0": 15.999999999996572,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.0427
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0001,
+      0.4869
+     ],
+     "deviation": [
+      -0.0001,
+      0.0001,
+      -0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.07,
+     "p95": 8.0,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0028,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

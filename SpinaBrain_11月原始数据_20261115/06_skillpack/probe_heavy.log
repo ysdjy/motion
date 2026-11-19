@@ -1,0 +1,41 @@
+=== mass 1.0 grip 40 
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               2.58 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                4.78 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.4508, -0.1205, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+=== mass 1.0 grip 40 --rt
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'contact', 'value': 0}}]}
+状态 fail:切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'contact', 'value': 0}}]};验收行 3 条,没过 0 条;交接不成立:pick.$done → place 要求 contact=0,实测不符
+  cube: [0.4545, 0.1433, 0.2175]
+  cube2: [0.58, 0.1, 0.1199]
+=== mass 0.3 grip 40 
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               2.62 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                4.36 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.4498, -0.1197, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+=== mass 0.3 grip 40 --rt
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'contact', 'value': 0}}]}
+状态 fail:切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'contact', 'value': 0}}]};验收行 3 条,没过 0 条;交接不成立:pick.$done → place 要求 contact=0,实测不符
+  cube: [0.455, 0.1425, 0.2176]
+  cube2: [0.58, 0.1, 0.1199]
+exit 0

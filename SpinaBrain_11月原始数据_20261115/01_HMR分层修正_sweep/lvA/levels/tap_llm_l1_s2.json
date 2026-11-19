@@ -1,0 +1,222 @@
+{
+ "probe": "tap",
+ "family": "n121",
+ "task": "period",
+ "seed": 2,
+ "mode": "llm",
+ "cond": "llm_l1",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00026,
+  "tokens": 981,
+  "latency_s": 7.6,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L1b",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "7710687fae12",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.1565,
+   "deviation": -0.0435,
+   "pass": true,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "tap",
+   "t0": 13.499999999997957,
+   "t1": 21.500000000003293,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "tap",
+     "t0": 5.500000000000171,
+     "t1": 13.499999999997957,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 44.1,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['tap']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "tap",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "tap",
+     "field": "comp",
+     "value": 0.1773
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 7.56,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0037,
+     "force": 2.9134
+    },
+    "resets": 4
+   },
+   "action": "next"
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.0227,
+     "deviation": -0.1773,
+     "pass": false,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.003,
+     "force": 0.0
+    },
+    "resets": 13
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "tap",
+   "attempt": 1,
+   "t0": 13.499999999997957,
+   "t1": 21.500000000003293,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.1565,
+     "deviation": -0.0435,
+     "pass": true,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0018,
+     "force": 0.0
+    },
+    "resets": 8
+   },
+   "action": "next"
+  }
+ ]
+}

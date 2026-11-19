@@ -1,0 +1,175 @@
+{
+ "probe": "d_config",
+ "family": "disturb",
+ "task": "config_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "no_A",
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0,
+  "tokens": 0,
+  "latency_s": 0,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L0",
+  "none"
+ ],
+ "reached": "none",
+ "first_level": "none",
+ "level_path": [],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.1062
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3071,
+    0.0018,
+    0.4867
+   ],
+   "deviation": [
+    0.0001,
+    0.0018,
+    -0.0002
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 10.1,
+ "exec_alarms": 0,
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半不都超差(v = 2.33 / 0.07)"
+    }
+   ],
+   "R": 1.329
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.1062
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3071,
+      0.0018,
+      0.4867
+     ],
+     "deviation": [
+      0.0001,
+      0.0018,
+      -0.0002
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.54
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 4.43,
+     "p95": 7.77,
+     "calls": 400
+    }
+   },
+   "exec": null,
+   "action": "next"
+  }
+ ]
+}

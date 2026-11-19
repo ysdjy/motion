@@ -1,0 +1,213 @@
+{
+ "probe": "c_vy",
+ "family": "comp",
+ "task": "slide_long",
+ "seed": 6,
+ "mode": "decide",
+ "cond": null,
+ "llm": null,
+ "model": null,
+ "expect": [
+  "L1"
+ ],
+ "reached": "L1",
+ "first_level": "L1",
+ "level_path": [
+  "L1"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "aba9986a8978",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    0.0176
+   ],
+   "deviation": [
+    -0.0024
+   ],
+   "pass": true,
+   "target": 0.02
+  }
+ ],
+ "stages": [
+  {
+   "id": "touchdown",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "slide",
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 31.4,
+ "exec_alarms": 0,
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0065
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0065
+     ]
+    }
+   ],
+   "R": 0.63,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "touchdown",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0012,
+     "force": 3.4594
+    },
+    "resets": 3
+   },
+   "action": "next"
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 1.0,
+     "deviation": 0.0,
+     "pass": true,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.004,
+     "measured": [
+      0.0176
+     ],
+     "deviation": [
+      -0.0024
+     ],
+     "pass": true,
+     "target": 0.02
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": true,
+     "samples": 375,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "vy": {
+     "final_pass": true,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 6.02,
+      "pred_ok": 6.02,
+      "drift": 6.4,
+      "stall": 6.5
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.84,
+     "p95": 17.14,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0061,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

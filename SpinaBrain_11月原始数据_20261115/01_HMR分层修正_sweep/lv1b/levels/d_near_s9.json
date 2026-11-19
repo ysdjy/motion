@@ -1,0 +1,138 @@
+{
+ "probe": "d_near",
+ "family": "disturb",
+ "task": "near_long",
+ "seed": 9,
+ "mode": "decide",
+ "cond": null,
+ "llm": null,
+ "model": null,
+ "expect": [
+  "L0",
+  "none"
+ ],
+ "reached": "none",
+ "first_level": "none",
+ "level_path": [],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.035
+   ],
+   "deviation": [
+    0.005
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 17.0,
+ "exec_alarms": 1,
+ "levels": [],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.28,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.035
+     ],
+     "deviation": [
+      0.005
+     ],
+     "pass": true,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 3.16,
+      "stall": 3.16,
+      "pred_ok": 3.18,
+      "drift": 3.18
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.67,
+     "p95": 7.19,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [
+     {
+      "t": 3.28,
+      "kind": "drift_reset",
+      "peak": 2,
+      "thr": 2
+     }
+    ],
+    "peak": {
+     "track": 0.0269,
+     "force": 0.0
+    },
+    "resets": 4
+   },
+   "action": "next"
+  }
+ ]
+}

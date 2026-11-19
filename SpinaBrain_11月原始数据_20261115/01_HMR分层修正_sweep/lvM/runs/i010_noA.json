@@ -1,0 +1,258 @@
+{
+ "id": 10,
+ "arm": "noA",
+ "inst": {
+  "id": 10,
+  "kind": "mixed",
+  "run_seed": 517,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -3.192786952322223,
+   "id": "press2"
+  },
+  "mag_tol": 2.13,
+  "disturb": "press_hold,2.48,0.46,32.1,3.8,23.8"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "solver",
+ "level_path": [
+  "L1",
+  "solver",
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "deviation": null,
+   "pass": true,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ],
+    [
+     "lift",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.0083,
+   "deviation": 0.0083,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 6.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    4.3546
+   ],
+   "deviation": [
+    -0.6454
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0505,
+    -0.0
+   ],
+   "deviation": [
+    -0.0005,
+    -0.0
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 39.9,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "20ee6b40e4ff",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差变大 1.38 → 2.33,持续 0.5 s(已撤回这次补偿)",
+    "固定 / 契约约束压着,可能是局部最优 [{'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0446}]"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['keep', 'press2']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 10.06,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      -3.5605
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      3.5605
+     ]
+    }
+   ],
+   "R": 1.382,
+   "problems": []
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 12.08,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "press2",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-5.0] / [-2.1234])"
+    }
+   ],
+   "R": 2.333
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 13.24,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      -2.5512
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      2.5512
+     ]
+    }
+   ],
+   "problems": []
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 12.6,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 1.38 → 2.33,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "可达边界(可操作度低)",
+     "manip": 0.0446
+    }
+   ],
+   "pred_bad": [],
+   "cost_min": 58.11377716064453,
+   "ess": 41.32387161254883,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

@@ -1,0 +1,390 @@
+{
+ "probe": "d_seq_up",
+ "family": "disturb",
+ "task": "seq_long",
+ "seed": 7,
+ "mode": "decide",
+ "cond": null,
+ "llm": null,
+ "model": null,
+ "expect": [
+  "L0",
+  "none"
+ ],
+ "reached": "L1b",
+ "first_level": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1b",
+  "L1b"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold"
+   ],
+   "deviation": null,
+   "pass": false,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.0944,
+   "deviation": 0.0944,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 6.0,
+   "deviation": -0.0,
+   "pass": true,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.6284,
+   "deviation": -0.3716,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.5778
+   ],
+   "deviation": [
+    0.5778
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0503,
+    -0.0003
+   ],
+   "deviation": [
+    -0.0003,
+    -0.0003
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "descend",
+   "t0": 2.9999999999997806,
+   "t1": 7.400000000000806,
+   "done": true,
+   "exit": "trigger",
+   "f_at_switch": 2.094423925112033,
+   "extension_s": 0.0
+  },
+  {
+   "id": "press_hold",
+   "t0": 7.400000000000806,
+   "t1": 13.399999999998013,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 23.8,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "L1b 调用失败:NO_LLM:需要 L1b(本次实验不调用大模型)"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 10.22,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      -4.8919
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      4.8919
+     ]
+    }
+   ],
+   "R": 2.333,
+   "problems": []
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 12.24,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      5.0684
+     ],
+     "c_old": [
+      4.8919
+     ],
+     "g_raw": [
+      2.036
+     ],
+     "g": [
+      2.036
+     ],
+     "c_new": [
+      2.4026
+     ]
+    }
+   ],
+   "R": 2.386,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 0.0,
+   "error": "NO_LLM:需要 L1b(本次实验不调用大模型)",
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "L1b 调用失败:NO_LLM:需要 L1b(本次实验不调用大模型)",
+ "gates": [
+  {
+   "stage": "descend",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 7.400000000000806,
+   "exit": "trigger",
+   "pass": true,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 2.0944,
+     "deviation": 0.0944,
+     "pass": true,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 220
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0031,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t0": 7.400000000000806,
+   "t1": 13.399999999998013,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "hold",
+     "cat": "T2",
+     "kind": "duration",
+     "unit": "s",
+     "tol": 0.15,
+     "measured": 6.0,
+     "deviation": -0.0,
+     "pass": true,
+     "target": 6.0
+    },
+    {
+     "id": "keep",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.6284,
+     "deviation": -0.3716,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "press2",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.5778
+     ],
+     "deviation": [
+      0.5778
+     ],
+     "pass": true,
+     "target": 5.0
+    },
+    {
+     "id": "spot",
+     "cat": "C2",
+     "kind": "contact_at",
+     "unit": "m",
+     "tol": 0.004,
+     "measured": [
+      -0.0503,
+      -0.0003
+     ],
+     "deviation": [
+      -0.0003,
+      -0.0003
+     ],
+     "pass": true,
+     "target": [
+      -0.05,
+      0.0
+     ]
+    }
+   ],
+   "monitor": {
+    "keep": {
+     "final_pass": false,
+     "samples": 285,
+     "first_alarm": {
+      "meas_ok": 8.06
+     },
+     "fail_lead_s": 5.34,
+     "error": null
+    },
+    "press2": {
+     "final_pass": true,
+     "samples": 260,
+     "first_alarm": {
+      "meas_ok": 8.22,
+      "drift": 8.32,
+      "stall": 8.7
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "spot": {
+     "final_pass": true,
+     "samples": 179,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.99,
+     "p95": 7.33,
+     "calls": 300
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.003,
+     "force": 6.4332
+    },
+    "resets": 3
+   },
+   "action": "abort(L1 error)"
+  }
+ ]
+}

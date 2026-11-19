@@ -1,0 +1,365 @@
+{
+ "probe": "tap",
+ "family": "n121",
+ "task": "period",
+ "seed": 2,
+ "mode": "llm",
+ "cond": "flat_diag",
+ "llm": {
+  "calls": 2,
+  "cost_usd": 0.00489,
+  "tokens": 10544,
+  "latency_s": 48.0,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "7710687fae12",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.0295,
+   "deviation": -0.1705,
+   "pass": false,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "tap",
+   "t0": 13.499999999997957,
+   "t1": 21.500000000003293,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "tap",
+     "t0": 5.500000000000171,
+     "t1": 13.499999999997957,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 86.9,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['tap']",
+    "压着的约束 [{'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0445}]"
+   ]
+  },
+  {
+   "stage": "tap",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "阶段 tap 需要 L2 但预算用尽:[\"阶段末仍不达标 ['tap']\", '压着的约束 []']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t": 13.5,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "可达边界(可操作度低)",
+     "manip": 0.0445
+    }
+   ],
+   "failing": [
+    "tap"
+   ],
+   "action": "升级 L2(flat_diag)"
+  },
+  {
+   "stage": "tap",
+   "attempt": 1,
+   "t": 21.5,
+   "where": "阶段末",
+   "active": [],
+   "failing": [
+    "tap"
+   ],
+   "action": "升级 L2(flat_diag)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "tap",
+   "trigger": [
+    "阶段末仍不达标 ['tap']",
+    "压着的约束 [{'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0445}]"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.05,
+      0.0
+     ],
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    },
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "实测周期 1.02 s(偏快 0.18 s)说明规划器根本没有被要求做 2–6 N 的法向往复:策略项里只有 xy 定位和姿态保持,法向只有默认的最快微动循环,周期由接触姿态的刚度隐式决定;而 tap 点正压在可达边界上(可操作度 0.0445),法向行程被接近奇异的姿态压缩,循环被加速。只调 period 的 comp 改不了这个隐式循环,必须显式加一条法向(z)接触往复项,并把落点从可达边界拉回,让法向行程由规划器按给定周期执行。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 48.01,
+   "helpers_after": [
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.03,
+      0.0
+     ],
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_tap_normal",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "range",
+     "lb": -0.005,
+     "ub": -0.002,
+     "sigma": 0.001,
+     "weight": 5,
+     "t_ramp": 0.3
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 tap 需要 L2 但预算用尽:[\"阶段末仍不达标 ['tap']\", '压着的约束 []']",
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0037,
+     "force": 2.9134
+    },
+    "resets": 4
+   },
+   "action": "next"
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.0227,
+     "deviation": -0.1773,
+     "pass": false,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.003,
+     "force": 0.0
+    },
+    "resets": 13
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "tap",
+   "attempt": 1,
+   "t0": 13.499999999997957,
+   "t1": 21.500000000003293,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.0295,
+     "deviation": -0.1705,
+     "pass": false,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.07,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0058,
+     "force": 0.0
+    },
+    "resets": 4
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

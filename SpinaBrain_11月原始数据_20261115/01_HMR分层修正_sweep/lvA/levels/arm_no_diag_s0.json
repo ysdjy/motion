@@ -1,0 +1,855 @@
+{
+ "probe": "arm",
+ "family": "n121",
+ "task": "config_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "no_diag",
+ "llm": {
+  "calls": 7,
+  "cost_usd": 0.01758,
+  "tokens": 42673,
+  "latency_s": 611.0,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L2",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L2",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0426
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3069,
+    0.0,
+    0.4869
+   ],
+   "deviation": [
+    -0.0001,
+    0.0,
+    0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 47.99999999997883,
+   "t1": 55.99999999996019,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 8.000000000001005,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 8.000000000001005,
+     "t1": 15.999999999996572,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 15.999999999996572,
+     "t1": 24.00000000000635,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 24.00000000000635,
+     "t1": 32.00000000001612,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 32.00000000001612,
+     "t1": 39.99999999999748,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 39.99999999999748,
+     "t1": 47.99999999997883,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 703.1,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 4,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 5,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['arm']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "go",
+   "trigger": [
+    "阶段末仍不达标 ['arm']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    },
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "arm 是离散构型项(J4),comp 只是给一个类别目标叠加数值,规划器选分支的代价函数里根本没有这一项,所以历次把 comp 从 0.001 抬到 0.02 都毫无作用。真正的限制来自策略项 _tool_down:它把工具轴锁在竖直 ±0.1 rad 的锥内,腕心被迫落在 y≈0 的基座平面里,此时只有 'center'(共面)分支可行,'left' 在几何上被排除。因此必须放宽姿态策略,让腕心能侧向偏移、构型分支不再被压到中位。",
+   "comp_patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.0
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 126.23,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.35,
+     "sigma": 0.15,
+     "weight": 1
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.001
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 33.96,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.003
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 14.93,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.02
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 57.99,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.015
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 272.67,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "arm",
+     "field": "comp",
+     "value": 0.05
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 105.24,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": -0.0002
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3071,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 7.04,
+     "p95": 13.22,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0002,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": -0.0004
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3071,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 6.37,
+     "p95": 11.95,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0005,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "t0": 15.999999999996572,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": -0.0002
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 9.49,
+     "p95": 18.25,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0005,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "t0": 24.00000000000635,
+   "t1": 32.00000000001612,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": 0.0071
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 6.2,
+     "p95": 12.87,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0014,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 4,
+   "t0": 32.00000000001612,
+   "t1": 39.99999999999748,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": 0.0095
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.37,
+     "p95": 8.6,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0007,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 5,
+   "t0": 39.99999999999748,
+   "t1": 47.99999999997883,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": 0.01
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 6.67,
+     "p95": 12.33,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0003,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 6,
+   "t0": 47.99999999997883,
+   "t1": 55.99999999996019,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.0426
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3069,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      -0.0001,
+      0.0,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.23,
+     "p95": 8.33,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0025,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

@@ -1,0 +1,182 @@
+{
+ "probe": "c_hold3",
+ "family": "comp",
+ "task": "config_long",
+ "seed": 7,
+ "mode": "decide",
+ "model": null,
+ "expect": [
+  "L1"
+ ],
+ "reached": "L1",
+ "decision_ok": true,
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0642
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3073,
+    -0.0002,
+    0.4868
+   ],
+   "deviation": [
+    0.0003,
+    -0.0002,
+    -0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 9.3,
+ "exec_alarms": 0,
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0117,
+      -0.0077,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      -0.0117,
+      0.0077,
+      0.0
+     ]
+    }
+   ],
+   "R": 1.381,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.0642
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3073,
+      -0.0002,
+      0.4868
+     ],
+     "deviation": [
+      0.0003,
+      -0.0002,
+      -0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.68,
+      "stall": 2.0
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.71,
+     "p95": 5.34,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0048,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

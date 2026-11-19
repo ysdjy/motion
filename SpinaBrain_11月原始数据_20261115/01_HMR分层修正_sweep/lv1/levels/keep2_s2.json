@@ -1,0 +1,188 @@
+{
+ "probe": "keep2",
+ "family": "n121",
+ "task": "slide_long",
+ "seed": 2,
+ "mode": "decide",
+ "model": null,
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L1b",
+ "decision_ok": true,
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.0,
+   "deviation": -1.0,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    0.0193
+   ],
+   "deviation": [
+    -0.0007
+   ],
+   "pass": true,
+   "target": 0.02
+  }
+ ],
+ "stages": [
+  {
+   "id": "touchdown",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "slide",
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 20.1,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "L1b 调用失败:NO_LLM:需要 L1b(本次实验不调用大模型)"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 0.0,
+   "error": "NO_LLM:需要 L1b(本次实验不调用大模型)",
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "L1b 调用失败:NO_LLM:需要 L1b(本次实验不调用大模型)",
+ "gates": [
+  {
+   "stage": "touchdown",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0037,
+     "force": 2.9134
+    },
+    "resets": 4
+   },
+   "action": "next"
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0,
+     "deviation": -1.0,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.004,
+     "measured": [
+      0.0193
+     ],
+     "deviation": [
+      -0.0007
+     ],
+     "pass": true,
+     "target": 0.02
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 6.02
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "vy": {
+     "final_pass": true,
+     "samples": 375,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.25,
+     "p95": 6.78,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0049,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L1 error)"
+  }
+ ]
+}

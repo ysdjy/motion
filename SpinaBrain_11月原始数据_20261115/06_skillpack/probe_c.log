@@ -1,0 +1,11 @@
+stages ['down@down', 'out@w_1', 'back@w_1', 'out@w_2', 'back@w_2', 'lift@lift'] gates 3
+=== scrub_twice end True ['down@down', 'out@w_1', 'back@w_1', 'out@w_1', 'back@w_1', 'out@w_2', 'back@w_2', 'out@w_2', 'back@w_2', 'lift@lift']
+    out@w_1 1 press@w_1 [2.12] True
+    back@w_1 1 press@w_1 [3.3] True
+    out@w_1 2 press@w_1 [2.87] True
+    back@w_1 2 press@w_1 [2.95] True
+    out@w_2 1 press@w_2 [2.76] True
+    back@w_2 1 press@w_2 [2.95] True
+    out@w_2 2 press@w_2 [2.61] True
+    back@w_2 2 press@w_2 [3.03] True
+exit 0

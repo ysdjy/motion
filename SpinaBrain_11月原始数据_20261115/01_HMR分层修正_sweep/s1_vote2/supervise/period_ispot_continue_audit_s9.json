@@ -1,0 +1,313 @@
+{
+ "task": "period",
+ "probe": null,
+ "intent_probe": "spot",
+ "bias": null,
+ "seed": 9,
+ "instruction": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上先压稳,然后以 1.2 秒为周期在 2 N 和 6 N 之间反复按压桌面。",
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  },
+  {
+   "id": "tap",
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  }
+ ],
+ "final_report": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.2104,
+   "deviation": 0.0104,
+   "pass": true,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "final_all_pass": true,
+ "sim_s": 84.2,
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "action": "next"
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.2104,
+     "deviation": 0.0104,
+     "pass": true,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 400
+    }
+   },
+   "action": "next"
+  }
+ ],
+ "audits": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "error",
+   "veto": false,
+   "n_ok": 0,
+   "n_veto": 0,
+   "n_error": 3,
+   "reason": null,
+   "checks": [],
+   "missing_requirements": [],
+   "suspect_items": [],
+   "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+   "raw": "",
+   "votes": [
+    {
+     "verdict": "error",
+     "reason": null,
+     "checks": [],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+     "raw": ""
+    },
+    {
+     "verdict": "error",
+     "reason": null,
+     "checks": [],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+     "raw": ""
+    },
+    {
+     "verdict": "error",
+     "reason": null,
+     "checks": [],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+     "raw": ""
+    }
+   ],
+   "observation": {
+    "t_s": 5.5,
+    "tcp_base_m": [
+     0.5279,
+     -0.0,
+     0.1088
+    ],
+    "tool_tilt_from_down_deg": 0.3,
+    "normal_force_on_table_N": 0.58,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.2208,
+      0.0001,
+      0.378
+     ],
+     "surface:table": [
+      -0.0221,
+      -0.0,
+      0.0088
+     ]
+    },
+    "stage_stats": {
+     "window_s": [
+      4.0,
+      5.5
+     ],
+     "tcp_in_frames_m": {
+      "start_tool": {
+       "mean": [
+        0.2204,
+        0.0001,
+        0.3775
+       ],
+       "max_abs_dev_from_mean": [
+        0.0037,
+        0.0004,
+        0.0044
+       ]
+      },
+      "surface:table": {
+       "mean": [
+        -0.0226,
+        -0.0,
+        0.0093
+       ],
+       "max_abs_dev_from_mean": [
+        0.0037,
+        0.0004,
+        0.0044
+       ]
+      }
+     }
+    },
+    "robot_min_gap_to_table_mm": -0.0,
+    "touching_table": true
+   },
+   "latency_s": 31.32,
+   "suggestion": null
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "error",
+   "veto": false,
+   "n_ok": 0,
+   "n_veto": 0,
+   "n_error": 3,
+   "reason": null,
+   "checks": [],
+   "missing_requirements": [],
+   "suspect_items": [],
+   "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+   "raw": "",
+   "votes": [
+    {
+     "verdict": "error",
+     "reason": null,
+     "checks": [],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+     "raw": ""
+    },
+    {
+     "verdict": "error",
+     "reason": null,
+     "checks": [],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+     "raw": ""
+    },
+    {
+     "verdict": "error",
+     "reason": null,
+     "checks": [],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+     "raw": ""
+    }
+   ],
+   "observation": {
+    "t_s": 13.5,
+    "tcp_base_m": [
+     0.5303,
+     0.0001,
+     0.1088
+    ],
+    "tool_tilt_from_down_deg": 0.0,
+    "normal_force_on_table_N": 1.53,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.2233,
+      -0.0,
+      0.3781
+     ],
+     "surface:table": [
+      -0.0197,
+      0.0001,
+      0.0088
+     ]
+    },
+    "stage_stats": {
+     "window_s": [
+      6.5,
+      13.5
+     ],
+     "tcp_in_frames_m": {
+      "start_tool": {
+       "mean": [
+        0.2219,
+        0.0002,
+        0.3781
+       ],
+       "max_abs_dev_from_mean": [
+        0.0014,
+        0.0003,
+        0.0001
+       ]
+      },
+      "surface:table": {
+       "mean": [
+        -0.0211,
+        -0.0001,
+        0.0088
+       ],
+       "max_abs_dev_from_mean": [
+        0.0014,
+        0.0003,
+        0.0001
+       ]
+      }
+     }
+    },
+    "robot_min_gap_to_table_mm": -0.1,
+    "touching_table": true
+   },
+   "latency_s": 31.42,
+   "suggestion": null
+  }
+ ],
+ "repairs": [],
+ "events": [],
+ "timeline": [],
+ "config": {
+  "monitor_cycles": 1,
+  "drift_h": 0.25,
+  "on_fail": "continue",
+  "max_retries": 2,
+  "audit_model": "gemini-flash-lite-latest",
+  "audit_votes": 3,
+  "on_veto": "record"
+ }
+}

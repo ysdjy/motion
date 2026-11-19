@@ -1,0 +1,302 @@
+{
+ "probe": "d_near",
+ "family": "disturb",
+ "task": "near_long",
+ "seed": 1,
+ "mode": "llm",
+ "cond": "no_diag",
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0,
+  "tokens": 0,
+  "latency_s": 0,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L0",
+  "none"
+ ],
+ "reached": "L1",
+ "first_level": "L0",
+ "level_path": [
+  "L0",
+  "L1"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "3cd64d01d032",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.0251
+   ],
+   "deviation": [
+    -0.0049
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 12.019999999998777,
+   "t1": 24.020000000006373,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 42.4,
+ "exec_alarms": 1,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['drift_reset']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.34,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = -0.43 / 1.16)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 10.36,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = -0.25 / 1.15)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 11.38,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.26 / 1.14)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.54,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.85 / 1.19)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 16.08,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0084
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.0084
+     ]
+    }
+   ],
+   "R": 0.003,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.28,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0464
+     ],
+     "deviation": [
+      0.0164
+     ],
+     "pass": false,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 3.14,
+      "stall": 3.14,
+      "pred_ok": 3.16,
+      "drift": 3.18
+     },
+     "fail_lead_s": 8.86,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 8.01,
+     "p95": 12.51,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [
+     {
+      "t": 3.28,
+      "kind": "drift_reset",
+      "peak": 2,
+      "thr": 2
+     }
+    ],
+    "peak": {
+     "track": 0.0275,
+     "force": 0.0
+    },
+    "resets": 5
+   },
+   "action": "L0+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 12.019999999998777,
+   "t1": 24.020000000006373,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0251
+     ],
+     "deviation": [
+      -0.0049
+     ],
+     "pass": true,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 14.8,
+      "stall": 14.8,
+      "pred_ok": 14.84
+     },
+     "fail_lead_s": 9.22,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 9.26,
+     "p95": 15.36,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0084,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

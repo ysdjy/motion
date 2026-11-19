@@ -1,0 +1,122 @@
+{
+ "id": 22,
+ "arm": "full",
+ "inst": {
+  "id": 22,
+  "kind": "mixed",
+  "run_seed": 941,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.15839295763695688,
+   "id": "align"
+  },
+  "mag_tol": 3.96,
+  "disturb": "track,2.07,0.56,24.7,-5.0,14.8"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0003,
+    0.0005,
+    0.0989
+   ],
+   "deviation": [
+    0.0003,
+    0.0005,
+    -0.0011
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.1858
+   ],
+   "deviation": [
+    -0.0142
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 25.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.42,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "align",
+     "e": [
+      0.2058
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.16
+     ]
+    }
+   ],
+   "R": 4.286,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 2.434,
+   "kind": "track",
+   "peak": 0.0191,
+   "thr": 0.015
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

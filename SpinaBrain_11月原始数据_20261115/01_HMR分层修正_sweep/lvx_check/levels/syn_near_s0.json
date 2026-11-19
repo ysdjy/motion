@@ -1,0 +1,249 @@
+{
+ "probe": "syn_near",
+ "family": "solver_x",
+ "task": "near_long",
+ "seed": 0,
+ "mode": "decide",
+ "cond": null,
+ "llm": null,
+ "model": null,
+ "expect": [
+  "solver"
+ ],
+ "reached": "L2",
+ "first_level": "L1",
+ "level_path": [
+  "L1",
+  "solver",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "2f84fd2beb3e",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.153
+   ],
+   "deviation": [
+    0.123
+   ],
+   "pass": false,
+   "ub": 0.03
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 0.0,
+   "t1": 10.559999999999587,
+   "done": false,
+   "exit": "supervisor:L2: 补偿后整体残差不变 20.90 → 22.13,持续 1.5 s",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 14.4,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差不变 20.14 → 20.90,持续 1.5 s",
+    "固定 / 契约约束压着,可能是局部最优 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 1.0}]"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "补偿后整体残差不变 20.90 → 22.13,持续 1.5 s",
+    "压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 1.0}]"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "需要 L2(本次实验不调用大模型):补偿后整体残差不变 20.90 → 22.13,持续 1.5 s; 压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 1.0}]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.1081
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.02
+     ]
+    }
+   ],
+   "R": 20.144,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.112
+     ],
+     "c_old": [
+      -0.02
+     ],
+     "g_raw": [
+      -0.196
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.196 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 20.905
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.02,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 20.14 → 20.90,持续 1.5 s"
+   ],
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "硬约束项",
+     "id": "near",
+     "frac": 1.0
+    }
+   ],
+   "pred_bad": [
+    "near"
+   ],
+   "cost_min": 47455.484375,
+   "ess": 38.33759307861328,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 10.56,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 20.90 → 22.13,持续 1.5 s"
+   ],
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "硬约束项",
+     "id": "near",
+     "frac": 1.0
+    }
+   ],
+   "pred_bad": [
+    "near"
+   ],
+   "cost_min": 89413.875,
+   "ess": 69.06332397460938,
+   "action": "升级 L2(求解器补救后仍不降)"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "需要 L2(本次实验不调用大模型):补偿后整体残差不变 20.90 → 22.13,持续 1.5 s; 压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 1.0}]",
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 10.559999999999587,
+   "exit": "supervisor:L2: 补偿后整体残差不变 20.90 → 22.13,持续 1.5 s",
+   "pass": false,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.153
+     ],
+     "deviation": [
+      0.123
+     ],
+     "pass": false,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": false,
+     "samples": 453,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 9.04,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.36,
+     "p95": 6.96,
+     "calls": 528
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0011,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "stop(need L2)"
+  }
+ ]
+}

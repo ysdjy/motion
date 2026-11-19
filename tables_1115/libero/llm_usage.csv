@@ -1,0 +1,12 @@
+﻿experiment,method,episodes,llm_calls,calls_per_episode,input_tokens,output_tokens,cache_read_tokens,est_cost_usd,cost_basis
+libero_formal,ours,250,2325,9.3,,,,2.87,estimated per-call
+libero_formal,fsm,250,253,1.0,717312,789439,1053108,0.48,api usage
+libero_formal,coral,250,10969,43.9,49050480,36373442,,23.09,api usage
+libero_formal,l2r,250,500,2.0,24541,74901,411200,0.04,api usage
+libero_pro_formal,ours,250,3061,12.2,,,,3.77,estimated per-call
+libero_pro_formal,fsm,250,277,1.1,830930,925244,1172172,0.56,api usage
+libero_pro_formal,coral,250,10992,44.0,49634118,36627777,,23.28,api usage
+libero_pro_formal,l2r,250,500,2.0,25588,90098,420057,0.05,api usage
+libero_pro_pilot,ours,240,3347,13.9,,,,4.13,estimated per-call
+libero_pro_pilot,fsm,240,345,1.4,1135533,1130358,1460968,0.69,api usage
+libero_pro_pilot,l2r,240,480,2.0,23651,73948,315664,0.04,api usage

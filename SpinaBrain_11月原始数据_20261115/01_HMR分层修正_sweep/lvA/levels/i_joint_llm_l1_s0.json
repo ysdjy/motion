@@ -1,0 +1,483 @@
+{
+ "probe": "i_joint",
+ "family": "infeasible",
+ "task": "config_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "llm_l1",
+ "llm": {
+  "calls": 3,
+  "cost_usd": 0.00906,
+  "tokens": 19396,
+  "latency_s": 99.2,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L1b",
+  "L1b",
+  "L2"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.2352
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3613,
+    0.0,
+    0.5145
+   ],
+   "deviation": [
+    0.0543,
+    0.0,
+    0.0277
+   ],
+   "pass": false,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  },
+  {
+   "id": "q4",
+   "cat": "INF",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.03,
+   "measured": [
+    -1.5806
+   ],
+   "deviation": [
+    -1.5306
+   ],
+   "pass": false,
+   "target": -0.05
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 8.000000000001005,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 143.6,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['hold3', 'q4']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "阶段 go 需要 L2 但预算用尽:[\"阶段末仍不达标 ['hold3', 'q4']\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "go",
+   "trigger": [
+    "阶段末仍不达标 ['hold3', 'q4']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [
+    {
+     "id": "q4",
+     "reason": "目标 -0.05 rad 超出第 4 关节上界 -0.152 rad，最近可达点仍差 0.102 rad，远超 tol=0.03 rad，任何策略变更都达不到；继续驱动它只会把末端拖离保持位。"
+    }
+   ],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "第4关节契约目标 -0.05 rad 已超出其上界 -0.152 rad，规划器仍持续把 q4 往该方向拉（-1.68→-1.61），而 _tool_down 姿态锥（ub 0.1 rad、sigma 0.05、weight 2）基本锁死了腕部，使腕关节无法补偿 q4 运动带来的末端位移，末端只能被拖走约 5 cm；这两个硬约束相互冲突，所以无论把 5 cm 的残差减进 hold3 的 comp 多少次，目标只会跟着漂，永远收敛不了。正确做法是承认 q4 不可达，并把压过位置精度的姿态锥降为弱正则，让位置约束自己求解。",
+   "comp_patch": [
+    {
+     "id": "hold3",
+     "field": "comp",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 65.86,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.5,
+     "sigma": 0.3,
+     "weight": 0.1
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "hold3",
+     "field": "comp",
+     "value": [
+      -0.0508,
+      -0.0017,
+      -0.0499
+     ]
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "q4",
+     "reason": "目标 -0.05 rad 超出第 4 关节上限 -0.152 rad，无法在 tol=0.03 rad 内达到该目标"
+    }
+   ],
+   "latency_s": 9.1,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "hold3",
+     "field": "comp",
+     "value": [
+      -0.0543,
+      0.0,
+      -0.0277
+     ]
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "q4",
+     "reason": "目标 -0.05 rad 超出关节上限 -0.152 rad，超出量 0.102 rad 大于容差 0.03 rad，物理不可达"
+    }
+   ],
+   "latency_s": 24.26,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 go 需要 L2 但预算用尽:[\"阶段末仍不达标 ['hold3', 'q4']\"]",
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.1013
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3579,
+      0.0017,
+      0.5368
+     ],
+     "deviation": [
+      0.0508,
+      0.0017,
+      0.0499
+     ],
+     "pass": false,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    },
+    {
+     "id": "q4",
+     "cat": "INF",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.03,
+     "measured": [
+      -1.6084
+     ],
+     "deviation": [
+      -1.5584
+     ],
+     "pass": false,
+     "target": -0.05
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": false,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.54,
+      "stall": 2.0
+     },
+     "fail_lead_s": 6.48,
+     "error": null
+    },
+    "q4": {
+     "final_pass": false,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 6.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 20.03,
+     "p95": 30.24,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0169,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.2352
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3613,
+      0.0,
+      0.5145
+     ],
+     "deviation": [
+      0.0543,
+      0.0,
+      0.0277
+     ],
+     "pass": false,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    },
+    {
+     "id": "q4",
+     "cat": "INF",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.03,
+     "measured": [
+      -1.5806
+     ],
+     "deviation": [
+      -1.5306
+     ],
+     "pass": false,
+     "target": -0.05
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": false,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 9.52,
+      "pred_ok": 9.52,
+      "drift": 9.54,
+      "stall": 10.0
+     },
+     "fail_lead_s": 6.48,
+     "error": null
+    },
+    "q4": {
+     "final_pass": false,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 9.52,
+      "pred_ok": 9.52,
+      "drift": 9.52,
+      "stall": 10.0
+     },
+     "fail_lead_s": 6.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 15.77,
+     "p95": 25.99,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0056,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

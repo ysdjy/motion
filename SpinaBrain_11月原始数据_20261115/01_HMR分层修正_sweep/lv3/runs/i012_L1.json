@@ -1,0 +1,127 @@
+{
+ "id": 12,
+ "arm": "L1",
+ "inst": {
+  "id": 12,
+  "kind": "comp",
+  "run_seed": 59,
+  "task": "twist",
+  "bias_raw": {
+   "kind": "add",
+   "value": 7.0309558903362275,
+   "id": "press3"
+  },
+  "mag_tol": 4.69
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L1",
+  "L1",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "twist",
+   "cat": "C4",
+   "kind": "torque",
+   "unit": "N*m",
+   "tol": 0.015,
+   "measured": 0.0595,
+   "deviation": -0.0205,
+   "pass": false,
+   "target": 0.08,
+   "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+  },
+  {
+   "id": "press3",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.6398
+   ],
+   "deviation": [
+    0.6398
+   ],
+   "pass": true,
+   "target": 5.0
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 23.9,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['press3']"
+   ]
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['twist']"
+   ]
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 阶段末仍不达标 ['twist']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t": 9.5,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "press3",
+     "e": [
+      7.1541
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -6.0
+     ]
+    }
+   ],
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 阶段末仍不达标 ['twist']"
+}

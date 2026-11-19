@@ -1,0 +1,85 @@
+{
+ "id": 11,
+ "arm": "L1",
+ "inst": {
+  "id": 11,
+  "kind": "n121",
+  "run_seed": 297,
+  "task": "slide_long",
+  "bias": "keep2"
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.0719,
+   "deviation": -0.9281,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    0.0191
+   ],
+   "deviation": [
+    -0.0009
+   ],
+   "pass": true,
+   "target": 0.02
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 25.8,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['keep2']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 阶段末仍不达标 ['keep2']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 阶段末仍不达标 ['keep2']"
+}

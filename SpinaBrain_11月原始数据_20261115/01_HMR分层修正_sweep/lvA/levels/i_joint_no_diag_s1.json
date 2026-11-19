@@ -1,0 +1,627 @@
+{
+ "probe": "i_joint",
+ "family": "infeasible",
+ "task": "config_long",
+ "seed": 1,
+ "mode": "llm",
+ "cond": "no_diag",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.01062,
+  "tokens": 26205,
+  "latency_s": 98.8,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "first_level": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L2"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "3cd64d01d032",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.2559
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.306,
+    0.0003,
+    0.4886
+   ],
+   "deviation": [
+    -0.0011,
+    0.0003,
+    0.0017
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  },
+  {
+   "id": "q4",
+   "cat": "INF",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.03,
+   "measured": [
+    -1.8963
+   ],
+   "deviation": [
+    -1.8463
+   ],
+   "pass": false,
+   "target": -0.05
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 8.000000000001005,
+   "t1": 15.059999999997093,
+   "done": false,
+   "exit": "supervisor:L2: 补偿后整体残差不变 60.42 → 60.53,持续 1.5 s",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 8.000000000001005,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 126.9,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['hold3', 'q4']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "L2 判定换做法也达不到:[{'id': 'q4', 'reason': '目标 -0.05 超出第 4 关节上限 -0.152，而且与 arm=left 要求的肘部构型方向相反；在保持 hold3 和工具朝下的前提下，没有任何关节角能落进 [-0.08, -0.02]。无论调整 comp、姿态保持、接近方向还是速度，都不可能越过物理关节限位，因此换做法也无法达标。'}]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0449,
+      0.0,
+      0.0515
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      -0.02,
+      0.0,
+      -0.02
+     ]
+    },
+    {
+     "id": "q4",
+     "e": [
+      -1.606
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.12
+     ]
+    }
+   ],
+   "R": 61.977,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.036,
+      0.0,
+      0.0308
+     ],
+     "c_old": [
+      -0.02,
+      0.0,
+      -0.02
+     ],
+     "g_raw": [
+      0.447,
+      1.039
+     ],
+     "g": [
+      0.447,
+      1.0,
+      1.039
+     ],
+     "c_new": [
+      -0.04,
+      0.0,
+      -0.04
+     ]
+    },
+    {
+     "id": "q4",
+     "e": [
+      -1.64
+     ],
+     "c_old": [
+      0.12
+     ],
+     "g_raw": [
+      -0.283
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.283 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 59.946,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 7.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0173, 0.0, 0.0071] / [0.0097, 0.0, 0.0])"
+    }
+   ],
+   "R": 59.894
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0122,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      -0.04,
+      0.0,
+      -0.04
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      -0.05,
+      0.0,
+      -0.04
+     ]
+    },
+    {
+     "id": "q4",
+     "e": [
+      -1.7145
+     ],
+     "c_old": [
+      0.12
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.24
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t": 11.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "q4",
+     "e": [
+      -1.8442
+     ],
+     "c_old": [
+      0.24
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.3
+     ]
+    }
+   ],
+   "R": 60.42,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t": 13.54,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "q4",
+     "e": [
+      -1.846
+     ],
+     "c_old": [
+      0.3
+     ],
+     "g_raw": [
+      -0.03
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.030 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 60.545
+  }
+ ],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "go",
+   "trigger": [
+    "补偿后整体残差不变 60.42 → 60.53,持续 1.5 s"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": false,
+   "infeasible": [
+    {
+     "id": "q4",
+     "reason": "目标 -0.05 超出第 4 关节上限 -0.152，而且与 arm=left 要求的肘部构型方向相反；在保持 hold3 和工具朝下的前提下，没有任何关节角能落进 [-0.08, -0.02]。无论调整 comp、姿态保持、接近方向还是速度，都不可能越过物理关节限位，因此换做法也无法达标。"
+    }
+   ],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "q4 是 INF 类项：目标 -0.05 已经越过第 4 关节上限 -0.152，而且与 arm=left 构型所要求的肘部方向相反；在 tol 0.03 内本来就没有可行解。comp 只改变规划器瞄准点，原来取 0.3 时反而把瞄准点推到 +0.25，离可行域更远，因此残差长期停在 ~60，局部补偿不可能收敛。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 98.83,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "L2 判定换做法也达不到:[{'id': 'q4', 'reason': '目标 -0.05 超出第 4 关节上限 -0.152，而且与 arm=left 要求的肘部构型方向相反；在保持 hold3 和工具朝下的前提下，没有任何关节角能落进 [-0.08, -0.02]。无论调整 comp、姿态保持、接近方向还是速度，都不可能越过物理关节限位，因此换做法也无法达标。'}]",
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.1384
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3192,
+      0.0003,
+      0.4908
+     ],
+     "deviation": [
+      0.0122,
+      0.0003,
+      0.0039
+     ],
+     "pass": false,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    },
+    {
+     "id": "q4",
+     "cat": "INF",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.03,
+     "measured": [
+      -1.7645
+     ],
+     "deviation": [
+      -1.7145
+     ],
+     "pass": false,
+     "target": -0.05
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": false,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.54,
+      "stall": 2.0
+     },
+     "fail_lead_s": 6.48,
+     "error": null
+    },
+    "q4": {
+     "final_pass": false,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 6.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 9.83,
+     "p95": 15.47,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0152,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 8.000000000001005,
+   "t1": 15.059999999997093,
+   "exit": "supervisor:L2: 补偿后整体残差不变 60.42 → 60.53,持续 1.5 s",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.2559
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.306,
+      0.0003,
+      0.4886
+     ],
+     "deviation": [
+      -0.0011,
+      0.0003,
+      0.0017
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    },
+    {
+     "id": "q4",
+     "cat": "INF",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.03,
+     "measured": [
+      -1.8963
+     ],
+     "deviation": [
+      -1.8463
+     ],
+     "pass": false,
+     "target": -0.05
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 278,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "q4": {
+     "final_pass": false,
+     "samples": 278,
+     "first_alarm": {
+      "meas_ok": 9.52,
+      "pred_ok": 9.52,
+      "drift": 9.52,
+      "stall": 10.0
+     },
+     "fail_lead_s": 5.54,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 11.48,
+     "p95": 17.56,
+     "calls": 353
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0055,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 infeasible)"
+  }
+ ]
+}

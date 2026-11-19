@@ -1,0 +1,280 @@
+{
+ "probe": "d_follow",
+ "family": "disturb",
+ "task": "follow_long",
+ "seed": 1,
+ "mode": "decide",
+ "model": null,
+ "expect": [
+  "L0",
+  "none"
+ ],
+ "reached": "solver",
+ "decision_ok": false,
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0,
+    -0.0062,
+    0.0994
+   ],
+   "deviation": [
+    0.0,
+    -0.0062,
+    -0.0006
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.1694
+   ],
+   "deviation": [
+    -0.0306
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 22.1,
+ "exec_alarms": 1,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差变大 0.01 → 1.55,持续 0.5 s(已撤回这次补偿)",
+    "没有约束压着,疑似采样退化 []"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.32,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.80 / 1.51)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.12,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0094,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0094,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.007,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.14,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0199,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0094,
+      0.0
+     ],
+     "g_raw": [
+      3.113
+     ],
+     "fail": "分量 1 灵敏度 ĝ = 3.113 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 1.384
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.66,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 0.01 → 1.55,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [],
+   "pred_bad": [],
+   "cost_min": 236.36080932617188,
+   "ess": 42.5423698425293,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.32,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0,
+      -0.0062,
+      0.0994
+     ],
+     "deviation": [
+      0.0,
+      -0.0062,
+      -0.0006
+     ],
+     "pass": true,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.1694
+     ],
+     "deviation": [
+      -0.0306
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "drift": 3.24,
+      "pred_ok": 3.36,
+      "meas_ok": 3.5,
+      "stall": 3.5
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "drift": 8.44
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 12.08,
+     "p95": 15.7,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [
+     {
+      "t": 3.32,
+      "kind": "drift_reset",
+      "peak": 2,
+      "thr": 2
+     }
+    ],
+    "peak": {
+     "track": 0.0268,
+     "force": 0.0
+    },
+    "resets": 3
+   },
+   "action": "next"
+  }
+ ]
+}

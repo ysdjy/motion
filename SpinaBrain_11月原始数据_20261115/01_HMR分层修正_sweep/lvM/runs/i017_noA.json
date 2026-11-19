@@ -1,0 +1,61 @@
+{
+ "id": 17,
+ "arm": "noA",
+ "inst": {
+  "id": 17,
+  "kind": "mixed",
+  "run_seed": 818,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.01899902279082752,
+   "id": "near"
+  },
+  "mag_tol": 3.8,
+  "disturb": "track,0.83,0.64,-27.3,-1.1,16.2"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "none",
+ "level_path": [],
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.017
+   ],
+   "deviation": [
+    -0.013
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 24.3,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

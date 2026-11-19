@@ -1,0 +1,169 @@
+{
+ "id": 25,
+ "arm": "full",
+ "inst": {
+  "id": 25,
+  "kind": "mixed",
+  "run_seed": 86,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.0,
+    -0.026635535857272352,
+    0.0
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 5.33,
+  "disturb": "go,1.63,0.55,-28.0,15.9,-9.7"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0749
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.307,
+    -0.0,
+    0.487
+   ],
+   "deviation": [
+    -0.0,
+    -0.0,
+    0.0001
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 14.9,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 5.12,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0,
+      -0.0267,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.02,
+      0.0
+     ]
+    }
+   ],
+   "R": 4.33,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 7.12,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0,
+      -0.0064,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.02,
+      0.0
+     ],
+     "g_raw": [
+      1.014
+     ],
+     "g": [
+      1.0,
+      1.014,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0263,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.322,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 2.12,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

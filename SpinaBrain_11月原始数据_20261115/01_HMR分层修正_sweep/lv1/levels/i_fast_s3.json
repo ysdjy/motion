@@ -1,0 +1,453 @@
+{
+ "probe": "i_fast",
+ "family": "infeasible",
+ "task": "slide_long",
+ "seed": 3,
+ "mode": "decide",
+ "model": null,
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "decision_ok": true,
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.0,
+   "deviation": -1.0,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.04,
+   "measured": [
+    0.0001
+   ],
+   "deviation": [
+    -0.3999
+   ],
+   "pass": false,
+   "target": 0.4
+  }
+ ],
+ "stages": [
+  {
+   "id": "touchdown",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "slide",
+   "t0": 13.499999999997957,
+   "t1": 19.520000000000874,
+   "done": false,
+   "exit": "supervisor:L2: 补偿后整体残差不变 8.89 → 9.03,持续 1.5 s",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "slide",
+     "t0": 5.500000000000171,
+     "t1": 13.499999999997957,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 29.6,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差不变 6.92 → 6.86,持续 1.5 s",
+    "没有约束压着,疑似采样退化 []"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "需要L2",
+   "why": [
+    "补偿后整体残差不变 8.89 → 9.03,持续 1.5 s",
+    "压着的约束 [{'source': 'fixed', 'kind': '工作空间边界'}]"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "需要 L2(本次实验不调用大模型):补偿后整体残差不变 8.89 → 9.03,持续 1.5 s; 压着的约束 [{'source': 'fixed', 'kind': '工作空间边界'}]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.3158
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.16
+     ]
+    }
+   ],
+   "R": 6.916,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 10.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.3145
+     ],
+     "c_old": [
+      0.16
+     ],
+     "g_raw": [
+      0.008
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.008 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 6.881
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 13.5,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.3687
+     ],
+     "c_old": [
+      0.16
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.32
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 16.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.3962
+     ],
+     "c_old": [
+      0.32
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.4
+     ]
+    }
+   ],
+   "R": 8.889,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 18.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.4011
+     ],
+     "c_old": [
+      0.4
+     ],
+     "g_raw": [
+      -0.061
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.061 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 8.997
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 11.54,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 6.92 → 6.86,持续 1.5 s"
+   ],
+   "active": [],
+   "pred_bad": [
+    "vy"
+   ],
+   "cost_min": 6158667.5,
+   "ess": 46.2122917175293,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 19.52,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 8.89 → 9.03,持续 1.5 s"
+   ],
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "工作空间边界"
+    }
+   ],
+   "pred_bad": [
+    "vy"
+   ],
+   "cost_min": 14919039.0,
+   "ess": 43.54375076293945,
+   "action": "升级 L2(求解器补救后仍不降)"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "需要 L2(本次实验不调用大模型):补偿后整体残差不变 8.89 → 9.03,持续 1.5 s; 压着的约束 [{'source': 'fixed', 'kind': '工作空间边界'}]",
+ "gates": [
+  {
+   "stage": "touchdown",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0012,
+     "force": 3.0732
+    },
+    "resets": 3
+   },
+   "action": "next"
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.026,
+     "deviation": -0.974,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.04,
+     "measured": [
+      0.0313
+     ],
+     "deviation": [
+      -0.3687
+     ],
+     "pass": false,
+     "target": 0.4
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 6.18
+     },
+     "fail_lead_s": 7.32,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 6.02,
+      "pred_ok": 6.02,
+      "drift": 6.04,
+      "stall": 6.5
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.27,
+     "p95": 7.41,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0049,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t0": 13.499999999997957,
+   "t1": 19.520000000000874,
+   "exit": "supervisor:L2: 补偿后整体残差不变 8.89 → 9.03,持续 1.5 s",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0,
+     "deviation": -1.0,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.04,
+     "measured": [
+      0.0001
+     ],
+     "deviation": [
+      -0.3999
+     ],
+     "pass": false,
+     "target": 0.4
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 276,
+     "first_alarm": {
+      "meas_ok": 14.02
+     },
+     "fail_lead_s": 5.5,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 276,
+     "first_alarm": {
+      "meas_ok": 14.02,
+      "pred_ok": 14.02,
+      "drift": 14.04,
+      "stall": 14.5
+     },
+     "fail_lead_s": 5.5,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 4.79,
+     "p95": 5.79,
+     "calls": 301
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0054,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "stop(need L2)"
+  }
+ ]
+}

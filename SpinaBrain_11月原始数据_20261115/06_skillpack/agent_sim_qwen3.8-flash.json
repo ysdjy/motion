@@ -1,0 +1,122 @@
+{
+ "b1": {
+  "skill": "wipe_two_spots",
+  "values": {
+   "A.force": 2.5,
+   "B.force": 5
+  },
+  "status": "end",
+  "all_pass": true,
+  "stages": 17,
+  "rows": 27,
+  "failed_rows": [],
+  "t_end": 27.140000000010186,
+  "handover": null,
+  "objects": {}
+ },
+ "b2": {
+  "skill": "pick_and_place",
+  "values": {
+   "clearance": 0.14,
+   "place/up.height": 0.06
+  },
+  "status": "end",
+  "all_pass": true,
+  "stages": 8,
+  "rows": 5,
+  "failed_rows": [],
+  "t_end": 19.10000000000036,
+  "handover": null,
+  "objects": {
+   "cube": [
+    0.4492,
+    -0.1205,
+    0.1199
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.1199
+   ]
+  },
+  "placed": {
+   "ok": true,
+   "dxy_mm": 1.0,
+   "dz_mm": 0.1,
+   "grip_cm": 8.0
+  }
+ },
+ "c2": {
+  "skill": "pick_and_place",
+  "values": {
+   "pick/grasp.settle": 2
+  },
+  "status": "end",
+  "all_pass": true,
+  "stages": 8,
+  "rows": 5,
+  "failed_rows": [],
+  "t_end": 20.00000000000146,
+  "handover": null,
+  "objects": {
+   "cube": [
+    0.4502,
+    -0.1202,
+    0.1199
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.1199
+   ]
+  },
+  "placed": {
+   "ok": true,
+   "dxy_mm": 0.3,
+   "dz_mm": 0.1,
+   "grip_cm": 8.0
+  }
+ },
+ "d1": {
+  "skill": "pick_place_then_wipe",
+  "values": {},
+  "status": "end",
+  "all_pass": true,
+  "stages": 17,
+  "rows": 19,
+  "failed_rows": [],
+  "t_end": 31.62000000001566,
+  "handover": null,
+  "objects": {
+   "cube": [
+    0.4494,
+    -0.1201,
+    0.1199
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.1199
+   ]
+  },
+  "placed": {
+   "ok": false,
+   "dxy_mm": 0.6,
+   "dz_mm": 0.1,
+   "grip_cm": 0.0,
+   "note": "擦完后夹爪是合上的,只看方块位置"
+  }
+ },
+ "d3": {
+  "skill": "wipe_table_default_twice_3N_then_5N",
+  "values": {},
+  "status": "end",
+  "all_pass": true,
+  "stages": 16,
+  "rows": 26,
+  "failed_rows": [],
+  "t_end": 29.120000000012606,
+  "handover": null,
+  "objects": {}
+ }
+}

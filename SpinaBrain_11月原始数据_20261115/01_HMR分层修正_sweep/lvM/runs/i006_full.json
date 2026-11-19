@@ -1,0 +1,224 @@
+{
+ "id": 6,
+ "arm": "full",
+ "inst": {
+  "id": 6,
+  "kind": "mixed",
+  "run_seed": 58,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.0,
+    -0.0375958781001662,
+    0.0
+   ],
+   "id": "follow"
+  },
+  "mag_tol": 4.7,
+  "disturb": "track,1.15,0.57,-21.2,-16.6,11.5"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0004,
+    0.0053,
+    0.0989
+   ],
+   "deviation": [
+    -0.0004,
+    0.0053,
+    -0.0011
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.21
+   ],
+   "deviation": [
+    0.01
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 32.4,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 4.62,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0306,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0306,
+      0.0
+     ]
+    }
+   ],
+   "R": 2.297,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.62,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0187,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0306,
+      0.0
+     ],
+     "g_raw": [
+      0.389
+     ],
+     "g": [
+      1.0,
+      0.389,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0626,
+      0.0
+     ]
+    }
+   ],
+   "R": 1.429,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.62,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0301,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0626,
+      0.0
+     ],
+     "g_raw": [
+      1.526
+     ],
+     "g": [
+      1.0,
+      1.526,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0429,
+      0.0
+     ]
+    }
+   ],
+   "R": 1.96,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 10.64,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, 0.0193, 0.0] / [0.0, 0.0083, 0.0])"
+    }
+   ],
+   "R": 1.419
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 1.62,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

@@ -1,0 +1,350 @@
+{
+ "probe": "elbow_lock",
+ "family": "strategy",
+ "task": "config_long",
+ "seed": 4,
+ "mode": "llm",
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "decision_ok": true,
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.1396
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3069,
+    0.0,
+    0.487
+   ],
+   "deviation": [
+    -0.0001,
+    0.0,
+    0.0001
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 8.000000000001005,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 26.1,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['arm']",
+    "策略项压着 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_elbow_side', 'frac': 1.0}]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "strategy",
+     "kind": "硬约束项",
+     "id": "_elbow_side",
+     "frac": 1.0
+    }
+   ],
+   "failing": [
+    "arm"
+   ],
+   "action": "升级 L2(策略项压着)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "go",
+   "trigger": [
+    "阶段末仍不达标 ['arm']",
+    "策略项压着 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_elbow_side', 'frac': 1.0}]"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    },
+    {
+     "id": "_elbow_side",
+     "level": "joint",
+     "attr": "link_pos",
+     "link": 4,
+     "axes": [
+      "y"
+     ],
+     "mode": "upper",
+     "ub": -0.04,
+     "sigma": 0.01,
+     "weight": 4,
+     "penalty": "hard"
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "策略项 `_elbow_side` 是硬约束（link4 y ≤ -0.04），把肘部强制固定在基座 -y 一侧（right），与契约项 arm 要求 left 直接冲突；规划器优先满足硬约束，arm 项因此不变。局部 comp 只改契约值，无法推翻硬约束，必须改用正号侧下界。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 4.36,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    },
+    {
+     "id": "_elbow_side",
+     "level": "joint",
+     "attr": "link_pos",
+     "link": 4,
+     "axes": [
+      "y"
+     ],
+     "mode": "lower",
+     "lb": 0.04,
+     "sigma": 0.01,
+     "weight": 4,
+     "penalty": "hard"
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "right",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": -0.0414
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4868
+     ],
+     "deviation": [
+      0.0,
+      0.0,
+      -0.0001
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 4.16,
+     "p95": 5.65,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0073,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.1396
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3069,
+      0.0,
+      0.487
+     ],
+     "deviation": [
+      -0.0001,
+      0.0,
+      0.0001
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 4.53,
+     "p95": 6.89,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0084,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

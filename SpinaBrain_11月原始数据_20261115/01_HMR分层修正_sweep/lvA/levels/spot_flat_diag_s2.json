@@ -1,0 +1,566 @@
+{
+ "probe": "spot",
+ "family": "comp",
+ "task": "seq_long",
+ "seed": 2,
+ "mode": "llm",
+ "cond": "flat_diag",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00213,
+  "tokens": 8200,
+  "latency_s": 36.8,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "7710687fae12",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold"
+   ],
+   "deviation": null,
+   "pass": false,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.1476,
+   "deviation": 0.1476,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 6.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    4.8914
+   ],
+   "deviation": [
+    -0.1086
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0416,
+    -0.006
+   ],
+   "deviation": [
+    0.0084,
+    -0.006
+   ],
+   "pass": false,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "descend",
+   "t0": 2.9999999999997806,
+   "t1": 7.480000000000833,
+   "done": true,
+   "exit": "trigger",
+   "f_at_switch": 2.14764102495118,
+   "extension_s": 0.0
+  },
+  {
+   "id": "press_hold",
+   "t0": 13.479999999997968,
+   "t1": 19.480000000000825,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "press_hold",
+     "t0": 7.480000000000833,
+     "t1": 13.479999999997968,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 70.2,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['spot']",
+    "压着的约束 []"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "阶段 press_hold 需要 L2 但预算用尽:[\"阶段末仍不达标 ['spot']\", '压着的约束 []']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 13.48,
+   "where": "阶段末",
+   "active": [],
+   "failing": [
+    "spot"
+   ],
+   "action": "升级 L2(flat_diag)"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 19.48,
+   "where": "阶段末",
+   "active": [],
+   "failing": [
+    "spot"
+   ],
+   "action": "升级 L2(flat_diag)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "press_hold",
+   "trigger": [
+    "阶段末仍不达标 ['spot']",
+    "压着的约束 []"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "按压保持阶段的策略项只剩一个姿态保持(_keep_ori),没有任何在 surface:table 下约束 x/y 的定位项:下探结束后规划器在保持段对平面位置完全无约束,只受法向力闭环驱动,接触点便被接触力/柔顺带着漂移(监测显示 x 偏差从 4.4 mm 一路长到 7.4 mm、y 偏差 -6 mm),偏差是随时间的漂移,不是常量偏置,所以改 spot 的 comp 修不掉——必须补回 x/y 定位保持这一做法。",
+   "comp_patch": [
+    {
+     "id": "spot",
+     "field": "comp",
+     "value": [
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 36.81,
+   "helpers_after": [
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    },
+    {
+     "id": "_xy_hold",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.05,
+      0.0
+     ],
+     "sigma": 0.002,
+     "weight": 4
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 press_hold 需要 L2 但预算用尽:[\"阶段末仍不达标 ['spot']\", '压着的约束 []']",
+ "gates": [
+  {
+   "stage": "descend",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 7.480000000000833,
+   "exit": "trigger",
+   "pass": true,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 2.1476,
+     "deviation": 0.1476,
+     "pass": true,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 224
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0039,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t0": 7.480000000000833,
+   "t1": 13.479999999997968,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "hold",
+     "cat": "T2",
+     "kind": "duration",
+     "unit": "s",
+     "tol": 0.15,
+     "measured": 6.0,
+     "deviation": -0.0,
+     "pass": true,
+     "target": 6.0
+    },
+    {
+     "id": "keep",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 1.0,
+     "deviation": 0.0,
+     "pass": true,
+     "target": 1.0
+    },
+    {
+     "id": "press2",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.1264
+     ],
+     "deviation": [
+      0.1264
+     ],
+     "pass": true,
+     "target": 5.0
+    },
+    {
+     "id": "spot",
+     "cat": "C2",
+     "kind": "contact_at",
+     "unit": "m",
+     "tol": 0.004,
+     "measured": [
+      -0.0426,
+      -0.006
+     ],
+     "deviation": [
+      0.0074,
+      -0.006
+     ],
+     "pass": false,
+     "target": [
+      -0.05,
+      0.0
+     ]
+    }
+   ],
+   "monitor": {
+    "keep": {
+     "final_pass": true,
+     "samples": 285,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "press2": {
+     "final_pass": true,
+     "samples": 260,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "spot": {
+     "final_pass": false,
+     "samples": 285,
+     "first_alarm": {
+      "meas_ok": 7.8
+     },
+     "fail_lead_s": 5.68,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.58,
+     "p95": 3.2,
+     "calls": 300
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0058,
+     "force": 2.8445
+    },
+    "resets": 1
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t0": 13.479999999997968,
+   "t1": 19.480000000000825,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "hold",
+     "cat": "T2",
+     "kind": "duration",
+     "unit": "s",
+     "tol": 0.15,
+     "measured": 6.0,
+     "deviation": 0.0,
+     "pass": true,
+     "target": 6.0
+    },
+    {
+     "id": "keep",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 1.0,
+     "deviation": 0.0,
+     "pass": true,
+     "target": 1.0
+    },
+    {
+     "id": "press2",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      4.8914
+     ],
+     "deviation": [
+      -0.1086
+     ],
+     "pass": true,
+     "target": 5.0
+    },
+    {
+     "id": "spot",
+     "cat": "C2",
+     "kind": "contact_at",
+     "unit": "m",
+     "tol": 0.004,
+     "measured": [
+      -0.0416,
+      -0.006
+     ],
+     "deviation": [
+      0.0084,
+      -0.006
+     ],
+     "pass": false,
+     "target": [
+      -0.05,
+      0.0
+     ]
+    }
+   ],
+   "monitor": {
+    "keep": {
+     "final_pass": true,
+     "samples": 285,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "press2": {
+     "final_pass": true,
+     "samples": 260,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "spot": {
+     "final_pass": false,
+     "samples": 285,
+     "first_alarm": {
+      "meas_ok": 13.8
+     },
+     "fail_lead_s": 5.68,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.5,
+     "p95": 5.77,
+     "calls": 300
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0041,
+     "force": 0.9607
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

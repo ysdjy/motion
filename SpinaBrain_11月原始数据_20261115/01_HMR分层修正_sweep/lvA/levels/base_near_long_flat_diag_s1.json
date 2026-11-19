@@ -1,0 +1,327 @@
+{
+ "probe": "base_near_long",
+ "family": "base",
+ "task": "near_long",
+ "seed": 1,
+ "mode": "llm",
+ "cond": "flat_diag",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00241,
+  "tokens": 5931,
+  "latency_s": 21.4,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "none"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "3cd64d01d032",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.022
+   ],
+   "deviation": [
+    -0.008
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 67.0,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['near']",
+    "压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 0.48}]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 12.0,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "硬约束项",
+     "id": "near",
+     "frac": 0.48
+    }
+   ],
+   "failing": [
+    "near"
+   ],
+   "action": "升级 L2(flat_diag)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "阶段末仍不达标 ['near']",
+    "压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 0.48}]"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    },
+    {
+     "id": "_pull",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "base",
+     "axes": [
+      "x",
+      "y",
+      "z"
+     ],
+     "mode": "target",
+     "target": [
+      0.55,
+      0.15,
+      0.3
+     ],
+     "sigma": 0.02,
+     "weight": 0.5
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "残差不是常值偏置,而是随物体运动周期正负交替的牵引/滞后误差(~5.8s 周期,z 从 -1.4 摆到 +1.16),来源是策略项 _pull 把 TCP 拉向 base 系固定点 [0.55,0.15,0.3](weight 0.5):它与「跟随移动球」的 near 互相拉扯,且目标点与球的实际轨迹无关,误差峰值才刚越过 0.035 的验收线。改 comp 只能整体平移偏置,消不掉这个竞争目标和相位滞后,必须把跟踪目标搬到 object:mov 系的球心上并提高权重,让跟踪项占主导。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 21.4,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    },
+    {
+     "id": "_track_ball",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "object:mov",
+     "axes": [
+      "x",
+      "y",
+      "z"
+     ],
+     "mode": "target",
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ],
+     "sigma": 0.015,
+     "weight": 2.0
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0354
+     ],
+     "deviation": [
+      0.0054
+     ],
+     "pass": false,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 8.74,
+      "stall": 8.74,
+      "pred_ok": 8.76
+     },
+     "fail_lead_s": 3.26,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 9.94,
+     "p95": 16.86,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0212,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.022
+     ],
+     "deviation": [
+      -0.008
+     ],
+     "pass": true,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.1,
+     "p95": 17.22,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0045,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

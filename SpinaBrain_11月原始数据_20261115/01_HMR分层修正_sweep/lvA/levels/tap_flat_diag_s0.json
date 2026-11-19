@@ -1,0 +1,230 @@
+{
+ "probe": "tap",
+ "family": "n121",
+ "task": "period",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "flat_diag",
+ "llm": {
+  "calls": 2,
+  "cost_usd": 0.00409,
+  "tokens": 9669,
+  "latency_s": 97.8,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.0168,
+   "deviation": -0.1832,
+   "pass": false,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "tap",
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 122.7,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "L2 失败:契约检查不通过:[('_tap_z', 'penalty / timing / profile / priority 取值不合法')]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t": 13.5,
+   "where": "阶段末",
+   "active": [],
+   "failing": [
+    "tap"
+   ],
+   "action": "升级 L2(flat_diag)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "tap",
+   "trigger": [
+    "阶段末仍不达标 ['tap']",
+    "压着的约束 []"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.05,
+      0.0
+     ],
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    },
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": "契约检查不通过:[('_tap_z', 'penalty / timing / profile / priority 取值不合法')]",
+   "changed": false,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "latency_s": 97.85
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "L2 失败:契约检查不通过:[('_tap_z', 'penalty / timing / profile / priority 取值不合法')]",
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0015,
+     "force": 3.1951
+    },
+    "resets": 3
+   },
+   "action": "next"
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.0168,
+     "deviation": -0.1832,
+     "pass": false,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.09,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0016,
+     "force": 0.0
+    },
+    "resets": 6
+   },
+   "action": "abort(L2 error)"
+  }
+ ]
+}

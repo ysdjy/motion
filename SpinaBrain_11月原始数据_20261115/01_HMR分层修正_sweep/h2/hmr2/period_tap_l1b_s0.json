@@ -1,0 +1,206 @@
+{
+ "version": "hmr2",
+ "task": "period",
+ "probe": "tap",
+ "intent_probe": null,
+ "strategy_probe": null,
+ "disturb": null,
+ "bias": {
+  "kind": "scale",
+  "value": 0.85,
+  "id": "tap"
+ },
+ "seed": 0,
+ "instruction": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上先压稳,然后以 1.2 秒为周期在 2 N 和 6 N 之间反复按压桌面。",
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "tap",
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "final_report": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.0168,
+   "deviation": -0.1832,
+   "pass": false,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "final_all_pass": false,
+ "final_report_fullwindow": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.0168,
+   "deviation": -0.1832,
+   "pass": false,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "final_all_pass_fullwindow": false,
+ "source_unchanged": true,
+ "comp_final": {},
+ "final_helpers_override": {},
+ "sim_s": 20.9,
+ "aborted": true,
+ "abort_reason": "L1b 调用失败:QuotaExhausted: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistud",
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0015,
+     "force": 3.1951
+    },
+    "resets": 3
+   },
+   "action": "next"
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.0168,
+     "deviation": -0.1832,
+     "pass": false,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0016,
+     "force": 0.0
+    },
+    "resets": 6
+   },
+   "action": "abort(L1 error)"
+  }
+ ],
+ "audits": [],
+ "repairs": [
+  {
+   "stage": "tap",
+   "attempt": 1,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": null,
+   "error": "QuotaExhausted: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceede",
+   "level": "L1b"
+  }
+ ],
+ "events": [],
+ "timeline": [],
+ "levels": [
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "L1b 调用失败:QuotaExhausted: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistud"
+   ]
+  }
+ ],
+ "replans": [],
+ "exec_events": [],
+ "early_stops": [],
+ "recoveries": [],
+ "config": {
+  "monitor_cycles": 1,
+  "drift_h": 0.25,
+  "on_fail": "hier",
+  "max_retries": 1,
+  "audit_model": null,
+  "audit_votes": 3,
+  "on_veto": "record",
+  "exec_monitor": true,
+  "exec_pos_m": 0.015,
+  "exec_force_n": 3.0,
+  "exec_hold_s": 0.15,
+  "stall_win_s": 0.5,
+  "stall_frac": 0.05,
+  "early_stop_s": null,
+  "l0_max": 1,
+  "l1_max": 3,
+  "l2_max": 1,
+  "no_progress": 0.2,
+  "replan_model": "gemini-3.5-flash",
+  "l1_escalate_flag": false,
+  "rule_window_s": 1.5,
+  "settle_s": 0.5,
+  "debounce_s": 0.5,
+  "plateau_s": 1.5,
+  "eps": 0.1,
+  "worse_s": 0.5,
+  "g_lo": 0.3,
+  "g_hi": 3.0,
+  "step_max_tol": 4.0,
+  "comp_max_tol": 10.0,
+  "n_rule_max": 6,
+  "gate_rule_max": 2,
+  "min_win_s": 1.0,
+  "ext_max_s": 6.0,
+  "l1b": true
+ },
+ "rule_updates": [],
+ "monitor_log": [],
+ "verify_skip_adj": {}
+}

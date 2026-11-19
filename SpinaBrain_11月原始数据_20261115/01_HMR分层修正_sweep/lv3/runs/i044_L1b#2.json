@@ -1,0 +1,170 @@
+{
+ "id": 44,
+ "arm": "L1b#2",
+ "inst": {
+  "id": 44,
+  "kind": "strategy",
+  "run_seed": 310,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.007449997052811326
+  ]
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L2",
+  "L1b",
+  "L1b"
+ ],
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.0,
+   "deviation": -1.0,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    0.0
+   ],
+   "deviation": [
+    -0.02
+   ],
+   "pass": false,
+   "target": 0.02
+  }
+ ],
+ "llm": {
+  "calls": 3,
+  "cost_usd": 0.01197
+ },
+ "sim_s": 272.4,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 阶段末仍不达标 ['keep2', 'vy']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.9751
+    },
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": 0.02
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 20.94,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": -0.9751
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 116.08,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "keep2",
+     "reason": "历次 comp 在 -0.9751、0、0.9751 时实测接触比例最高仅 0.0249，远低于目标 1.0；两侧增大补偿均降为 0，说明仅靠法向力下限补偿无法达到 100% 接触。"
+    },
+    {
+     "id": "vy",
+     "reason": "接触比例无法建立（实测为 0），桌面滑动速度无法产生；且 comp=0 与 0.02 时实测均为 0，无有效响应。"
+    }
+   ],
+   "latency_s": 84.67,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 阶段末仍不达标 ['keep2', 'vy']"
+}

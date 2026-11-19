@@ -1,0 +1,173 @@
+{
+ "task": "follow",
+ "instruction": "让工具跟着移动的物体,一直保持在物体正上方 10 厘米处,跟 6 秒后结束。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 3,
+ "hmr": "off",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 11.7
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "track",
+    "desc": "TCP 保持在移动物体坐标系原点上方 10 cm(沿物体法向),每个控制周期随物体刷新",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "object:mov",
+     "binding": "live"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y",
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.0,
+      0.0,
+      0.1
+     ],
+     "tolerance": 0.03
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 5,
+     "loss": "quadratic"
+    },
+    "temporal": {
+     "stage": "reach",
+     "also_stages": [
+      "follow"
+     ],
+     "profile": "hold"
+    }
+   },
+   {
+    "id": "_track_speed",
+    "desc": "跟随过程中限制工具速度,避免为追上摆动而突跳",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "base"
+    },
+    "physical": {
+     "quantity": "speed"
+    },
+    "goal": {
+     "kind": "set",
+     "upper": 0.5,
+     "tolerance": 0.05
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "preference",
+     "weight": 1
+    },
+    "temporal": {
+     "stage": "reach",
+     "also_stages": [
+      "follow"
+     ]
+    },
+    "verify": false
+   }
+  ],
+  "stages": [
+   {
+    "id": "reach",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "track"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "follow"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "follow"
+   },
+   {
+    "id": "follow",
+    "transitions": [
+     {
+      "when": {
+       "time_ge": 6.0
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "reach",
+  "max_time_s": 20
+ },
+ "status": "end",
+ "oracle_ok": true,
+ "oracle": {
+  "mean_err": 0.0023,
+  "duration": 6.7
+ },
+ "spec_all_pass": true,
+ "stages": [
+  {
+   "id": "reach",
+   "visit": 1,
+   "t0": 0.0,
+   "t1": 0.7000000000000005,
+   "done": true,
+   "exit": "切换:{'satisfied': ['track'], 'hold_s': 0.3}",
+   "to": "follow",
+   "f_at_switch": -0.0,
+   "rows": [
+    {
+     "id": "track",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "follow",
+   "visit": 1,
+   "t0": 0.7000000000000005,
+   "t1": 6.700000000000572,
+   "done": true,
+   "exit": "切换:{'time_ge': 6.0}",
+   "to": "end",
+   "f_at_switch": -0.0,
+   "rows": [
+    {
+     "id": "track",
+     "pass": true,
+     "measured": [
+      -0.0001,
+      -0.0002,
+      0.0995
+     ]
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": null,
+ "hmr_replans": null,
+ "cost_usd": 0.00096,
+ "wall_s": 20.1
+}

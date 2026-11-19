@@ -1,0 +1,105 @@
+{
+ "id": 4,
+ "arm": "L1b",
+ "inst": {
+  "id": 4,
+  "kind": "comp",
+  "run_seed": 577,
+  "task": "tip_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.0015610128712238922,
+    -0.02094011038560429,
+    0.020464020925845542
+   ],
+   "id": "tip"
+  },
+  "mag_tol": 3.67
+ },
+ "final_pass": true,
+ "reached": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b"
+ ],
+ "final_report": [
+  {
+   "id": "tip",
+   "cat": "D4",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0,
+    0.0001,
+    0.0325
+   ],
+   "deviation": [
+    0.0,
+    0.0001,
+    0.0025
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.03
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00028
+ },
+ "sim_s": 41.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "0c298aa29ea2",
+   "pms": "8acec675a135",
+   "exp_xemb": "eeb17154c640"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['tip']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "track",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "tip",
+     "field": "comp",
+     "value": [
+      0.0015,
+      0.0195,
+      -0.0191
+     ]
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 2.87,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

@@ -1,0 +1,3007 @@
+{
+ "S7_pnp": {
+  "status": "end",
+  "trace": [
+   [
+    "move@pick/hover",
+    3.04,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.58,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@place/carry",
+    2.62,
+    "切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@place/down",
+    4.28,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 19.020000000000262,
+  "wall_s": 44.9,
+  "objects": {
+   "cube": [
+    0.44937962903792317,
+    -0.12005392654756628,
+    0.11989224457978369
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.11989224458279163
+   ]
+  },
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0046,
+     -0.0024,
+     0.1046
+    ],
+    "deviation": [
+     -0.0046,
+     -0.0024,
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "deviation": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.1003
+    ],
+    "deviation": [
+     0.0003
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@place/carry",
+    "visit": 1,
+    "id": "at@place/carry",
+    "measured": [
+     0.0001,
+     0.0051,
+     0.0589
+    ],
+    "deviation": [
+     0.0001,
+     0.0051,
+     -0.0011
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@place/up",
+    "visit": 1,
+    "id": "up@place/up",
+    "measured": [
+     0.1006
+    ],
+    "deviation": [
+     0.0006
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S7_pnp_rt": {
+  "status": "end",
+  "trace": [
+   [
+    "move@pick/hover",
+    3.04,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.58,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@place/carry",
+    2.62,
+    "切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@place/down",
+    4.28,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 19.020000000000262,
+  "wall_s": 44.3,
+  "objects": {
+   "cube": [
+    0.44937962903792317,
+    -0.12005392654756628,
+    0.11989224457978369
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.11989224458279163
+   ]
+  },
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0046,
+     -0.0024,
+     0.1046
+    ],
+    "deviation": [
+     -0.0046,
+     -0.0024,
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "deviation": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.1003
+    ],
+    "deviation": [
+     0.0003
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@place/carry",
+    "visit": 1,
+    "id": "at@place/carry",
+    "measured": [
+     0.0001,
+     0.0051,
+     0.0589
+    ],
+    "deviation": [
+     0.0001,
+     0.0051,
+     -0.0011
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@place/up",
+    "visit": 1,
+    "id": "up@place/up",
+    "measured": [
+     0.1006
+    ],
+    "deviation": [
+     0.0006
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S8_care0": {
+  "status": "end",
+  "trace": [
+   [
+    "move@pick/hover",
+    2.16,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.2,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@place/carry",
+    1.66,
+    "切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@place/down",
+    2.02,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 14.53999999999738,
+  "wall_s": 32.8,
+  "objects": {
+   "cube": [
+    0.4496397564463126,
+    -0.12513649219100467,
+    0.11989224457978367
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.11989224458280857
+   ]
+  },
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0035,
+     -0.003,
+     0.1016
+    ],
+    "deviation": [
+     -0.0035,
+     -0.003,
+     0.0016
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     0.0005,
+     -0.0017,
+     0.0034
+    ],
+    "deviation": [
+     0.0005,
+     -0.0017,
+     0.0034
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.1004
+    ],
+    "deviation": [
+     0.0004
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@place/carry",
+    "visit": 1,
+    "id": "at@place/carry",
+    "measured": [
+     -0.0013,
+     0.0038,
+     0.0597
+    ],
+    "deviation": [
+     -0.0013,
+     0.0038,
+     -0.0003
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@place/up",
+    "visit": 1,
+    "id": "up@place/up",
+    "measured": [
+     0.1005
+    ],
+    "deviation": [
+     0.0005
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S8_care1": {
+  "status": "end",
+  "trace": [
+   [
+    "move@pick/hover",
+    4.98,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    2.92,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@place/carry",
+    4.0,
+    "切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@place/down",
+    7.16,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 26.560000000009477,
+  "wall_s": 60.6,
+  "objects": {
+   "cube": [
+    0.4506861177536462,
+    -0.12040848065015766,
+    0.11989224457978369
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.11989224458279647
+   ]
+  },
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0033,
+     -0.0017,
+     0.105
+    ],
+    "deviation": [
+     -0.0033,
+     -0.0017,
+     0.005
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     -0.0007,
+     0.0002,
+     0.0044
+    ],
+    "deviation": [
+     -0.0007,
+     0.0002,
+     0.0044
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.0995
+    ],
+    "deviation": [
+     -0.0005
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@place/carry",
+    "visit": 1,
+    "id": "at@place/carry",
+    "measured": [
+     0.0,
+     0.0047,
+     0.0607
+    ],
+    "deviation": [
+     0.0,
+     0.0047,
+     0.0007
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@place/up",
+    "visit": 1,
+    "id": "up@place/up",
+    "measured": [
+     0.0994
+    ],
+    "deviation": [
+     -0.0006
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S9_move_two": {
+  "status": "end",
+  "trace": [
+   [
+    "move@A/pick/hover",
+    3.04,
+    "切换:{'satisfied': ['at@A/pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@A/pick/reach",
+    1.58,
+    "切换:{'satisfied': ['at@A/pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@A/pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@A/pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@A/place/carry",
+    2.62,
+    "切换:{'satisfied': ['at@A/place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@A/place/down",
+    4.28,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@A/place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@A/place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ],
+   [
+    "move@B/pick/hover",
+    3.08,
+    "切换:{'satisfied': ['at@B/pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@B/pick/reach",
+    1.56,
+    "切换:{'satisfied': ['at@B/pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@B/pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@B/pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@B/place/carry",
+    2.58,
+    "切换:{'satisfied': ['at@B/place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@B/place/down",
+    4.24,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@B/place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@B/place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 37.980000000002185,
+  "wall_s": 94.7,
+  "objects": {
+   "cube": [
+    0.4493796291330227,
+    -0.1200539265350807,
+    0.11989224457978374
+   ],
+   "cube2": [
+    0.5780305001422196,
+    -0.12229654203349137,
+    0.1198922445797837
+   ]
+  },
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@A/pick/hover",
+    "visit": 1,
+    "id": "at@A/pick/hover",
+    "measured": [
+     -0.0046,
+     -0.0024,
+     0.1046
+    ],
+    "deviation": [
+     -0.0046,
+     -0.0024,
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@A/pick/reach",
+    "visit": 1,
+    "id": "at@A/pick/reach",
+    "measured": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "deviation": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@A/pick/lift",
+    "visit": 1,
+    "id": "up@A/pick/lift",
+    "measured": [
+     0.1003
+    ],
+    "deviation": [
+     0.0003
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@A/place/carry",
+    "visit": 1,
+    "id": "at@A/place/carry",
+    "measured": [
+     0.0001,
+     0.0051,
+     0.0589
+    ],
+    "deviation": [
+     0.0001,
+     0.0051,
+     -0.0011
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@A/place/up",
+    "visit": 1,
+    "id": "up@A/place/up",
+    "measured": [
+     0.1006
+    ],
+    "deviation": [
+     0.0006
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@B/pick/hover",
+    "visit": 1,
+    "id": "at@B/pick/hover",
+    "measured": [
+     -0.0019,
+     -0.0049,
+     0.1001
+    ],
+    "deviation": [
+     -0.0019,
+     -0.0049,
+     0.0001
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@B/pick/reach",
+    "visit": 1,
+    "id": "at@B/pick/reach",
+    "measured": [
+     0.0025,
+     0.0001,
+     0.0039
+    ],
+    "deviation": [
+     0.0025,
+     0.0001,
+     0.0039
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@B/pick/lift",
+    "visit": 1,
+    "id": "up@B/pick/lift",
+    "measured": [
+     0.1002
+    ],
+    "deviation": [
+     0.0002
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@B/place/carry",
+    "visit": 1,
+    "id": "at@B/place/carry",
+    "measured": [
+     -0.0027,
+     0.0046,
+     0.0589
+    ],
+    "deviation": [
+     -0.0027,
+     0.0046,
+     -0.0011
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@B/place/up",
+    "visit": 1,
+    "id": "up@B/place/up",
+    "measured": [
+     0.1005
+    ],
+    "deviation": [
+     0.0005
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S10_snatch_plain": {
+  "status": "end",
+  "trace": [
+   [
+    "move@pick/hover",
+    3.04,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.58,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@place/carry",
+    2.64,
+    "切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@place/down",
+    5.52,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 20.280000000001802,
+  "wall_s": 30.2,
+  "objects": {
+   "cube": [
+    0.2999999998076042,
+    0.3500000000410211,
+    0.11989224457978398
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.11989224458280306
+   ]
+  },
+  "handover": null,
+  "guard_trips": 1,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0046,
+     -0.0024,
+     0.1046
+    ],
+    "deviation": [
+     -0.0046,
+     -0.0024,
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "deviation": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.1004
+    ],
+    "deviation": [
+     0.0004
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@place/carry",
+    "visit": 1,
+    "id": "at@place/carry",
+    "measured": [
+     0.0001,
+     0.005,
+     0.0589
+    ],
+    "deviation": [
+     0.0001,
+     0.005,
+     -0.0011
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@place/up",
+    "visit": 1,
+    "id": "up@place/up",
+    "measured": [
+     0.1005
+    ],
+    "deviation": [
+     0.0005
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S10_snatch_rt": {
+  "status": "fail:切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'grasp', 'value': 1}}]}",
+  "trace": [
+   [
+    "move@pick/hover",
+    3.04,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.58,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'grasp', 'value': 1}}]}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 8.620000000000662,
+  "wall_s": 15.9,
+  "objects": {
+   "cube": [
+    0.2999999999669024,
+    0.35000000000705844,
+    0.11989224457978398
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.11989224458280744
+   ]
+  },
+  "handover": {
+   "stage": "lift@pick/lift",
+   "link": "pick.$done → place",
+   "fact": "holding",
+   "want": 1,
+   "text": "交接不成立:pick.$done → place 要求 holding=1,实测不符"
+  },
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0046,
+     -0.0024,
+     0.1046
+    ],
+    "deviation": [
+     -0.0046,
+     -0.0024,
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "deviation": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.1004
+    ],
+    "deviation": [
+     0.0004
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S11_miss": {
+  "status": "fail:切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01, 'value': 0}]}",
+  "trace": [
+   [
+    "move@pick/hover",
+    3.14,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.56,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01, 'value': 0}]}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 5.700000000000238,
+  "wall_s": 8.2,
+  "objects": {
+   "cube": [
+    0.45,
+    0.1,
+    0.11989224458281024
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.11989224458281024
+   ]
+  },
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0041,
+     -0.0013,
+     0.1055
+    ],
+    "deviation": [
+     -0.0041,
+     -0.0013,
+     0.0055
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     0.0,
+     -0.0004,
+     0.0038
+    ],
+    "deviation": [
+     0.0,
+     -0.0004,
+     0.0038
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S12_1kg_plain": {
+  "status": "end",
+  "trace": [
+   [
+    "move@pick/hover",
+    3.04,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.58,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@place/carry",
+    2.58,
+    "切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@place/down",
+    4.78,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 19.480000000000825,
+  "wall_s": 45.8,
+  "objects": {
+   "cube": [
+    0.45081127587328657,
+    -0.12047131429927706,
+    0.11989224457978369
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.1198922445828214
+   ]
+  },
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0046,
+     -0.0024,
+     0.1046
+    ],
+    "deviation": [
+     -0.0046,
+     -0.0024,
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "deviation": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.1001
+    ],
+    "deviation": [
+     0.0001
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@place/carry",
+    "visit": 1,
+    "id": "at@place/carry",
+    "measured": [
+     0.0001,
+     0.0042,
+     0.0586
+    ],
+    "deviation": [
+     0.0001,
+     0.0042,
+     -0.0014
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@place/up",
+    "visit": 1,
+    "id": "up@place/up",
+    "measured": [
+     0.1005
+    ],
+    "deviation": [
+     0.0005
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S12_1kg_rt": {
+  "status": "end",
+  "trace": [
+   [
+    "move@pick/hover",
+    3.04,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.58,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@place/carry",
+    2.58,
+    "切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@place/down",
+    4.78,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "open@place/release",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}"
+   ],
+   [
+    "lift@place/up",
+    2.5,
+    "切换:{'time_ge': 2.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 19.480000000000825,
+  "wall_s": 57.8,
+  "objects": {
+   "cube": [
+    0.45081127587328657,
+    -0.12047131429927706,
+    0.11989224457978369
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.1198922445828214
+   ]
+  },
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0046,
+     -0.0024,
+     0.1046
+    ],
+    "deviation": [
+     -0.0046,
+     -0.0024,
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "deviation": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.1001
+    ],
+    "deviation": [
+     0.0001
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@place/carry",
+    "visit": 1,
+    "id": "at@place/carry",
+    "measured": [
+     0.0001,
+     0.0042,
+     0.0586
+    ],
+    "deviation": [
+     0.0001,
+     0.0042,
+     -0.0014
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@place/up",
+    "visit": 1,
+    "id": "up@place/up",
+    "measured": [
+     0.1005
+    ],
+    "deviation": [
+     0.0005
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S12_3kg_weak_rt": {
+  "status": "fail:超时",
+  "trace": [
+   [
+    "move@pick/hover",
+    3.04,
+    "切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}"
+   ],
+   [
+    "move@pick/reach",
+    1.58,
+    "切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}"
+   ],
+   [
+    "grasp@pick/grasp",
+    1.0,
+    "切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}"
+   ],
+   [
+    "lift@pick/lift",
+    3.0,
+    "切换:{'time_ge': 3.0}"
+   ],
+   [
+    "move@place/carry",
+    8.0,
+    "超时"
+   ]
+  ],
+  "all_pass": false,
+  "accepted": true,
+  "t_end": 16.61999999999733,
+  "wall_s": 37.4,
+  "objects": {
+   "cube": [
+    0.42245053705172797,
+    -0.04468524617006519,
+    0.12005537711959002
+   ],
+   "cube2": [
+    0.58,
+    0.1,
+    0.1198922445827882
+   ]
+  },
+  "handover": null,
+  "guard_trips": 4,
+  "rows": [
+   {
+    "stage": "move@pick/hover",
+    "visit": 1,
+    "id": "at@pick/hover",
+    "measured": [
+     -0.0046,
+     -0.0024,
+     0.1046
+    ],
+    "deviation": [
+     -0.0046,
+     -0.0024,
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@pick/reach",
+    "visit": 1,
+    "id": "at@pick/reach",
+    "measured": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "deviation": [
+     -0.0004,
+     -0.0007,
+     0.0035
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@pick/lift",
+    "visit": 1,
+    "id": "up@pick/lift",
+    "measured": [
+     0.003
+    ],
+    "deviation": [
+     -0.097
+    ],
+    "pass": false,
+    "tol": 0.005,
+    "target": [
+     0.1
+    ],
+    "note": null
+   },
+   {
+    "stage": "move@place/carry",
+    "visit": 1,
+    "id": "at@place/carry",
+    "measured": [
+     -0.0359,
+     0.0752,
+     0.0092
+    ],
+    "deviation": [
+     -0.0359,
+     0.0752,
+     -0.0508
+    ],
+    "pass": false,
+    "tol": 0.006,
+    "target": [
+     0.0,
+     0.0,
+     0.06
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S13_times": {
+  "status": "end",
+  "trace": [
+   [
+    "down@d",
+    1.52,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "out@w_1",
+    1.12,
+    "切换:{'satisfied': ['reach_out@w_1'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w_1",
+    1.54,
+    "切换:{'satisfied': ['reach_back@w_1'], 'hold_s': 0.2}"
+   ],
+   [
+    "out@w_1",
+    1.18,
+    "切换:{'satisfied': ['reach_out@w_1'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w_1",
+    1.56,
+    "切换:{'all': [{'satisfied': ['reach_back@w_1'], 'hold_s': 0.2}, {'visits_ge': 2}]}"
+   ],
+   [
+    "out@w_2",
+    1.2,
+    "切换:{'satisfied': ['reach_out@w_2'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w_2",
+    1.56,
+    "切换:{'satisfied': ['reach_back@w_2'], 'hold_s': 0.2}"
+   ],
+   [
+    "out@w_2",
+    1.16,
+    "切换:{'satisfied': ['reach_out@w_2'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w_2",
+    1.54,
+    "切换:{'all': [{'satisfied': ['reach_back@w_2'], 'hold_s': 0.2}, {'visits_ge': 2}]}"
+   ],
+   [
+    "lift@l",
+    1.5,
+    "切换:{'time_ge': 1.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 16.879999999997647,
+  "wall_s": 29.9,
+  "objects": {},
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "out@w_1",
+    "visit": 1,
+    "id": "press@w_1",
+    "measured": [
+     2.1168
+    ],
+    "deviation": [
+     -0.8832
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w_1",
+    "visit": 1,
+    "id": "reach_out@w_1",
+    "measured": [
+     0.0359
+    ],
+    "deviation": [
+     -0.0041
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w_1",
+    "visit": 1,
+    "id": "press@w_1",
+    "measured": [
+     3.298
+    ],
+    "deviation": [
+     0.298
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w_1",
+    "visit": 1,
+    "id": "reach_back@w_1",
+    "measured": [
+     -0.0361
+    ],
+    "deviation": [
+     0.0039
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w_1",
+    "visit": 2,
+    "id": "press@w_1",
+    "measured": [
+     2.8669
+    ],
+    "deviation": [
+     -0.1331
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w_1",
+    "visit": 2,
+    "id": "reach_out@w_1",
+    "measured": [
+     0.0362
+    ],
+    "deviation": [
+     -0.0038
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w_1",
+    "visit": 2,
+    "id": "press@w_1",
+    "measured": [
+     2.9506
+    ],
+    "deviation": [
+     -0.0494
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w_1",
+    "visit": 2,
+    "id": "reach_back@w_1",
+    "measured": [
+     -0.0358
+    ],
+    "deviation": [
+     0.0042
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w_2",
+    "visit": 1,
+    "id": "press@w_2",
+    "measured": [
+     2.7638
+    ],
+    "deviation": [
+     -0.2362
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w_2",
+    "visit": 1,
+    "id": "reach_out@w_2",
+    "measured": [
+     0.0357
+    ],
+    "deviation": [
+     -0.0043
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w_2",
+    "visit": 1,
+    "id": "press@w_2",
+    "measured": [
+     2.9504
+    ],
+    "deviation": [
+     -0.0496
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w_2",
+    "visit": 1,
+    "id": "reach_back@w_2",
+    "measured": [
+     -0.0354
+    ],
+    "deviation": [
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w_2",
+    "visit": 2,
+    "id": "press@w_2",
+    "measured": [
+     2.611
+    ],
+    "deviation": [
+     -0.389
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w_2",
+    "visit": 2,
+    "id": "reach_out@w_2",
+    "measured": [
+     0.0367
+    ],
+    "deviation": [
+     -0.0033
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w_2",
+    "visit": 2,
+    "id": "press@w_2",
+    "measured": [
+     3.033
+    ],
+    "deviation": [
+     0.033
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w_2",
+    "visit": 2,
+    "id": "reach_back@w_2",
+    "measured": [
+     -0.036
+    ],
+    "deviation": [
+     0.004
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@l",
+    "visit": 1,
+    "id": "up@l",
+    "measured": [
+     0.0493
+    ],
+    "deviation": [
+     -0.0007
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.05
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S13_times_pin": {
+  "status": "end",
+  "trace": [
+   [
+    "down@d",
+    1.52,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "out@w_1",
+    1.12,
+    "切换:{'satisfied': ['reach_out@w_1'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w_1",
+    1.54,
+    "切换:{'satisfied': ['reach_back@w_1'], 'hold_s': 0.2}"
+   ],
+   [
+    "out@w_1",
+    1.18,
+    "切换:{'satisfied': ['reach_out@w_1'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w_1",
+    1.56,
+    "切换:{'all': [{'satisfied': ['reach_back@w_1'], 'hold_s': 0.2}, {'visits_ge': 2}]}"
+   ],
+   [
+    "out@w_2",
+    1.22,
+    "切换:{'satisfied': ['reach_out@w_2'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w_2",
+    1.56,
+    "切换:{'all': [{'satisfied': ['reach_back@w_2'], 'hold_s': 0.2}, {'visits_ge': 1}]}"
+   ],
+   [
+    "lift@l",
+    1.5,
+    "切换:{'time_ge': 1.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 14.19999999999757,
+  "wall_s": 26.5,
+  "objects": {},
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "out@w_1",
+    "visit": 1,
+    "id": "press@w_1",
+    "measured": [
+     2.1168
+    ],
+    "deviation": [
+     -0.8832
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w_1",
+    "visit": 1,
+    "id": "reach_out@w_1",
+    "measured": [
+     0.0359
+    ],
+    "deviation": [
+     -0.0041
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w_1",
+    "visit": 1,
+    "id": "press@w_1",
+    "measured": [
+     3.298
+    ],
+    "deviation": [
+     0.298
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w_1",
+    "visit": 1,
+    "id": "reach_back@w_1",
+    "measured": [
+     -0.0361
+    ],
+    "deviation": [
+     0.0039
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w_1",
+    "visit": 2,
+    "id": "press@w_1",
+    "measured": [
+     2.8669
+    ],
+    "deviation": [
+     -0.1331
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w_1",
+    "visit": 2,
+    "id": "reach_out@w_1",
+    "measured": [
+     0.0362
+    ],
+    "deviation": [
+     -0.0038
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w_1",
+    "visit": 2,
+    "id": "press@w_1",
+    "measured": [
+     2.9506
+    ],
+    "deviation": [
+     -0.0494
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w_1",
+    "visit": 2,
+    "id": "reach_back@w_1",
+    "measured": [
+     -0.0358
+    ],
+    "deviation": [
+     0.0042
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w_2",
+    "visit": 1,
+    "id": "press@w_2",
+    "measured": [
+     4.6392
+    ],
+    "deviation": [
+     -0.3608
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 5.0,
+    "note": null
+   },
+   {
+    "stage": "out@w_2",
+    "visit": 1,
+    "id": "reach_out@w_2",
+    "measured": [
+     0.0356
+    ],
+    "deviation": [
+     -0.0044
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w_2",
+    "visit": 1,
+    "id": "press@w_2",
+    "measured": [
+     4.9357
+    ],
+    "deviation": [
+     -0.0643
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 5.0,
+    "note": null
+   },
+   {
+    "stage": "back@w_2",
+    "visit": 1,
+    "id": "reach_back@w_2",
+    "measured": [
+     -0.035
+    ],
+    "deviation": [
+     0.005
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@l",
+    "visit": 1,
+    "id": "up@l",
+    "measured": [
+     0.0494
+    ],
+    "deviation": [
+     -0.0006
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.05
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S14_table": {
+  "status": "end",
+  "trace": [
+   [
+    "move@go",
+    3.1,
+    "切换:{'satisfied': ['at@go'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@w/down",
+    1.72,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "out@w/wipe",
+    1.28,
+    "切换:{'satisfied': ['reach_out@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w/wipe",
+    1.52,
+    "切换:{'satisfied': ['reach_back@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "out@w/wipe",
+    1.16,
+    "切换:{'satisfied': ['reach_out@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w/wipe",
+    1.7,
+    "切换:{'satisfied': ['reach_back@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "out@w/wipe",
+    1.16,
+    "切换:{'satisfied': ['reach_out@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w/wipe",
+    1.58,
+    "切换:{'all': [{'satisfied': ['reach_back@w/wipe'], 'hold_s': 0.2}, {'visits_ge': 3}]}"
+   ],
+   [
+    "lift@w/lift",
+    1.5,
+    "切换:{'time_ge': 1.5}"
+   ]
+  ],
+  "all_pass": true,
+  "accepted": true,
+  "t_end": 14.719999999997281,
+  "wall_s": 29.2,
+  "objects": {},
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@go",
+    "visit": 1,
+    "id": "at@go",
+    "measured": [
+     -0.053,
+     0.0001,
+     0.0255
+    ],
+    "deviation": [
+     -0.003,
+     0.0001,
+     0.0055
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.05,
+     0.0,
+     0.02
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 1,
+    "id": "press@w/wipe",
+    "measured": [
+     2.2926
+    ],
+    "deviation": [
+     -0.7074
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 1,
+    "id": "reach_out@w/wipe",
+    "measured": [
+     0.0345
+    ],
+    "deviation": [
+     -0.0055
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 1,
+    "id": "press@w/wipe",
+    "measured": [
+     3.0192
+    ],
+    "deviation": [
+     0.0192
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 1,
+    "id": "reach_back@w/wipe",
+    "measured": [
+     -0.0354
+    ],
+    "deviation": [
+     0.0046
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 2,
+    "id": "press@w/wipe",
+    "measured": [
+     3.1917
+    ],
+    "deviation": [
+     0.1917
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 2,
+    "id": "reach_out@w/wipe",
+    "measured": [
+     0.0374
+    ],
+    "deviation": [
+     -0.0026
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 2,
+    "id": "press@w/wipe",
+    "measured": [
+     2.6302
+    ],
+    "deviation": [
+     -0.3698
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 2,
+    "id": "reach_back@w/wipe",
+    "measured": [
+     -0.035
+    ],
+    "deviation": [
+     0.005
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 3,
+    "id": "press@w/wipe",
+    "measured": [
+     3.1901
+    ],
+    "deviation": [
+     0.1901
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 3,
+    "id": "reach_out@w/wipe",
+    "measured": [
+     0.0366
+    ],
+    "deviation": [
+     -0.0034
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 3,
+    "id": "press@w/wipe",
+    "measured": [
+     2.8834
+    ],
+    "deviation": [
+     -0.1166
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 3,
+    "id": "reach_back@w/wipe",
+    "measured": [
+     -0.0355
+    ],
+    "deviation": [
+     0.0045
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@w/lift",
+    "visit": 1,
+    "id": "up@w/lift",
+    "measured": [
+     0.0493
+    ],
+    "deviation": [
+     -0.0007
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.05
+    ],
+    "note": null
+   }
+  ]
+ },
+ "S14_mat": {
+  "status": "end",
+  "trace": [
+   [
+    "move@go",
+    3.08,
+    "切换:{'satisfied': ['at@go'], 'hold_s': 0.2}"
+   ],
+   [
+    "down@w/down",
+    1.7,
+    "切换:{'force_ge': 2.0}"
+   ],
+   [
+    "out@w/wipe",
+    1.28,
+    "切换:{'satisfied': ['reach_out@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w/wipe",
+    1.48,
+    "切换:{'satisfied': ['reach_back@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "out@w/wipe",
+    1.38,
+    "切换:{'satisfied': ['reach_out@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w/wipe",
+    1.76,
+    "切换:{'satisfied': ['reach_back@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "out@w/wipe",
+    1.4,
+    "切换:{'satisfied': ['reach_out@w/wipe'], 'hold_s': 0.2}"
+   ],
+   [
+    "back@w/wipe",
+    2.12,
+    "切换:{'all': [{'satisfied': ['reach_back@w/wipe'], 'hold_s': 0.2}, {'visits_ge': 3}]}"
+   ],
+   [
+    "lift@w/lift",
+    1.5,
+    "切换:{'time_ge': 1.5}"
+   ]
+  ],
+  "all_pass": false,
+  "accepted": true,
+  "t_end": 15.699999999996738,
+  "wall_s": 24.1,
+  "objects": {},
+  "handover": null,
+  "guard_trips": 0,
+  "rows": [
+   {
+    "stage": "move@go",
+    "visit": 1,
+    "id": "at@go",
+    "measured": [
+     -0.0524,
+     -0.0034,
+     0.0249
+    ],
+    "deviation": [
+     -0.0024,
+     -0.0034,
+     0.0049
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.05,
+     0.0,
+     0.02
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 1,
+    "id": "press@w/wipe",
+    "measured": [
+     2.4805
+    ],
+    "deviation": [
+     -0.5195
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 1,
+    "id": "reach_out@w/wipe",
+    "measured": [
+     0.0344
+    ],
+    "deviation": [
+     -0.0056
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 1,
+    "id": "press@w/wipe",
+    "measured": [
+     3.7063
+    ],
+    "deviation": [
+     0.7063
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 1,
+    "id": "reach_back@w/wipe",
+    "measured": [
+     -0.0379
+    ],
+    "deviation": [
+     0.0021
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 2,
+    "id": "press@w/wipe",
+    "measured": [
+     0.8272
+    ],
+    "deviation": [
+     -2.1728
+    ],
+    "pass": false,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 2,
+    "id": "reach_out@w/wipe",
+    "measured": [
+     0.0348
+    ],
+    "deviation": [
+     -0.0052
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 2,
+    "id": "press@w/wipe",
+    "measured": [
+     1.3223
+    ],
+    "deviation": [
+     -1.6777
+    ],
+    "pass": false,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 2,
+    "id": "reach_back@w/wipe",
+    "measured": [
+     -0.0353
+    ],
+    "deviation": [
+     0.0047
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 3,
+    "id": "press@w/wipe",
+    "measured": [
+     0.1076
+    ],
+    "deviation": [
+     -2.8924
+    ],
+    "pass": false,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "out@w/wipe",
+    "visit": 3,
+    "id": "reach_out@w/wipe",
+    "measured": [
+     0.0345
+    ],
+    "deviation": [
+     -0.0055
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 3,
+    "id": "press@w/wipe",
+    "measured": [
+     2.2166
+    ],
+    "deviation": [
+     -0.7834
+    ],
+    "pass": true,
+    "tol": 1.5,
+    "target": 3.0,
+    "note": null
+   },
+   {
+    "stage": "back@w/wipe",
+    "visit": 3,
+    "id": "reach_back@w/wipe",
+    "measured": [
+     -0.0353
+    ],
+    "deviation": [
+     0.0047
+    ],
+    "pass": true,
+    "tol": 0.006,
+    "target": [
+     -0.04
+    ],
+    "note": null
+   },
+   {
+    "stage": "lift@w/lift",
+    "visit": 1,
+    "id": "up@w/lift",
+    "measured": [
+     0.0506
+    ],
+    "deviation": [
+     0.0006
+    ],
+    "pass": true,
+    "tol": 0.005,
+    "target": [
+     0.05
+    ],
+    "note": null
+   }
+  ]
+ }
+}

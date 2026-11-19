@@ -1,0 +1,908 @@
+{
+ "probe": "i_fast",
+ "family": "infeasible",
+ "task": "slide_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "llm_l1",
+ "llm": {
+  "calls": 6,
+  "cost_usd": 0.03029,
+  "tokens": 60844,
+  "latency_s": 306.8,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L2",
+  "L1b",
+  "L1b",
+  "L2"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.0,
+   "deviation": -1.0,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.04,
+   "measured": [
+    -0.0001
+   ],
+   "deviation": [
+    -0.4001
+   ],
+   "pass": false,
+   "target": 0.4
+  }
+ ],
+ "stages": [
+  {
+   "id": "touchdown",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "slide",
+   "t0": 45.49999999998466,
+   "t1": 53.499999999966015,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "slide",
+     "t0": 5.500000000000171,
+     "t1": 13.499999999997957,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "slide",
+     "t0": 13.499999999997957,
+     "t1": 21.500000000003293,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "slide",
+     "t0": 21.500000000003293,
+     "t1": 29.50000000001307,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "slide",
+     "t0": 29.50000000001307,
+     "t1": 37.500000000003304,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "slide",
+     "t0": 37.500000000003304,
+     "t1": 45.49999999998466,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 435.5,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 4,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 5,
+   "level": "stop",
+   "why": [
+    "阶段 slide 需要 L2 但预算用尽:[\"阶段末仍不达标 ['keep2', 'vy']\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "slide",
+   "trigger": [
+    "阶段末仍不达标 ['keep2', 'vy']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_x",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x"
+     ],
+     "mode": "target",
+     "target": -0.05,
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_lift",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": 0.003,
+     "sigma": 0.004,
+     "weight": 0.5
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "两张渲染图显示 TCP 全程悬在桌面上方、没有贴到表面；策略里唯一的 z 向指令是 _lift 的 +3 mm/s 向上速度（其余只有 x 位置和姿态保持），它把工具持续抬离桌面，接触比例从 0.94 掉到 0，没有法向力就没有摩擦驱动，vy 也随之为 0。keep2/vy 的 comp 只是在法向力下限和速度目标上做加减偏置，改变不了“工具根本不在表面上”这个状态，所以越调越差（接触 0.94→0）。",
+   "comp_patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.0
+    },
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": 0.0
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 40.53,
+   "helpers_after": [
+    {
+     "id": "_x",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x"
+     ],
+     "mode": "target",
+     "target": -0.05,
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_press",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": -0.01,
+     "sigma": 0.01,
+     "weight": 2,
+     "t_ramp": 0.2
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.9611
+    },
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": 0.3259
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 10.4,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": -0.9611
+    },
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": -0.3259
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 30.67,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.471
+    },
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": 0.3259
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 87.41,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.9611
+    },
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": 0.7257
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 104.71,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "keep2",
+     "reason": "在 comp=0 时接触比例最大仅 0.0389，comp=±0.9611 时均为 0，正负调节均无法维持接触，目标 1.0 不可达。"
+    },
+    {
+     "id": "vy",
+     "reason": "接触比例始终为 0，且多种 comp 下沿 y 速度实测均约为 0，速度目标 0.4 m/s 不可达。"
+    }
+   ],
+   "latency_s": 33.12,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 slide 需要 L2 但预算用尽:[\"阶段末仍不达标 ['keep2', 'vy']\"]",
+ "gates": [
+  {
+   "stage": "touchdown",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.09,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0015,
+     "force": 3.1951
+    },
+    "resets": 3
+   },
+   "action": "next"
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0389,
+     "deviation": -0.9611,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.04,
+     "measured": [
+      0.0741
+     ],
+     "deviation": [
+      -0.3259
+     ],
+     "pass": false,
+     "target": 0.4
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 6.32
+     },
+     "fail_lead_s": 7.18,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 6.02,
+      "pred_ok": 6.02,
+      "drift": 6.04,
+      "stall": 6.5
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 11.05,
+     "p95": 17.64,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0048,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t0": 13.499999999997957,
+   "t1": 21.500000000003293,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0,
+     "deviation": -1.0,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.04,
+     "measured": [
+      0.0002
+     ],
+     "deviation": [
+      -0.3998
+     ],
+     "pass": false,
+     "target": 0.4
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 14.02
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 14.02,
+      "pred_ok": 14.02,
+      "drift": 14.04,
+      "stall": 14.5
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 8.63,
+     "p95": 12.95,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0059,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "t0": 21.500000000003293,
+   "t1": 29.50000000001307,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0,
+     "deviation": -1.0,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.04,
+     "measured": [
+      -0.0005
+     ],
+     "deviation": [
+      -0.4005
+     ],
+     "pass": false,
+     "target": 0.4
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 22.02
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 22.02,
+      "pred_ok": 22.02,
+      "drift": 22.04,
+      "stall": 22.5
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 13.77,
+     "p95": 22.29,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0083,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t0": 29.50000000001307,
+   "t1": 37.500000000003304,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0,
+     "deviation": -1.0,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.04,
+     "measured": [
+      0.0006
+     ],
+     "deviation": [
+      -0.3994
+     ],
+     "pass": false,
+     "target": 0.4
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 30.02
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 30.02,
+      "pred_ok": 30.02,
+      "drift": 30.04,
+      "stall": 30.5
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.35,
+     "p95": 17.64,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0079,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 4,
+   "t0": 37.500000000003304,
+   "t1": 45.49999999998466,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0,
+     "deviation": -1.0,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.04,
+     "measured": [
+      -0.0
+     ],
+     "deviation": [
+      -0.4
+     ],
+     "pass": false,
+     "target": 0.4
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 38.02
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 38.02,
+      "pred_ok": 38.02,
+      "drift": 38.04,
+      "stall": 38.5
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.83,
+     "p95": 17.24,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0081,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 5,
+   "t0": 45.49999999998466,
+   "t1": 53.499999999966015,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0,
+     "deviation": -1.0,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.04,
+     "measured": [
+      -0.0001
+     ],
+     "deviation": [
+      -0.4001
+     ],
+     "pass": false,
+     "target": 0.4
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 46.02
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 46.02,
+      "pred_ok": 46.02,
+      "drift": 46.04,
+      "stall": 46.5
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 12.05,
+     "p95": 18.7,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0084,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

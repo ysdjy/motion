@@ -1,0 +1,922 @@
+{
+ "model": "deepseek-v4.1-flash",
+ "skill": "wipe_table",
+ "n_train": 24,
+ "records": [
+  {
+   "i": 0,
+   "text": "把擦的位置沿 x 方向挪到 x = −0.02(下探点和擦拭线一起挪)。",
+   "edits": {
+    "down.x": -0.02,
+    "wipe.x": -0.02
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"down.x\":-0.02,\"wipe.x\":-0.02}}"
+   ]
+  },
+  {
+   "i": 1,
+   "text": "换到 x = 0.05 的位置擦。",
+   "edits": {
+    "down.x": 0.05,
+    "wipe.x": 0.05
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"down.x\": 0.05, \"wipe.x\": 0.05}}"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "换到 x = −0.10 的位置擦。",
+   "edits": {
+    "down.x": -0.1,
+    "wipe.x": -0.1
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"down.x\": -0.1, \"wipe.x\": -0.1}}"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "换到 x = 0.10 的位置擦。",
+   "edits": {
+    "down.x": 0.1,
+    "wipe.x": 0.1
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"down.x\":0.1,\"wipe.x\":0.1}}"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "整条擦拭线沿 y 方向平移 +2 cm,下探点也跟着移。",
+   "edits": {
+    "down.y": 0.02,
+    "wipe.y_out": 0.06,
+    "wipe.y_back": -0.02
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"down.y\": 0.02, \"wipe.y_out\": 0.06, \"wipe.y_back\": -0.02}}"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "整条擦拭线沿 y 方向平移 −3 cm,下探点也跟着移。",
+   "edits": {
+    "down.y": -0.03,
+    "wipe.y_out": 0.01,
+    "wipe.y_back": -0.07
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"down.y\": -0.03, \"wipe.y_out\": 0.01, \"wipe.y_back\": -0.07}}"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "整条擦拭线沿 y 方向平移 +4 cm,下探点也跟着移。",
+   "edits": {
+    "down.y": 0.04,
+    "wipe.y_out": 0.08,
+    "wipe.y_back": 0.0
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"down.y\": 0.04, \"wipe.y_out\": 0.08, \"wipe.y_back\": 0.0}}"
+   ]
+  },
+  {
+   "i": 7,
+   "text": "擦的时候法向力用 5 N。",
+   "edits": {
+    "wipe.force": 5.0
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"wipe.force\":5}}"
+   ]
+  },
+  {
+   "i": 8,
+   "text": "擦的时候法向力用 4 N。",
+   "edits": {
+    "wipe.force": 4.0
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"wipe.force\": 4}}"
+   ]
+  },
+  {
+   "i": 9,
+   "text": "擦轻一点,法向力 2 N。",
+   "edits": {
+    "wipe.force": 2.0
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"wipe.force\":2}}"
+   ]
+  },
+  {
+   "i": 10,
+   "text": "擦重一点,法向力 6 N。",
+   "edits": {
+    "wipe.force": 6.0
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"wipe.force\":6}}"
+   ]
+  },
+  {
+   "i": 11,
+   "text": "行程加长:从中心向两侧各擦 6 cm。",
+   "edits": {
+    "wipe.y_out": 0.06,
+    "wipe.y_back": -0.06
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"wipe.y_out\":0.06,\"wipe.y_back\":-0.06}}"
+   ]
+  },
+  {
+   "i": 12,
+   "text": "行程缩短:从中心向两侧各擦 2 cm。",
+   "edits": {
+    "wipe.y_out": 0.02,
+    "wipe.y_back": -0.02
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"wipe.y_out\":0.02,\"wipe.y_back\":-0.02}}"
+   ]
+  },
+  {
+   "i": 13,
+   "text": "行程改成从中心向两侧各擦 5 cm。",
+   "edits": {
+    "wipe.y_out": 0.05,
+    "wipe.y_back": -0.05
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"wipe.y_out\":0.05,\"wipe.y_back\":-0.05}}"
+   ]
+  },
+  {
+   "i": 14,
+   "text": "只来回擦 1 趟。",
+   "edits": {
+    "wipe.passes": 1
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"wipe.passes\": 1}}"
+   ]
+  },
+  {
+   "i": 15,
+   "text": "来回擦 5 趟。",
+   "edits": {
+    "wipe.passes": 5
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"wipe.passes\": 5}}"
+   ]
+  },
+  {
+   "i": 16,
+   "text": "来回擦 2 趟。",
+   "edits": {
+    "wipe.passes": 2
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"wipe.passes\": 2}}"
+   ]
+  },
+  {
+   "i": 17,
+   "text": "擦完抬高一点,抬到离台面 8 cm。",
+   "edits": {
+    "lift.height": 0.08
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"lift.height\":0.08}}"
+   ]
+  },
+  {
+   "i": 18,
+   "text": "擦完抬到离台面 10 cm。",
+   "edits": {
+    "lift.height": 0.1
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"lift.height\":0.1}}"
+   ]
+  },
+  {
+   "i": 19,
+   "text": "擦完少抬一点,抬到离台面 3 cm 就行。",
+   "edits": {
+    "lift.height": 0.03
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"lift.height\":0.03}}"
+   ]
+  },
+  {
+   "i": 20,
+   "text": "整个动作放慢一倍,稳一点;位置、力、行程、趟数都不变。",
+   "edits": {
+    "down.speed": 0.005,
+    "down.timeout": 12.0,
+    "wipe.t_force": 0.6,
+    "wipe.t_out": 2.0,
+    "wipe.t_back": 3.0,
+    "wipe.timeout_out": 10.0,
+    "wipe.timeout_back": 12.0,
+    "lift.t_ramp": 1.0,
+    "lift.dwell": 3.0,
+    "lift.timeout": 6.0
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"down.speed\":0.005,\"down.timeout\":12,\"wipe.t_force\":0.6,\"wipe.t_out\":2,\"wipe.t_back\":3,\"wipe.timeout_out\":10,\"wipe.timeout_back\":12,\"lift.t_ramp\":1,\"lift.dwell\":3,\"lift.timeout\":6}}"
+   ]
+  },
+  {
+   "i": 21,
+   "text": "整个动作尽量快;位置、力、行程、趟数都不变。",
+   "edits": {
+    "down.speed": 0.02,
+    "wipe.t_force": 0.1,
+    "wipe.t_out": 0.4,
+    "wipe.t_back": 0.6,
+    "lift.t_ramp": 0.2,
+    "lift.dwell": 0.5
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"down.speed\":0.02,\"wipe.t_force\":0.1,\"wipe.t_out\":0.4,\"wipe.t_back\":0.6,\"lift.t_ramp\":0.2,\"lift.dwell\":0.5}}"
+   ]
+  },
+  {
+   "i": 22,
+   "text": "整个动作稍微慢一点(大约慢 30%);位置、力、行程、趟数都不变。",
+   "edits": {
+    "down.speed": 0.0077,
+    "down.timeout": 7.8,
+    "wipe.t_force": 0.39,
+    "wipe.t_out": 1.3,
+    "wipe.t_back": 1.95,
+    "wipe.timeout_out": 6.5,
+    "wipe.timeout_back": 7.8,
+    "lift.t_ramp": 0.65,
+    "lift.dwell": 1.95,
+    "lift.timeout": 3.9
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"down.speed\": 0.0077, \"down.timeout\": 7.8, \"wipe.t_force\": 0.39, \"wipe.t_out\": 1.3, \"wipe.t_back\": 1.95, \"wipe.timeout_out\": 6.5, \"wipe.timeout_back\": 7.8, \"lift.t_ramp\": 0.65, \"lift.dwell\": 1.95, \"lift.timeout\": 3.9}}"
+   ]
+  },
+  {
+   "i": 23,
+   "text": "整个动作稍微快一点(大约快 30%);位置、力、行程、趟数都不变。",
+   "edits": {
+    "down.speed": 0.013,
+    "down.timeout": 4.6,
+    "wipe.t_force": 0.23,
+    "wipe.t_out": 0.77,
+    "wipe.t_back": 1.15,
+    "wipe.timeout_out": 3.85,
+    "wipe.timeout_back": 4.6,
+    "lift.t_ramp": 0.38,
+    "lift.dwell": 1.15,
+    "lift.timeout": 2.3
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"down.speed\":0.013,\"down.timeout\":4.6,\"wipe.t_force\":0.23,\"wipe.t_out\":0.77,\"wipe.t_back\":1.15,\"wipe.timeout_out\":3.85,\"wipe.timeout_back\":4.6,\"lift.t_ramp\":0.38,\"lift.dwell\":1.15,\"lift.timeout\":2.3}}"
+   ]
+  },
+  {
+   "i": 24,
+   "text": "换到 x = 0.02 的位置擦。",
+   "edits": {
+    "down.x": 0.02,
+    "wipe.x": 0.02
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"down.x\":0.02,\"wipe.x\":0.02}}"
+   ]
+  },
+  {
+   "i": 25,
+   "text": "整条擦拭线沿 y 方向平移 +1 cm,下探点也跟着移。",
+   "edits": {
+    "down.y": 0.01,
+    "wipe.y_out": 0.05,
+    "wipe.y_back": -0.03
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"down.y\": 0.01, \"wipe.y_out\": 0.05, \"wipe.y_back\": -0.03}}"
+   ]
+  },
+  {
+   "i": 26,
+   "text": "擦的时候法向力用 4.5 N。",
+   "edits": {
+    "wipe.force": 4.5
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"wipe.force\":4.5}}"
+   ]
+  },
+  {
+   "i": 27,
+   "text": "行程改成从中心向两侧各擦 3 cm。",
+   "edits": {
+    "wipe.y_out": 0.03,
+    "wipe.y_back": -0.03
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"wipe.y_out\":0.03,\"wipe.y_back\":-0.03}}"
+   ]
+  },
+  {
+   "i": 28,
+   "text": "来回擦 4 趟。",
+   "edits": {
+    "wipe.passes": 4
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"wipe.passes\": 4}}"
+   ]
+  },
+  {
+   "i": 29,
+   "text": "擦完抬到离台面 6 cm。",
+   "edits": {
+    "lift.height": 0.06
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"lift.height\": 0.06}}"
+   ]
+  },
+  {
+   "i": 30,
+   "text": "整个动作放慢 50%;位置、力、行程、趟数都不变。",
+   "edits": {
+    "down.speed": 0.00667,
+    "down.timeout": 9.0,
+    "wipe.t_force": 0.45,
+    "wipe.t_out": 1.5,
+    "wipe.t_back": 2.25,
+    "wipe.timeout_out": 7.5,
+    "wipe.timeout_back": 9.0,
+    "lift.t_ramp": 0.75,
+    "lift.dwell": 2.25,
+    "lift.timeout": 4.5
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\":{\"down.speed\":0.00667,\"down.timeout\":9,\"wipe.t_force\":0.45,\"wipe.t_out\":1.5,\"wipe.t_back\":2.25,\"wipe.timeout_out\":7.5,\"wipe.timeout_back\":9,\"lift.t_ramp\":0.75,\"lift.dwell\":2.25,\"lift.timeout\":4.5}}"
+   ]
+  },
+  {
+   "i": 31,
+   "text": "换到 x = 0 的位置擦,法向力用 5 N。",
+   "edits": {
+    "down.x": 0.0,
+    "wipe.x": 0.0,
+    "wipe.force": 5.0
+   },
+   "calls": 1,
+   "error": null,
+   "raw": [
+    "{\"edits\": {\"down.x\": 0, \"wipe.x\": 0, \"wipe.force\": 5}}"
+   ]
+  }
+ ],
+ "spend": {
+  "calls": 32,
+  "prompt_tokens": 28451,
+  "completion_tokens": 11360,
+  "reasoning_tokens": 10338,
+  "list_cost": 0.015167810000000002,
+  "errors": 0
+ },
+ "analysis": {
+  "per_request": [
+   {
+    "i": 0,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 1,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 2,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 3,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 4,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 5,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 6,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 7,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 8,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 9,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 10,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 11,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 12,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 13,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 14,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 15,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 16,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 17,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 18,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 19,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 20,
+    "kind": "风格",
+    "slots": [
+     "down.speed",
+     "down.timeout",
+     "lift.dwell",
+     "lift.t_ramp",
+     "lift.timeout",
+     "wipe.t_back",
+     "wipe.t_force",
+     "wipe.t_out",
+     "wipe.timeout_back",
+     "wipe.timeout_out"
+    ],
+    "only_style": false,
+    "n": 10
+   },
+   {
+    "i": 21,
+    "kind": "风格",
+    "slots": [
+     "down.speed",
+     "lift.dwell",
+     "lift.t_ramp",
+     "wipe.t_back",
+     "wipe.t_force",
+     "wipe.t_out"
+    ],
+    "only_style": false,
+    "n": 6
+   },
+   {
+    "i": 22,
+    "kind": "风格",
+    "slots": [
+     "down.speed",
+     "down.timeout",
+     "lift.dwell",
+     "lift.t_ramp",
+     "lift.timeout",
+     "wipe.t_back",
+     "wipe.t_force",
+     "wipe.t_out",
+     "wipe.timeout_back",
+     "wipe.timeout_out"
+    ],
+    "only_style": false,
+    "n": 10
+   },
+   {
+    "i": 23,
+    "kind": "风格",
+    "slots": [
+     "down.speed",
+     "down.timeout",
+     "lift.dwell",
+     "lift.t_ramp",
+     "lift.timeout",
+     "wipe.t_back",
+     "wipe.t_force",
+     "wipe.t_out",
+     "wipe.timeout_back",
+     "wipe.timeout_out"
+    ],
+    "only_style": false,
+    "n": 10
+   },
+   {
+    "i": 24,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 25,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 26,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 27,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 28,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 29,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   },
+   {
+    "i": 30,
+    "kind": "风格",
+    "slots": [
+     "down.speed",
+     "down.timeout",
+     "lift.dwell",
+     "lift.t_ramp",
+     "lift.timeout",
+     "wipe.t_back",
+     "wipe.t_force",
+     "wipe.t_out",
+     "wipe.timeout_back",
+     "wipe.timeout_out"
+    ],
+    "only_style": false,
+    "n": 10
+   },
+   {
+    "i": 31,
+    "kind": "任务",
+    "same_slots": true,
+    "same_values": true,
+    "extra": [],
+    "missing": []
+   }
+  ],
+  "train": 24,
+  "held": 8,
+  "runs": {
+   "0.005": {
+    "knobs": 10,
+    "style_knobs": 3,
+    "frozen": 9,
+    "varying": 18,
+    "rand": 0.8823529411764706,
+    "truth_classes_recovered": {
+     "surface": false,
+     "x": true,
+     "y": true,
+     "care": false,
+     "{\"$sum\": [{\"$p\": \"y\"}, {\"$p\": \"stroke\"}]}": true,
+     "{\"$sum\": [{\"$p\": \"y\"}, {\"$p\": \"stroke\", \"scale\": -1}]}": true,
+     "force": true,
+     "passes": true,
+     "lift_height": true
+    },
+    "default_same": true,
+    "fallback": null,
+    "held_covered": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "held_err": [
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     0.0002320710222222491,
+     2.499334073036152e-13
+    ],
+    "held_cat": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "describe": "wipe_table_llm:24 条记录;下层槽位 27 个,动过的 18 个 → 旋钮 10 个(冻结 9 个)\n  x                      任务 · 相等   默认 -0.05          见过 [-0.1, 0.1]        带动 2 个:down.x、wipe.x\n  down_y                 任务 · 相等   默认 0.0            见过 [-0.03, 0.04]      带动 3 个:down.y、wipe.y_out、wipe.y_back\n  down_speed             风格 · 相等   默认 0.01           见过 [0.005, 0.02]      带动 1 个:down.speed\n  style                  风格 · 线性   默认 6.0            见过 [4.6, 12]          带动 4 个:down.timeout、wipe.timeout_out、wipe.timeout_back、lift.timeout\n  d_wipe_y_out           任务 · 差值   默认 0.04           见过 [0.02, 0.06]       带动 2 个:wipe.y_out、wipe.y_back\n  wipe_force             任务 · 相等   默认 3.0            见过 [2, 6]             带动 1 个:wipe.force\n  wipe_passes            任务 · 相等   默认 3              见过 [1, 5]             带动 1 个:wipe.passes\n  k                      任务 · 线性   默认 0.3            见过 [0.1, 0.6]         带动 2 个:wipe.t_force、lift.dwell\n  style_2                风格 · 线性   默认 1.0            见过 [0.4, 2]           带动 3 个:wipe.t_out、wipe.t_back、lift.t_ramp\n  lift_height            任务 · 相等   默认 0.05           见过 [0.03, 0.1]        带动 1 个:lift.height\n  wipe.y_out = down_y + d_wipe_y_out\n  wipe.y_back = down_y + -1·d_wipe_y_out"
+   },
+   "0.02": {
+    "knobs": 9,
+    "style_knobs": 2,
+    "frozen": 9,
+    "varying": 18,
+    "rand": 0.8823529411764706,
+    "truth_classes_recovered": {
+     "surface": false,
+     "x": true,
+     "y": true,
+     "care": false,
+     "{\"$sum\": [{\"$p\": \"y\"}, {\"$p\": \"stroke\"}]}": true,
+     "{\"$sum\": [{\"$p\": \"y\"}, {\"$p\": \"stroke\", \"scale\": -1}]}": true,
+     "force": true,
+     "passes": true,
+     "lift_height": true
+    },
+    "default_same": true,
+    "fallback": null,
+    "held_covered": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "held_err": [
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     2.499334073036152e-13,
+     0.00021100607734991783,
+     2.499334073036152e-13
+    ],
+    "held_cat": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "describe": "wipe_table_llm:24 条记录;下层槽位 27 个,动过的 18 个 → 旋钮 9 个(冻结 9 个)\n  x                      任务 · 相等   默认 -0.05          见过 [-0.1, 0.1]        带动 2 个:down.x、wipe.x\n  down_y                 任务 · 相等   默认 0.0            见过 [-0.03, 0.04]      带动 3 个:down.y、wipe.y_out、wipe.y_back\n  down_speed             风格 · 相等   默认 0.01           见过 [0.005, 0.02]      带动 1 个:down.speed\n  style                  风格 · 线性   默认 6.0            见过 [4.6, 12]          带动 4 个:down.timeout、wipe.timeout_out、wipe.timeout_back、lift.timeout\n  d_wipe_y_out           任务 · 差值   默认 0.04           见过 [0.02, 0.06]       带动 2 个:wipe.y_out、wipe.y_back\n  wipe_force             任务 · 相等   默认 3.0            见过 [2, 6]             带动 1 个:wipe.force\n  wipe_passes            任务 · 相等   默认 3              见过 [1, 5]             带动 1 个:wipe.passes\n  lift_height            任务 · 相等   默认 0.05           见过 [0.03, 0.1]        带动 1 个:lift.height\n  k                      任务 · 分段线性 默认 0.4            见过 [0, 1]             带动 5 个:wipe.t_force、wipe.t_out、wipe.t_back、lift.t_ramp、lift.dwell\n  wipe.y_out = down_y + d_wipe_y_out\n  wipe.y_back = down_y + -1·d_wipe_y_out"
+   },
+   "0.05": {
+    "knobs": 10,
+    "style_knobs": 2,
+    "frozen": 9,
+    "varying": 18,
+    "rand": 0.8758169934640523,
+    "truth_classes_recovered": {
+     "surface": false,
+     "x": true,
+     "y": true,
+     "care": false,
+     "{\"$sum\": [{\"$p\": \"y\"}, {\"$p\": \"stroke\"}]}": true,
+     "{\"$sum\": [{\"$p\": \"y\"}, {\"$p\": \"stroke\", \"scale\": -1}]}": true,
+     "force": true,
+     "passes": true,
+     "lift_height": true
+    },
+    "default_same": true,
+    "fallback": null,
+    "held_covered": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "held_err": [
+     3.124670661103224e-13,
+     3.124670661103224e-13,
+     3.124670661103224e-13,
+     3.124670661103224e-13,
+     3.124670661103224e-13,
+     3.124670661103224e-13,
+     0.041847694508228866,
+     3.124670661103224e-13
+    ],
+    "held_cat": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "describe": "wipe_table_llm:24 条记录;下层槽位 27 个,动过的 18 个 → 旋钮 10 个(冻结 9 个)\n  x                      任务 · 相等   默认 -0.05          见过 [-0.1, 0.1]        带动 2 个:down.x、wipe.x\n  down_y                 任务 · 相等   默认 0.0            见过 [-0.03, 0.04]      带动 1 个:down.y\n  style                  风格 · 线性   默认 6.0            见过 [4.6, 12]          带动 4 个:down.timeout、wipe.timeout_out、wipe.timeout_back、lift.timeout\n  wipe_y_out             任务 · 相等   默认 0.04           见过 [0.01, 0.08]       带动 1 个:wipe.y_out\n  wipe_y_back            任务 · 相等   默认 -0.04          见过 [-0.07, 0]         带动 1 个:wipe.y_back\n  wipe_force             任务 · 相等   默认 3.0            见过 [2, 6]             带动 1 个:wipe.force\n  wipe_passes            任务 · 相等   默认 3              见过 [1, 5]             带动 1 个:wipe.passes\n  lift_height            任务 · 相等   默认 0.05           见过 [0.03, 0.1]        带动 1 个:lift.height\n  style_2                风格 · 分段线性 默认 0.666666666667 见过 [0, 1]             带动 3 个:down.speed、wipe.t_force、lift.t_ramp\n  k                      任务 · 分段线性 默认 0.375          见过 [0, 1]             带动 3 个:wipe.t_out、wipe.t_back、lift.dwell"
+   }
+  }
+ }
+}

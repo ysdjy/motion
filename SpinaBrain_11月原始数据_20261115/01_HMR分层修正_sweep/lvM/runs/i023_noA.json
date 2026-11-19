@@ -1,0 +1,150 @@
+{
+ "id": 23,
+ "arm": "noA",
+ "inst": {
+  "id": 23,
+  "kind": "mixed",
+  "run_seed": 549,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.0,
+    0.0,
+    0.016327038621468757
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 3.27,
+  "disturb": "go,2.74,0.37,9.3,-36.9,-18.0"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0582
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3075,
+    0.0001,
+    0.4885
+   ],
+   "deviation": [
+    0.0005,
+    0.0001,
+    0.0016
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 12.5,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, 0.0, 0.0163] / [0.0, -0.0137, 0.0108])"
+    }
+   ],
+   "R": 2.269
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 4.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, 0.0, 0.0151] / [0.0, -0.0068, 0.0139])"
+    }
+   ],
+   "R": 2.017
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 4.66,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0,
+      0.0,
+      0.0145
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0,
+      -0.0145
+     ]
+    }
+   ],
+   "R": 1.874,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

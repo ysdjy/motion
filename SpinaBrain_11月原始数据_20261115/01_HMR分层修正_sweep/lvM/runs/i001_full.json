@@ -1,0 +1,220 @@
+{
+ "id": 1,
+ "arm": "full",
+ "inst": {
+  "id": 1,
+  "kind": "mixed",
+  "run_seed": 926,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 6.881437055068014,
+   "id": "press2"
+  },
+  "mag_tol": 4.59,
+  "disturb": "press_hold,0.85,0.70,28.0,25.4,4.2"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L0"
+ ],
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "deviation": null,
+   "pass": true,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ],
+    [
+     "lift",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.0968,
+   "deviation": 0.0968,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 6.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.9636
+   ],
+   "deviation": [
+    0.9636
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0499,
+    -0.0002
+   ],
+   "deviation": [
+    0.0001,
+    -0.0002
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 44.8,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['force', 'drift_reset', 'force', 'force']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 12.26,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      7.1231
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -6.0
+     ]
+    }
+   ],
+   "R": 3.83,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 8.533,
+   "kind": "force",
+   "peak": 11.845,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 8.54,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 9.035,
+   "kind": "force",
+   "peak": 5.1108,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 12.62,
+   "kind": "force",
+   "peak": 5.8814,
+   "thr": 3.0
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

@@ -1,0 +1,758 @@
+{
+ "id": 32,
+ "arm": "full",
+ "inst": {
+  "id": 32,
+  "kind": "disturb",
+  "run_seed": 689,
+  "task": "slide_long",
+  "disturb": "slide,2.07,0.60,-9.5,-19.6,15.7"
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L1",
+  "L1b",
+  "L1",
+  "L1",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1",
+  "L1",
+  "L1b",
+  "L1",
+  "solver",
+  "L1b",
+  "L1",
+  "L1",
+  "L1",
+  "L2",
+  "L1",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.0,
+   "deviation": -1.0,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    -0.0042
+   ],
+   "deviation": [
+    -0.0242
+   ],
+   "pass": false,
+   "target": 0.02
+  }
+ ],
+ "llm": {
+  "calls": 4,
+  "cost_usd": 0.0201
+ },
+ "sim_s": 479.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "20ee6b40e4ff",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 4,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差不变 3.76 → 3.94,持续 1.5 s",
+    "固定 / 契约约束压着,可能是局部最优 [{'source': 'fixed', 'kind': '工作空间边界'}]"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 4,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 5,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 6,
+   "level": "stop",
+   "why": [
+    "阶段 slide 需要 L2 但预算用尽:['补偿后整体残差不变 4.32 → 4.68,持续 1.5 s', \"压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_z_no_lift', 'frac': 0.84}, {'source': 'fixed', 'kind': '工作空间边界'}]\"]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 8.22,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.20 / 5.22)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 9.24,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.28 / 2.02)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 9.4,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0044
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0044
+     ]
+    }
+   ],
+   "R": 0.063,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 20.2,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.88 / 1.14)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 21.2,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.91 / 1.11)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 21.5,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      0.0041
+     ],
+     "c_old": [
+      0.0044
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0003
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t": 35.26,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.90 / 1.23)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t": 36.28,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.91 / 1.52)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t": 37.3,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.91 / 2.01)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t": 37.5,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0061
+     ],
+     "c_old": [
+      0.0003
+     ],
+     "g_raw": [
+      2.488
+     ],
+     "g": [
+      2.488
+     ],
+     "c_new": [
+      0.0028
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 4,
+   "t": 40.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0194
+     ],
+     "c_old": [
+      0.0028
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0188
+     ]
+    }
+   ],
+   "R": 3.759,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 4,
+   "t": 42.04,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0197
+     ],
+     "c_old": [
+      0.0188
+     ],
+     "g_raw": [
+      -0.019
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.019 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 4.165
+  },
+  {
+   "stage": "slide",
+   "attempt": 5,
+   "t": 48.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0193
+     ],
+     "c_old": [
+      0.0395
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.04
+     ]
+    }
+   ],
+   "R": 3.74,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 5,
+   "t": 50.04,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0199
+     ],
+     "c_old": [
+      0.04
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.04
+     ]
+    }
+   ],
+   "R": 3.88,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 5,
+   "t": 52.06,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.021
+     ],
+     "c_old": [
+      0.04
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.04
+     ]
+    }
+   ],
+   "R": 4.144,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 6,
+   "t": 56.12,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0236
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.016
+     ]
+    }
+   ],
+   "R": 4.32,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 6,
+   "t": 58.14,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0212
+     ],
+     "c_old": [
+      0.016
+     ],
+     "g_raw": [
+      0.15
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.150 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 3.82
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "slide",
+   "attempt": 4,
+   "t": 43.68,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 3.76 → 3.94,持续 1.5 s"
+   ],
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "工作空间边界"
+    }
+   ],
+   "pred_bad": [
+    "vy"
+   ],
+   "cost_min": 26635.2265625,
+   "ess": 46.383216857910156,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  },
+  {
+   "stage": "slide",
+   "attempt": 6,
+   "t": 60.74,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 4.32 → 4.68,持续 1.5 s"
+   ],
+   "active": [
+    {
+     "source": "strategy",
+     "kind": "硬约束项",
+     "id": "_z_no_lift",
+     "frac": 0.84
+    },
+    {
+     "source": "fixed",
+     "kind": "工作空间边界"
+    }
+   ],
+   "pred_bad": [
+    "vy"
+   ],
+   "cost_min": 10792811.0,
+   "ess": 1.998233675956726,
+   "action": "升级 L2(策略项压着)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "slide",
+   "trigger": [
+    "阶段末仍不达标 ['keep2', 'vy']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_x",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x"
+     ],
+     "mode": "target",
+     "target": -0.05,
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_lift",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": 0.003,
+     "sigma": 0.004,
+     "weight": 0.5
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "策略项 _lift 在整个滑动阶段给出 +0.003 m/s 的离面(z)速度目标,这与 keep2 要求的持续接触直接冲突:滑行几秒后夹爪就被抬离桌面(渲染图里指尖与桌面有明显间隙),keep2 从 0.68/0.81 掉到 0.0;同时 vy 的 comp=0.04 让规划器按 0.06 m/s(目标值的 3 倍)去规划,工具在接触状态与脱离状态之间反复切换,速度大幅振荡(z≈4~6,并伴随频繁 stall 事件)。只调节法向力下限上的 comp 无法改变“规划器被要求向上抬、被要求超速滑”这两个事实,所以怎么局部补偿都不会收敛。",
+   "comp_patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.3
+    },
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": 0.0
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 80.76,
+   "helpers_after": [
+    {
+     "id": "_x",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x"
+     ],
+     "mode": "target",
+     "target": -0.05,
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_press",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": -0.002,
+     "sigma": 0.002,
+     "weight": 1
+    },
+    {
+     "id": "_z_no_lift",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "upper",
+     "ub": 0.0,
+     "sigma": 0.004,
+     "weight": 2,
+     "penalty": "hard"
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.3203
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 6.99,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.8002503
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 33.92,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "patch": [
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.75
+    },
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": 0.03949329291029523
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 254.54,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 slide 需要 L2 但预算用尽:['补偿后整体残差不变 4.32 → 4.68,持续 1.5 s', \"压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_z_no_lift', 'frac': 0.84}, {'source': 'fixed', 'kind': '工作空间边界'}]\"]"
+}

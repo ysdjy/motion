@@ -1,0 +1,179 @@
+{
+ "probe": "elbow_lock",
+ "family": "strategy",
+ "task": "config_long",
+ "seed": 0,
+ "mode": "decide",
+ "model": null,
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "decision_ok": true,
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "right",
+   "deviation": null,
+   "pass": false,
+   "target": "left",
+   "elbow_y": -0.0416
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.307,
+    0.0,
+    0.4869
+   ],
+   "deviation": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 10.2,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['arm']",
+    "策略项压着 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_elbow_side', 'frac': 1.0}]"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "需要 L2(本次实验不调用大模型):阶段末仍不达标 ['arm']; 策略项压着 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_elbow_side', 'frac': 1.0}]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "strategy",
+     "kind": "硬约束项",
+     "id": "_elbow_side",
+     "frac": 1.0
+    }
+   ],
+   "failing": [
+    "arm"
+   ],
+   "action": "升级 L2(策略项压着)"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "需要 L2(本次实验不调用大模型):阶段末仍不达标 ['arm']; 策略项压着 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_elbow_side', 'frac': 1.0}]",
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "right",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": -0.0416
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.88,
+     "p95": 5.04,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.008,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "stop(need L2)"
+  }
+ ]
+}

@@ -1,0 +1,910 @@
+{
+ "probe": "slow_lock",
+ "family": "strategy",
+ "task": "slide_long",
+ "seed": 3,
+ "mode": "llm",
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "decision_ok": true,
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    0.013
+   ],
+   "deviation": [
+    -0.007
+   ],
+   "pass": false,
+   "target": 0.02
+  }
+ ],
+ "stages": [
+  {
+   "id": "touchdown",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "slide",
+   "t0": 27.52000000001065,
+   "t1": 32.720000000014444,
+   "done": false,
+   "exit": "supervisor:L2: 补偿后整体残差变大 0.68 → 0.77,持续 0.5 s(已撤回这次补偿)",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "slide",
+     "t0": 5.500000000000171,
+     "t1": 13.499999999997957,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "slide",
+     "t0": 13.499999999997957,
+     "t1": 19.520000000000874,
+     "done": false,
+     "exit": "supervisor:L2: 补偿后整体残差不变 3.94 → 4.00,持续 1.5 s",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "slide",
+     "t0": 19.520000000000874,
+     "t1": 27.52000000001065,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 66.5,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差不变 4.09 → 3.97,持续 1.5 s",
+    "没有约束压着,疑似采样退化 []"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "L2",
+   "why": [
+    "补偿后整体残差不变 3.94 → 4.00,持续 1.5 s",
+    "压着的约束 []"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "level": "stop",
+   "why": [
+    "阶段 slide 需要 L2 但预算用尽:['补偿后整体残差变大 0.68 → 0.77,持续 0.5 s(已撤回这次补偿)', '压着的约束 []']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0202
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.016
+     ]
+    }
+   ],
+   "R": 4.094,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 10.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0199
+     ],
+     "c_old": [
+      0.016
+     ],
+     "g_raw": [
+      0.022
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.022 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 4.0
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 13.5,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.02
+     ],
+     "c_old": [
+      0.016
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.032
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 16.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0198
+     ],
+     "c_old": [
+      0.032
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.04
+     ]
+    }
+   ],
+   "R": 3.94,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 18.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.02
+     ],
+     "c_old": [
+      0.04
+     ],
+     "g_raw": [
+      -0.024
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.024 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 3.976
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "t": 22.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0083
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0083
+     ]
+    }
+   ],
+   "R": 1.405,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "t": 24.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0063
+     ],
+     "c_old": [
+      0.0083
+     ],
+     "g_raw": [
+      0.241
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.241 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 0.591
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "t": 27.52,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0061
+     ],
+     "c_old": [
+      0.0083
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0144
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t": 30.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0063
+     ],
+     "c_old": [
+      0.0144
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0207
+     ]
+    }
+   ],
+   "R": 0.676,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t": 32.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0071
+     ],
+     "c_old": [
+      0.0207
+     ],
+     "g_raw": [
+      -0.126
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.126 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 0.686
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 11.54,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 4.09 → 3.97,持续 1.5 s"
+   ],
+   "active": [],
+   "pred_bad": [
+    "vy"
+   ],
+   "cost_min": 52557.40234375,
+   "ess": 40.882164001464844,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 19.52,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 3.94 → 4.00,持续 1.5 s"
+   ],
+   "active": [],
+   "pred_bad": [
+    "vy"
+   ],
+   "cost_min": 103613.5859375,
+   "ess": 37.47412109375,
+   "action": "升级 L2(求解器补救后仍不降)"
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t": 32.72,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 0.68 → 0.77,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [],
+   "pred_bad": [
+    "vy"
+   ],
+   "cost_min": 45707.37109375,
+   "ess": 46.303104400634766,
+   "action": "升级 L2(求解器补救后仍不降)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "slide",
+   "trigger": [
+    "补偿后整体残差不变 3.94 → 4.00,持续 1.5 s",
+    "压着的约束 []"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_x",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x"
+     ],
+     "mode": "target",
+     "target": -0.05,
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_lift",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": 0.003,
+     "sigma": 0.004,
+     "weight": 0.5
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    },
+    {
+     "id": "_slow",
+     "level": "tcp_motion",
+     "attr": "speed",
+     "frame": "base",
+     "mode": "upper",
+     "ub": 0.008,
+     "sigma": 0.005,
+     "penalty": "hard"
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "两个策略项互相矛盾,而且都和契约要求相反:_slow 用 hard 上限把 TCP 速度限制在 0.008 m/s,而契约要求沿 y 方向 0.02 m/s 的滑动速度;因此规划器被限制住,实测速度只能为 0(stall、drift down),把 vy 的 comp 从 0 加到 0.04,只会让规划目标更远离可达范围。同时 _lift 以 +0.003 m/s 持续向上抬升,把夹爪逐渐拉离桌面,接触比例从 0.94 掉到 0,所以 keep2 也随之失效。局部补偿(法向力下限或速度目标)改不了这两个策略项在规划层造成的冲突。",
+   "comp_patch": [
+    {
+     "id": "vy",
+     "field": "comp",
+     "value": 0.0
+    },
+    {
+     "id": "keep2",
+     "field": "comp",
+     "value": 0.0
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 14.14,
+   "helpers_after": [
+    {
+     "id": "_x",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x"
+     ],
+     "mode": "target",
+     "target": -0.05,
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_lift",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": -0.002,
+     "sigma": 0.004,
+     "weight": 0.5
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    },
+    {
+     "id": "_slow",
+     "level": "tcp_motion",
+     "attr": "speed",
+     "frame": "base",
+     "mode": "upper",
+     "ub": 0.03,
+     "sigma": 0.005,
+     "penalty": "hard"
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 slide 需要 L2 但预算用尽:['补偿后整体残差变大 0.68 → 0.77,持续 0.5 s(已撤回这次补偿)', '压着的约束 []']",
+ "gates": [
+  {
+   "stage": "touchdown",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0012,
+     "force": 3.0732
+    },
+    "resets": 3
+   },
+   "action": "next"
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.2608,
+     "deviation": -0.7392,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.004,
+     "measured": [
+      0.0
+     ],
+     "deviation": [
+      -0.02
+     ],
+     "pass": false,
+     "target": 0.02
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 8.08
+     },
+     "fail_lead_s": 5.42,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 6.02,
+      "pred_ok": 6.02,
+      "drift": 6.08,
+      "stall": 6.5
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 4.83,
+     "p95": 5.69,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0011,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t0": 13.499999999997957,
+   "t1": 19.520000000000874,
+   "exit": "supervisor:L2: 补偿后整体残差不变 3.94 → 4.00,持续 1.5 s",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.0,
+     "deviation": -1.0,
+     "pass": false,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.004,
+     "measured": [
+      0.0
+     ],
+     "deviation": [
+      -0.02
+     ],
+     "pass": false,
+     "target": 0.02
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": false,
+     "samples": 276,
+     "first_alarm": {
+      "meas_ok": 14.02
+     },
+     "fail_lead_s": 5.5,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 276,
+     "first_alarm": {
+      "meas_ok": 14.02,
+      "pred_ok": 14.02,
+      "drift": 14.08,
+      "stall": 14.5
+     },
+     "fail_lead_s": 5.5,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 4.81,
+     "p95": 6.58,
+     "calls": 301
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0007,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 2,
+   "t0": 19.520000000000874,
+   "t1": 27.52000000001065,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 0.9903,
+     "deviation": -0.0097,
+     "pass": true,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.004,
+     "measured": [
+      0.0139
+     ],
+     "deviation": [
+      -0.0061
+     ],
+     "pass": false,
+     "target": 0.02
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": true,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 20.04
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 375,
+     "first_alarm": {
+      "meas_ok": 20.04,
+      "pred_ok": 20.04,
+      "drift": 20.16,
+      "stall": 21.12
+     },
+     "fail_lead_s": 7.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 4.81,
+     "p95": 5.72,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0052,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "slide",
+   "attempt": 3,
+   "t0": 27.52000000001065,
+   "t1": 32.720000000014444,
+   "exit": "supervisor:L2: 补偿后整体残差变大 0.68 → 0.77,持续 0.5 s(已撤回这次补偿)",
+   "pass": false,
+   "rows": [
+    {
+     "id": "keep2",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 1.0,
+     "deviation": 0.0,
+     "pass": true,
+     "target": 1.0
+    },
+    {
+     "id": "vy",
+     "cat": "K1",
+     "kind": "target",
+     "unit": "m/s",
+     "tol": 0.004,
+     "measured": [
+      0.013
+     ],
+     "deviation": [
+      -0.007
+     ],
+     "pass": false,
+     "target": 0.02
+    }
+   ],
+   "monitor": {
+    "keep2": {
+     "final_pass": true,
+     "samples": 235,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "vy": {
+     "final_pass": false,
+     "samples": 235,
+     "first_alarm": {
+      "meas_ok": 28.04,
+      "pred_ok": 28.04,
+      "drift": 28.42,
+      "stall": 28.7
+     },
+     "fail_lead_s": 4.68,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 4.6,
+     "p95": 5.73,
+     "calls": 260
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0053,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

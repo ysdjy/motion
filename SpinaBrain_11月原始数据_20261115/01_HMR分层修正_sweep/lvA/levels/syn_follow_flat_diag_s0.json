@@ -1,0 +1,235 @@
+{
+ "probe": "syn_follow",
+ "family": "solver",
+ "task": "follow_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "flat_diag",
+ "llm": {
+  "calls": 2,
+  "cost_usd": 0.00926,
+  "tokens": 23529,
+  "latency_s": 134.7,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "solver"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.1196,
+    0.012,
+    0.1461
+   ],
+   "deviation": [
+    -0.1196,
+    0.012,
+    0.0461
+   ],
+   "pass": false,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.1633
+   ],
+   "deviation": [
+    -0.0367
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 155.5,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "L2 失败:契约检查不通过:[('_pos_track_prio', '未知的 level/attr: ee/pos'), ('_ori_hold_soft', '未知的 level/attr: ee/ori_cone')]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 12.0,
+   "where": "阶段末",
+   "active": [],
+   "failing": [
+    "follow"
+   ],
+   "action": "升级 L2(flat_diag)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "阶段末仍不达标 ['follow']",
+    "压着的约束 []"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    },
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": "契约检查不通过:[('_pos_track_prio', '未知的 level/attr: ee/pos'), ('_ori_hold_soft', '未知的 level/attr: ee/ori_cone')]",
+   "changed": false,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "latency_s": 134.71
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "L2 失败:契约检查不通过:[('_pos_track_prio', '未知的 level/attr: ee/pos'), ('_ori_hold_soft', '未知的 level/attr: ee/ori_cone')]",
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.1196,
+      0.012,
+      0.1461
+     ],
+     "deviation": [
+      -0.1196,
+      0.012,
+      0.0461
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.1633
+     ],
+     "deviation": [
+      -0.0367
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "pred_ok": 1.68,
+      "meas_ok": 1.84,
+      "stall": 2.0,
+      "drift": 3.48
+     },
+     "fail_lead_s": 0.18,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.72,
+     "p95": 16.22,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0008,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 error)"
+  }
+ ]
+}

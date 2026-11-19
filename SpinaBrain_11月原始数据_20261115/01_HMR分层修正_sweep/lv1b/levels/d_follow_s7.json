@@ -1,0 +1,522 @@
+{
+ "probe": "d_follow",
+ "family": "disturb",
+ "task": "follow_long",
+ "seed": 7,
+ "mode": "decide",
+ "cond": null,
+ "llm": null,
+ "model": null,
+ "expect": [
+  "L0",
+  "none"
+ ],
+ "reached": "L2",
+ "first_level": "L1",
+ "level_path": [
+  "L1",
+  "solver",
+  "L0",
+  "L1",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0002,
+    -0.0181,
+    0.1016
+   ],
+   "deviation": [
+    -0.0002,
+    -0.0181,
+    0.0016
+   ],
+   "pass": false,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.2185
+   ],
+   "deviation": [
+    0.0185
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 12.019999999998777,
+   "t1": 19.4600000000008,
+   "done": false,
+   "exit": "supervisor:L2: 补偿后整体残差变大 0.00 → 1.32,持续 0.5 s(已撤回这次补偿)",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 31.9,
+ "exec_alarms": 1,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差变大 0.01 → 1.32,持续 0.5 s(已撤回这次补偿)",
+    "没有约束压着,疑似采样退化 []"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['drift_reset']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "需要L2",
+   "why": [
+    "补偿后整体残差变大 0.00 → 1.32,持续 0.5 s(已撤回这次补偿)",
+    "压着的约束 []"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "需要 L2(本次实验不调用大模型):补偿后整体残差变大 0.00 → 1.32,持续 0.5 s(已撤回这次补偿); 压着的约束 []"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.3,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.79 / 1.48)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.22,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0088,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0088,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.007,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.24,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0197,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0088,
+      0.0
+     ],
+     "g_raw": [
+      3.23
+     ],
+     "fail": "分量 1 灵敏度 ĝ = 3.230 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 1.151
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.76,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.65 / 1.69)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 16.76,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.95 / 1.28)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 16.96,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0085,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0085,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.0,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 18.96,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0188,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0085,
+      0.0
+     ],
+     "g_raw": [
+      3.229
+     ],
+     "fail": "分量 1 灵敏度 ĝ = 3.229 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 1.253
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.76,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 0.01 → 1.32,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [],
+   "pred_bad": [],
+   "cost_min": 192.96026611328125,
+   "ess": 47.04723358154297,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 19.46,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 0.00 → 1.32,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [],
+   "pred_bad": [],
+   "cost_min": 186.94497680664062,
+   "ess": 36.27482223510742,
+   "action": "升级 L2(求解器补救后仍不降)"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.3,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": true,
+ "abort_reason": "需要 L2(本次实验不调用大模型):补偿后整体残差变大 0.00 → 1.32,持续 0.5 s(已撤回这次补偿); 压着的约束 []",
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0004,
+      0.0085,
+      0.0985
+     ],
+     "deviation": [
+      0.0004,
+      0.0085,
+      -0.0015
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.1992
+     ],
+     "deviation": [
+      -0.0008
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "drift": 3.24,
+      "pred_ok": 3.34,
+      "meas_ok": 3.5,
+      "stall": 3.5
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.94,
+     "p95": 13.66,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [
+     {
+      "t": 3.3,
+      "kind": "drift_reset",
+      "peak": 2,
+      "thr": 2
+     }
+    ],
+    "peak": {
+     "track": 0.0266,
+     "force": 0.0
+    },
+    "resets": 3
+   },
+   "action": "L0+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 12.019999999998777,
+   "t1": 19.4600000000008,
+   "exit": "supervisor:L2: 补偿后整体残差变大 0.00 → 1.32,持续 0.5 s(已撤回这次补偿)",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.0002,
+      -0.0181,
+      0.1016
+     ],
+     "deviation": [
+      -0.0002,
+      -0.0181,
+      0.0016
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.2185
+     ],
+     "deviation": [
+      0.0185
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 297,
+     "first_alarm": {
+      "drift": 14.86,
+      "meas_ok": 15.24,
+      "stall": 15.24,
+      "pred_ok": 15.54
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 297,
+     "first_alarm": {
+      "drift": 16.88
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 9.7,
+     "p95": 13.19,
+     "calls": 372
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0063,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "stop(need L2)"
+  }
+ ]
+}

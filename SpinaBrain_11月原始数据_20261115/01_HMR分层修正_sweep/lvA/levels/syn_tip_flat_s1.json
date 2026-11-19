@@ -1,0 +1,298 @@
+{
+ "probe": "syn_tip",
+ "family": "solver",
+ "task": "tip_long",
+ "seed": 1,
+ "mode": "llm",
+ "cond": "flat",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.0031,
+  "tokens": 7303,
+  "latency_s": 56.6,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "solver"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "3cd64d01d032",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "tip",
+   "cat": "D4",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0,
+    0.0013,
+    0.0311
+   ],
+   "deviation": [
+    0.0,
+    0.0013,
+    0.0011
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.03
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 90.5,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['tip']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "阶段末仍不达标 ['tip']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "tip 的偏差在 x 方向恒为 -12 cm(约 15 倍容差),z 向残差曲线在 14.95 处停滞,不是缓慢漂移,而是被局部极小点卡住:策略项 _tool_down 用 ub=0.1 rad(≈5.7°)、sigma=0.05、weight=2 把工具 z 轴限制在垂直向下的很窄范围内,又叠加了工具 z 正向 8 cm 的尖端偏移,使 TCP 在 x/y 方向几乎不能再横向移动(最多 8 cm×sin5.7°≈0.8 cm)。位置目标与姿态约束冲突时,规划器优先满足姿态,牺牲位置。只改 comp 只会整体平移目标,矛盾依旧,所以无效。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 56.57,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.6,
+     "sigma": 0.3,
+     "weight": 0.5
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tip",
+     "cat": "D4",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.1196,
+      0.0084,
+      0.0676
+     ],
+     "deviation": [
+      -0.1196,
+      0.0084,
+      0.0376
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.03
+     ]
+    }
+   ],
+   "monitor": {
+    "tip": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.51,
+     "p95": 7.63,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0006,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "tip",
+     "cat": "D4",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0,
+      0.0013,
+      0.0311
+     ],
+     "deviation": [
+      0.0,
+      0.0013,
+      0.0011
+     ],
+     "pass": true,
+     "target": [
+      0.0,
+      0.0,
+      0.03
+     ]
+    }
+   ],
+   "monitor": {
+    "tip": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "drift": 14.9,
+      "meas_ok": 15.22,
+      "stall": 15.22,
+      "pred_ok": 15.7
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.63,
+     "p95": 8.6,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0116,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

@@ -1,0 +1,242 @@
+{
+ "id": 0,
+ "arm": "L1",
+ "inst": {
+  "id": 0,
+  "kind": "strategy",
+  "run_seed": 606,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.06964698263998123
+  ]
+ },
+ "final_pass": false,
+ "reached": "L2",
+ "level_path": [
+  "L1",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend"
+   ],
+   "deviation": null,
+   "pass": false,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "supervisor:L2: 补偿后整体残差变大 3.60 → 4.16,持续 0.5 s(已撤回这次补偿)"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.0736,
+   "deviation": 0.0736,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 4.94,
+   "deviation": -1.06,
+   "pass": false,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.981,
+   "deviation": -0.019,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.1357
+   ],
+   "deviation": [
+    0.1357
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0706,
+    0.0004
+   ],
+   "deviation": [
+    -0.0206,
+    0.0004
+   ],
+   "pass": false,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 21.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "0c298aa29ea2",
+   "pms": "8acec675a135",
+   "exp_xemb": "eeb17154c640"
+  }
+ },
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "补偿后整体残差变大 3.60 → 4.16,持续 0.5 s(已撤回这次补偿)",
+    "压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_x_box', 'frac': 1.0}, {'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0384}]"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "需要 L2(本次实验不调用大模型):补偿后整体残差变大 3.60 → 4.16,持续 0.5 s(已撤回这次补偿); 压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_x_box', 'frac': 1.0}, {'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0384}]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 9.9,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "spot",
+     "e": [
+      -0.0196,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.016,
+      0.0
+     ]
+    }
+   ],
+   "R": 3.602,
+   "problems": []
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 11.92,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "spot",
+     "e": [
+      -0.0206,
+      0.0
+     ],
+     "c_old": [
+      0.016,
+      0.0
+     ],
+     "g_raw": [
+      -0.062
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.062 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 4.16
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 12.44,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 3.60 → 4.16,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [
+    {
+     "source": "strategy",
+     "kind": "硬约束项",
+     "id": "_x_box",
+     "frac": 1.0
+    },
+    {
+     "source": "fixed",
+     "kind": "可达边界(可操作度低)",
+     "manip": 0.0384
+    }
+   ],
+   "pred_bad": [],
+   "cost_min": 26147.009765625,
+   "ess": 45.71298599243164,
+   "action": "升级 L2(策略项压着)"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "需要 L2(本次实验不调用大模型):补偿后整体残差变大 3.60 → 4.16,持续 0.5 s(已撤回这次补偿); 压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_x_box', 'frac': 1.0}, {'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0384}]"
+}

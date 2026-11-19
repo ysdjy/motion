@@ -1,0 +1,853 @@
+{
+ "probe": "syn_seq",
+ "family": "solver_x",
+ "task": "seq_long",
+ "seed": 2,
+ "mode": "llm",
+ "cond": "no_diag",
+ "llm": {
+  "calls": 8,
+  "cost_usd": 0.03769,
+  "tokens": 70787,
+  "latency_s": 378.2,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "solver"
+ ],
+ "reached": "L2",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L2",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [],
+   "deviation": null,
+   "pass": false,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "timeout"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": null,
+   "deviation": null,
+   "pass": false,
+   "target": 2.0,
+   "exit": "timeout"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": null,
+   "deviation": null,
+   "pass": false,
+   "target": 6.0,
+   "error": "阶段未执行"
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": null,
+   "deviation": null,
+   "pass": false,
+   "target": 1.0,
+   "error": "阶段未执行"
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": null,
+   "deviation": null,
+   "pass": false,
+   "target": 5.0,
+   "error": "阶段未执行"
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": null,
+   "deviation": null,
+   "pass": false,
+   "target": [
+    -0.05,
+    0.0
+   ],
+   "error": "阶段未执行"
+  }
+ ],
+ "stages": [
+  {
+   "id": "descend",
+   "t0": 13.779999999997802,
+   "t1": 19.78000000000119,
+   "done": false,
+   "exit": "timeout",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "descend",
+     "t0": 2.9999999999997806,
+     "t1": 9.000000000000451,
+     "done": false,
+     "exit": "timeout",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "descend",
+     "t0": 9.000000000000451,
+     "t1": 13.579999999997913,
+     "done": true,
+     "exit": "trigger",
+     "f_at_switch": 2.6010133828326434,
+     "extension_s": 0.0
+    },
+    {
+     "id": "descend",
+     "t0": 13.579999999997913,
+     "t1": 13.599999999997902,
+     "done": true,
+     "exit": "trigger",
+     "f_at_switch": 2.827774036129511,
+     "extension_s": 0.0
+    },
+    {
+     "id": "descend",
+     "t0": 13.599999999997902,
+     "t1": 13.739999999997824,
+     "done": true,
+     "exit": "trigger",
+     "f_at_switch": 4.216953603850984,
+     "extension_s": 0.0
+    },
+    {
+     "id": "descend",
+     "t0": 13.739999999997824,
+     "t1": 13.759999999997813,
+     "done": true,
+     "exit": "trigger",
+     "f_at_switch": 4.396729672449732,
+     "extension_s": 0.0
+    },
+    {
+     "id": "descend",
+     "t0": 13.759999999997813,
+     "t1": 13.779999999997802,
+     "done": true,
+     "exit": "trigger",
+     "f_at_switch": 4.5349031406241185,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 409.8,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "descend",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['touch']"
+   ]
+  },
+  {
+   "stage": "descend",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['touch']"
+   ]
+  },
+  {
+   "stage": "descend",
+   "attempt": 2,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['touch']"
+   ]
+  },
+  {
+   "stage": "descend",
+   "attempt": 3,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['touch']"
+   ]
+  },
+  {
+   "stage": "descend",
+   "attempt": 4,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['touch']"
+   ]
+  },
+  {
+   "stage": "descend",
+   "attempt": 5,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['touch']"
+   ]
+  },
+  {
+   "stage": "descend",
+   "attempt": 6,
+   "level": "stop",
+   "why": [
+    "阶段 descend 需要 L2 但预算用尽:[\"阶段末仍不达标 ['touch']\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "descend",
+   "trigger": [
+    "阶段末仍不达标 ['touch']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_down",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": -0.004,
+     "sigma": 0.002,
+     "weight": 2
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    },
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {
+    "press_hold": [
+     {
+      "id": "_keep_ori",
+      "level": "tcp_motion",
+      "attr": "ori",
+      "frame": "start_tool",
+      "axes": [
+       "rx",
+       "ry",
+       "rz"
+      ],
+      "mode": "target",
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "sigma": 0.02,
+      "weight": 4
+     }
+    ]
+   },
+   "later_helpers_after": {
+    "press_hold": [
+     {
+      "id": "_xy",
+      "level": "tcp_motion",
+      "attr": "pos",
+      "frame": "surface:table",
+      "axes": [
+       "x",
+       "y"
+      ],
+      "mode": "target",
+      "target": [
+       -0.05,
+       0.0
+      ],
+      "sigma": 0.004,
+      "weight": 3
+     },
+     {
+      "id": "_press",
+      "level": "tcp_motion",
+      "attr": "lin_vel",
+      "frame": "surface:table",
+      "axes": [
+       "z"
+      ],
+      "mode": "target",
+      "target": -0.0008,
+      "sigma": 0.0003,
+      "weight": 3
+     },
+     {
+      "id": "_keep_ori",
+      "level": "tcp_motion",
+      "attr": "ori",
+      "frame": "start_tool",
+      "axes": [
+       "rx",
+       "ry",
+       "rz"
+      ],
+      "mode": "target",
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "sigma": 0.02,
+      "weight": 4
+     }
+    ]
+   },
+   "diagnosis": "超调不是阈值偏置能解决的:_down 以 4 mm/s 恒速直压、没有任何接近段减速/守位,触发检测滞后期内 k·v·Δt 的压入量就是超调量,改 comp 只是平移触发点(实测≈target+comp,三次 2.60→2.83→4.22 N 越压越深);同时下探完全没有 xy 定位,接触点不在 spot(-0.05,0),偏载/姿态偏差进一步放大接触刚度和超调。",
+   "comp_patch": [
+    {
+     "id": "touch",
+     "field": "comp",
+     "value": 0.0
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 90.61,
+   "helpers_after": [
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.05,
+      0.0
+     ],
+     "sigma": 0.004,
+     "weight": 3
+    },
+    {
+     "id": "_down",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": -0.002,
+     "sigma": 0.0004,
+     "weight": 2,
+     "profile": "ramp_from_current",
+     "t_ramp": 0.3
+    },
+    {
+     "id": "_vcap",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "lower",
+     "lb": -0.0025,
+     "sigma": 0.0005,
+     "weight": 4,
+     "penalty": "hard"
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "later_changed": [
+    "press_hold"
+   ]
+  }
+ ],
+ "repairs": [
+  {
+   "stage": "descend",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "touch",
+     "field": "comp",
+     "value": 0.6
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 36.77,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "descend",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "touch",
+     "field": "comp",
+     "value": -0.001
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 5.01,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "descend",
+   "attempt": 3,
+   "patch": [
+    {
+     "id": "touch",
+     "field": "comp",
+     "value": 2.193
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 7.35,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "descend",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "touch",
+     "field": "comp",
+     "value": -2.3967
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 52.78,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "descend",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "touch",
+     "field": "comp",
+     "value": 2.8
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 96.53,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "descend",
+   "attempt": 3,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "touch",
+     "reason": "根据历次 comp 与实测关系，触发力下限约 4.27 N，高于目标 2.0 N + tol 0.6 N，无法通过 comp 达到。"
+    }
+   ],
+   "latency_s": 89.16,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 descend 需要 L2 但预算用尽:[\"阶段末仍不达标 ['touch']\"]",
+ "gates": [
+  {
+   "stage": "descend",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 9.000000000000451,
+   "exit": "timeout",
+   "pass": false,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": null,
+     "deviation": null,
+     "pass": false,
+     "target": 2.0,
+     "exit": "timeout"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 300
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0037,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "descend",
+   "attempt": 1,
+   "t0": 9.000000000000451,
+   "t1": 13.579999999997913,
+   "exit": "trigger",
+   "pass": false,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 2.601,
+     "deviation": 0.601,
+     "pass": false,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.07,
+     "p95": 0.09,
+     "calls": 229
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0046,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "descend",
+   "attempt": 2,
+   "t0": 13.579999999997913,
+   "t1": 13.599999999997902,
+   "exit": "trigger",
+   "pass": false,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 2.8278,
+     "deviation": 0.8278,
+     "pass": false,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.07,
+     "p95": 0.07,
+     "calls": 1
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0047,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "descend",
+   "attempt": 3,
+   "t0": 13.599999999997902,
+   "t1": 13.739999999997824,
+   "exit": "trigger",
+   "pass": false,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 4.217,
+     "deviation": 2.217,
+     "pass": false,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 7
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0048,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "descend",
+   "attempt": 4,
+   "t0": 13.739999999997824,
+   "t1": 13.759999999997813,
+   "exit": "trigger",
+   "pass": false,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 4.3967,
+     "deviation": 2.3967,
+     "pass": false,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.1,
+     "p95": 0.1,
+     "calls": 1
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0049,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "descend",
+   "attempt": 5,
+   "t0": 13.759999999997813,
+   "t1": 13.779999999997802,
+   "exit": "trigger",
+   "pass": false,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 4.5349,
+     "deviation": 2.5349,
+     "pass": false,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.07,
+     "p95": 0.07,
+     "calls": 1
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0049,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "descend",
+   "attempt": 6,
+   "t0": 13.779999999997802,
+   "t1": 19.78000000000119,
+   "exit": "timeout",
+   "pass": false,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": null,
+     "deviation": null,
+     "pass": false,
+     "target": 2.0,
+     "exit": "timeout"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.08,
+     "calls": 300
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0049,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

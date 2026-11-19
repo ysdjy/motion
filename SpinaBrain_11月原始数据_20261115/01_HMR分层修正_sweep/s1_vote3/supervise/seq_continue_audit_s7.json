@@ -1,0 +1,3234 @@
+{
+ "task": "seq",
+ "probe": null,
+ "intent_probe": null,
+ "bias": null,
+ "seed": 7,
+ "instruction": "笔尖竖直往下探到桌面 A 点(桌面坐标系 x = −5 cm、y = 0),一碰到桌面(约 2 N)就停止下探,用 5 N 压住保持 2 秒,然后把笔抬起来离开桌面。",
+ "stages": [
+  {
+   "id": "descend",
+   "t0": 2.9999999999997806,
+   "t1": 7.400000000000806,
+   "done": true,
+   "exit": "trigger",
+   "f_at_switch": 2.094423925112033
+  },
+  {
+   "id": "press_hold",
+   "t0": 7.400000000000806,
+   "t1": 9.40000000000023,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  },
+  {
+   "id": "lift",
+   "t0": 9.40000000000023,
+   "t1": 10.899999999999398,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  }
+ ],
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "deviation": null,
+   "pass": true,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ],
+    [
+     "lift",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.0944,
+   "deviation": 0.0944,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 2.0,
+   "deviation": -0.0,
+   "pass": true,
+   "target": 2.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.7025
+   ],
+   "deviation": [
+    0.7025
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0509,
+    -0.0001
+   ],
+   "deviation": [
+    -0.0009,
+    -0.0001
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "final_all_pass": true,
+ "sim_s": 38.9,
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "descend",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 7.400000000000806,
+   "exit": "trigger",
+   "pass": true,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 2.0944,
+     "deviation": 0.0944,
+     "pass": true,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 220
+    }
+   },
+   "action": "next"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t0": 7.400000000000806,
+   "t1": 9.40000000000023,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "hold",
+     "cat": "T2",
+     "kind": "duration",
+     "unit": "s",
+     "tol": 0.15,
+     "measured": 2.0,
+     "deviation": -0.0,
+     "pass": true,
+     "target": 2.0
+    },
+    {
+     "id": "keep",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 1.0,
+     "deviation": 0.0,
+     "pass": true,
+     "target": 1.0
+    },
+    {
+     "id": "press2",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.6907
+     ],
+     "deviation": [
+      0.6907
+     ],
+     "pass": true,
+     "target": 5.0
+    },
+    {
+     "id": "spot",
+     "cat": "C2",
+     "kind": "contact_at",
+     "unit": "m",
+     "tol": 0.004,
+     "measured": [
+      -0.0509,
+      -0.0001
+     ],
+     "deviation": [
+      -0.0009,
+      -0.0001
+     ],
+     "pass": true,
+     "target": [
+      -0.05,
+      0.0
+     ]
+    }
+   ],
+   "monitor": {
+    "keep": {
+     "final_pass": true,
+     "samples": 85,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "press2": {
+     "final_pass": true,
+     "samples": 60,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "spot": {
+     "final_pass": true,
+     "samples": 85,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 1.52,
+     "p95": 2.69,
+     "calls": 100
+    }
+   },
+   "action": "next"
+  },
+  {
+   "stage": "lift",
+   "attempt": 0,
+   "t0": 9.40000000000023,
+   "t1": 10.899999999999398,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 75
+    }
+   },
+   "action": "next"
+  }
+ ],
+ "audits": [
+  {
+   "stage": "descend",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "ok",
+   "veto": false,
+   "n_ok": 3,
+   "n_veto": 0,
+   "n_error": 0,
+   "reason": "当前阶段为 descend，机械臂竖直下探至桌面 A 点附近，接触时法力约 2N 并成功触发切换，符合原话要求。",
+   "checks": [
+    {
+     "requirement": "笔尖竖直往下探",
+     "evidence": "tool_tilt_from_down_deg = 0.4",
+     "quantity": "angle_deg",
+     "expected": 0,
+     "measured": 0.4,
+     "tolerance": null,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "探到桌面 A 点(桌面坐标系 x = -5 cm、y = 0)",
+     "evidence": "tcp_in_frames_m['surface:table'] = [-0.0518, -0.0007, 0.0088]",
+     "quantity": "position_m",
+     "expected": [
+      -0.05,
+      0.0
+     ],
+     "measured": [
+      -0.0518,
+      -0.0007
+     ],
+     "tolerance": 0.005,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "一碰到桌面就停止下探",
+     "evidence": "touching_table = true, normal_force_on_table_N = 2.09",
+     "quantity": "force_N",
+     "expected": 2.0,
+     "measured": 2.0944,
+     "tolerance": 0.6,
+     "ok": true,
+     "rule_ok": true
+    }
+   ],
+   "missing_requirements": [
+    "原话提到的 A 点坐标未在验收表中明确列出"
+   ],
+   "suspect_items": [],
+   "error": null,
+   "raw": null,
+   "votes": [
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为 descend，机械臂竖直下探至桌面 A 点附近，接触时法力约 2N 并成功触发切换，符合原话要求。",
+     "checks": [
+      {
+       "requirement": "笔尖竖直往下探",
+       "evidence": "tool_tilt_from_down_deg = 0.4",
+       "quantity": "angle_deg",
+       "expected": 0,
+       "measured": 0.4,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "探到桌面 A 点(桌面坐标系 x = -5 cm、y = 0)",
+       "evidence": "tcp_in_frames_m['surface:table'] = [-0.0518, -0.0007, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0518,
+        -0.0007
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "一碰到桌面就停止下探",
+       "evidence": "touching_table = true, normal_force_on_table_N = 2.09",
+       "quantity": "force_N",
+       "expected": 2.0,
+       "measured": 2.0944,
+       "tolerance": 0.6,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [
+      "原话提到的 A 点坐标未在验收表中明确列出"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为竖直下探并碰到桌面，实测位置在 A 点附近，姿态竖直，且接触桌面的法向力达到约 2 N 触发停止，完全符合原话要求。",
+     "checks": [
+      {
+       "requirement": "笔尖竖直往下探",
+       "evidence": "tool_tilt_from_down_deg = 0.4",
+       "quantity": "angle_deg",
+       "expected": 0,
+       "measured": 0.4,
+       "tolerance": 2.0,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "探到桌面 A 点(桌面坐标系 x = -5 cm、y = 0)",
+       "evidence": "tcp_in_frames_m.surface:table = [-0.0518, -0.0007, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0518,
+        -0.0007
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "一碰到桌面(约 2 N)就停止下探",
+       "evidence": "normal_force_on_table_N = 2.09, touching_table = true",
+       "quantity": "force_N",
+       "expected": 2.0,
+       "measured": 2.09,
+       "tolerance": 0.6,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [
+      "原话中的 A 点位置坐标未在验收表中体现，但实测数据已包含并满足要求"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为竖直下探至碰到桌面，各项指标均符合原话要求。",
+     "checks": [
+      {
+       "requirement": "笔尖竖直往下探",
+       "evidence": "tool_tilt_from_down_deg = 0.4",
+       "quantity": "angle_deg",
+       "expected": 0.0,
+       "measured": 0.4,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "探到桌面 A 点(桌面坐标系 x = -5 cm、y = 0)",
+       "evidence": "tcp_in_frames_m['surface:table'] = [-0.0518, -0.0007, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0518,
+        -0.0007
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "一碰到桌面(约 2 N)就停止下探",
+       "evidence": "normal_force_on_table_N = 2.09",
+       "quantity": "force_N",
+       "expected": 2.0,
+       "measured": 2.09,
+       "tolerance": 0.6,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [
+      "桌面坐标系下的水平位置(x = -5 cm, y = 0)未在逐项验收表中体现，但实测值符合要求"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    }
+   ],
+   "observation": {
+    "t_s": 7.4,
+    "tcp_base_m": [
+     0.4982,
+     -0.0007,
+     0.1088
+    ],
+    "tool_tilt_from_down_deg": 0.4,
+    "normal_force_on_table_N": 2.09,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.1912,
+      0.0008,
+      0.3781
+     ],
+     "surface:table": [
+      -0.0518,
+      -0.0007,
+      0.0088
+     ]
+    },
+    "stage_stats": {
+     "window_s": [
+      3.3,
+      7.4
+     ],
+     "tcp_in_frames_m": {
+      "start_tool": {
+       "mean": [
+        0.1916,
+        0.0006,
+        0.3718
+       ],
+       "max_abs_dev_from_mean": [
+        0.0018,
+        0.0004,
+        0.0063
+       ]
+      },
+      "surface:table": {
+       "mean": [
+        -0.0514,
+        -0.0005,
+        0.0151
+       ],
+       "max_abs_dev_from_mean": [
+        0.0018,
+        0.0004,
+        0.0063
+       ]
+      }
+     }
+    },
+    "robot_min_gap_to_table_mm": -0.1,
+    "touching_table": true
+   },
+   "latency_s": 8.91,
+   "suggestion": null
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "ok",
+   "veto": false,
+   "n_ok": 3,
+   "n_veto": 0,
+   "n_error": 0,
+   "reason": "当前阶段在 A 点以约 5.7 N 的力按压并保持了 2 秒，各项实测指标均符合原话要求。",
+   "checks": [
+    {
+     "requirement": "在 A 点(x = -5 cm, y = 0)位置",
+     "evidence": "surface:table mean x = -0.0509 m, y = -0.0001 m",
+     "quantity": "position_m",
+     "expected": [
+      -0.05,
+      0.0
+     ],
+     "measured": [
+      -0.0509,
+      -0.0001
+     ],
+     "tolerance": 0.004,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "用 5 N 压住",
+     "evidence": "press2 measured = 5.6907 N",
+     "quantity": "force_N",
+     "expected": 5.0,
+     "measured": 5.6907,
+     "tolerance": 1.5,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "保持 2 秒",
+     "evidence": "hold measured = 2.0 s",
+     "quantity": "time_s",
+     "expected": 2.0,
+     "measured": 2.0,
+     "tolerance": 0.15,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "笔尖竖直",
+     "evidence": "tool_tilt_from_down_deg = 0.1",
+     "quantity": "angle_deg",
+     "expected": 0.0,
+     "measured": 0.1,
+     "tolerance": 2.0,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "接触桌面保持",
+     "evidence": "touching_table = true",
+     "quantity": "other",
+     "expected": true,
+     "measured": true,
+     "tolerance": null,
+     "ok": true,
+     "rule_ok": true
+    }
+   ],
+   "missing_requirements": [],
+   "suspect_items": [],
+   "error": null,
+   "raw": null,
+   "votes": [
+    {
+     "verdict": "ok",
+     "reason": "当前阶段在 A 点以约 5.7 N 的力按压并保持了 2 秒，各项实测指标均符合原话要求。",
+     "checks": [
+      {
+       "requirement": "在 A 点(x = -5 cm, y = 0)位置",
+       "evidence": "surface:table mean x = -0.0509 m, y = -0.0001 m",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0509,
+        -0.0001
+       ],
+       "tolerance": 0.004,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "用 5 N 压住",
+       "evidence": "press2 measured = 5.6907 N",
+       "quantity": "force_N",
+       "expected": 5.0,
+       "measured": 5.6907,
+       "tolerance": 1.5,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "保持 2 秒",
+       "evidence": "hold measured = 2.0 s",
+       "quantity": "time_s",
+       "expected": 2.0,
+       "measured": 2.0,
+       "tolerance": 0.15,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "笔尖竖直",
+       "evidence": "tool_tilt_from_down_deg = 0.1",
+       "quantity": "angle_deg",
+       "expected": 0.0,
+       "measured": 0.1,
+       "tolerance": 2.0,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "接触桌面保持",
+       "evidence": "touching_table = true",
+       "quantity": "other",
+       "expected": true,
+       "measured": true,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为按压保持，位置、下压力量及持续时间均符合原话要求。",
+     "checks": [
+      {
+       "requirement": "在 A 点(x = -5 cm, y = 0)位置",
+       "evidence": "spot measured: [-0.0509, -0.0001]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0509,
+        -0.0001
+       ],
+       "tolerance": 0.004,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "用 5 N 压住",
+       "evidence": "press2 measured: 5.6907",
+       "quantity": "force_N",
+       "expected": 5.0,
+       "measured": 5.6907,
+       "tolerance": 1.5,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "保持 2 秒",
+       "evidence": "hold measured: 2.0",
+       "quantity": "time_s",
+       "expected": 2.0,
+       "measured": 2.0,
+       "tolerance": 0.15,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为按压保持，各项实测数据均在要求范围内，符合原话预期。",
+     "checks": [
+      {
+       "requirement": "在 A 点（x = -5 cm, y = 0）位置",
+       "evidence": "spot.measured: [-0.0509, -0.0001]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0509,
+        -0.0001
+       ],
+       "tolerance": 0.004,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "用 5 N 压住保持",
+       "evidence": "press2.measured: 5.6907 N",
+       "quantity": "force_N",
+       "expected": 5.0,
+       "measured": 5.6907,
+       "tolerance": 1.5,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "保持 2 秒",
+       "evidence": "hold.measured: 2.0 s",
+       "quantity": "time_s",
+       "expected": 2.0,
+       "measured": 2.0,
+       "tolerance": 0.15,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "笔尖竖直",
+       "evidence": "tool_tilt_from_down_deg: 0.1",
+       "quantity": "angle_deg",
+       "expected": 0,
+       "measured": 0.1,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    }
+   ],
+   "observation": {
+    "t_s": 9.4,
+    "tcp_base_m": [
+     0.4997,
+     -0.0001,
+     0.1087
+    ],
+    "tool_tilt_from_down_deg": 0.1,
+    "normal_force_on_table_N": 6.42,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.1927,
+      0.0002,
+      0.3782
+     ],
+     "surface:table": [
+      -0.0503,
+      -0.0001,
+      0.0087
+     ]
+    },
+    "stage_stats": {
+     "window_s": [
+      7.7,
+      9.4
+     ],
+     "tcp_in_frames_m": {
+      "start_tool": {
+       "mean": [
+        0.1921,
+        0.0002,
+        0.3781
+       ],
+       "max_abs_dev_from_mean": [
+        0.0007,
+        0.0002,
+        0.0001
+       ]
+      },
+      "surface:table": {
+       "mean": [
+        -0.0509,
+        -0.0001,
+        0.0087
+       ],
+       "max_abs_dev_from_mean": [
+        0.0007,
+        0.0002,
+        0.0001
+       ]
+      }
+     }
+    },
+    "robot_min_gap_to_table_mm": -0.2,
+    "touching_table": true
+   },
+   "latency_s": 9.45,
+   "suggestion": null
+  },
+  {
+   "stage": "lift",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "ok",
+   "veto": false,
+   "n_ok": 3,
+   "n_veto": 0,
+   "n_error": 0,
+   "reason": "当前阶段为抬起离开桌面，实测 touching_table 为 false 且离桌距离大于 41 mm，已成功离开桌面。",
+   "checks": [
+    {
+     "requirement": "把笔抬起来离开桌面",
+     "evidence": "touching_table: false, robot_min_gap_to_table_mm: 41.6",
+     "quantity": "other",
+     "expected": false,
+     "measured": false,
+     "tolerance": null,
+     "ok": true,
+     "rule_ok": null
+    }
+   ],
+   "missing_requirements": [],
+   "suspect_items": [],
+   "error": null,
+   "raw": null,
+   "votes": [
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为抬起离开桌面，实测 touching_table 为 false 且离桌距离大于 41 mm，已成功离开桌面。",
+     "checks": [
+      {
+       "requirement": "把笔抬起来离开桌面",
+       "evidence": "touching_table: false, robot_min_gap_to_table_mm: 41.6",
+       "quantity": "other",
+       "expected": false,
+       "measured": false,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为 lift（抬起离开桌面），实测表明 touching_table 为 false 且离桌面间距大于 41 mm，已成功离开桌面，符合要求。",
+     "checks": [
+      {
+       "requirement": "把笔抬起来离开桌面",
+       "evidence": "touching_table: false, robot_min_gap_to_table_mm: 41.6",
+       "quantity": "other",
+       "expected": false,
+       "measured": false,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为 lift（抬起离开桌面），实测表明 touching_table 为 false 且离桌面间距大于 1 mm，已成功离开桌面。",
+     "checks": [
+      {
+       "requirement": "把笔抬起来离开桌面",
+       "evidence": "touching_table: false, robot_min_gap_to_table_mm: 41.6",
+       "quantity": "other",
+       "expected": false,
+       "measured": false,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    }
+   ],
+   "observation": {
+    "t_s": 10.9,
+    "tcp_base_m": [
+     0.4992,
+     0.0004,
+     0.1505
+    ],
+    "tool_tilt_from_down_deg": 0.1,
+    "normal_force_on_table_N": 0.0,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.1922,
+      -0.0003,
+      0.3364
+     ],
+     "surface:table": [
+      -0.0508,
+      0.0004,
+      0.0505
+     ]
+    },
+    "stage_stats": {
+     "window_s": [
+      9.7,
+      10.9
+     ],
+     "tcp_in_frames_m": {
+      "start_tool": {
+       "mean": [
+        0.1928,
+        -0.0001,
+        0.3394
+       ],
+       "max_abs_dev_from_mean": [
+        0.0046,
+        0.0005,
+        0.0255
+       ]
+      },
+      "surface:table": {
+       "mean": [
+        -0.0501,
+        0.0001,
+        0.0475
+       ],
+       "max_abs_dev_from_mean": [
+        0.0046,
+        0.0005,
+        0.0255
+       ]
+      }
+     }
+    },
+    "robot_min_gap_to_table_mm": 41.6,
+    "touching_table": false
+   },
+   "latency_s": 7.28,
+   "suggestion": null
+  }
+ ],
+ "repairs": [],
+ "events": [],
+ "timeline": [
+  {
+   "stage": "press_hold",
+   "t": 7.72,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.72,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0003
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.74,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.74,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0003
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.76,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.76,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0003
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.78,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.78,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0003
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.8,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.8,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0003
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.82,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.82,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0003
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.84,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.84,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0003
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.86,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.86,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0003
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.88,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.88,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.9,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.9,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.92,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.92,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.94,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.94,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.96,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.96,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.98,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 7.98,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.0,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.0,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.02,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.02,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.04,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.04,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.06,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.06,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.08,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.08,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.1,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.1,
+   "id": "spot",
+   "meas": [
+    -0.0516,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.12,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.12,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.14,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.14,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.16,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.16,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.18,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.18,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.2,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.2,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.22,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.22,
+   "id": "press2",
+   "meas": [
+    5.0995
+   ],
+   "meas_ok": true,
+   "z": 0.066,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.22,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.24,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.24,
+   "id": "press2",
+   "meas": [
+    5.1389
+   ],
+   "meas_ok": true,
+   "z": 0.119,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.24,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.26,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.26,
+   "id": "press2",
+   "meas": [
+    5.1795
+   ],
+   "meas_ok": true,
+   "z": 0.174,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.26,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.28,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.28,
+   "id": "press2",
+   "meas": [
+    5.2229
+   ],
+   "meas_ok": true,
+   "z": 0.235,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.28,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.3,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.3,
+   "id": "press2",
+   "meas": [
+    5.2721
+   ],
+   "meas_ok": true,
+   "z": 0.312,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.3,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.32,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.32,
+   "id": "press2",
+   "meas": [
+    5.3119
+   ],
+   "meas_ok": true,
+   "z": 0.341,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.32,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.34,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.34,
+   "id": "press2",
+   "meas": [
+    5.3278
+   ],
+   "meas_ok": true,
+   "z": 0.282,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.34,
+   "id": "spot",
+   "meas": [
+    -0.0515,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.36,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.36,
+   "id": "press2",
+   "meas": [
+    5.3395
+   ],
+   "meas_ok": true,
+   "z": 0.281,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.36,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.38,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.38,
+   "id": "press2",
+   "meas": [
+    5.3566
+   ],
+   "meas_ok": true,
+   "z": 0.329,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.38,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.4,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.4,
+   "id": "press2",
+   "meas": [
+    5.3818
+   ],
+   "meas_ok": true,
+   "z": 0.406,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.4,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.42,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.42,
+   "id": "press2",
+   "meas": [
+    5.4258
+   ],
+   "meas_ok": true,
+   "z": 0.577,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.42,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.44,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.44,
+   "id": "press2",
+   "meas": [
+    5.4856
+   ],
+   "meas_ok": true,
+   "z": 0.763,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.44,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.46,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.46,
+   "id": "press2",
+   "meas": [
+    5.5544
+   ],
+   "meas_ok": true,
+   "z": 0.92,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.46,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.48,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.48,
+   "id": "press2",
+   "meas": [
+    5.6238
+   ],
+   "meas_ok": true,
+   "z": 1.017,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.48,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.5,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.5,
+   "id": "press2",
+   "meas": [
+    5.6829
+   ],
+   "meas_ok": true,
+   "z": 1.007,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.5,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.52,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.52,
+   "id": "press2",
+   "meas": [
+    5.7193
+   ],
+   "meas_ok": true,
+   "z": 0.844,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.52,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.54,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.54,
+   "id": "press2",
+   "meas": [
+    5.7306
+   ],
+   "meas_ok": true,
+   "z": 0.607,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.54,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.56,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.56,
+   "id": "press2",
+   "meas": [
+    5.7169
+   ],
+   "meas_ok": true,
+   "z": 0.323,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.56,
+   "id": "spot",
+   "meas": [
+    -0.0514,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.58,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.58,
+   "id": "press2",
+   "meas": [
+    5.689
+   ],
+   "meas_ok": true,
+   "z": 0.125,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.58,
+   "id": "spot",
+   "meas": [
+    -0.0513,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.6,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.6,
+   "id": "press2",
+   "meas": [
+    5.6599
+   ],
+   "meas_ok": true,
+   "z": 0.071,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.6,
+   "id": "spot",
+   "meas": [
+    -0.0513,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.62,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.62,
+   "id": "press2",
+   "meas": [
+    5.6328
+   ],
+   "meas_ok": true,
+   "z": 0.061,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.62,
+   "id": "spot",
+   "meas": [
+    -0.0513,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.64,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.64,
+   "id": "press2",
+   "meas": [
+    5.6089
+   ],
+   "meas_ok": true,
+   "z": 0.072,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.64,
+   "id": "spot",
+   "meas": [
+    -0.0513,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.66,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.66,
+   "id": "press2",
+   "meas": [
+    5.5881
+   ],
+   "meas_ok": true,
+   "z": 0.087,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.66,
+   "id": "spot",
+   "meas": [
+    -0.0513,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.68,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.68,
+   "id": "press2",
+   "meas": [
+    5.5704
+   ],
+   "meas_ok": true,
+   "z": 0.108,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.68,
+   "id": "spot",
+   "meas": [
+    -0.0513,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.7,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.7,
+   "id": "press2",
+   "meas": [
+    5.5559
+   ],
+   "meas_ok": true,
+   "z": 0.139,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.7,
+   "id": "spot",
+   "meas": [
+    -0.0513,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.72,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.72,
+   "id": "press2",
+   "meas": [
+    5.5457
+   ],
+   "meas_ok": true,
+   "z": 0.194,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.72,
+   "id": "spot",
+   "meas": [
+    -0.0513,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.74,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.74,
+   "id": "press2",
+   "meas": [
+    5.5428
+   ],
+   "meas_ok": true,
+   "z": 0.311,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.74,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.76,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.76,
+   "id": "press2",
+   "meas": [
+    5.548
+   ],
+   "meas_ok": true,
+   "z": 0.46,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.76,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.78,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.78,
+   "id": "press2",
+   "meas": [
+    5.5598
+   ],
+   "meas_ok": true,
+   "z": 0.594,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.78,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.8,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.8,
+   "id": "press2",
+   "meas": [
+    5.5757
+   ],
+   "meas_ok": true,
+   "z": 0.692,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.8,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.82,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.82,
+   "id": "press2",
+   "meas": [
+    5.5934
+   ],
+   "meas_ok": true,
+   "z": 0.749,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.82,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0002
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.84,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.84,
+   "id": "press2",
+   "meas": [
+    5.6114
+   ],
+   "meas_ok": true,
+   "z": 0.78,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.84,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.86,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.86,
+   "id": "press2",
+   "meas": [
+    5.6316
+   ],
+   "meas_ok": true,
+   "z": 0.851,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.86,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.88,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.88,
+   "id": "press2",
+   "meas": [
+    5.6539
+   ],
+   "meas_ok": true,
+   "z": 0.927,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.88,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.9,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.9,
+   "id": "press2",
+   "meas": [
+    5.6768
+   ],
+   "meas_ok": true,
+   "z": 0.97,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.9,
+   "id": "spot",
+   "meas": [
+    -0.0512,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.92,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.92,
+   "id": "press2",
+   "meas": [
+    5.6993
+   ],
+   "meas_ok": true,
+   "z": 0.993,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.92,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.94,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.94,
+   "id": "press2",
+   "meas": [
+    5.7207
+   ],
+   "meas_ok": true,
+   "z": 0.995,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.94,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.96,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.96,
+   "id": "press2",
+   "meas": [
+    5.7393
+   ],
+   "meas_ok": true,
+   "z": 0.95,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.96,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.98,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.98,
+   "id": "press2",
+   "meas": [
+    5.7546
+   ],
+   "meas_ok": true,
+   "z": 0.89,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 8.98,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.0,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.0,
+   "id": "press2",
+   "meas": [
+    5.7652
+   ],
+   "meas_ok": true,
+   "z": 0.786,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.0,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.02,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.02,
+   "id": "press2",
+   "meas": [
+    5.7708
+   ],
+   "meas_ok": true,
+   "z": 0.663,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.02,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.04,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.04,
+   "id": "press2",
+   "meas": [
+    5.7717
+   ],
+   "meas_ok": true,
+   "z": 0.54,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.04,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.06,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.06,
+   "id": "press2",
+   "meas": [
+    5.7668
+   ],
+   "meas_ok": true,
+   "z": 0.373,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.06,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.08,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.08,
+   "id": "press2",
+   "meas": [
+    5.754
+   ],
+   "meas_ok": true,
+   "z": 0.136,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.08,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.1,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.1,
+   "id": "press2",
+   "meas": [
+    5.7341
+   ],
+   "meas_ok": true,
+   "z": 0.095,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.1,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.12,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.12,
+   "id": "press2",
+   "meas": [
+    5.7097
+   ],
+   "meas_ok": true,
+   "z": 0.257,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.12,
+   "id": "spot",
+   "meas": [
+    -0.0511,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.14,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.14,
+   "id": "press2",
+   "meas": [
+    5.6845
+   ],
+   "meas_ok": true,
+   "z": 0.319,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.14,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.16,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.16,
+   "id": "press2",
+   "meas": [
+    5.661
+   ],
+   "meas_ok": true,
+   "z": 0.293,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.16,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.18,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.18,
+   "id": "press2",
+   "meas": [
+    5.6405
+   ],
+   "meas_ok": true,
+   "z": 0.231,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.18,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.2,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.2,
+   "id": "press2",
+   "meas": [
+    5.6245
+   ],
+   "meas_ok": true,
+   "z": 0.106,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.2,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.22,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.22,
+   "id": "press2",
+   "meas": [
+    5.614
+   ],
+   "meas_ok": true,
+   "z": 0.06,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.22,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.24,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.24,
+   "id": "press2",
+   "meas": [
+    5.6092
+   ],
+   "meas_ok": true,
+   "z": 0.243,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.24,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.26,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.26,
+   "id": "press2",
+   "meas": [
+    5.6094
+   ],
+   "meas_ok": true,
+   "z": 0.412,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.26,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.28,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.28,
+   "id": "press2",
+   "meas": [
+    5.6137
+   ],
+   "meas_ok": true,
+   "z": 0.563,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.28,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.3,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.3,
+   "id": "press2",
+   "meas": [
+    5.6217
+   ],
+   "meas_ok": true,
+   "z": 0.701,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.3,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.32,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.32,
+   "id": "press2",
+   "meas": [
+    5.6326
+   ],
+   "meas_ok": true,
+   "z": 0.823,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.32,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.34,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.34,
+   "id": "press2",
+   "meas": [
+    5.646
+   ],
+   "meas_ok": true,
+   "z": 0.93,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.34,
+   "id": "spot",
+   "meas": [
+    -0.051,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.36,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.36,
+   "id": "press2",
+   "meas": [
+    5.6612
+   ],
+   "meas_ok": true,
+   "z": 1.018,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.36,
+   "id": "spot",
+   "meas": [
+    -0.0509,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.38,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.38,
+   "id": "press2",
+   "meas": [
+    5.6766
+   ],
+   "meas_ok": true,
+   "z": 1.046,
+   "s_up": 0.001,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.38,
+   "id": "spot",
+   "meas": [
+    -0.0509,
+    -0.0001
+   ],
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.4,
+   "id": "keep",
+   "meas": 1.0,
+   "meas_ok": true
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.4,
+   "id": "press2",
+   "meas": [
+    5.6907
+   ],
+   "meas_ok": true,
+   "z": 1.017,
+   "s_up": 0.002,
+   "s_lo": 0.0,
+   "drift": null
+  },
+  {
+   "stage": "press_hold",
+   "t": 9.4,
+   "id": "spot",
+   "meas": [
+    -0.0509,
+    -0.0001
+   ],
+   "meas_ok": true
+  }
+ ],
+ "config": {
+  "monitor_cycles": 1,
+  "drift_h": 0.25,
+  "on_fail": "continue",
+  "max_retries": 2,
+  "audit_model": "gemini-flash-lite-latest",
+  "audit_votes": 3,
+  "on_veto": "record"
+ }
+}

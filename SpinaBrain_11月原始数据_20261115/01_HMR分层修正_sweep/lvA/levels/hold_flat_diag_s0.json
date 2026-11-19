@@ -1,0 +1,671 @@
+{
+ "probe": "hold",
+ "family": "n121",
+ "task": "seq_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "flat_diag",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00379,
+  "tokens": 10281,
+  "latency_s": 101.7,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold"
+   ],
+   "deviation": null,
+   "pass": false,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.0012,
+   "deviation": 0.0012,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 4.8,
+   "deviation": -1.2,
+   "pass": false,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    4.9737
+   ],
+   "deviation": [
+    -0.0263
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0501,
+    0.0
+   ],
+   "deviation": [
+    -0.0001,
+    0.0
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "descend",
+   "t0": 2.9999999999997806,
+   "t1": 7.140000000000719,
+   "done": true,
+   "exit": "trigger",
+   "f_at_switch": 2.0012297789691917,
+   "extension_s": 0.0
+  },
+  {
+   "id": "press_hold",
+   "t0": 11.939999999998822,
+   "t1": 16.739999999997476,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "press_hold",
+     "t0": 7.140000000000719,
+     "t1": 11.939999999998822,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 134.2,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['hold']",
+    "压着的约束 [{'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0449}]"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "阶段 press_hold 需要 L2 但预算用尽:[\"阶段末仍不达标 ['hold']\", \"压着的约束 [{'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0448}]\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 11.94,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "可达边界(可操作度低)",
+     "manip": 0.0449
+    }
+   ],
+   "failing": [
+    "hold"
+   ],
+   "action": "升级 L2(flat_diag)"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 16.74,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "可达边界(可操作度低)",
+     "manip": 0.0448
+    }
+   ],
+   "failing": [
+    "hold"
+   ],
+   "action": "升级 L2(flat_diag)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "press_hold",
+   "trigger": [
+    "阶段末仍不达标 ['hold']",
+    "压着的约束 [{'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0449}]"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {
+    "lift": [
+     {
+      "id": "_up",
+      "level": "tcp_motion",
+      "attr": "pos",
+      "frame": "surface:table",
+      "axes": [
+       "z"
+      ],
+      "mode": "target",
+      "target": 0.05,
+      "sigma": 0.005,
+      "weight": 2,
+      "profile": "ramp_from_current",
+      "t_ramp": 0.5
+     },
+     {
+      "id": "_xy",
+      "level": "tcp_motion",
+      "attr": "pos",
+      "frame": "surface:table",
+      "axes": [
+       "x",
+       "y"
+      ],
+      "mode": "target",
+      "target": [
+       -0.05,
+       0.0
+      ],
+      "sigma": 0.005,
+      "weight": 2
+     },
+     {
+      "id": "_keep_ori",
+      "level": "tcp_motion",
+      "attr": "ori",
+      "frame": "start_tool",
+      "axes": [
+       "rx",
+       "ry",
+       "rz"
+      ],
+      "mode": "target",
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "sigma": 0.02,
+      "weight": 4
+     }
+    ]
+   },
+   "later_helpers_after": {
+    "lift": [
+     {
+      "id": "_up",
+      "level": "tcp_motion",
+      "attr": "pos",
+      "frame": "surface:table",
+      "axes": [
+       "z"
+      ],
+      "mode": "target",
+      "target": 0.05,
+      "sigma": 0.005,
+      "weight": 2,
+      "profile": "ramp_from_current",
+      "t_ramp": 0.5
+     },
+     {
+      "id": "_xy",
+      "level": "tcp_motion",
+      "attr": "pos",
+      "frame": "surface:table",
+      "axes": [
+       "x",
+       "y"
+      ],
+      "mode": "target",
+      "target": [
+       -0.05,
+       0.0
+      ],
+      "sigma": 0.005,
+      "weight": 2
+     },
+     {
+      "id": "_keep_ori",
+      "level": "tcp_motion",
+      "attr": "ori",
+      "frame": "start_tool",
+      "axes": [
+       "rx",
+       "ry",
+       "rz"
+      ],
+      "mode": "target",
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "sigma": 0.08,
+      "weight": 1
+     }
+    ]
+   },
+   "diagnosis": "hold 是阶段时长,却少了 1.2 s:力曲线显示接触后约 1.1/1.9/2.5/4.5 s 多次再冲击,f 在 0→0.8 间反复弹跳近 3 s 才稳住,可用的保持时间被冲击瞬态吃掉;根因是此刻手臂已被推到可达边界(可操作度 0.045),而唯一的策略项是一条 sigma=0.02、weight=4 的整姿态硬保持,把腕部锁在近奇异位形、无法顺着力控退让,所以在 hold 的时间刻度上改 comp 只是打补丁。正确做法是放松姿态保持让手臂退出奇异,并给按压加一条桌面法向的单边保持(只禁止抬离,不再让工具反复撞桌面),使 6 s 从第一次接触起就能连续压住。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 101.7,
+   "helpers_after": [
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.08,
+     "weight": 1
+    },
+    {
+     "id": "_press_normal",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "upper",
+     "ub": 0.0,
+     "sigma": 0.004,
+     "weight": 2
+    }
+   ],
+   "later_changed": [
+    "lift"
+   ]
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 press_hold 需要 L2 但预算用尽:[\"阶段末仍不达标 ['hold']\", \"压着的约束 [{'source': 'fixed', 'kind': '可达边界(可操作度低)', 'manip': 0.0448}]\"]",
+ "gates": [
+  {
+   "stage": "descend",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 7.140000000000719,
+   "exit": "trigger",
+   "pass": true,
+   "rows": [
+    {
+     "id": "touch",
+     "cat": "T3",
+     "kind": "trigger",
+     "unit": "N",
+     "tol": 0.6,
+     "measured": 2.0012,
+     "deviation": 0.0012,
+     "pass": true,
+     "target": 2.0,
+     "exit": "trigger"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.08,
+     "calls": 207
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0036,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t0": 7.140000000000719,
+   "t1": 11.939999999998822,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "hold",
+     "cat": "T2",
+     "kind": "duration",
+     "unit": "s",
+     "tol": 0.15,
+     "measured": 4.8,
+     "deviation": -1.2,
+     "pass": false,
+     "target": 6.0
+    },
+    {
+     "id": "keep",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 1.0,
+     "deviation": 0.0,
+     "pass": true,
+     "target": 1.0
+    },
+    {
+     "id": "press2",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.2012
+     ],
+     "deviation": [
+      0.2012
+     ],
+     "pass": true,
+     "target": 5.0
+    },
+    {
+     "id": "spot",
+     "cat": "C2",
+     "kind": "contact_at",
+     "unit": "m",
+     "tol": 0.004,
+     "measured": [
+      -0.0499,
+      -0.0
+     ],
+     "deviation": [
+      0.0001,
+      -0.0
+     ],
+     "pass": true,
+     "target": [
+      -0.05,
+      0.0
+     ]
+    }
+   ],
+   "monitor": {
+    "keep": {
+     "final_pass": true,
+     "samples": 225,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "press2": {
+     "final_pass": true,
+     "samples": 200,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "spot": {
+     "final_pass": true,
+     "samples": 225,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 5.02,
+     "p95": 10.17,
+     "calls": 240
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0017,
+     "force": 2.995
+    },
+    "resets": 1
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t0": 11.939999999998822,
+   "t1": 16.739999999997476,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "hold",
+     "cat": "T2",
+     "kind": "duration",
+     "unit": "s",
+     "tol": 0.15,
+     "measured": 4.8,
+     "deviation": -1.2,
+     "pass": false,
+     "target": 6.0
+    },
+    {
+     "id": "keep",
+     "cat": "C1",
+     "kind": "contact",
+     "unit": "-",
+     "tol": 0.05,
+     "measured": 1.0,
+     "deviation": 0.0,
+     "pass": true,
+     "target": 1.0
+    },
+    {
+     "id": "press2",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      4.9737
+     ],
+     "deviation": [
+      -0.0263
+     ],
+     "pass": true,
+     "target": 5.0
+    },
+    {
+     "id": "spot",
+     "cat": "C2",
+     "kind": "contact_at",
+     "unit": "m",
+     "tol": 0.004,
+     "measured": [
+      -0.0501,
+      0.0
+     ],
+     "deviation": [
+      -0.0001,
+      0.0
+     ],
+     "pass": true,
+     "target": [
+      -0.05,
+      0.0
+     ]
+    }
+   ],
+   "monitor": {
+    "keep": {
+     "final_pass": true,
+     "samples": 225,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "press2": {
+     "final_pass": true,
+     "samples": 200,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "spot": {
+     "final_pass": true,
+     "samples": 225,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.04,
+     "p95": 4.89,
+     "calls": 240
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0018,
+     "force": 0.4644
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               2.62 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                4.28 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.4494, -0.1201, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+exit 0

@@ -1,0 +1,172 @@
+{
+ "probe": "lo_wrist",
+ "family": "localopt",
+ "task": "config_long",
+ "seed": 0,
+ "mode": "decide",
+ "model": null,
+ "expect": [
+  "L2",
+  "solver"
+ ],
+ "reached": "none",
+ "decision_ok": false,
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "hold3",
+   "cat": "LO",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3075,
+    -0.0001,
+    0.4874
+   ],
+   "deviation": [
+    0.0005,
+    -0.0001,
+    0.0005
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  },
+  {
+   "id": "spin",
+   "cat": "LO",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.035,
+   "measured": [
+    -0.0019,
+    0.0009,
+    -0.0004
+   ],
+   "deviation": [
+    -0.0019,
+    0.0009,
+    -0.0004
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    1.2
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 3.9999999999996705,
+   "t1": 11.999999999998789,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 16.3,
+ "exec_alarms": 0,
+ "levels": [],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 3.9999999999996705,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "hold3",
+     "cat": "LO",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3075,
+      -0.0001,
+      0.4874
+     ],
+     "deviation": [
+      0.0005,
+      -0.0001,
+      0.0005
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    },
+    {
+     "id": "spin",
+     "cat": "LO",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.035,
+     "measured": [
+      -0.0019,
+      0.0009,
+      -0.0004
+     ],
+     "deviation": [
+      -0.0019,
+      0.0009,
+      -0.0004
+     ],
+     "pass": true,
+     "target": [
+      0.0,
+      0.0,
+      1.2
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "spin": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 8.4,
+     "p95": 10.99,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0071,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

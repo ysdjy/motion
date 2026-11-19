@@ -1,0 +1,554 @@
+{
+ "probe": "syn_follow",
+ "family": "solver",
+ "task": "follow_long",
+ "seed": 4,
+ "mode": "decide",
+ "cond": null,
+ "llm": null,
+ "model": null,
+ "expect": [
+  "solver"
+ ],
+ "reached": "solver",
+ "first_level": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "solver",
+  "L1",
+  "L1"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "d3c2d112a2e3",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0019,
+    0.0032,
+    0.1007
+   ],
+   "deviation": [
+    0.0019,
+    0.0032,
+    0.0007
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.214
+   ],
+   "deviation": [
+    0.014
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 40.1,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "规则判补偿无效 ['follow']",
+    "压着的约束 []"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差方向相反([-0.1201, -0.0124, 0.0568] / [-0.12, 0.0257, 0.0474])"
+    }
+   ],
+   "R": 14.065
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 4.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.1201, 0.0, 0.0543] / [-0.12, 0.0448, 0.0481])"
+    }
+   ],
+   "R": 14.013
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.1201, 0.0, 0.0521] / [-0.12, 0.0362, 0.052])"
+    },
+    {
+     "id": "align",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.17 / 2.20)"
+    }
+   ],
+   "R": 14.011
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      -0.12,
+      0.0166,
+      0.0516
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.032,
+      -0.0166,
+      -0.032
+     ]
+    }
+   ],
+   "R": 14.01,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      -0.1198,
+      -0.0705,
+      0.0408
+     ],
+     "c_old": [
+      0.032,
+      -0.0166,
+      -0.032
+     ],
+     "g_raw": [
+      0.007
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.007 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 13.978
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.04,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "align",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.0488] / [-0.118])"
+    }
+   ],
+   "R": 14.194
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.16,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "align",
+     "e": [
+      -0.0802
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0802
+     ]
+    }
+   ],
+   "R": 14.32,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0311, -0.0118, -0.0298] / [0.0322, 0.0, -0.0313])"
+    },
+    {
+     "id": "align",
+     "e": [
+      0.0698
+     ],
+     "c_old": [
+      0.0802
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0104
+     ]
+    }
+   ],
+   "R": 4.069,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 17.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0272, -0.0087, -0.0347] / [0.0311, -0.0199, -0.0318])"
+    }
+   ],
+   "R": 3.336
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 18.42,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0311,
+      -0.0186,
+      -0.0315
+     ],
+     "c_old": [
+      0.032,
+      -0.0166,
+      -0.032
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0009,
+      0.0019,
+      -0.0005
+     ]
+    }
+   ],
+   "R": 3.235,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 20.92,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "align",
+     "e": [
+      0.0532
+     ],
+     "c_old": [
+      0.0104
+     ],
+     "g_raw": [
+      0.238
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.238 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 0.135
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 12.0,
+   "where": "阶段末",
+   "active": [],
+   "failing": [
+    "follow"
+   ],
+   "action": "求解器补救(下一趟全程噪声 ×3.0)"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.1196,
+      0.0132,
+      0.1407
+     ],
+     "deviation": [
+      -0.1196,
+      0.0132,
+      0.0407
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.1728
+     ],
+     "deviation": [
+      -0.0272
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "pred_ok": 1.72,
+      "meas_ok": 1.9,
+      "stall": 2.0,
+      "drift": 3.48
+     },
+     "fail_lead_s": 0.16,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.3,
+     "p95": 14.52,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0011,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1-求解器+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0019,
+      0.0032,
+      0.1007
+     ],
+     "deviation": [
+      0.0019,
+      0.0032,
+      0.0007
+     ],
+     "pass": true,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.214
+     ],
+     "deviation": [
+      0.014
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 13.52,
+      "pred_ok": 13.52,
+      "drift": 13.6,
+      "stall": 14.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 13.52,
+      "pred_ok": 13.52,
+      "drift": 13.66
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.99,
+     "p95": 14.63,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0198,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

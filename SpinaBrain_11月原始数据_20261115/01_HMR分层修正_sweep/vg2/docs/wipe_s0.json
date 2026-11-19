@@ -1,0 +1,439 @@
+{
+ "task": "wipe",
+ "seed": 0,
+ "scene": "table",
+ "model": "oc:deepseek-v4.1-flash",
+ "doc": {
+  "entries": [
+   {
+    "id": "xy_align",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05,
+      -0.04
+     ],
+     "tolerance": 0.003
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "align",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "_hold_z_align",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.02
+     ],
+     "tolerance": 0.005
+    },
+    "temporal": {
+     "stage": "align"
+    },
+    "verify": false
+   },
+   {
+    "id": "_descend_z",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.01
+     ],
+     "tolerance": 0.002
+    },
+    "temporal": {
+     "stage": "descend"
+    },
+    "verify": false
+   },
+   {
+    "id": "x_at_A_wipe",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "descend",
+     "also_stages": [
+      "press",
+      "stroke_pos",
+      "stroke_neg"
+     ]
+    }
+   },
+   {
+    "id": "y_to_neg",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "descend",
+     "also_stages": [
+      "press",
+      "stroke_neg"
+     ],
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_to_pos",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "stroke_pos",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "press_ramp",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 3.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3.0
+    },
+    "temporal": {
+     "stage": "press",
+     "profile": "ramp",
+     "t_ramp": 0.2
+    }
+   },
+   {
+    "id": "press_keep",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 3.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3.0
+    },
+    "temporal": {
+     "stage": "stroke_pos",
+     "also_stages": [
+      "stroke_neg"
+     ]
+    }
+   },
+   {
+    "id": "lift_to_5cm",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.5
+    }
+   },
+   {
+    "id": "_hold_xy_lift",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05,
+      -0.04
+     ],
+     "tolerance": 0.01
+    },
+    "temporal": {
+     "stage": "lift"
+    },
+    "verify": false
+   }
+  ],
+  "stages": [
+   {
+    "id": "align",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "xy_align"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "descend"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "descend",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.0
+      },
+      "to": "press"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "press",
+    "transitions": [
+     {
+      "when": {
+       "all": [
+        {
+         "force_ge": 2.0
+        },
+        {
+         "time_ge": 0.2
+        }
+       ]
+      },
+      "to": "stroke_pos"
+     }
+    ],
+    "timeout_s": 3,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "stroke_pos",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_to_pos"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "stroke_neg"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "stroke_neg",
+    "transitions": [
+     {
+      "when": {
+       "all": [
+        {
+         "satisfied": [
+          "y_to_neg"
+         ],
+         "hold_s": 0.1
+        },
+        {
+         "visits_ge": 3
+        }
+       ]
+      },
+      "to": "lift"
+     },
+     {
+      "when": {
+       "satisfied": [
+        "y_to_neg"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "stroke_pos"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail",
+    "max_visits": 5
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift_to_5cm"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 4,
+    "on_timeout": "fail"
+   }
+  ],
+  "start": "align",
+  "max_time_s": 60
+ },
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 145.9
+  }
+ ],
+ "write_cost_usd": 0.00765
+}

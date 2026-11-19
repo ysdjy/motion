@@ -1,0 +1,1008 @@
+{
+ "probe": "lo_wall_xhi",
+ "family": "localopt_x",
+ "task": "config_long",
+ "seed": 1,
+ "mode": "llm",
+ "cond": "no_diag",
+ "llm": {
+  "calls": 4,
+  "cost_usd": 0.00812,
+  "tokens": 20106,
+  "latency_s": 76.2,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2",
+  "solver"
+ ],
+ "reached": "L2",
+ "first_level": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1",
+  "L2",
+  "L1b",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L2"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "goal",
+   "cat": "LO",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.01,
+   "measured": [
+    0.3468,
+    -0.0005,
+    0.4845
+   ],
+   "deviation": [
+    -0.1603,
+    -0.0005,
+    -0.0024
+   ],
+   "pass": false,
+   "target": [
+    0.507,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 32.00000000001612,
+   "t1": 39.99999999999748,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 8.000000000001005,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 8.000000000001005,
+     "t1": 15.999999999996572,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 15.999999999996572,
+     "t1": 24.00000000000635,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "go",
+     "t0": 24.00000000000635,
+     "t1": 32.00000000001612,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 125.5,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['goal']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['goal']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['goal']",
+    "规则判补偿无效 ['goal']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['goal']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 4,
+   "level": "stop",
+   "why": [
+    "阶段 go 需要 L2 但预算用尽:[\"阶段末仍不达标 ['goal']\", \"规则判补偿无效 ['goal']\"]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 5.0,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "goal",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.16, 0.0, 0.0] / [-0.1605, 0.0, 0.0101])"
+    }
+   ],
+   "R": 14.997
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 5.58,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1603,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.04,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "R": 15.006,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 7.58,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1601,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.04,
+      0.0,
+      0.0
+     ],
+     "g_raw": [
+      0.005
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.005 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 15.017
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1601,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.04,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.08,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t": 13.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1603,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.08,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.1,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "R": 15.041,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t": 15.04,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1605,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.1,
+      0.0,
+      0.0
+     ],
+     "g_raw": [
+      -0.006
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.006 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 15.047
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "t": 21.0,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1604,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.2604,
+      -0.0002,
+      -0.0082
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.1,
+      -0.0002,
+      -0.0082
+     ]
+    }
+   ],
+   "R": 15.03,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "t": 23.0,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1604,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.1,
+      -0.0002,
+      -0.0082
+     ],
+     "g_raw": [
+      0.0
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.000 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 15.037
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "t": 29.0,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1603,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0002,
+      -0.0082
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.04,
+      -0.0002,
+      -0.0082
+     ]
+    }
+   ],
+   "R": 15.031,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "t": 31.0,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1603,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.04,
+      -0.0002,
+      -0.0082
+     ],
+     "g_raw": [
+      -0.001
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.001 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 15.029
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "t": 32.0,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1603,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.04,
+      -0.0002,
+      -0.0082
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.08,
+      -0.0002,
+      -0.0082
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 4,
+   "t": 37.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1602,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.08,
+      -0.0002,
+      -0.0082
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.1,
+      -0.0002,
+      -0.0082
+     ]
+    }
+   ],
+   "R": 15.018,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 4,
+   "t": 39.04,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "goal",
+     "e": [
+      -0.1602,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.1,
+      -0.0002,
+      -0.0082
+     ],
+     "g_raw": [
+      -0.001
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.001 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 15.02
+  }
+ ],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "go",
+   "trigger": [
+    "阶段末仍不达标 ['goal']",
+    "规则判补偿无效 ['goal']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "三次尝试中 x 残差恒为 -0.16 m，而把 comp 从 0.1 加到 0.26 后实测 x 几乎不变；可见这不是标定偏差，而是姿态约束把可达 x 限制住了。工具轴被要求竖直向下，所以腕部必须停在 TCP 正上方，于是把 TCP 推到 x=0.507 m 时，前臂和腕部会先被 x 方向上的墙挡住，并在 x≈0.347 m 处停住；只调 comp 只能把目标点推远，改变不了机械臂的构型。",
+   "comp_patch": [
+    {
+     "id": "goal",
+     "field": "comp",
+     "value": [
+      0.0,
+      -0.0002,
+      -0.0082
+     ]
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 33.26,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      1,
+      0,
+      0
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.5,
+     "sigma": 0.1,
+     "weight": 2
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "goal",
+     "field": "comp",
+     "value": [
+      0.2604,
+      -0.0002,
+      -0.0082
+     ]
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 10.99,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "goal",
+     "reason": "目标位于 x 方向墙的另一侧，实测 x 被墙面阻挡在 0.3466 m，无法到达目标 x=0.507 m"
+    }
+   ],
+   "latency_s": 10.9,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "goal",
+     "reason": "x 方向被墙阻挡，实测 x 始终停在约 0.347 m，无法到达墙另一侧的 x=0.507 m 目标；调整 comp 不能越过物理障碍。"
+    }
+   ],
+   "latency_s": 21.02,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 go 需要 L2 但预算用尽:[\"阶段末仍不达标 ['goal']\", \"规则判补偿无效 ['goal']\"]",
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "goal",
+     "cat": "LO",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.01,
+     "measured": [
+      0.3469,
+      -0.0004,
+      0.4963
+     ],
+     "deviation": [
+      -0.1602,
+      -0.0004,
+      0.0094
+     ],
+     "pass": false,
+     "target": [
+      0.507,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "goal": {
+     "final_pass": false,
+     "samples": 250,
+     "first_alarm": {
+      "meas_ok": 3.02,
+      "pred_ok": 3.02,
+      "drift": 3.02,
+      "stall": 3.5
+     },
+     "fail_lead_s": 4.98,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.15,
+     "p95": 5.66,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0076,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "goal",
+     "cat": "LO",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.01,
+     "measured": [
+      0.3466,
+      0.0002,
+      0.4951
+     ],
+     "deviation": [
+      -0.1604,
+      0.0002,
+      0.0082
+     ],
+     "pass": false,
+     "target": [
+      0.507,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "goal": {
+     "final_pass": false,
+     "samples": 250,
+     "first_alarm": {
+      "meas_ok": 11.02,
+      "pred_ok": 11.02,
+      "drift": 11.02,
+      "stall": 11.5
+     },
+     "fail_lead_s": 4.98,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.24,
+     "p95": 5.57,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0038,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 2,
+   "t0": 15.999999999996572,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "goal",
+     "cat": "LO",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.01,
+     "measured": [
+      0.3466,
+      -0.0002,
+      0.4929
+     ],
+     "deviation": [
+      -0.1604,
+      -0.0002,
+      0.0061
+     ],
+     "pass": false,
+     "target": [
+      0.507,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "goal": {
+     "final_pass": false,
+     "samples": 250,
+     "first_alarm": {
+      "meas_ok": 19.02,
+      "pred_ok": 19.02,
+      "drift": 19.02,
+      "stall": 19.5
+     },
+     "fail_lead_s": 4.98,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.19,
+     "p95": 5.49,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0038,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 3,
+   "t0": 24.00000000000635,
+   "t1": 32.00000000001612,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "goal",
+     "cat": "LO",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.01,
+     "measured": [
+      0.3467,
+      -0.0014,
+      0.4866
+     ],
+     "deviation": [
+      -0.1604,
+      -0.0014,
+      -0.0002
+     ],
+     "pass": false,
+     "target": [
+      0.507,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "goal": {
+     "final_pass": false,
+     "samples": 250,
+     "first_alarm": {
+      "meas_ok": 27.02,
+      "pred_ok": 27.02,
+      "drift": 27.02,
+      "stall": 27.5
+     },
+     "fail_lead_s": 4.98,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.16,
+     "p95": 5.54,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0055,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 4,
+   "t0": 32.00000000001612,
+   "t1": 39.99999999999748,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "goal",
+     "cat": "LO",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.01,
+     "measured": [
+      0.3468,
+      -0.0005,
+      0.4845
+     ],
+     "deviation": [
+      -0.1603,
+      -0.0005,
+      -0.0024
+     ],
+     "pass": false,
+     "target": [
+      0.507,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "goal": {
+     "final_pass": false,
+     "samples": 250,
+     "first_alarm": {
+      "meas_ok": 35.02,
+      "pred_ok": 35.02,
+      "drift": 35.02,
+      "stall": 35.5
+     },
+     "fail_lead_s": 4.98,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 3.18,
+     "p95": 5.53,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0058,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

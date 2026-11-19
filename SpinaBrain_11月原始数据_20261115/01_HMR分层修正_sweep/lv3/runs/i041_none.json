@@ -1,0 +1,94 @@
+{
+ "id": 41,
+ "arm": "none",
+ "inst": {
+  "id": 41,
+  "kind": "n121",
+  "run_seed": 144,
+  "task": "config_long",
+  "bias": "arm"
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "center",
+   "deviation": null,
+   "pass": false,
+   "target": "left",
+   "elbow_y": -0.0001
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.307,
+    0.0,
+    0.4869
+   ],
+   "deviation": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 13.5,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['arm']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 阶段末仍不达标 ['arm']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 阶段末仍不达标 ['arm']"
+}

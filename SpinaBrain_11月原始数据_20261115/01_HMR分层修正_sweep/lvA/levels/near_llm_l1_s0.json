@@ -1,0 +1,393 @@
+{
+ "probe": "near",
+ "family": "comp",
+ "task": "near_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "llm_l1",
+ "llm": {
+  "calls": 3,
+  "cost_usd": 0.00277,
+  "tokens": 5948,
+  "latency_s": 37.4,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1"
+ ],
+ "reached": "L1b",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.0338
+   ],
+   "deviation": [
+    0.0038
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 36.0000000000068,
+   "t1": 47.99999999997883,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "track",
+     "t0": 11.999999999998789,
+     "t1": 24.00000000000635,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "track",
+     "t0": 24.00000000000635,
+     "t1": 36.0000000000068,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 126.8,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['near']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['near']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['near']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "track",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "near",
+     "field": "comp",
+     "value": 0.0205
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 4.5,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "near",
+     "field": "comp",
+     "value": -0.0213
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 7.76,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "track",
+   "attempt": 3,
+   "patch": [
+    {
+     "id": "near",
+     "field": "comp",
+     "value": -0.022
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 25.18,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0505
+     ],
+     "deviation": [
+      0.0205
+     ],
+     "pass": false,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.66,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 15.01,
+     "p95": 28.02,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0215,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0703
+     ],
+     "deviation": [
+      0.0403
+     ],
+     "pass": false,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 13.52,
+      "pred_ok": 13.52,
+      "drift": 13.58,
+      "stall": 14.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 7.09,
+     "p95": 11.44,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0044,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "t0": 24.00000000000635,
+   "t1": 36.0000000000068,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0353
+     ],
+     "deviation": [
+      0.0053
+     ],
+     "pass": false,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 33.04,
+      "stall": 33.04,
+      "pred_ok": 33.08
+     },
+     "fail_lead_s": 2.96,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 7.78,
+     "p95": 12.63,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0146,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 3,
+   "t0": 36.0000000000068,
+   "t1": 47.99999999997883,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0338
+     ],
+     "deviation": [
+      0.0038
+     ],
+     "pass": true,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 12.03,
+     "p95": 22.33,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.004,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

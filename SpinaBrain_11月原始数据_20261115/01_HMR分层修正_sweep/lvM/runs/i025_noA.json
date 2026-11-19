@@ -1,0 +1,236 @@
+{
+ "id": 25,
+ "arm": "noA",
+ "inst": {
+  "id": 25,
+  "kind": "mixed",
+  "run_seed": 86,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.0,
+    -0.026635535857272352,
+    0.0
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 5.33,
+  "disturb": "go,1.63,0.55,-28.0,15.9,-9.7"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0726
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3071,
+    0.0,
+    0.4869
+   ],
+   "deviation": [
+    0.0001,
+    0.0,
+    0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 23.0,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['hold3']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.0178, -0.0188, 0.0] / [0.0, -0.0262, 0.0])"
+    }
+   ],
+   "R": 2.767
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 4.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.0126, -0.0213, 0.0] / [0.0, -0.0266, 0.0])"
+    }
+   ],
+   "R": 3.252
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.01, -0.0225, 0.0] / [0.0, -0.0268, 0.0])"
+    }
+   ],
+   "R": 3.497
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 6.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.0079, -0.0234, 0.0] / [0.0, -0.0267, 0.0])"
+    }
+   ],
+   "R": 3.673
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 7.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.0066, -0.024, 0.0] / [0.0, -0.0267, 0.0])"
+    }
+   ],
+   "R": 3.791
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0,
+      -0.0254,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.02,
+      0.0
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t": 11.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0,
+      -0.0065,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.02,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0265,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.268,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

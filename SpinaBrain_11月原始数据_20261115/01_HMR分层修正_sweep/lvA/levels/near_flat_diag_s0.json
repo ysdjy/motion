@@ -1,0 +1,372 @@
+{
+ "probe": "near",
+ "family": "comp",
+ "task": "near_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "flat_diag",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00144,
+  "tokens": 4446,
+  "latency_s": 25.1,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.0406
+   ],
+   "deviation": [
+    0.0106
+   ],
+   "pass": false,
+   "ub": 0.03
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 72.8,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['near']",
+    "压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 1.0}]"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "阶段 track 需要 L2 但预算用尽:[\"阶段末仍不达标 ['near']\", \"压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 0.32}, {'source': 'fixed', 'kind': '关节限位', 'joints': [2]}]\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 12.0,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "硬约束项",
+     "id": "near",
+     "frac": 1.0
+    }
+   ],
+   "failing": [
+    "near"
+   ],
+   "action": "升级 L2(flat_diag)"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 24.0,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "硬约束项",
+     "id": "near",
+     "frac": 0.32
+    },
+    {
+     "source": "fixed",
+     "kind": "关节限位",
+     "joints": [
+      2
+     ]
+    }
+   ],
+   "failing": [
+    "near"
+   ],
+   "action": "升级 L2(flat_diag)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "阶段末仍不达标 ['near']",
+    "压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 1.0}]"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    },
+    {
+     "id": "_pull",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "base",
+     "axes": [
+      "x",
+      "y",
+      "z"
+     ],
+     "mode": "target",
+     "target": [
+      0.55,
+      0.15,
+      0.3
+     ],
+     "sigma": 0.02,
+     "weight": 0.5
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "残差呈周期性振荡(z 在 0.4~4.2 之间来回变化,周期约 6 s),根源不在补偿量,而在策略项 _pull:它把 TCP 以固定目标点 [0.55,0.15,0.3] 拉到 base 坐标系里的一个位置,与“跟随移动物体”这件事直接冲突,物体一走远误差就涨、走近就落,任何 comp 都改不掉这个几何矛盾。正确做法是把辅助目标改到 object:mov 参考系并贴住球心,让规划器随物体一起运动。",
+   "comp_patch": [
+    {
+     "id": "near",
+     "field": "comp",
+     "value": 0.0
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 25.07,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    },
+    {
+     "id": "_follow_obj",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "object:mov",
+     "axes": [
+      "x",
+      "y",
+      "z"
+     ],
+     "mode": "target",
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ],
+     "sigma": 0.015,
+     "weight": 2
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 track 需要 L2 但预算用尽:[\"阶段末仍不达标 ['near']\", \"压着的约束 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 0.32}, {'source': 'fixed', 'kind': '关节限位', 'joints': [2]}]\"]",
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0505
+     ],
+     "deviation": [
+      0.0205
+     ],
+     "pass": false,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.66,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 8.95,
+     "p95": 15.53,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0215,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "near",
+     "cat": "D3",
+     "kind": "upper",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.0406
+     ],
+     "deviation": [
+      0.0106
+     ],
+     "pass": false,
+     "ub": 0.03
+    }
+   ],
+   "monitor": {
+    "near": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 14.56,
+      "stall": 14.56,
+      "pred_ok": 14.58,
+      "drift": 14.94
+     },
+     "fail_lead_s": 9.44,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 11.0,
+     "p95": 17.25,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0052,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

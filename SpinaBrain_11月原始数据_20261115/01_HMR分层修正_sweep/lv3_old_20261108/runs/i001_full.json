@@ -1,0 +1,135 @@
+{
+ "id": 1,
+ "arm": "full",
+ "inst": {
+  "id": 1,
+  "kind": "mixed",
+  "run_seed": 432,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.1701403799204073,
+   "id": "align"
+  },
+  "mag_tol": 4.25,
+  "disturb": "track,1.15,0.58,-16.9,-14.9,16.5"
+ },
+ "final_pass": true,
+ "reached": "L1",
+ "level_path": [
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0004,
+    0.0008,
+    0.0997
+   ],
+   "deviation": [
+    -0.0004,
+    0.0008,
+    -0.0003
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.228
+   ],
+   "deviation": [
+    0.028
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 26.8,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "0c298aa29ea2",
+   "pms": "8acec675a135",
+   "exp_xemb": "eeb17154c640"
+  }
+ },
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 4.58,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "align",
+     "e": [
+      0.1393
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.1393
+     ]
+    }
+   ],
+   "R": 2.669,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.08,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 1.39 / 0.85)"
+    }
+   ],
+   "R": 0.538
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 1.58,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

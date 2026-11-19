@@ -1,0 +1,357 @@
+{
+ "task": "wipe",
+ "instruction": "在桌面 A 点上用 3 牛左右的压力,沿桌面 y 方向往返擦拭三次(每次从 y = −4 厘米擦到 y = +4 厘米再回来),擦完把工具抬到离桌面 5 厘米。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 0,
+ "hmr": "off",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 115.3
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "at_A",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05,
+      0.0
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 2,
+     "loss": "quadratic"
+    },
+    "temporal": {
+     "stage": "press"
+    }
+   },
+   {
+    "id": "press_force",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 3.0,
+     "tolerance": 0.8
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3,
+     "loss": "huber"
+    },
+    "temporal": {
+     "stage": "press",
+     "also_stages": [
+      "wipe"
+     ]
+    }
+   },
+   {
+    "id": "_keep_vertical",
+    "control": {
+     "entity": "tool",
+     "feature": {
+      "type": "direction",
+      "axis": [
+       0,
+       0,
+       1
+      ]
+     }
+    },
+    "reference": {
+     "frame": "surface:table",
+     "axis": [
+      0,
+      0,
+      -1
+     ]
+    },
+    "physical": {
+     "quantity": "axis_angle"
+    },
+    "goal": {
+     "kind": "target",
+     "value": 0.0,
+     "tolerance": 0.05
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "preference",
+     "weight": 1,
+     "loss": "quadratic"
+    },
+    "temporal": {
+     "stage": "press",
+     "also_stages": [
+      "wipe",
+      "lift"
+     ]
+    },
+    "verify": false
+   },
+   {
+    "id": "wipe_path",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "path",
+     "waypoints": [
+      [
+       -0.05,
+       0.0
+      ],
+      [
+       -0.05,
+       -0.04
+      ],
+      [
+       -0.05,
+       0.04
+      ],
+      [
+       -0.05,
+       -0.04
+      ],
+      [
+       -0.05,
+       0.04
+      ],
+      [
+       -0.05,
+       -0.04
+      ],
+      [
+       -0.05,
+       0.04
+      ],
+      [
+       -0.05,
+       -0.04
+      ]
+     ],
+     "speed": 0.05,
+     "tolerance": 0.003
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 2,
+     "loss": "quadratic"
+    },
+    "temporal": {
+     "stage": "wipe"
+    }
+   },
+   {
+    "id": "lift_z",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 2,
+     "loss": "quadratic"
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.5
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "press",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "all": [
+        {
+         "satisfied": [
+          "press_force"
+         ],
+         "hold_s": 0.2
+        },
+        {
+         "satisfied": [
+          "at_A"
+         ],
+         "hold_s": 0.1
+        }
+       ]
+      },
+      "to": "wipe"
+     }
+    ],
+    "timeout_s": 6,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "wipe",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "wipe_path"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "lift"
+     }
+    ],
+    "timeout_s": 20,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift_z"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "press",
+  "max_time_s": 40
+ },
+ "status": "fail:超时",
+ "oracle_ok": false,
+ "oracle": {
+  "y_range": [
+   -0.0406,
+   0.0384
+  ],
+  "reversals": 23,
+  "mean_fn": 3.08,
+  "h_end": 0.0088
+ },
+ "spec_all_pass": false,
+ "stages": [
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 4.839999999999951,
+   "done": true,
+   "exit": "切换:{'all': [{'satisfied': ['press_force'], 'hold_s': 0.2}, {'satisfied': ['at_A'], 'hold_s': 0.1}]}",
+   "to": "wipe",
+   "f_at_switch": 3.5199135387590266,
+   "rows": [
+    {
+     "id": "at_A",
+     "pass": true,
+     "measured": [
+      -0.0508,
+      0.0
+     ]
+    },
+    {
+     "id": "press_force",
+     "pass": false,
+     "measured": [
+      0.6539
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wipe",
+   "visit": 1,
+   "t0": 4.839999999999951,
+   "t1": 24.840000000007375,
+   "done": false,
+   "exit": "超时",
+   "to": "fail",
+   "f_at_switch": 3.1096288407196133,
+   "rows": [
+    {
+     "id": "press_force",
+     "pass": true,
+     "measured": [
+      3.0034
+     ]
+    },
+    {
+     "id": "wipe_path",
+     "pass": true,
+     "measured": 0.0006
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": null,
+ "hmr_replans": null,
+ "cost_usd": 0.0059,
+ "wall_s": 149.5
+}

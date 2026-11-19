@@ -1,0 +1,515 @@
+[
+ {
+  "id": 0,
+  "kind": "strategy",
+  "run_seed": 606,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.006070603472003753
+  ]
+ },
+ {
+  "id": 1,
+  "kind": "mixed",
+  "run_seed": 432,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.1701403799204073,
+   "id": "align"
+  },
+  "mag_tol": 4.25,
+  "disturb": "track,1.15,0.58,-16.9,-14.9,16.5"
+ },
+ {
+  "id": 2,
+  "kind": "strategy",
+  "run_seed": 227,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.006958661937909285
+  ]
+ },
+ {
+  "id": 3,
+  "kind": "mixed",
+  "run_seed": 731,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.11022501836071336,
+   "id": "align"
+  },
+  "mag_tol": 2.76,
+  "disturb": "track,1.67,0.57,-6.4,20.0,24.6"
+ },
+ {
+  "id": 4,
+  "kind": "comp",
+  "run_seed": 1,
+  "task": "tip_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.0,
+    0.0,
+    0.02932066057575892
+   ],
+   "id": "tip"
+  },
+  "mag_tol": 3.67
+ },
+ {
+  "id": 5,
+  "kind": "disturb",
+  "run_seed": 794,
+  "task": "config_long",
+  "disturb": "go,0.65,0.44,8.9,40.3,-17.4"
+ },
+ {
+  "id": 6,
+  "kind": "n121",
+  "run_seed": 730,
+  "task": "seq_long",
+  "bias": "hold"
+ },
+ {
+  "id": 7,
+  "kind": "comp",
+  "run_seed": 606,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.02134099516728898,
+   "id": "near"
+  },
+  "mag_tol": 4.27
+ },
+ {
+  "id": 8,
+  "kind": "comp",
+  "run_seed": 958,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.20387394522094,
+   "id": "align"
+  },
+  "mag_tol": 5.1
+ },
+ {
+  "id": 9,
+  "kind": "comp",
+  "run_seed": 298,
+  "task": "twist",
+  "bias_raw": {
+   "kind": "add",
+   "value": 6.725612791200296,
+   "id": "press3"
+  },
+  "mag_tol": 4.48
+ },
+ {
+  "id": 10,
+  "kind": "comp",
+  "run_seed": 23,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 8.682372499869977,
+   "id": "press2"
+  },
+  "mag_tol": 5.79
+ },
+ {
+  "id": 11,
+  "kind": "n121",
+  "run_seed": 297,
+  "task": "slide_long",
+  "bias": "keep2"
+ },
+ {
+  "id": 12,
+  "kind": "comp",
+  "run_seed": 59,
+  "task": "twist",
+  "bias_raw": {
+   "kind": "add",
+   "value": 7.0309558903362275,
+   "id": "press3"
+  },
+  "mag_tol": 4.69
+ },
+ {
+  "id": 13,
+  "kind": "mixed",
+  "run_seed": 244,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.09486216780119155,
+   "id": "align"
+  },
+  "mag_tol": 2.37,
+  "disturb": "track,0.97,0.68,38.8,-18.3,1.5"
+ },
+ {
+  "id": 14,
+  "kind": "disturb",
+  "run_seed": 733,
+  "task": "slide_long",
+  "disturb": "slide,1.08,0.54,-7.6,-33.1,26.3"
+ },
+ {
+  "id": 15,
+  "kind": "disturb",
+  "run_seed": 591,
+  "task": "near_long",
+  "disturb": "track,0.67,0.54,2.2,38.4,-7.2"
+ },
+ {
+  "id": 16,
+  "kind": "disturb",
+  "run_seed": 471,
+  "task": "near_long",
+  "disturb": "track,2.17,0.35,-0.8,26.6,-10.0"
+ },
+ {
+  "id": 17,
+  "kind": "comp",
+  "run_seed": 926,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.01704698810230129,
+    0.0,
+    0.0
+   ],
+   "id": "follow"
+  },
+  "mag_tol": 2.13
+ },
+ {
+  "id": 18,
+  "kind": "strategy",
+  "run_seed": 939,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.005390189328353843
+  ]
+ },
+ {
+  "id": 19,
+  "kind": "mixed",
+  "run_seed": 255,
+  "task": "slide_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.018553112529165458,
+   "id": "vy"
+  },
+  "mag_tol": 4.64,
+  "disturb": "slide,2.16,0.63,17.9,-11.8,8.2"
+ },
+ {
+  "id": 20,
+  "kind": "comp",
+  "run_seed": 958,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.16932758351176758,
+   "id": "align"
+  },
+  "mag_tol": 4.23
+ },
+ {
+  "id": 21,
+  "kind": "n121",
+  "run_seed": 698,
+  "task": "twist",
+  "bias": "twist"
+ },
+ {
+  "id": 22,
+  "kind": "strategy",
+  "run_seed": 745,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.00933699014382717
+  ]
+ },
+ {
+  "id": 23,
+  "kind": "comp",
+  "run_seed": 717,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.0,
+    0.0,
+    -0.02300332116641381
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 4.6
+ },
+ {
+  "id": 24,
+  "kind": "mixed",
+  "run_seed": 409,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.02208801211605212,
+   "id": "near"
+  },
+  "mag_tol": 4.42,
+  "disturb": "track,0.78,0.45,18.5,7.4,15.7"
+ },
+ {
+  "id": 25,
+  "kind": "mixed",
+  "run_seed": 914,
+  "task": "slide_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.012275182909380343,
+   "id": "vy"
+  },
+  "mag_tol": 3.07,
+  "disturb": "slide,0.82,0.62,-14.6,23.8,23.8"
+ },
+ {
+  "id": 26,
+  "kind": "disturb",
+  "run_seed": 422,
+  "task": "seq_long",
+  "disturb": "press_hold,1.10,0.61,-8.3,-3.6,-29.6"
+ },
+ {
+  "id": 27,
+  "kind": "disturb",
+  "run_seed": 365,
+  "task": "seq_long",
+  "disturb": "press_hold,1.66,0.38,10.5,15.7,13.1"
+ },
+ {
+  "id": 28,
+  "kind": "comp",
+  "run_seed": 688,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 6.405391451600043,
+   "id": "press2"
+  },
+  "mag_tol": 4.27
+ },
+ {
+  "id": 29,
+  "kind": "strategy",
+  "run_seed": 561,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.05191063327226466
+  ]
+ },
+ {
+  "id": 30,
+  "kind": "comp",
+  "run_seed": 300,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.027066273125199984,
+    0.0,
+    0.0
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 5.41
+ },
+ {
+  "id": 31,
+  "kind": "strategy",
+  "run_seed": 475,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.07110958346455402
+  ]
+ },
+ {
+  "id": 32,
+  "kind": "disturb",
+  "run_seed": 689,
+  "task": "slide_long",
+  "disturb": "slide,2.07,0.60,-9.5,-19.6,15.7"
+ },
+ {
+  "id": 33,
+  "kind": "disturb",
+  "run_seed": 509,
+  "task": "config_long",
+  "disturb": "go,1.65,0.53,14.8,25.1,-17.0"
+ },
+ {
+  "id": 34,
+  "kind": "comp",
+  "run_seed": 905,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.019973377226970037,
+   "id": "near"
+  },
+  "mag_tol": 3.99
+ },
+ {
+  "id": 35,
+  "kind": "strategy",
+  "run_seed": 177,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.005732749894056553
+  ]
+ },
+ {
+  "id": 36,
+  "kind": "disturb",
+  "run_seed": 356,
+  "task": "near_long",
+  "disturb": "track,2.43,0.61,31.7,6.5,-21.0"
+ },
+ {
+  "id": 37,
+  "kind": "comp",
+  "run_seed": 862,
+  "task": "slide_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.01139422638121236,
+   "id": "vy"
+  },
+  "mag_tol": 2.85
+ },
+ {
+  "id": 38,
+  "kind": "disturb",
+  "run_seed": 361,
+  "task": "near_long",
+  "disturb": "track,0.55,0.41,10.1,18.4,22.0"
+ },
+ {
+  "id": 39,
+  "kind": "n121",
+  "run_seed": 395,
+  "task": "config_long",
+  "bias": "arm"
+ },
+ {
+  "id": 40,
+  "kind": "strategy",
+  "run_seed": 789,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.062360893501015244
+  ]
+ },
+ {
+  "id": 41,
+  "kind": "n121",
+  "run_seed": 144,
+  "task": "config_long",
+  "bias": "arm"
+ },
+ {
+  "id": 42,
+  "kind": "comp",
+  "run_seed": 637,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.15886978595039267,
+   "id": "align"
+  },
+  "mag_tol": 3.97
+ },
+ {
+  "id": 43,
+  "kind": "strategy",
+  "run_seed": 532,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.0673702187796697
+  ]
+ },
+ {
+  "id": 44,
+  "kind": "strategy",
+  "run_seed": 310,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.007449997052811326
+  ]
+ },
+ {
+  "id": 45,
+  "kind": "n121",
+  "run_seed": 975,
+  "task": "slide_long",
+  "bias": "keep2"
+ },
+ {
+  "id": 46,
+  "kind": "mixed",
+  "run_seed": 15,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 8.322072880310667,
+   "id": "press2"
+  },
+  "mag_tol": 5.55,
+  "disturb": "press_hold,1.42,0.42,-11.8,-11.1,-27.8"
+ },
+ {
+  "id": 47,
+  "kind": "n121",
+  "run_seed": 678,
+  "task": "seq_long",
+  "bias": "hold"
+ },
+ {
+  "id": 48,
+  "kind": "comp",
+  "run_seed": 602,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.0187046941481323,
+   "id": "near"
+  },
+  "mag_tol": 3.74
+ },
+ {
+  "id": 49,
+  "kind": "n121",
+  "run_seed": 8,
+  "task": "seq_long",
+  "bias": "hold"
+ }
+]

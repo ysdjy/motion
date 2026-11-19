@@ -1,0 +1,390 @@
+{
+ "probe": "twist",
+ "family": "n121",
+ "task": "twist",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "flat_diag",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00434,
+  "tokens": 9892,
+  "latency_s": 112.6,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "twist",
+   "cat": "C4",
+   "kind": "torque",
+   "unit": "N*m",
+   "tol": 0.015,
+   "measured": 0.0346,
+   "deviation": -0.0454,
+   "pass": false,
+   "target": 0.08,
+   "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+  },
+  {
+   "id": "press3",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.2033
+   ],
+   "deviation": [
+    0.2033
+   ],
+   "pass": true,
+   "target": 5.0
+  }
+ ],
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "twist",
+   "t0": 9.500000000000174,
+   "t1": 13.499999999997957,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "twist",
+     "t0": 5.500000000000171,
+     "t1": 9.500000000000174,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 136.1,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['twist']",
+    "压着的约束 []"
+   ]
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "阶段 twist 需要 L2 但预算用尽:[\"阶段末仍不达标 ['twist']\", \"压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_xy_lever', 'frac': 1.0}]\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t": 9.5,
+   "where": "阶段末",
+   "active": [],
+   "failing": [
+    "twist"
+   ],
+   "action": "升级 L2(flat_diag)"
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "t": 13.5,
+   "where": "阶段末",
+   "active": [
+    {
+     "source": "strategy",
+     "kind": "硬约束项",
+     "id": "_xy_lever",
+     "frac": 1.0
+    }
+   ],
+   "failing": [
+    "twist"
+   ],
+   "action": "升级 L2(flat_diag)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "twist",
+   "trigger": [
+    "阶段末仍不达标 ['twist']",
+    "压着的约束 []"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.05,
+      0.0
+     ],
+     "sigma": 0.005,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "twist 这条契约没有 attr/frame/axes，规划器里并不存在一个可优化的力矩变量——它的 comp 加多少都不会进入代价函数，所以局部补偿必然无效。实际测到的 0.12 N·m 完全来自 _xy 那个 (-0.05,0)、sigma 0.005、weight 2 的硬点位：它用 5 cm 的侧向拉扯把 TCP 钉在桌面上，靠切向拖拽的力臂“顺带”产生绕 z 力矩，力臂过大就超出上限一次（同时在 press3 的 z 曲线里表现为同周期的 stick-slip 抖动）。改法：不再用刚性点钉死 XY，而是把力臂改成一个带硬性界限的区间，再加一个软性的中心目标，让规划器自己选取一个满足力矩上限的侧向量，并让法向力回路不再被位置回路牵制。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 112.61,
+   "helpers_after": [
+    {
+     "id": "_xy_lever",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "range",
+     "lb": [
+      -0.042,
+      -0.01
+     ],
+     "ub": [
+      -0.024,
+      0.01
+     ],
+     "sigma": 0.01,
+     "weight": 2,
+     "penalty": "hard"
+    },
+    {
+     "id": "_xy_center",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.033,
+      0.0
+     ],
+     "sigma": 0.012,
+     "weight": 1
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 twist 需要 L2 但预算用尽:[\"阶段末仍不达标 ['twist']\", \"压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_xy_lever', 'frac': 1.0}]\"]",
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0022,
+     "force": 5.0
+    },
+    "resets": 1
+   },
+   "action": "next"
+  },
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 9.500000000000174,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.12,
+     "deviation": 0.04,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      4.9823
+     ],
+     "deviation": [
+      -0.0177
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 1.7,
+     "p95": 3.06,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0029,
+     "force": 1.4217
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "t0": 9.500000000000174,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0346,
+     "deviation": -0.0454,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.2033
+     ],
+     "deviation": [
+      0.2033
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.1,
+     "p95": 4.52,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0083,
+     "force": 9.7767
+    },
+    "resets": 2
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

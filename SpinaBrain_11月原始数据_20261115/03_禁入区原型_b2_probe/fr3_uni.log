@@ -1,0 +1,17 @@
+[ik] ready TCP [ 0.307 -0.     0.437];起点上方 q=[0.921, 0.454, -1.069, -2.1, 0.396, 2.02, 0.402];手肘 y pre=+0.095, start=+0.103, mid=+0.105, end=+0.105;离限位最近 53°
+[loop] robot=fr3 has_hand=True nq=9 TCP_OFFSET=[0.0, 0.0, 0.1534] dq_max=[2.62, 2.62, 2.62, 2.62, 5.26, 4.18, 5.26] tau_max=[87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
+[fk] 批量 FK 与 MuJoCo TCP 位置差 0.000 mm,姿态差 0.000°
+[go] 0.0–4.0 s 采用=True 被拒=[] 原因=None 警告=[] 保护触发=0
+[settle] 4.0–5.5 s 采用=True 被拒=[] 原因=None 警告=[] 保护触发=0
+[press] 5.5–8.5 s 采用=True 被拒=[] 原因=None 警告=[] 保护触发=0
+[track] 8.5–15.0 s 采用=True 被拒=[] 原因=None 警告=[] 保护触发=0
+[lift] 15.0–17.0 s 采用=True 被拒=[] 原因=None 警告=[] 保护触发=0
+robot=fr3 name=ko_uni force_gain=1.0  全部达标=False
+规划耗时 中位 14.5 ms / p95 18.2 ms;仿真 17.0 s 用了 23 s
+  force  目标 4.0000 ± 1.0000  实测 3.8388  偏差 -0.1612  达标
+  speed  目标 0.0200 ± 0.0040  实测 0.0063  偏差 -0.0137  未达标
+  tilt   目标 0.2618 ± 0.0524  实测 0.2557  偏差 -0.0061  达标
+  elbow  目标 0.1000 ± 0.0400  实测 0.0996  偏差 -0.0004  达标
+  path   目标 0.0000 ± 0.0030  实测 -0.0002  偏差 -0.0002  达标
+辅助:{"force_true_N": {"mean": 3.861063445303739, "std": 0.5941393927310812, "min": 1.7402205433582556, "max": 5.931510393624708}, "force_read_N_mean": 3.861063445303739, "contact_lost_ms": 0, "path_dev_mm": {"rms": 0.5268376352908831, "max_abs": 1.5568414204327197}, "end_y_err_mm": -68.98753579269096, "tilt_deg": {"mean": 14.652052471781783, "max": 14.9407597306003}, "press_peak_N": 12.993783643460842, "peak_force_whole_run_N": 12.993783643460842, "q_margin_run_deg": 39.26830152033381, "dq_frac_max": 0.22382801889177742, "tau_frac_max": 0.16346632066919312}
+{"intrusion_mm": 0.0, "reached": true, "end_err_mm": 0.1, "contact_frac": 1.0, "force_mean": 3.89, "max_lateral_mm": 19.2, "ok": {"no_intrusion": true, "reached": true, "contact": true, "force": true}, "all_ok": true, "tilt_accept_ok": true, "elbow_accept_ok": true}

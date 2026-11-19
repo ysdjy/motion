@@ -1,0 +1,1181 @@
+{
+ "task": "wipe",
+ "instruction": "在桌面 A 点上用 3 牛左右的压力,沿桌面 y 方向往返擦拭三次(每次从 y = −4 厘米擦到 y = +4 厘米再回来),擦完把工具抬到离桌面 5 厘米。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 0,
+ "hmr": "on",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 105.0
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "_orient",
+    "control": {
+     "entity": "tool",
+     "feature": {
+      "type": "direction",
+      "axis": [
+       0,
+       0,
+       1
+      ]
+     }
+    },
+    "reference": {
+     "frame": "surface:table",
+     "axis": [
+      0,
+      0,
+      -1
+     ]
+    },
+    "physical": {
+     "quantity": "axis_angle"
+    },
+    "goal": {
+     "kind": "set",
+     "upper": 0.0,
+     "tolerance": 0.05
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "approach",
+     "also_stages": [
+      "press_hold",
+      "to_start",
+      "leg1_plus",
+      "leg1_minus",
+      "leg2_plus",
+      "leg2_minus",
+      "leg3_plus",
+      "leg3_minus",
+      "lift"
+     ]
+    },
+    "verify": false
+   },
+   {
+    "id": "_sink",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.01
+     ],
+     "tolerance": 0.002
+    },
+    "temporal": {
+     "stage": "approach"
+    },
+    "verify": false
+   },
+   {
+    "id": "press",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 3.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "press_hold",
+     "also_stages": [
+      "to_start",
+      "leg1_plus",
+      "leg1_minus",
+      "leg2_plus",
+      "leg2_minus",
+      "leg3_plus",
+      "leg3_minus"
+     ],
+     "profile": "ramp",
+     "t_ramp": 0.3
+    }
+   },
+   {
+    "id": "x_fixed",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "press_hold",
+     "also_stages": [
+      "to_start",
+      "leg1_plus",
+      "leg1_minus",
+      "leg2_plus",
+      "leg2_minus",
+      "leg3_plus",
+      "leg3_minus"
+     ]
+    }
+   },
+   {
+    "id": "y_A",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.0
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "press_hold",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_to_start",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "to_start",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_leg1_plus",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "leg1_plus",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_leg1_minus",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "leg1_minus",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_leg2_plus",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "leg2_plus",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_leg2_minus",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "leg2_minus",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_leg3_plus",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "leg3_plus",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_leg3_minus",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "leg3_minus",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "lift",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.5
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "approach",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.5
+      },
+      "to": "press_hold"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "press_hold",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "press"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "to_start"
+     }
+    ],
+    "timeout_s": 3,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "to_start",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_to_start"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "leg1_plus"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "leg1_plus",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_leg1_plus"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "leg1_minus"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "leg1_minus",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_leg1_minus"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "leg2_plus"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "leg2_plus",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_leg2_plus"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "leg2_minus"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "leg2_minus",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_leg2_minus"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "leg3_plus"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "leg3_plus",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_leg3_plus"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "leg3_minus"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "leg3_minus",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_leg3_minus"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "lift"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   }
+  ],
+  "start": "approach",
+  "max_time_s": 60
+ },
+ "status": "end",
+ "oracle_ok": true,
+ "oracle": {
+  "y_range": [
+   -0.0417,
+   0.0407
+  ],
+  "reversals": 7,
+  "mean_fn": 3.06,
+  "h_end": 0.0489
+ },
+ "spec_all_pass": true,
+ "stages": [
+  {
+   "id": "approach",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 4.759999999999924,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.5}",
+   "to": "press_hold",
+   "f_at_switch": 3.1052620110024733,
+   "rows": []
+  },
+  {
+   "id": "press_hold",
+   "visit": 1,
+   "t0": 4.759999999999924,
+   "t1": 5.400000000000138,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press'], 'hold_s': 0.3}",
+   "to": "to_start",
+   "f_at_switch": 2.794745832560264,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      2.2951
+     ]
+    },
+    {
+     "id": "x_fixed",
+     "pass": true,
+     "measured": [
+      -0.0503
+     ]
+    },
+    {
+     "id": "y_A",
+     "pass": true,
+     "measured": [
+      -0.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "to_start",
+   "visit": 1,
+   "t0": 5.400000000000138,
+   "t1": 6.000000000000338,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_to_start'], 'hold_s': 0.1}",
+   "to": "leg1_plus",
+   "f_at_switch": 1.8464956488981483,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      2.5554
+     ]
+    },
+    {
+     "id": "x_fixed",
+     "pass": true,
+     "measured": [
+      -0.051
+     ]
+    },
+    {
+     "id": "y_to_start",
+     "pass": false,
+     "measured": [
+      -0.0343
+     ]
+    }
+   ]
+  },
+  {
+   "id": "to_start",
+   "visit": 1,
+   "t0": 6.000000000000338,
+   "t1": 6.100000000000372,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_to_start'], 'hold_s': 0.1}",
+   "to": "leg1_plus",
+   "f_at_switch": 2.4987611825990292,
+   "rows": [
+    {
+     "id": "y_to_start",
+     "pass": true,
+     "measured": [
+      -0.0384
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "x_fixed",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "leg1_plus",
+   "visit": 1,
+   "t0": 6.100000000000372,
+   "t1": 7.140000000000719,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg1_plus'], 'hold_s': 0.1}",
+   "to": "leg1_minus",
+   "f_at_switch": 2.086972589406293,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      3.5802
+     ]
+    },
+    {
+     "id": "x_fixed",
+     "pass": true,
+     "measured": [
+      -0.0494
+     ]
+    },
+    {
+     "id": "y_leg1_plus",
+     "pass": false,
+     "measured": [
+      0.035
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leg1_plus",
+   "visit": 1,
+   "t0": 7.140000000000719,
+   "t1": 7.2400000000007525,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg1_plus'], 'hold_s': 0.1}",
+   "to": "leg1_minus",
+   "f_at_switch": 1.4790387222053951,
+   "rows": [
+    {
+     "id": "y_leg1_plus",
+     "pass": true,
+     "measured": [
+      0.04
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "x_fixed",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "leg1_minus",
+   "visit": 1,
+   "t0": 7.2400000000007525,
+   "t1": 8.28000000000085,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg1_minus'], 'hold_s': 0.1}",
+   "to": "leg2_plus",
+   "f_at_switch": 2.6522796236701742,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      3.5826
+     ]
+    },
+    {
+     "id": "x_fixed",
+     "pass": true,
+     "measured": [
+      -0.049
+     ]
+    },
+    {
+     "id": "y_leg1_minus",
+     "pass": false,
+     "measured": [
+      -0.0346
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leg1_minus",
+   "visit": 1,
+   "t0": 8.28000000000085,
+   "t1": 8.380000000000795,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg1_minus'], 'hold_s': 0.1}",
+   "to": "leg2_plus",
+   "f_at_switch": 2.30130996116293,
+   "rows": [
+    {
+     "id": "y_leg1_minus",
+     "pass": true,
+     "measured": [
+      -0.04
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "x_fixed",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "leg2_plus",
+   "visit": 1,
+   "t0": 8.380000000000795,
+   "t1": 9.440000000000207,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg2_plus'], 'hold_s': 0.1}",
+   "to": "leg2_minus",
+   "f_at_switch": 2.37456233781247,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      2.5537
+     ]
+    },
+    {
+     "id": "x_fixed",
+     "pass": true,
+     "measured": [
+      -0.0497
+     ]
+    },
+    {
+     "id": "y_leg2_plus",
+     "pass": false,
+     "measured": [
+      0.0344
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leg2_plus",
+   "visit": 1,
+   "t0": 9.440000000000207,
+   "t1": 9.540000000000152,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg2_plus'], 'hold_s': 0.1}",
+   "to": "leg2_minus",
+   "f_at_switch": 1.671324972688133,
+   "rows": [
+    {
+     "id": "y_leg2_plus",
+     "pass": true,
+     "measured": [
+      0.0398
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "x_fixed",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "leg2_minus",
+   "visit": 1,
+   "t0": 9.540000000000152,
+   "t1": 10.599999999999564,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg2_minus'], 'hold_s': 0.1}",
+   "to": "leg3_plus",
+   "f_at_switch": 1.6355305262602076,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      2.7753
+     ]
+    },
+    {
+     "id": "x_fixed",
+     "pass": true,
+     "measured": [
+      -0.0499
+     ]
+    },
+    {
+     "id": "y_leg2_minus",
+     "pass": false,
+     "measured": [
+      -0.0347
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leg2_minus",
+   "visit": 1,
+   "t0": 10.599999999999564,
+   "t1": 10.699999999999509,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg2_minus'], 'hold_s': 0.1}",
+   "to": "leg3_plus",
+   "f_at_switch": 1.829105648050469,
+   "rows": [
+    {
+     "id": "y_leg2_minus",
+     "pass": true,
+     "measured": [
+      -0.0393
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "x_fixed",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "leg3_plus",
+   "visit": 1,
+   "t0": 10.699999999999509,
+   "t1": 11.739999999998933,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg3_plus'], 'hold_s': 0.1}",
+   "to": "leg3_minus",
+   "f_at_switch": 2.0737795321060055,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      2.6097
+     ]
+    },
+    {
+     "id": "x_fixed",
+     "pass": true,
+     "measured": [
+      -0.0501
+     ]
+    },
+    {
+     "id": "y_leg3_plus",
+     "pass": false,
+     "measured": [
+      0.0339
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leg3_plus",
+   "visit": 1,
+   "t0": 11.739999999998933,
+   "t1": 11.839999999998877,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg3_plus'], 'hold_s': 0.1}",
+   "to": "leg3_minus",
+   "f_at_switch": 1.4543057776907393,
+   "rows": [
+    {
+     "id": "y_leg3_plus",
+     "pass": true,
+     "measured": [
+      0.0399
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "x_fixed",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "leg3_minus",
+   "visit": 1,
+   "t0": 11.839999999998877,
+   "t1": 12.8799999999983,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg3_minus'], 'hold_s': 0.1}",
+   "to": "lift",
+   "f_at_switch": 2.186008870841726,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      3.4492
+     ]
+    },
+    {
+     "id": "x_fixed",
+     "pass": true,
+     "measured": [
+      -0.0488
+     ]
+    },
+    {
+     "id": "y_leg3_minus",
+     "pass": false,
+     "measured": [
+      -0.0339
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leg3_minus",
+   "visit": 1,
+   "t0": 12.8799999999983,
+   "t1": 12.979999999998245,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_leg3_minus'], 'hold_s': 0.1}",
+   "to": "lift",
+   "f_at_switch": 1.9995584738188643,
+   "rows": [
+    {
+     "id": "y_leg3_minus",
+     "pass": true,
+     "measured": [
+      -0.04
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "x_fixed",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 12.979999999998245,
+   "t1": 13.759999999997813,
+   "done": true,
+   "exit": "切换:{'satisfied': ['lift'], 'hold_s': 0.3}",
+   "to": "end",
+   "f_at_switch": 6.62219781817533e-33,
+   "rows": [
+    {
+     "id": "lift",
+     "pass": true,
+     "measured": [
+      0.0492
+     ]
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": [
+  {
+   "stage": "to_start",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['y_to_start']"
+   ]
+  },
+  {
+   "stage": "leg1_plus",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['y_leg1_plus']"
+   ]
+  },
+  {
+   "stage": "leg1_minus",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['y_leg1_minus']"
+   ]
+  },
+  {
+   "stage": "leg2_plus",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['y_leg2_plus']"
+   ]
+  },
+  {
+   "stage": "leg2_minus",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['y_leg2_minus']"
+   ]
+  },
+  {
+   "stage": "leg3_plus",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['y_leg3_plus']"
+   ]
+  },
+  {
+   "stage": "leg3_minus",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['y_leg3_minus']"
+   ]
+  }
+ ],
+ "hmr_replans": [],
+ "cost_usd": 0.00753,
+ "wall_s": 130.3
+}

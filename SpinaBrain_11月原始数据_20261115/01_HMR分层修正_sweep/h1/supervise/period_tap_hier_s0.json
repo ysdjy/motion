@@ -1,0 +1,224 @@
+{
+ "task": "period",
+ "probe": "tap",
+ "intent_probe": null,
+ "strategy_probe": null,
+ "disturb": null,
+ "disturb_log": null,
+ "bias": {
+  "kind": "scale",
+  "value": 0.85,
+  "id": "tap"
+ },
+ "seed": 0,
+ "instruction": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上先压稳,然后以 1.2 秒为周期在 2 N 和 6 N 之间反复按压桌面。",
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  },
+  {
+   "id": "tap",
+   "t0": 13.499999999997957,
+   "t1": 21.500000000003293,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "attempts": [
+    {
+     "id": "tap",
+     "t0": 5.500000000000171,
+     "t1": 13.499999999997957,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null
+    }
+   ]
+  }
+ ],
+ "final_report": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.161,
+   "deviation": -0.039,
+   "pass": true,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "final_all_pass": true,
+ "source_unchanged": true,
+ "final_helpers_override": {},
+ "sim_s": 44.1,
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0015,
+     "force": 3.1951
+    },
+    "resets": 3
+   },
+   "action": "next"
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.0168,
+     "deviation": -0.1832,
+     "pass": false,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.08,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0016,
+     "force": 0.0
+    },
+    "resets": 6
+   },
+   "action": "L1+retry"
+  },
+  {
+   "stage": "tap",
+   "attempt": 1,
+   "t0": 13.499999999997957,
+   "t1": 21.500000000003293,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.161,
+     "deviation": -0.039,
+     "pass": true,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.08,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0008,
+     "force": 0.0
+    },
+    "resets": 6
+   },
+   "action": "next"
+  }
+ ],
+ "audits": [],
+ "repairs": [
+  {
+   "stage": "tap",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "tap",
+     "field": "comp",
+     "value": 0.1832
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 4.66,
+   "error": null,
+   "level": "L1"
+  }
+ ],
+ "events": [],
+ "timeline": [],
+ "levels": [
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "level": "L1",
+   "why": [
+    "不达标 ['tap']"
+   ]
+  }
+ ],
+ "replans": [],
+ "exec_events": [],
+ "early_stops": [],
+ "recoveries": [],
+ "config": {
+  "monitor_cycles": 1,
+  "drift_h": 0.25,
+  "on_fail": "hier",
+  "max_retries": 2,
+  "audit_model": null,
+  "audit_votes": 3,
+  "on_veto": "record",
+  "exec_monitor": true,
+  "exec_pos_m": 0.015,
+  "exec_force_n": 3.0,
+  "exec_hold_s": 0.15,
+  "stall_win_s": 0.5,
+  "stall_frac": 0.05,
+  "early_stop_s": null,
+  "l0_max": 1,
+  "l1_max": 3,
+  "l2_max": 1,
+  "no_progress": 0.2,
+  "replan_model": "gemini-3.5-flash",
+  "l1_escalate_flag": false
+ }
+}

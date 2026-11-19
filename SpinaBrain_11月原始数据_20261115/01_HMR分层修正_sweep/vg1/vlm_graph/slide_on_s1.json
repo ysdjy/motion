@@ -1,0 +1,267 @@
+{
+ "task": "slide",
+ "instruction": "工具碰到桌面 A 点后,保持约 2 牛的压力沿桌面 +y 方向滑动 6 厘米,然后抬到离桌面 3 厘米。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 1,
+ "hmr": "on",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 31.0
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "_sink",
+    "desc": "下探接近桌面,速度 1 cm/s",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.01
+     ],
+     "tolerance": 0.003
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "approach"
+    },
+    "verify": false
+   },
+   {
+    "id": "press",
+    "desc": "压向桌面约 2 N",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 2.0,
+     "tolerance": 0.7
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3,
+     "loss": "quadratic"
+    },
+    "temporal": {
+     "stage": "slide",
+     "profile": "ramp",
+     "t_ramp": 0.3
+    }
+   },
+   {
+    "id": "slide_y",
+    "desc": "沿桌面 +y 方向滑动到 6 cm 处",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.06
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "slide",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.2
+    }
+   },
+   {
+    "id": "lift",
+    "desc": "抬到离桌面 3 cm",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.03
+     ],
+     "tolerance": 0.003
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.5
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "approach",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.2
+      },
+      "to": "slide"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "slide",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "slide_y"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "lift"
+     }
+    ],
+    "timeout_s": 12,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "approach",
+  "max_time_s": 30
+ },
+ "status": "end",
+ "oracle_ok": false,
+ "oracle": {
+  "dy": 0.0179,
+  "mean_fn": 3.29,
+  "h_end": 0.0299
+ },
+ "spec_all_pass": true,
+ "stages": [
+  {
+   "id": "approach",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 4.739999999999918,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.2}",
+   "to": "slide",
+   "f_at_switch": 1.8104638270552271,
+   "rows": []
+  },
+  {
+   "id": "slide",
+   "visit": 1,
+   "t0": 4.739999999999918,
+   "t1": 5.780000000000265,
+   "done": true,
+   "exit": "切换:{'satisfied': ['slide_y'], 'hold_s': 0.2}",
+   "to": "lift",
+   "f_at_switch": 2.5135681055714985,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      1.4415
+     ]
+    },
+    {
+     "id": "slide_y",
+     "pass": true,
+     "measured": [
+      0.0579
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 5.780000000000265,
+   "t1": 6.520000000000512,
+   "done": true,
+   "exit": "切换:{'satisfied': ['lift'], 'hold_s': 0.3}",
+   "to": "end",
+   "f_at_switch": 9.388313168826335e-31,
+   "rows": [
+    {
+     "id": "lift",
+     "pass": true,
+     "measured": [
+      0.0299
+     ]
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": [],
+ "hmr_replans": [],
+ "cost_usd": 0.00144,
+ "wall_s": 40.3
+}

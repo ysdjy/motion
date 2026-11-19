@@ -1,0 +1,440 @@
+{
+ "probe": "ceiling",
+ "family": "strategy",
+ "task": "follow_long",
+ "seed": 0,
+ "mode": "llm",
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "decision_ok": true,
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0001,
+    -0.0003,
+    0.1004
+   ],
+   "deviation": [
+    0.0001,
+    -0.0003,
+    0.0004
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.2041
+   ],
+   "deviation": [
+    0.0041
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 7.020000000000679,
+   "t1": 19.020000000000262,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 7.020000000000679,
+     "done": false,
+     "exit": "supervisor:L2: 补偿后整体残差不变 3.79 → 4.07,持续 1.5 s",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 80.6,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "补偿后整体残差不变 3.79 → 4.07,持续 1.5 s",
+    "压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_ceiling', 'frac': 1.0}]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0,
+      -0.0396
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0,
+      0.032
+     ]
+    }
+   ],
+   "R": 3.787,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0,
+      -0.0405
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.032
+     ],
+     "g_raw": [
+      -0.028
+     ],
+     "fail": "分量 2 灵敏度 ĝ = -0.028 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 4.067
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 10.54,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 1.72 / 0.98)"
+    }
+   ],
+   "R": 0.721
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.02,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 3.79 → 4.07,持续 1.5 s"
+   ],
+   "active": [
+    {
+     "source": "strategy",
+     "kind": "硬约束项",
+     "id": "_ceiling",
+     "frac": 1.0
+    }
+   ],
+   "pred_bad": [
+    "follow"
+   ],
+   "cost_min": 100004.2421875,
+   "ess": 61.000736236572266,
+   "action": "升级 L2(策略项压着)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "补偿后整体残差不变 3.79 → 4.07,持续 1.5 s",
+    "压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_ceiling', 'frac': 1.0}]"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_ceiling",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "base",
+     "axes": [
+      "z"
+     ],
+     "mode": "upper",
+     "ub": 0.3968695582766445,
+     "sigma": 0.005,
+     "weight": 2,
+     "penalty": "hard"
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "follow 的归一化残差长期钉在 ~5σ、不随时间收敛,且对 comp 完全不敏感:监测显示策略项 _ceiling(base z 硬上限 0.3969)在整个阶段饱和(frac=1.0),把 TCP 在 base 系的高度截断,而跟随要求的高度约为 0.437 m(叠加 comp 0.032 后需 0.469 m),契约要求的状态被策略硬界排除在外。因此只改 comp 只是把目标抬得更高、同样被硬界截断,残差自然不变;应放开/重设上限,并把叠加的 0.032 补偿归零以免解限后产生约 0.032 m 的过冲。",
+   "comp_patch": [
+    {
+     "id": "follow",
+     "field": "comp",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 48.48,
+   "helpers_after": [
+    {
+     "id": "_ceiling",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "base",
+     "axes": [
+      "z"
+     ],
+     "mode": "upper",
+     "ub": 0.5,
+     "sigma": 0.02,
+     "weight": 1,
+     "penalty": "hard"
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 7.020000000000679,
+   "exit": "supervisor:L2: 补偿后整体残差不变 3.79 → 4.07,持续 1.5 s",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.0012,
+      -0.0009,
+      0.0597
+     ],
+     "deviation": [
+      -0.0012,
+      -0.0009,
+      -0.0403
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.2283
+     ],
+     "deviation": [
+      0.0283
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 276,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.58,
+      "stall": 2.0
+     },
+     "fail_lead_s": 5.5,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 276,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "drift": 3.8
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 9.59,
+     "p95": 14.6,
+     "calls": 351
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0164,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 7.020000000000679,
+   "t1": 19.020000000000262,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0001,
+      -0.0003,
+      0.1004
+     ],
+     "deviation": [
+      0.0001,
+      -0.0003,
+      0.0004
+     ],
+     "pass": true,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.2041
+     ],
+     "deviation": [
+      0.0041
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 8.54,
+      "pred_ok": 8.76,
+      "drift": 8.88,
+      "stall": 9.02
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 8.54,
+      "drift": 12.74
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.39,
+     "p95": 12.83,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.006,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

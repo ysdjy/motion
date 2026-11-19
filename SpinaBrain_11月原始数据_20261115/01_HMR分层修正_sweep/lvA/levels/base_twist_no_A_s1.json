@@ -1,0 +1,166 @@
+{
+ "probe": "base_twist",
+ "family": "base",
+ "task": "twist",
+ "seed": 1,
+ "mode": "llm",
+ "cond": "no_A",
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0,
+  "tokens": 0,
+  "latency_s": 0,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "none"
+ ],
+ "reached": "none",
+ "first_level": "none",
+ "level_path": [],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "3cd64d01d032",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "twist",
+   "cat": "C4",
+   "kind": "torque",
+   "unit": "N*m",
+   "tol": 0.015,
+   "measured": 0.0677,
+   "deviation": -0.0123,
+   "pass": true,
+   "target": 0.08,
+   "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+  },
+  {
+   "id": "press3",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.2335
+   ],
+   "deviation": [
+    0.2335
+   ],
+   "pass": true,
+   "target": 5.0
+  }
+ ],
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "twist",
+   "t0": 5.500000000000171,
+   "t1": 9.500000000000174,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 20.2,
+ "exec_alarms": 0,
+ "levels": [],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": null,
+   "action": "next"
+  },
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 9.500000000000174,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0677,
+     "deviation": -0.0123,
+     "pass": true,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.2335
+     ],
+     "deviation": [
+      0.2335
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.74,
+     "p95": 5.29,
+     "calls": 200
+    }
+   },
+   "exec": null,
+   "action": "next"
+  }
+ ]
+}

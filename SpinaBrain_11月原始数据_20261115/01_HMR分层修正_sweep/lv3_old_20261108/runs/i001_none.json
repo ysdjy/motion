@@ -1,0 +1,111 @@
+{
+ "id": 1,
+ "arm": "none",
+ "inst": {
+  "id": 1,
+  "kind": "mixed",
+  "run_seed": 432,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.1701403799204073,
+   "id": "align"
+  },
+  "mag_tol": 4.25,
+  "disturb": "track,1.15,0.58,-16.9,-14.9,16.5"
+ },
+ "final_pass": false,
+ "reached": "L2",
+ "level_path": [
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0008,
+    0.0009,
+    0.0994
+   ],
+   "deviation": [
+    -0.0008,
+    0.0009,
+    -0.0006
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.3659
+   ],
+   "deviation": [
+    0.1659
+   ],
+   "pass": false,
+   "target": 0.2
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 22.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "0c298aa29ea2",
+   "pms": "8acec675a135",
+   "exp_xemb": "eeb17154c640"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['align']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "需要 L2(本次实验不调用大模型):阶段末仍不达标 ['align']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 1.58,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": true,
+ "abort_reason": "需要 L2(本次实验不调用大模型):阶段末仍不达标 ['align']"
+}

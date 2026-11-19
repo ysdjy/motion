@@ -1,0 +1,404 @@
+{
+ "task": "slide",
+ "instruction": "工具碰到桌面 A 点后,保持约 2 牛的压力沿桌面 +y 方向滑动 6 厘米,然后抬到离桌面 3 厘米。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 4,
+ "hmr": "off",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 37.8
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "_sink",
+    "desc": "以 1 cm/s 匀速下探",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.01
+     ],
+     "tolerance": 0.003
+    },
+    "temporal": {
+     "stage": "down"
+    },
+    "verify": false
+   },
+   {
+    "id": "safety_z",
+    "desc": "工具尖端不得压入桌面超过 2 mm",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "set",
+     "lower": -0.002,
+     "tolerance": 0.0005
+    },
+    "hierarchy": {
+     "level": "hard",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "down",
+     "also_stages": [
+      "slide"
+     ]
+    }
+   },
+   {
+    "id": "press",
+    "desc": "压向桌面约 2 N",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 2.0,
+     "tolerance": 0.8
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3,
+     "loss": "huber"
+    },
+    "temporal": {
+     "stage": "slide",
+     "profile": "ramp",
+     "t_ramp": 0.3
+    }
+   },
+   {
+    "id": "slide_y",
+    "desc": "沿桌面 +y 从 A 点滑到 y=0.06 m",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.06
+     ],
+     "tolerance": 0.004
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3
+    },
+    "temporal": {
+     "stage": "slide",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "lift_up",
+    "desc": "抬到离桌面 3 cm",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.03
+     ],
+     "tolerance": 0.004
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.4
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "down",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.0
+      },
+      "to": "slide"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "slide",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "slide_y"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "lift"
+     },
+     {
+      "when": {
+       "not": {
+        "predicate": "contact",
+        "value": 1
+       }
+      },
+      "to": "down"
+     }
+    ],
+    "timeout_s": 12,
+    "on_timeout": "lift",
+    "max_visits": 3
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift_up"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 6,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "down",
+  "max_time_s": 40
+ },
+ "status": "fail:阶段 slide 进入次数超过 3",
+ "oracle_ok": false,
+ "oracle": {
+  "dy": 0.02,
+  "mean_fn": 3.86,
+  "h_end": 0.0092
+ },
+ "spec_all_pass": false,
+ "stages": [
+  {
+   "id": "down",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 4.479999999999831,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.0}",
+   "to": "slide",
+   "f_at_switch": 2.7098590804352627,
+   "rows": [
+    {
+     "id": "safety_z",
+     "pass": true,
+     "measured": [
+      0.0096
+     ]
+    }
+   ]
+  },
+  {
+   "id": "slide",
+   "visit": 1,
+   "t0": 4.479999999999831,
+   "t1": 4.639999999999884,
+   "done": true,
+   "exit": "切换:{'not': {'predicate': 'contact', 'value': 1}}",
+   "to": "down",
+   "f_at_switch": 0.6255000570115766,
+   "rows": [
+    {
+     "id": "slide_y",
+     "pass": false,
+     "measured": [
+      -0.0005
+     ]
+    },
+    {
+     "id": "safety_z",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "down",
+   "visit": 2,
+   "t0": 4.639999999999884,
+   "t1": 4.779999999999931,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.0}",
+   "to": "slide",
+   "f_at_switch": 5.208747869332158,
+   "rows": [
+    {
+     "id": "safety_z",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "slide",
+   "visit": 2,
+   "t0": 4.779999999999931,
+   "t1": 4.879999999999964,
+   "done": true,
+   "exit": "切换:{'not': {'predicate': 'contact', 'value': 1}}",
+   "to": "down",
+   "f_at_switch": 0.1721732743667231,
+   "rows": [
+    {
+     "id": "slide_y",
+     "pass": false,
+     "measured": [
+      0.0221
+     ]
+    },
+    {
+     "id": "safety_z",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "down",
+   "visit": 3,
+   "t0": 4.879999999999964,
+   "t1": 5.020000000000011,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.0}",
+   "to": "slide",
+   "f_at_switch": 6.235345639726831,
+   "rows": [
+    {
+     "id": "safety_z",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "slide",
+   "visit": 3,
+   "t0": 5.020000000000011,
+   "t1": 5.300000000000105,
+   "done": true,
+   "exit": "切换:{'not': {'predicate': 'contact', 'value': 1}}",
+   "to": "down",
+   "f_at_switch": 0.4231370100834729,
+   "rows": [
+    {
+     "id": "slide_y",
+     "pass": false,
+     "measured": [
+      0.0555
+     ]
+    },
+    {
+     "id": "safety_z",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "down",
+   "visit": 4,
+   "t0": 5.300000000000105,
+   "t1": 5.420000000000145,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.0}",
+   "to": "slide",
+   "f_at_switch": 1.038171324236481,
+   "rows": [
+    {
+     "id": "safety_z",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": null,
+ "hmr_replans": null,
+ "cost_usd": 0.00188,
+ "wall_s": 45.3
+}

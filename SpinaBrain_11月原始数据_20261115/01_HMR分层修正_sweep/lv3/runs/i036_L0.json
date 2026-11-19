@@ -1,0 +1,92 @@
+{
+ "id": 36,
+ "arm": "L0",
+ "inst": {
+  "id": 36,
+  "kind": "disturb",
+  "run_seed": 356,
+  "task": "near_long",
+  "disturb": "track,2.43,0.61,31.7,6.5,-21.0"
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L0",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.0351
+   ],
+   "deviation": [
+    0.0051
+   ],
+   "pass": false,
+   "ub": 0.03
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 51.4,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "单层臂:原样重跑一次"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "需要L2",
+   "why": [
+    "重跑后仍不过"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 重跑后仍不过"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 2.74,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 重跑后仍不过"
+}

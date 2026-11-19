@@ -1,0 +1,157 @@
+{
+ "id": 8,
+ "arm": "full",
+ "inst": {
+  "id": 8,
+  "kind": "mixed",
+  "run_seed": 63,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.02594561653217703,
+   "id": "near"
+  },
+  "mag_tol": 5.19,
+  "disturb": "track,1.96,0.57,34.5,25.9,-7.7"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.0273
+   ],
+   "deviation": [
+    -0.0027
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 23.9,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.28,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0309
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.02
+     ]
+    }
+   ],
+   "R": 4.694,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.28,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.31 / 1.07)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.28,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.88 / 1.88)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.58,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0129
+     ],
+     "c_old": [
+      -0.02
+     ],
+     "g_raw": [
+      0.899
+     ],
+     "g": [
+      0.899
+     ],
+     "c_new": [
+      -0.0344
+     ]
+    }
+   ],
+   "R": 0.014,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 2.28,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

@@ -1,0 +1,225 @@
+{
+ "id": 35,
+ "arm": "L1",
+ "inst": {
+  "id": 35,
+  "kind": "strategy",
+  "run_seed": 177,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.005732749894056553
+  ]
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.0,
+   "deviation": -1.0,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    -0.0
+   ],
+   "deviation": [
+    -0.02
+   ],
+   "pass": false,
+   "target": 0.02
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 41.0,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['keep2', 'vy']",
+    "规则判补偿无效 ['vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 阶段末仍不达标 ['keep2', 'vy']; 规则判补偿无效 ['vy']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0199
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.016
+     ]
+    }
+   ],
+   "R": 4.014,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 10.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.02
+     ],
+     "c_old": [
+      0.016
+     ],
+     "g_raw": [
+      -0.005
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.005 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 4.002
+  },
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "t": 13.5,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0199
+     ],
+     "c_old": [
+      0.016
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.032
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 16.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0201
+     ],
+     "c_old": [
+      0.032
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.04
+     ]
+    }
+   ],
+   "R": 4.019,
+   "problems": []
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "t": 18.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "vy",
+     "e": [
+      -0.0199
+     ],
+     "c_old": [
+      0.04
+     ],
+     "g_raw": [
+      0.023
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.023 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 3.973
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 阶段末仍不达标 ['keep2', 'vy']; 规则判补偿无效 ['vy']"
+}

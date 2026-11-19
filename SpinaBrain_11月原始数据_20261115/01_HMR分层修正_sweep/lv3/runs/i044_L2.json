@@ -1,0 +1,245 @@
+{
+ "id": 44,
+ "arm": "L2",
+ "inst": {
+  "id": 44,
+  "kind": "strategy",
+  "run_seed": 310,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.007449997052811326
+  ]
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "keep2",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.788,
+   "deviation": -0.212,
+   "pass": false,
+   "target": 1.0
+  },
+  {
+   "id": "vy",
+   "cat": "K1",
+   "kind": "target",
+   "unit": "m/s",
+   "tol": 0.004,
+   "measured": [
+    0.0003
+   ],
+   "deviation": [
+    -0.0197
+   ],
+   "pass": false,
+   "target": 0.02
+  }
+ ],
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00357
+ },
+ "sim_s": 78.9,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "slide",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['keep2', 'vy']"
+   ]
+  },
+  {
+   "stage": "slide",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "阶段 slide 需要 L2 但预算用尽:[\"阶段末仍不达标 ['keep2', 'vy']\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "slide",
+   "trigger": [
+    "阶段末仍不达标 ['keep2', 'vy']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_x",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x"
+     ],
+     "mode": "target",
+     "target": -0.05,
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_lift",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": 0.003,
+     "sigma": 0.004,
+     "weight": 0.5
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    },
+    {
+     "id": "_slow",
+     "level": "tcp_motion",
+     "attr": "speed",
+     "frame": "base",
+     "mode": "upper",
+     "ub": 0.007449997052811326,
+     "sigma": 0.005,
+     "penalty": "hard"
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "不是补偿量的问题:策略项 _lift 在整个滑动阶段命令 TCP 以 +3 mm/s 沿法向抬升(8 s 抬升约 24 mm,两张渲染图中夹爪明显悬在桌面上方),接触被主动解除,所以 keep2 只剩起始瞬间的 0.02,法向力下限上加多少 comp 都拉不回来;同时 _slow 的硬速度上限 0.00745 m/s 把速度封在 0.0075 以下,而契约 vy 要求 0.02±0.004 m/s(≥0.016),目标在物理上被策略项排除,vy 必然停在 ~0。必须改策略项:取消抬升、改为禁止向上/允许轻微下压以维持接触,并把速度上限抬到 0.02 以上。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 42.87,
+   "helpers_after": [
+    {
+     "id": "_x",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x"
+     ],
+     "mode": "target",
+     "target": -0.05,
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_contact_z",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "range",
+     "lb": -0.005,
+     "ub": 0.0,
+     "sigma": 0.004,
+     "weight": 1.5,
+     "penalty": "hard"
+    },
+    {
+     "id": "_vy",
+     "level": "tcp_motion",
+     "attr": "lin_vel",
+     "frame": "surface:table",
+     "axes": [
+      "y"
+     ],
+     "mode": "target",
+     "target": 0.02,
+     "sigma": 0.004,
+     "weight": 2
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    },
+    {
+     "id": "_slow",
+     "level": "tcp_motion",
+     "attr": "speed",
+     "frame": "base",
+     "mode": "upper",
+     "ub": 0.03,
+     "sigma": 0.005,
+     "penalty": "hard"
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 slide 需要 L2 但预算用尽:[\"阶段末仍不达标 ['keep2', 'vy']\"]"
+}

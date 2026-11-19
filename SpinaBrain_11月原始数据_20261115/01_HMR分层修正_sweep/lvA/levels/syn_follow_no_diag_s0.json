@@ -1,0 +1,635 @@
+{
+ "probe": "syn_follow",
+ "family": "solver",
+ "task": "follow_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "no_diag",
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0,
+  "tokens": 0,
+  "latency_s": 0,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "solver"
+ ],
+ "reached": "L1",
+ "first_level": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0016,
+    0.0018,
+    0.099
+   ],
+   "deviation": [
+    0.0016,
+    0.0018,
+    -0.001
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.2174
+   ],
+   "deviation": [
+    0.0174
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 67.2,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['follow']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差方向相反([-0.1198, -0.012, 0.0571] / [-0.1197, 0.0261, 0.0478])"
+    }
+   ],
+   "R": 14.052
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 4.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.1198, 0.0, 0.0546] / [-0.1197, 0.0452, 0.0485])"
+    }
+   ],
+   "R": 13.97
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.1197, 0.0, 0.0525] / [-0.1196, 0.0366, 0.0525])"
+    },
+    {
+     "id": "align",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.20 / 2.22)"
+    }
+   ],
+   "R": 13.968
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.02,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      -0.1197,
+      0.017,
+      0.052
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.032,
+      -0.017,
+      -0.032
+     ]
+    }
+   ],
+   "R": 13.966,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      -0.1196,
+      -0.0701,
+      0.0412
+     ],
+     "c_old": [
+      0.032,
+      -0.017,
+      -0.032
+     ],
+     "g_raw": [
+      0.001
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.001 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 13.957
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.04,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "align",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([-0.0499] / [-0.1175])"
+    }
+   ],
+   "R": 14.204
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.16,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "align",
+     "e": [
+      -0.0804
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0804
+     ]
+    }
+   ],
+   "R": 14.33,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 12.0,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      -0.1196,
+      0.0137,
+      0.0408
+     ],
+     "c_old": [
+      0.032,
+      -0.017,
+      -0.032
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.064,
+      -0.0307,
+      -0.064
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0622,
+      -0.023,
+      -0.0629
+     ],
+     "c_old": [
+      0.064,
+      -0.0307,
+      -0.064
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.032,
+      -0.0078,
+      -0.032
+     ]
+    },
+    {
+     "id": "align",
+     "e": [
+      0.065
+     ],
+     "c_old": [
+      0.0804
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.0154
+     ]
+    }
+   ],
+   "R": 7.974,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 17.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0365, 0.0, -0.0333] / [0.0341, -0.0126, -0.0296])"
+    }
+   ],
+   "R": 3.56
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 18.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0357, 0.0, -0.0319] / [0.0328, -0.0186, -0.0288])"
+    }
+   ],
+   "R": 3.462
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 19.3,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0335,
+      -0.0137,
+      -0.0306
+     ],
+     "c_old": [
+      0.032,
+      -0.0078,
+      -0.032
+     ],
+     "g_raw": [
+      0.898,
+      0.404,
+      1.008
+     ],
+     "g": [
+      0.898,
+      0.404,
+      1.008
+     ],
+     "c_new": [
+      0.0,
+      0.0242,
+      -0.0016
+     ]
+    }
+   ],
+   "R": 3.382,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 21.3,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0277,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0242,
+      -0.0016
+     ],
+     "g_raw": [
+      1.293
+     ],
+     "g": [
+      0.898,
+      1.293,
+      1.008
+     ],
+     "c_new": [
+      0.0,
+      0.0028,
+      -0.0016
+     ]
+    }
+   ],
+   "R": 2.04,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.1196,
+      0.0137,
+      0.1408
+     ],
+     "deviation": [
+      -0.1196,
+      0.0137,
+      0.0408
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.174
+     ],
+     "deviation": [
+      -0.026
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "pred_ok": 1.68,
+      "meas_ok": 1.84,
+      "stall": 2.0,
+      "drift": 3.48
+     },
+     "fail_lead_s": 0.14,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 26.03,
+     "p95": 34.88,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.001,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0016,
+      0.0018,
+      0.099
+     ],
+     "deviation": [
+      0.0016,
+      0.0018,
+      -0.001
+     ],
+     "pass": true,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.2174
+     ],
+     "deviation": [
+      0.0174
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 13.52,
+      "pred_ok": 13.52,
+      "drift": 13.54,
+      "stall": 14.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 13.52,
+      "pred_ok": 13.52,
+      "drift": 13.68,
+      "stall": 16.78
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 23.82,
+     "p95": 35.1,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0206,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "next"
+  }
+ ]
+}

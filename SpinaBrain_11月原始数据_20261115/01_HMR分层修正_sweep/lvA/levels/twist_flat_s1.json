@@ -1,0 +1,341 @@
+{
+ "probe": "twist",
+ "family": "n121",
+ "task": "twist",
+ "seed": 1,
+ "mode": "llm",
+ "cond": "flat",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00429,
+  "tokens": 9722,
+  "latency_s": 40.2,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2",
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "3cd64d01d032",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "twist",
+   "cat": "C4",
+   "kind": "torque",
+   "unit": "N*m",
+   "tol": 0.015,
+   "measured": 0.0264,
+   "deviation": -0.0536,
+   "pass": false,
+   "target": 0.08,
+   "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+  },
+  {
+   "id": "press3",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.0176
+   ],
+   "deviation": [
+    0.0176
+   ],
+   "pass": true,
+   "target": 5.0
+  }
+ ],
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "twist",
+   "t0": 9.500000000000174,
+   "t1": 13.499999999997957,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "twist",
+     "t0": 5.500000000000171,
+     "t1": 9.500000000000174,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 65.1,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['twist']"
+   ]
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "阶段 twist 需要 L2 但预算用尽:[\"阶段末仍不达标 ['twist']\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "twist",
+   "trigger": [
+    "阶段末仍不达标 ['twist']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.05,
+      0.0
+     ],
+     "sigma": 0.005,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "twist 超差(实测 0.1014,超过上限 0.095)不是目标值偏了,而是做法问题:_xy 用 σ=0.005、weight=2 把 TCP 死锁在桌面系 (-0.05, 0),拧转时手腕绕 z 旋转被这条刚性位置约束拽住,接触点被迫做切向拖拽和粘滑(监测里 press3 的 z 在 0.03~0.39 间来回起落、两次鼓包,就是打滑-咬合的粘滑特征),粘滑释放时叠加的附摩擦力矩叠加在规划的 0.08 之上。comp 只是把目标整体平移,消不掉这种由运动约束诱发、随粘滑相位波动的扰动,压目标反而会连带把已合格的 press3 拉偏。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 40.19,
+   "helpers_after": [
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "range",
+     "lb": [
+      -0.065,
+      -0.015
+     ],
+     "ub": [
+      -0.035,
+      0.015
+     ],
+     "sigma": 0.02,
+     "weight": 1,
+     "t_ramp": 0.6
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "阶段 twist 需要 L2 但预算用尽:[\"阶段末仍不达标 ['twist']\"]",
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0045,
+     "force": 5.0
+    },
+    "resets": 1
+   },
+   "action": "next"
+  },
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 9.500000000000174,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.1014,
+     "deviation": 0.0214,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.2485
+     ],
+     "deviation": [
+      0.2485
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.47,
+     "p95": 6.2,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0065,
+     "force": 1.4089
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "t0": 9.500000000000174,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0264,
+     "deviation": -0.0536,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.0176
+     ],
+     "deviation": [
+      0.0176
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.37,
+     "p95": 5.37,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0059,
+     "force": 1.7506
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

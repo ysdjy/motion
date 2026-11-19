@@ -1,0 +1,483 @@
+{
+ "task": "guard",
+ "instruction": "把工具下探到桌面 A 点,碰到后用 5 牛压住 2 秒,然后抬到离桌面 4 厘米。安全要求:任何时候只要压力超过 9 牛,立刻停止按压并抬起。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 1,
+ "hmr": "on",
+ "write_tries": [
+  {
+   "errors": [
+    [
+     "_force_limit",
+     "goal.tolerance 应为正数"
+    ]
+   ],
+   "latency_s": 90.4
+  },
+  {
+   "errors": [],
+   "latency_s": 16.9
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "_sink",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.01
+     ],
+     "tolerance": 0.002
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "down"
+    },
+    "verify": false
+   },
+   {
+    "id": "_force_limit",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "set",
+     "upper": 9.0,
+     "tolerance": 0.5
+    },
+    "hierarchy": {
+     "level": "hard",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "hold",
+     "also_stages": [
+      "down",
+      "lift"
+     ]
+    }
+   },
+   {
+    "id": "press",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 5.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3,
+     "loss": "quadratic"
+    },
+    "temporal": {
+     "stage": "hold",
+     "profile": "ramp",
+     "t_ramp": 0.3
+    }
+   },
+   {
+    "id": "up",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.5
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "down",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.0
+      },
+      "to": "hold"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "hold",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 9.0
+      },
+      "to": "lift"
+     },
+     {
+      "when": {
+       "time_ge": 2.0
+      },
+      "to": "lift"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "lift"
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "up"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 4,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "down",
+  "max_time_s": 25
+ },
+ "status": "fail:L2 失败:契约检查不通过:力位冲突:surface:table 的 z 方向有 pos target,而这个方向是力轴(surface:table 的 z)。力轴上不能再写位置 target",
+ "oracle_ok": false,
+ "oracle": {
+  "contact_s": 23.04,
+  "mean_fn": 5.0,
+  "max_fn": 9.14,
+  "h_end": 0.009,
+  "has_force_interrupt": false
+ },
+ "spec_all_pass": false,
+ "stages": [
+  {
+   "id": "down",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 4.979999999999998,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.0}",
+   "to": "hold",
+   "f_at_switch": 3.1128811532175247,
+   "rows": [
+    {
+     "id": "_force_limit",
+     "pass": true,
+     "measured": [
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hold",
+   "visit": 1,
+   "t0": 4.979999999999998,
+   "t1": 6.980000000000666,
+   "done": true,
+   "exit": "切换:{'time_ge': 2.0}",
+   "to": "lift",
+   "f_at_switch": 4.906769228538416,
+   "rows": [
+    {
+     "id": "_force_limit",
+     "pass": true,
+     "measured": [
+      5.3558
+     ]
+    },
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      4.8761
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 6.980000000000666,
+   "t1": 10.979999999999354,
+   "done": true,
+   "exit": "超时",
+   "to": "end",
+   "f_at_switch": 5.245795046414478,
+   "retried": true,
+   "rows": [
+    {
+     "id": "_force_limit",
+     "pass": true,
+     "measured": [
+      5.314
+     ]
+    },
+    {
+     "id": "up",
+     "pass": false,
+     "measured": [
+      0.009
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 10.979999999999354,
+   "t1": 14.979999999997137,
+   "done": true,
+   "exit": "超时",
+   "to": "end",
+   "f_at_switch": 5.743622011630677,
+   "retried": true,
+   "rows": [
+    {
+     "id": "_force_limit",
+     "pass": true,
+     "measured": [
+      5.7203
+     ]
+    },
+    {
+     "id": "up",
+     "pass": false,
+     "measured": [
+      0.009
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 14.979999999997137,
+   "t1": 18.980000000000214,
+   "done": true,
+   "exit": "超时",
+   "to": "end",
+   "f_at_switch": 4.894652347637843,
+   "retried": true,
+   "rows": [
+    {
+     "id": "_force_limit",
+     "pass": true,
+     "measured": [
+      5.202
+     ]
+    },
+    {
+     "id": "up",
+     "pass": false,
+     "measured": [
+      0.009
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 18.980000000000214,
+   "t1": 22.980000000005102,
+   "done": true,
+   "exit": "超时",
+   "to": "end",
+   "f_at_switch": 5.528699595126449,
+   "retried": true,
+   "rows": [
+    {
+     "id": "_force_limit",
+     "pass": true,
+     "measured": [
+      5.5446
+     ]
+    },
+    {
+     "id": "up",
+     "pass": false,
+     "measured": [
+      0.009
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 22.980000000005102,
+   "t1": 26.98000000000999,
+   "done": true,
+   "exit": "超时",
+   "to": "end",
+   "f_at_switch": 5.120040763462244,
+   "retried": true,
+   "rows": [
+    {
+     "id": "_force_limit",
+     "pass": true,
+     "measured": [
+      5.3679
+     ]
+    },
+    {
+     "id": "up",
+     "pass": false,
+     "measured": [
+      0.009
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 26.98000000000999,
+   "t1": 28.000000000011237,
+   "done": false,
+   "exit": "总时长超限",
+   "to": "fail",
+   "f_at_switch": 4.988735846845125,
+   "rows": [
+    {
+     "id": "_force_limit",
+     "pass": true,
+     "measured": [
+      5.1625
+     ]
+    },
+    {
+     "id": "up",
+     "pass": false,
+     "measured": [
+      0.009
+     ]
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": [
+  {
+   "stage": "lift",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['up']"
+   ]
+  },
+  {
+   "stage": "lift",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['up']"
+   ]
+  },
+  {
+   "stage": "lift",
+   "attempt": 2,
+   "level": "L1-求解器",
+   "why": [
+    "规则判补偿无效 ['up']",
+    "压着的约束 []"
+   ]
+  },
+  {
+   "stage": "lift",
+   "attempt": 3,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['up']"
+   ]
+  },
+  {
+   "stage": "lift",
+   "attempt": 4,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['up']"
+   ]
+  },
+  {
+   "stage": "lift",
+   "attempt": 5,
+   "level": "stop",
+   "why": [
+    "L2 失败:契约检查不通过:力位冲突:surface:table 的 z 方向有 pos target,而这个方向是力轴(surface:table 的 z)。力轴上不能再写位置 target"
+   ]
+  }
+ ],
+ "hmr_replans": [
+  {
+   "diagnosis": null,
+   "changed": false,
+   "stage_patch": null,
+   "error": "契约检查不通过:力位冲突:surface:table 的 z 方向有 pos target,而这个方向是力轴(surface:table 的 z)。力轴上不能再写位置 target"
+  }
+ ],
+ "cost_usd": 0.02296,
+ "wall_s": 512.2
+}

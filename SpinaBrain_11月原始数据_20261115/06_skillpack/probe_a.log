@@ -1,0 +1,95 @@
+=== pnp_rt  (44 s wall)
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               2.62 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                4.28 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.4494, -0.1201, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': True, 'dxy_mm': 0.6, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  guard_trips 0
+=== pnp_nort  (46 s wall)
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               2.62 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                4.28 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.4494, -0.1201, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': True, 'dxy_mm': 0.6, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  guard_trips 0
+  >>> rt 与 不开 rt 日志逐位相同: True
+=== pnp_care_lo  (40 s wall)
+  move@pick/hover                2.76 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.46 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               2.38 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                3.12 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.4504, -0.1228, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': True, 'dxy_mm': 2.8, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  guard_trips 0
+=== pnp_care_hi  (61 s wall)
+  move@pick/hover                4.98 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                2.92 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               4.00 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                7.16 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.4507, -0.1204, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': True, 'dxy_mm': 0.8, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  guard_trips 0
+=== pnp_care0  (32 s wall)
+  move@pick/hover                2.16 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.20 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               1.66 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                2.02 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.4496, -0.1251, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': True, 'dxy_mm': 5.1, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  guard_trips 0
+=== move_two  (86 s wall)
+  move@A/pick/hover              3.04 s  切换:{'satisfied': ['at@A/pick/hover'], 'hold_s': 0.2}
+  move@A/pick/reach              1.58 s  切换:{'satisfied': ['at@A/pick/reach'], 'hold_s': 0.2}
+  grasp@A/pick/grasp             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@A/pick/lift               3.00 s  切换:{'time_ge': 3.0}
+  move@A/place/carry             2.62 s  切换:{'satisfied': ['at@A/place/carry'], 'hold_s': 0.2}
+  down@A/place/down              4.28 s  切换:{'force_ge': 2.0}
+  open@A/place/release           1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@A/place/up                2.50 s  切换:{'time_ge': 2.5}
+  move@B/pick/hover              3.08 s  切换:{'satisfied': ['at@B/pick/hover'], 'hold_s': 0.2}
+  move@B/pick/reach              1.56 s  切换:{'satisfied': ['at@B/pick/reach'], 'hold_s': 0.2}
+  grasp@B/pick/grasp             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@B/pick/lift               3.00 s  切换:{'time_ge': 3.0}
+  move@B/place/carry             2.58 s  切换:{'satisfied': ['at@B/place/carry'], 'hold_s': 0.2}
+  down@B/place/down              4.24 s  切换:{'force_ge': 2.0}
+  open@B/place/release           1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@B/place/up                2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 10 条,没过 0 条
+  cube: [0.4494, -0.1201, 0.1199]
+  cube2: [0.578, -0.1223, 0.1199]
+  placed(cube,goal) = {'ok': True, 'dxy_mm': 0.6, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  placed(cube2,goal2) = {'ok': True, 'dxy_mm': 3.0, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  guard_trips 0
+exit 0

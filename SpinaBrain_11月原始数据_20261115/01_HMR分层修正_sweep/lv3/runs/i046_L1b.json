@@ -1,0 +1,227 @@
+{
+ "id": 46,
+ "arm": "L1b",
+ "inst": {
+  "id": 46,
+  "kind": "mixed",
+  "run_seed": 15,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 8.322072880310667,
+   "id": "press2"
+  },
+  "mag_tol": 5.55,
+  "disturb": "press_hold,1.42,0.42,-11.8,-11.1,-27.8"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b"
+ ],
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "deviation": null,
+   "pass": true,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ],
+    [
+     "lift",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.1588,
+   "deviation": 0.1588,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 6.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 0.9967,
+   "deviation": -0.0033,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    3.8613
+   ],
+   "deviation": [
+    -1.1387
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0497,
+    0.0001
+   ],
+   "deviation": [
+    0.0003,
+    0.0001
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 2,
+  "cost_usd": 0.00201
+ },
+ "sim_s": 82.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep', 'press2']"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['press2']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "keep",
+     "field": "comp",
+     "value": 0.2314
+    },
+    {
+     "id": "press2",
+     "field": "comp",
+     "value": -6.2365
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 16.07,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "press2",
+     "field": "comp",
+     "value": -9.3043
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 18.46,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 8.674,
+   "kind": "force",
+   "peak": 30.5244,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 9.116,
+   "kind": "force",
+   "peak": 13.3221,
+   "thr": 3.0
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

@@ -1,0 +1,223 @@
+{
+ "id": 29,
+ "arm": "full",
+ "inst": {
+  "id": 29,
+  "kind": "mixed",
+  "run_seed": 87,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.029306392135963123,
+   "id": "near"
+  },
+  "mag_tol": 5.86,
+  "disturb": "track,1.96,0.63,27.4,18.3,-10.9"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "solver",
+ "level_path": [
+  "L1",
+  "L1",
+  "solver",
+  "L0",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.0264
+   ],
+   "deviation": [
+    -0.0036
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 39.1,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "20ee6b40e4ff",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差变大 0.09 → 0.23,持续 0.5 s(已撤回这次补偿)",
+    "固定 / 契约约束压着,可能是局部最优 [{'source': 'fixed', 'kind': '硬约束项', 'id': 'near', 'frac': 1.0}]"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['drift_reset']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.32,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0361
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.02
+     ]
+    }
+   ],
+   "R": 5.721,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.32,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0112
+     ],
+     "c_old": [
+      -0.02
+     ],
+     "g_raw": [
+      1.243
+     ],
+     "g": [
+      1.243
+     ],
+     "c_new": [
+      -0.029
+     ]
+    }
+   ],
+   "R": 0.094,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.34,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0089
+     ],
+     "c_old": [
+      -0.029
+     ],
+     "g_raw": [
+      0.255
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.255 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 0.186
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.54,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0169
+     ],
+     "c_old": [
+      -0.02
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.0369
+     ]
+    }
+   ],
+   "R": 1.889,
+   "problems": []
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.86,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 0.09 → 0.23,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "硬约束项",
+     "id": "near",
+     "frac": 1.0
+    }
+   ],
+   "pred_bad": [
+    "near"
+   ],
+   "cost_min": 49839.671875,
+   "ess": 58.49946975708008,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 2.32,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

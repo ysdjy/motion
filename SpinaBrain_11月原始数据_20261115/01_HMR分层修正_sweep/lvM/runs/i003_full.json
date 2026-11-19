@@ -1,0 +1,275 @@
+{
+ "id": 3,
+ "arm": "full",
+ "inst": {
+  "id": 3,
+  "kind": "mixed",
+  "run_seed": 692,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 8.838552619021476,
+   "id": "press2"
+  },
+  "mag_tol": 5.89,
+  "disturb": "press_hold,1.94,0.41,-31.1,-6.2,2.7"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1b",
+ "level_path": [
+  "L1",
+  "L0",
+  "L1",
+  "L1b",
+  "L1b"
+ ],
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "deviation": null,
+   "pass": true,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ],
+    [
+     "lift",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.0498,
+   "deviation": 0.0498,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 6.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    4.9089
+   ],
+   "deviation": [
+    -0.0911
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0501,
+    -0.0
+   ],
+   "deviation": [
+    -0.0001,
+    -0.0
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00093
+ },
+ "sim_s": 75.9,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['force']"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 13.12,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      9.1129
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -6.0
+     ]
+    }
+   ],
+   "R": 5.235,
+   "problems": []
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 17.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      2.974
+     ],
+     "c_old": [
+      -6.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -8.974
+     ]
+    }
+   ],
+   "R": 1.154,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "keep",
+     "field": "comp",
+     "value": 0.0881
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 17.55,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 9.739,
+   "kind": "force",
+   "peak": 8.0208,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 18.825,
+   "kind": "force",
+   "peak": 4.5123,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 19.122,
+   "kind": "force",
+   "peak": 4.8646,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 19.376,
+   "kind": "force",
+   "peak": 4.8646,
+   "thr": 3.0
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

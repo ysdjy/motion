@@ -1,0 +1,529 @@
+{
+ "task": "tap",
+ "instruction": "在桌面 A 点连续点压 3 次:每次压到约 4 牛,然后抬起 1 厘米,再压下一次;3 次后结束。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 3,
+ "hmr": "off",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 113.8
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "_align_xy",
+    "control": {
+     "entity": "tool",
+     "feature": {
+      "type": "point"
+     }
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05,
+      0.0
+     ],
+     "tolerance": 0.002
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 4
+    },
+    "temporal": {
+     "stage": "down1",
+     "also_stages": [
+      "press1",
+      "lift1",
+      "down2",
+      "press2",
+      "lift2",
+      "down3",
+      "press3",
+      "lift3"
+     ]
+    }
+   },
+   {
+    "id": "_sink",
+    "control": {
+     "entity": "tool",
+     "feature": {
+      "type": "point"
+     }
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.02
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "preference",
+     "weight": 1
+    },
+    "temporal": {
+     "stage": "down1",
+     "also_stages": [
+      "down2",
+      "down3"
+     ]
+    },
+    "verify": false
+   },
+   {
+    "id": "press",
+    "control": {
+     "entity": "tool",
+     "feature": {
+      "type": "point"
+     }
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 4.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3
+    },
+    "temporal": {
+     "stage": "press1",
+     "also_stages": [
+      "press2",
+      "press3"
+     ],
+     "profile": "ramp",
+     "t_ramp": 0.2
+    }
+   },
+   {
+    "id": "lift",
+    "control": {
+     "entity": "tool",
+     "feature": {
+      "type": "point"
+     }
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.01
+     ],
+     "tolerance": 0.003
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3
+    },
+    "temporal": {
+     "stage": "lift1",
+     "also_stages": [
+      "lift2",
+      "lift3"
+     ],
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.3
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "down1",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.5
+      },
+      "to": "press1"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "press1",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "press"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "lift1"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "lift1",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "down2"
+     }
+    ],
+    "timeout_s": 3,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "down2",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.5
+      },
+      "to": "press2"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "press2",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "press"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "lift2"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "lift2",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "down3"
+     }
+    ],
+    "timeout_s": 3,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "down3",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.5
+      },
+      "to": "press3"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "press3",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "press"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "lift3"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "lift3",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 3,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "down1",
+  "max_time_s": 60
+ },
+ "status": "end",
+ "oracle_ok": true,
+ "oracle": {
+  "taps": 3,
+  "max_fn": 4.82
+ },
+ "spec_all_pass": true,
+ "stages": [
+  {
+   "id": "down1",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 6.300000000000439,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.5}",
+   "to": "press1",
+   "f_at_switch": 1.5632868232473884,
+   "rows": [
+    {
+     "id": "_align_xy",
+     "pass": true,
+     "measured": [
+      -0.0504,
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "press1",
+   "visit": 1,
+   "t0": 6.300000000000439,
+   "t1": 6.480000000000499,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press'], 'hold_s': 0.1}",
+   "to": "lift1",
+   "f_at_switch": 3.03399913317318,
+   "rows": [
+    {
+     "id": "_align_xy",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "lift1",
+   "visit": 1,
+   "t0": 6.480000000000499,
+   "t1": 6.6800000000005655,
+   "done": true,
+   "exit": "切换:{'satisfied': ['lift'], 'hold_s': 0.2}",
+   "to": "down2",
+   "f_at_switch": 0.1495745527265525,
+   "rows": [
+    {
+     "id": "lift",
+     "pass": true,
+     "measured": [
+      0.0088
+     ]
+    },
+    {
+     "id": "_align_xy",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "down2",
+   "visit": 1,
+   "t0": 6.6800000000005655,
+   "t1": 7.100000000000706,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.5}",
+   "to": "press2",
+   "f_at_switch": 1.5000641640444816,
+   "rows": [
+    {
+     "id": "_align_xy",
+     "pass": true,
+     "measured": [
+      -0.0498,
+      -0.0001
+     ]
+    }
+   ]
+  },
+  {
+   "id": "press2",
+   "visit": 1,
+   "t0": 7.100000000000706,
+   "t1": 7.280000000000766,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press'], 'hold_s': 0.1}",
+   "to": "lift2",
+   "f_at_switch": 3.984993456355772,
+   "rows": [
+    {
+     "id": "_align_xy",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "lift2",
+   "visit": 1,
+   "t0": 7.280000000000766,
+   "t1": 7.480000000000833,
+   "done": true,
+   "exit": "切换:{'satisfied': ['lift'], 'hold_s': 0.2}",
+   "to": "down3",
+   "f_at_switch": 1.20677092237528,
+   "rows": [
+    {
+     "id": "lift",
+     "pass": true,
+     "measured": [
+      0.0088
+     ]
+    },
+    {
+     "id": "_align_xy",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "down3",
+   "visit": 1,
+   "t0": 7.480000000000833,
+   "t1": 7.8600000000009596,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.5}",
+   "to": "press3",
+   "f_at_switch": 1.506741831912593,
+   "rows": [
+    {
+     "id": "_align_xy",
+     "pass": true,
+     "measured": [
+      -0.0498,
+      -0.0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "press3",
+   "visit": 1,
+   "t0": 7.8600000000009596,
+   "t1": 8.040000000000983,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press'], 'hold_s': 0.1}",
+   "to": "lift3",
+   "f_at_switch": 3.842000819208121,
+   "rows": [
+    {
+     "id": "_align_xy",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "lift3",
+   "visit": 1,
+   "t0": 8.040000000000983,
+   "t1": 8.240000000000872,
+   "done": true,
+   "exit": "切换:{'satisfied': ['lift'], 'hold_s': 0.2}",
+   "to": "end",
+   "f_at_switch": 1.1680180734197918,
+   "rows": [
+    {
+     "id": "lift",
+     "pass": true,
+     "measured": [
+      0.0088
+     ]
+    },
+    {
+     "id": "_align_xy",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": null,
+ "hmr_replans": null,
+ "cost_usd": 0.00595,
+ "wall_s": 128.2
+}

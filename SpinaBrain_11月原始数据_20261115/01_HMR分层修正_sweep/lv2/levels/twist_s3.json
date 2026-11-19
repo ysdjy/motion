@@ -1,0 +1,352 @@
+{
+ "probe": "twist",
+ "family": "n121",
+ "task": "twist",
+ "seed": 3,
+ "mode": "llm",
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L1b",
+ "decision_ok": true,
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "twist",
+   "cat": "C4",
+   "kind": "torque",
+   "unit": "N*m",
+   "tol": 0.015,
+   "measured": 0.0767,
+   "deviation": -0.0033,
+   "pass": true,
+   "target": 0.08,
+   "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+  },
+  {
+   "id": "press3",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    4.991
+   ],
+   "deviation": [
+    -0.009
+   ],
+   "pass": true,
+   "target": 5.0
+  }
+ ],
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "twist",
+   "t0": 13.499999999997957,
+   "t1": 17.499999999998405,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "twist",
+     "t0": 5.500000000000171,
+     "t1": 9.500000000000174,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "twist",
+     "t0": 9.500000000000174,
+     "t1": 13.499999999997957,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 40.8,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['twist']"
+   ]
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['twist']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "twist",
+     "field": "comp",
+     "value": -0.0394
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 3.1,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "twist",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "twist",
+     "field": "comp",
+     "value": -0.026950694444444
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 9.76,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0028,
+     "force": 5.0
+    },
+    "resets": 1
+   },
+   "action": "next"
+  },
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 9.500000000000174,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.1194,
+     "deviation": 0.0394,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.0023
+     ],
+     "deviation": [
+      0.0023
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 1.63,
+     "p95": 2.89,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0033,
+     "force": 1.2277
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "t0": 9.500000000000174,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0618,
+     "deviation": -0.0182,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      4.9953
+     ],
+     "deviation": [
+      -0.0047
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 1.63,
+     "p95": 2.91,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0015,
+     "force": 0.3094
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "twist",
+   "attempt": 2,
+   "t0": 13.499999999997957,
+   "t1": 17.499999999998405,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0767,
+     "deviation": -0.0033,
+     "pass": true,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      4.991
+     ],
+     "deviation": [
+      -0.009
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 1.58,
+     "p95": 2.78,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0016,
+     "force": 0.1608
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

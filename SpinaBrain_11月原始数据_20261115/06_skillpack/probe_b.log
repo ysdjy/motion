@@ -1,0 +1,56 @@
+=== snatch_nort  (32 s wall)
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'time_ge': 3.0}
+  move@place/carry               2.64 s  切换:{'satisfied': ['at@place/carry'], 'hold_s': 0.2}
+  down@place/down                5.52 s  切换:{'force_ge': 2.0}
+  open@place/release             1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'value': 0}]}
+  lift@place/up                  2.50 s  切换:{'time_ge': 2.5}
+状态 end;验收行 5 条,没过 0 条
+  cube: [0.3, 0.35, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': False, 'dxy_mm': 493.4, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  guard_trips 1
+=== snatch_rt  (16 s wall)
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'grasp', 'value': 1}}]}
+状态 fail:切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'grasp', 'value': 1}}]};验收行 3 条,没过 0 条;交接不成立:pick.$done → place 要求 holding=1,实测不符
+  cube: [0.3, 0.35, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': False, 'dxy_mm': 493.4, 'dz_mm': 0.1, 'grip_cm': 0.0}
+  guard_trips 0
+=== miss_x5cm  (8 s wall)
+  move@pick/hover                3.14 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.56 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01, 'value': 0}]}
+状态 fail:切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01, 'value': 0}]};验收行 2 条,没过 0 条
+  cube: [0.45, 0.1, 0.1199]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': False, 'dxy_mm': 220.0, 'dz_mm': 0.1, 'grip_cm': 0.0}
+  guard_trips 0
+=== heavy_3.0kg_grip10.0  (17 s wall)
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'contact', 'value': 0}}]}
+  没过:up@pick/lift  
+状态 fail:切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'contact', 'value': 0}}]};验收行 3 条,没过 1 条;交接不成立:pick.$done → place 要求 contact=0,实测不符
+  cube: [0.4339, 0.112, 0.12]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': False, 'dxy_mm': 232.5, 'dz_mm': 0.0, 'grip_cm': 4.0}
+  guard_trips 3
+=== heavy_6.0kg_grip10.0  (17 s wall)
+  move@pick/hover                3.04 s  切换:{'satisfied': ['at@pick/hover'], 'hold_s': 0.2}
+  move@pick/reach                1.58 s  切换:{'satisfied': ['at@pick/reach'], 'hold_s': 0.2}
+  grasp@pick/grasp               1.00 s  切换:{'all': [{'time_ge': 1.0}, {'predicate': 'grasp', 'w_min': 0.01}]}
+  lift@pick/lift                 3.00 s  切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'contact', 'value': 0}}]}
+  没过:up@pick/lift  
+状态 fail:切换:{'all': [{'time_ge': 3.0}, {'not': {'predicate': 'contact', 'value': 0}}]};验收行 3 条,没过 1 条;交接不成立:pick.$done → place 要求 contact=0,实测不符
+  cube: [0.4578, 0.0632, 0.12]
+  cube2: [0.58, 0.1, 0.1199]
+  placed(cube,goal) = {'ok': False, 'dxy_mm': 183.4, 'dz_mm': 0.0, 'grip_cm': 4.1}
+  guard_trips 8
+exit 0

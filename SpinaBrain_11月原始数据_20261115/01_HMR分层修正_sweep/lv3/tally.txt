@@ -1,0 +1,19 @@
+完成 50/50 个实例
+金标签分布 {'unfixable': 10, 'L1': 16, 'none': 6, 'L1b': 11, 'L0': 4, 'L2': 3}
+完整 HMR 与金标签 {'unfixable': 10, 'match': 28, 'no_fault': 6, 'over': 4, 'under': 2}
+可比实例(金标签在 L0–L2)34:一致 28/34 Wilson 95% (0.665, 0.917);过度升级 4,升级不足 2
+无有效故障 6:完整 HMR 什么都没做 6;动作过的 []
+可修实例 34:完整 HMR 修好 31 Wilson (0.77, 0.97);不可修 10 个里完整 HMR 修好 5(> 0 说明组合多层才修得好)
+「升级不足」但完整 HMR 修好了的(提示金标签偏高或单层臂有缺陷): [25, 46]
+混淆矩阵(行 = 金标签,列 = 完整 HMR 到达)
+             L0      L1  solver     L1b      L2      其他
+     L0       2       1       0       0       1       0
+     L1       0      15       1       0       0       0
+ solver       0       0       0       0       0       0
+    L1b       0       2       0       8       1       0
+     L2       0       0       0       0       3       0
+  comp     n=15 金标签 {'L1': 9, 'none': 3, 'L1b': 3} 关系 {'match': 11, 'no_fault': 3, 'over': 1} 完整修好 15
+  disturb  n=10 金标签 {'none': 2, 'L0': 4, 'L1': 3, 'unfixable': 1} 关系 {'no_fault': 2, 'over': 2, 'match': 5, 'unfixable': 1} 完整修好 9
+  strategy n=10 金标签 {'unfixable': 6, 'L2': 3, 'none': 1} 关系 {'unfixable': 6, 'match': 3, 'no_fault': 1} 完整修好 6
+  n121     n= 8 金标签 {'L1b': 5, 'unfixable': 3} 关系 {'match': 4, 'unfixable': 3, 'over': 1} 完整修好 5
+  mixed    n= 7 金标签 {'L1': 4, 'L1b': 3} 关系 {'match': 5, 'under': 2} 完整修好 7

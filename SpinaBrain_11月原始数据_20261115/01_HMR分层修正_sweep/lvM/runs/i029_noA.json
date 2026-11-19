@@ -1,0 +1,178 @@
+{
+ "id": 29,
+ "arm": "noA",
+ "inst": {
+  "id": 29,
+  "kind": "mixed",
+  "run_seed": 87,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.029306392135963123,
+   "id": "near"
+  },
+  "mag_tol": 5.86,
+  "disturb": "track,1.96,0.63,27.4,18.3,-10.9"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.0203
+   ],
+   "deviation": [
+    -0.0097
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 23.2,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0533
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.02
+     ]
+    }
+   ],
+   "R": 9.359,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = 2.07 / 0.91)"
+    }
+   ],
+   "R": 1.068
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.34,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0123
+     ],
+     "c_old": [
+      -0.02
+     ],
+     "g_raw": [
+      2.049
+     ],
+     "g": [
+      2.049
+     ],
+     "c_new": [
+      -0.026
+     ]
+    }
+   ],
+   "R": 1.051,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.34,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.83 / 1.60)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0105
+     ],
+     "c_old": [
+      -0.026
+     ],
+     "g_raw": [
+      0.305
+     ],
+     "g": [
+      0.305
+     ],
+     "c_new": [
+      -0.046
+     ]
+    }
+   ],
+   "R": 0.031,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

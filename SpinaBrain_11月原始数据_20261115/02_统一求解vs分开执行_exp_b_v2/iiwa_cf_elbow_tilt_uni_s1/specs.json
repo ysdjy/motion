@@ -1,0 +1,347 @@
+{
+ "go": {
+  "intent": "关节空间去起点上方",
+  "terms": [
+   {
+    "id": "qgo",
+    "level": "joint",
+    "attr": "q",
+    "joints": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "mode": "target",
+    "target": [
+     0.44856,
+     1.22173,
+     -1.04541,
+     -1.27021,
+     0.70087,
+     1.71956,
+     -0.59325
+    ],
+    "sigma": 0.03,
+    "weight": 4,
+    "profile": "ramp_from_current",
+    "t_ramp": 3.0
+   },
+   {
+    "id": "slow",
+    "level": "tcp_motion",
+    "attr": "speed",
+    "frame": "base",
+    "mode": "upper",
+    "ub": 0.25,
+    "sigma": 0.01,
+    "penalty": "hard"
+   }
+  ]
+ },
+ "settle": {
+  "intent": "球心对准起点上方 3 cm,工具倾 15°",
+  "terms": [
+   {
+    "id": "above",
+    "level": "tcp_motion",
+    "attr": "pos",
+    "frame": "surface:table",
+    "axes": [
+     "x",
+     "y",
+     "z"
+    ],
+    "mode": "target",
+    "target": [
+     0.0,
+     -0.05,
+     0.038
+    ],
+    "sigma": 0.003,
+    "weight": 4
+   },
+   {
+    "id": "ori",
+    "level": "tcp_motion",
+    "attr": "ori",
+    "frame": "base",
+    "axes": [
+     "rx",
+     "ry",
+     "rz"
+    ],
+    "mode": "target",
+    "target": [
+     -0.3007057995042731,
+     0.0,
+     0.9537169507482269,
+     0.0
+    ],
+    "sigma": 0.03,
+    "weight": 4
+   },
+   {
+    "id": "elbow",
+    "level": "joint",
+    "attr": "link_pos",
+    "link": 4,
+    "axes": [
+     "y"
+    ],
+    "mode": "target",
+    "target": 0.18,
+    "sigma": 0.02,
+    "weight": 2,
+    "priority": "preference"
+   },
+   {
+    "id": "slow",
+    "level": "tcp_motion",
+    "attr": "speed",
+    "frame": "base",
+    "mode": "upper",
+    "ub": 0.25,
+    "sigma": 0.01,
+    "penalty": "hard"
+   }
+  ]
+ },
+ "press": {
+  "intent": "起点处压到 4 N",
+  "terms": [
+   {
+    "id": "press",
+    "level": "tcp_force",
+    "attr": "force",
+    "frame": "surface:table",
+    "axes": [
+     "z"
+    ],
+    "mode": "target",
+    "target": 4.0,
+    "sigma": 2.0,
+    "weight": 3,
+    "profile": "ramp_from_current",
+    "t_ramp": 1.0
+   },
+   {
+    "id": "xy",
+    "level": "tcp_motion",
+    "attr": "pos",
+    "frame": "surface:table",
+    "axes": [
+     "x",
+     "y"
+    ],
+    "mode": "target",
+    "target": [
+     0.0,
+     -0.05
+    ],
+    "sigma": 0.003,
+    "weight": 4
+   },
+   {
+    "id": "ori",
+    "level": "tcp_motion",
+    "attr": "ori",
+    "frame": "base",
+    "axes": [
+     "rx",
+     "ry",
+     "rz"
+    ],
+    "mode": "target",
+    "target": [
+     -0.3007057995042731,
+     0.0,
+     0.9537169507482269,
+     0.0
+    ],
+    "sigma": 0.03,
+    "weight": 4
+   },
+   {
+    "id": "elbow",
+    "level": "joint",
+    "attr": "link_pos",
+    "link": 4,
+    "axes": [
+     "y"
+    ],
+    "mode": "target",
+    "target": 0.18,
+    "sigma": 0.02,
+    "weight": 2,
+    "priority": "preference"
+   }
+  ]
+ },
+ "track": {
+  "window_ms": 500,
+  "intent": "压着桌面沿直线滑 10 cm,保持 4 N、倾 15°、手肘在 +y 侧",
+  "terms": [
+   {
+    "id": "line",
+    "level": "tcp_motion",
+    "attr": "pos",
+    "frame": "surface:table",
+    "axes": [
+     "x",
+     "y"
+    ],
+    "mode": "target",
+    "profile": "path",
+    "waypoints": [
+     [
+      0.0,
+      -0.05
+     ],
+     [
+      0.0,
+      0.05
+     ]
+    ],
+    "speed": 0.02,
+    "accel": 0.2,
+    "sigma": 0.003,
+    "weight": 5
+   },
+   {
+    "id": "press",
+    "level": "tcp_force",
+    "attr": "force",
+    "frame": "surface:table",
+    "axes": [
+     "z"
+    ],
+    "mode": "target",
+    "target": 4.0,
+    "sigma": 2.0,
+    "weight": 3
+   },
+   {
+    "id": "ori",
+    "level": "tcp_motion",
+    "attr": "ori",
+    "frame": "base",
+    "axes": [
+     "rx",
+     "ry",
+     "rz"
+    ],
+    "mode": "target",
+    "target": [
+     -0.3007057995042731,
+     0.0,
+     0.9537169507482269,
+     0.0
+    ],
+    "sigma": 0.03,
+    "weight": 4
+   },
+   {
+    "id": "elbow",
+    "level": "joint",
+    "attr": "link_pos",
+    "link": 4,
+    "axes": [
+     "y"
+    ],
+    "mode": "target",
+    "target": 0.18,
+    "sigma": 0.02,
+    "weight": 2,
+    "priority": "preference"
+   },
+   {
+    "id": "hold_depth",
+    "level": "tcp_motion",
+    "attr": "lin_vel",
+    "frame": "surface:table",
+    "axes": [
+     "z"
+    ],
+    "mode": "target",
+    "target": 0.0,
+    "sigma": 0.003,
+    "weight": 2.0,
+    "priority": "task"
+   }
+  ]
+ },
+ "lift": {
+  "intent": "抬起 6 cm",
+  "terms": [
+   {
+    "id": "up",
+    "level": "tcp_motion",
+    "attr": "pos",
+    "frame": "surface:table",
+    "axes": [
+     "x",
+     "y",
+     "z"
+    ],
+    "mode": "target",
+    "target": [
+     0.0,
+     0.05,
+     0.068
+    ],
+    "sigma": 0.003,
+    "weight": 4,
+    "profile": "ramp_from_current",
+    "t_ramp": 1.0
+   },
+   {
+    "id": "ori",
+    "level": "tcp_motion",
+    "attr": "ori",
+    "frame": "base",
+    "axes": [
+     "rx",
+     "ry",
+     "rz"
+    ],
+    "mode": "target",
+    "target": [
+     -0.3007057995042731,
+     0.0,
+     0.9537169507482269,
+     0.0
+    ],
+    "sigma": 0.03,
+    "weight": 4
+   },
+   {
+    "id": "elbow",
+    "level": "joint",
+    "attr": "link_pos",
+    "link": 4,
+    "axes": [
+     "y"
+    ],
+    "mode": "target",
+    "target": 0.18,
+    "sigma": 0.02,
+    "weight": 2,
+    "priority": "preference"
+   },
+   {
+    "id": "slow",
+    "level": "tcp_motion",
+    "attr": "speed",
+    "frame": "base",
+    "mode": "upper",
+    "ub": 0.25,
+    "sigma": 0.01,
+    "penalty": "hard"
+   }
+  ]
+ }
+}

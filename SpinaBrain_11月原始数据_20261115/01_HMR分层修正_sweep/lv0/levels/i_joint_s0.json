@@ -1,0 +1,567 @@
+{
+ "probe": "i_joint",
+ "family": "infeasible",
+ "task": "config_long",
+ "seed": 0,
+ "mode": "decide",
+ "model": null,
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "decision_ok": true,
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.2559
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3065,
+    -0.0005,
+    0.4891
+   ],
+   "deviation": [
+    -0.0005,
+    -0.0005,
+    0.0022
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  },
+  {
+   "id": "q4",
+   "cat": "INF",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.03,
+   "measured": [
+    -1.8966
+   ],
+   "deviation": [
+    -1.8466
+   ],
+   "pass": false,
+   "target": -0.05
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 8.000000000001005,
+   "t1": 16.599999999997305,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.56,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 8.000000000001005,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 26.5,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['hold3', 'q4']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差不变 60.46 → 60.60,持续 1.5 s",
+    "固定 / 契约约束压着,可能是局部最优 [{'source': 'fixed', 'kind': '关节限位', 'joints': [6]}]"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['q4']",
+    "规则判补偿无效 ['q4']"
+   ]
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "需要 L2(本次实验不调用大模型):阶段末仍不达标 ['q4']; 规则判补偿无效 ['q4']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0452,
+      0.0,
+      0.0518
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      -0.02,
+      0.0,
+      -0.02
+     ]
+    },
+    {
+     "id": "q4",
+     "e": [
+      -1.6049
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.12
+     ]
+    }
+   ],
+   "R": 61.919,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0326,
+      0.0,
+      0.0304
+     ],
+     "c_old": [
+      -0.02,
+      0.0,
+      -0.02
+     ],
+     "g_raw": [
+      0.627,
+      1.07
+     ],
+     "g": [
+      0.627,
+      1.0,
+      1.07
+     ],
+     "c_new": [
+      -0.04,
+      0.0,
+      -0.04
+     ]
+    },
+    {
+     "id": "q4",
+     "e": [
+      -1.6659
+     ],
+     "c_old": [
+      0.12
+     ],
+     "g_raw": [
+      -0.508
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.508 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 59.99,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 7.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "hold3",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0169, 0.0, 0.0083] / [0.0091, 0.0, 0.0])"
+    }
+   ],
+   "R": 59.773
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 8.0,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      0.0119,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      -0.04,
+      0.0,
+      -0.04
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      -0.05,
+      0.0,
+      -0.04
+     ]
+    },
+    {
+     "id": "q4",
+     "e": [
+      -1.7864
+     ],
+     "c_old": [
+      0.12
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.24
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t": 11.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "q4",
+     "e": [
+      -1.8451
+     ],
+     "c_old": [
+      0.24
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      0.3
+     ]
+    }
+   ],
+   "R": 60.464,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t": 13.54,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "q4",
+     "e": [
+      -1.8481
+     ],
+     "c_old": [
+      0.3
+     ],
+     "g_raw": [
+      -0.05
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.050 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 60.603
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t": 15.06,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 60.46 → 60.60,持续 1.5 s"
+   ],
+   "active": [
+    {
+     "source": "fixed",
+     "kind": "关节限位",
+     "joints": [
+      6
+     ]
+    }
+   ],
+   "pred_bad": [
+    "q4"
+   ],
+   "cost_min": 741559.9375,
+   "ess": 54.151981353759766,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "需要 L2(本次实验不调用大模型):阶段末仍不达标 ['q4']; 规则判补偿无效 ['q4']",
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.1346
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3189,
+      -0.0001,
+      0.4917
+     ],
+     "deviation": [
+      0.0118,
+      -0.0001,
+      0.0048
+     ],
+     "pass": false,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    },
+    {
+     "id": "q4",
+     "cat": "INF",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.03,
+     "measured": [
+      -1.8364
+     ],
+     "deviation": [
+      -1.7864
+     ],
+     "pass": false,
+     "target": -0.05
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": false,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.54,
+      "stall": 2.0
+     },
+     "fail_lead_s": 6.48,
+     "error": null
+    },
+    "q4": {
+     "final_pass": false,
+     "samples": 325,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.52,
+      "stall": 2.0
+     },
+     "fail_lead_s": 6.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 8.71,
+     "p95": 12.47,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0169,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1-规则(阶段间)+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 8.000000000001005,
+   "t1": 16.599999999997305,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.2559
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3065,
+      -0.0005,
+      0.4891
+     ],
+     "deviation": [
+      -0.0005,
+      -0.0005,
+      0.0022
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    },
+    {
+     "id": "q4",
+     "cat": "INF",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.03,
+     "measured": [
+      -1.8966
+     ],
+     "deviation": [
+      -1.8466
+     ],
+     "pass": false,
+     "target": -0.05
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 355,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "q4": {
+     "final_pass": false,
+     "samples": 355,
+     "first_alarm": {
+      "meas_ok": 9.52,
+      "pred_ok": 9.52,
+      "drift": 9.52,
+      "stall": 10.0
+     },
+     "fail_lead_s": 7.08,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 8.5,
+     "p95": 12.06,
+     "calls": 430
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0051,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "stop(need L2)"
+  }
+ ]
+}

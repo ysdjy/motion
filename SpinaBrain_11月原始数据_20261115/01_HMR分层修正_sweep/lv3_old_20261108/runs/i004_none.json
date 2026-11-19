@@ -1,0 +1,90 @@
+{
+ "id": 4,
+ "arm": "none",
+ "inst": {
+  "id": 4,
+  "kind": "comp",
+  "run_seed": 577,
+  "task": "tip_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.0015610128712238922,
+    -0.02094011038560429,
+    0.020464020925845542
+   ],
+   "id": "tip"
+  },
+  "mag_tol": 3.67
+ },
+ "final_pass": false,
+ "reached": "L2",
+ "level_path": [
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "tip",
+   "cat": "D4",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0015,
+    -0.0195,
+    0.0491
+   ],
+   "deviation": [
+    -0.0015,
+    -0.0195,
+    0.0191
+   ],
+   "pass": false,
+   "target": [
+    0.0,
+    0.0,
+    0.03
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 21.0,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "0c298aa29ea2",
+   "pms": "8acec675a135",
+   "exp_xemb": "eeb17154c640"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['tip']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "需要 L2(本次实验不调用大模型):阶段末仍不达标 ['tip']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "需要 L2(本次实验不调用大模型):阶段末仍不达标 ['tip']"
+}

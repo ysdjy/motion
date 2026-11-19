@@ -1,0 +1,300 @@
+{
+ "probe": "ceiling",
+ "family": "strategy",
+ "task": "follow_long",
+ "seed": 1,
+ "mode": "llm",
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L1",
+ "decision_ok": false,
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0034,
+    0.001,
+    0.0601
+   ],
+   "deviation": [
+    -0.0034,
+    0.001,
+    -0.0399
+   ],
+   "pass": false,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.1437
+   ],
+   "deviation": [
+    -0.0563
+   ],
+   "pass": false,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 0.0,
+   "t1": 6.020000000000345,
+   "done": false,
+   "exit": "supervisor:L2: 补偿后整体残差变大 3.86 → 4.92,持续 0.5 s(已撤回这次补偿)",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 56.4,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "L2 失败:契约检查不通过:[('_align_hold', 'ori_cone 只支持 upper / range')]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0,
+      -0.0403
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0,
+      0.032
+     ]
+    }
+   ],
+   "R": 3.859,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0,
+      -0.04
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.032
+     ],
+     "g_raw": [
+      0.01
+     ],
+     "fail": "分量 2 灵敏度 ĝ = 0.010 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 5.046
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.02,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 3.86 → 4.92,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [
+    {
+     "source": "strategy",
+     "kind": "硬约束项",
+     "id": "_ceiling",
+     "frac": 1.0
+    }
+   ],
+   "pred_bad": [
+    "follow"
+   ],
+   "cost_min": 95402.3203125,
+   "ess": 52.50025939941406,
+   "action": "升级 L2(策略项压着)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "补偿后整体残差变大 3.86 → 4.92,持续 0.5 s(已撤回这次补偿)",
+    "压着的约束 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_ceiling', 'frac': 1.0}]"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_ceiling",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "base",
+     "axes": [
+      "z"
+     ],
+     "mode": "upper",
+     "ub": 0.3968695582766445,
+     "sigma": 0.005,
+     "weight": 2,
+     "penalty": "hard"
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    },
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": "契约检查不通过:[('_align_hold', 'ori_cone 只支持 upper / range')]",
+   "changed": false,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "latency_s": 45.21
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "L2 失败:契约检查不通过:[('_align_hold', 'ori_cone 只支持 upper / range')]",
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 6.020000000000345,
+   "exit": "supervisor:L2: 补偿后整体残差变大 3.86 → 4.92,持续 0.5 s(已撤回这次补偿)",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.0034,
+      0.001,
+      0.0601
+     ],
+     "deviation": [
+      -0.0034,
+      0.001,
+      -0.0399
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.1
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.1437
+     ],
+     "deviation": [
+      -0.0563
+     ],
+     "pass": false,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 226,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.58,
+      "stall": 2.0
+     },
+     "fail_lead_s": 4.5,
+     "error": null
+    },
+    "align": {
+     "final_pass": false,
+     "samples": 226,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "drift": 3.6
+     },
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 10.35,
+     "p95": 16.17,
+     "calls": 301
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0167,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 error)"
+  }
+ ]
+}

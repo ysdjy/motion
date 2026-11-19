@@ -1,0 +1,399 @@
+{
+ "id": 21,
+ "arm": "noA",
+ "inst": {
+  "id": 21,
+  "kind": "mixed",
+  "run_seed": 640,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.0,
+    0.0,
+    0.04267299310293355
+   ],
+   "id": "follow"
+  },
+  "mag_tol": 5.33,
+  "disturb": "track,1.48,0.32,14.9,-7.7,15.4"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0002,
+    0.0006,
+    0.103
+   ],
+   "deviation": [
+    0.0002,
+    0.0006,
+    0.003
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.2037
+   ],
+   "deviation": [
+    0.0037
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 53.7,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "b7215ccce59f",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['follow']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0,
+      0.0425
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0,
+      -0.032
+     ]
+    }
+   ],
+   "R": 4.477,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, 0.0, 0.011] / [0.0, -0.009, 0.0])"
+    }
+   ],
+   "R": 0.38
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, 0.0, 0.0096] / [0.0, -0.0115, 0.0])"
+    }
+   ],
+   "R": 0.202
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.48,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0,
+      0.0091
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      -0.032
+     ],
+     "g_raw": [
+      1.042
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.042
+     ],
+     "c_new": [
+      0.0,
+      0.0,
+      -0.0407
+     ]
+    }
+   ],
+   "R": 0.12,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.5,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0134,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      -0.0407
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.042
+     ],
+     "c_new": [
+      0.0,
+      -0.0134,
+      -0.0407
+     ]
+    }
+   ],
+   "R": 0.556,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 11.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, -0.0082, 0.0] / [0.0, -0.0242, 0.0])"
+    }
+   ],
+   "R": 0.027
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 12.0,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0194,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0134,
+      -0.0407
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.006,
+      -0.0407
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, 0.0097, 0.0] / [0.0, 0.0213, 0.0])"
+    }
+   ],
+   "R": 0.212
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.82,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0163,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.006,
+      -0.0407
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0102,
+      -0.0407
+     ]
+    }
+   ],
+   "R": 0.365,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 17.82,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.59 / 2.08)"
+    }
+   ],
+   "R": 0.088
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 18.82,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, -0.0091, 0.0] / [0.0, -0.0211, 0.0])"
+    }
+   ],
+   "R": 0.15
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 19.24,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0158,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0102,
+      -0.0407
+     ],
+     "g_raw": [
+      1.969
+     ],
+     "g": [
+      1.0,
+      1.969,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0022,
+      -0.0407
+     ]
+    }
+   ],
+   "R": 0.315,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

@@ -1,0 +1,159 @@
+{
+ "id": 30,
+ "arm": "L1",
+ "inst": {
+  "id": 30,
+  "kind": "comp",
+  "run_seed": 300,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.027066273125199984,
+    0.0,
+    0.0
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 5.41
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0723
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3072,
+    0.0,
+    0.4868
+   ],
+   "deviation": [
+    0.0002,
+    0.0,
+    -0.0001
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 13.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [],
+ "rule_updates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      -0.0274,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.02,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "R": 4.471,
+   "problems": []
+  },
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "hold3",
+     "e": [
+      -0.0073,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.02,
+      0.0,
+      0.0
+     ],
+     "g_raw": [
+      1.007
+     ],
+     "g": [
+      1.007,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0272,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.564,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

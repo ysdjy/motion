@@ -1,0 +1,573 @@
+{
+ "task": "wipe",
+ "instruction": "在桌面 A 点上用 3 牛左右的压力,沿桌面 y 方向往返擦拭三次(每次从 y = −4 厘米擦到 y = +4 厘米再回来),擦完把工具抬到离桌面 5 厘米。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 4,
+ "hmr": "on",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 37.2
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "_sink",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.01
+     ],
+     "tolerance": 0.002
+    },
+    "temporal": {
+     "stage": "down"
+    },
+    "verify": false
+   },
+   {
+    "id": "press",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 3.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3,
+     "loss": "huber"
+    },
+    "temporal": {
+     "stage": "press",
+     "also_stages": [
+      "out",
+      "back"
+     ],
+     "profile": "ramp",
+     "t_ramp": 0.3
+    }
+   },
+   {
+    "id": "_keep_x",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "press",
+     "also_stages": [
+      "out",
+      "back"
+     ]
+    },
+    "verify": false
+   },
+   {
+    "id": "out",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "out",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "back",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "back",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "lift",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.5
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "down",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.5
+      },
+      "to": "press"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "press",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "press"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "out"
+     }
+    ],
+    "timeout_s": 4,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "out",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "out"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "back"
+     }
+    ],
+    "timeout_s": 6,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "back",
+    "transitions": [
+     {
+      "when": {
+       "all": [
+        {
+         "satisfied": [
+          "back"
+         ],
+         "hold_s": 0.1
+        },
+        {
+         "visits_ge": 3
+        }
+       ]
+      },
+      "to": "lift"
+     },
+     {
+      "when": {
+       "satisfied": [
+        "back"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "out"
+     }
+    ],
+    "timeout_s": 6,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "down",
+  "max_time_s": 60
+ },
+ "status": "fail:阶段 out 需要 L2 但预算用尽:[\"阶段末仍不达标 ['press', 'out']\", \"策略项压着 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_hold_z', 'frac': 1.0}]\"]",
+ "oracle_ok": false,
+ "oracle": {
+  "y_range": [
+   -0.0405,
+   0.0457
+  ],
+  "reversals": 4,
+  "mean_fn": 3.78,
+  "h_end": 0.0088
+ },
+ "spec_all_pass": false,
+ "stages": [
+  {
+   "id": "down",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 4.479999999999831,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.5}",
+   "to": "press",
+   "f_at_switch": 2.709859079744113,
+   "rows": []
+  },
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 4.479999999999831,
+   "t1": 6.200000000000405,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press'], 'hold_s': 0.2}",
+   "to": "out",
+   "f_at_switch": 2.9714839034640743,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": false,
+     "measured": [
+      0.6804
+     ]
+    }
+   ]
+  },
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 6.200000000000405,
+   "t1": 6.400000000000472,
+   "done": true,
+   "exit": "切换:{'satisfied': ['press'], 'hold_s': 0.2}",
+   "to": "out",
+   "f_at_switch": 3.747922619003617,
+   "rows": [
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "out",
+   "visit": 1,
+   "t0": 6.400000000000472,
+   "t1": 7.020000000000679,
+   "done": true,
+   "exit": "切换:{'satisfied': ['out'], 'hold_s': 0.1}",
+   "to": "back",
+   "f_at_switch": 4.512778173963148,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": false,
+     "measured": [
+      4.5524
+     ]
+    },
+    {
+     "id": "out",
+     "pass": false,
+     "measured": [
+      0.034
+     ]
+    }
+   ]
+  },
+  {
+   "id": "out",
+   "visit": 1,
+   "t0": 7.020000000000679,
+   "t1": 7.120000000000712,
+   "done": true,
+   "exit": "切换:{'satisfied': ['out'], 'hold_s': 0.1}",
+   "to": "back",
+   "f_at_switch": 4.906397015685088,
+   "rows": [
+    {
+     "id": "out",
+     "pass": true,
+     "measured": [
+      0.0374
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "back",
+   "visit": 1,
+   "t0": 7.120000000000712,
+   "t1": 8.160000000000917,
+   "done": true,
+   "exit": "切换:{'satisfied': ['back'], 'hold_s': 0.1}",
+   "to": "out",
+   "f_at_switch": 1.8477425989134653,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": false,
+     "measured": [
+      4.0021
+     ]
+    },
+    {
+     "id": "back",
+     "pass": false,
+     "measured": [
+      -0.0346
+     ]
+    }
+   ]
+  },
+  {
+   "id": "back",
+   "visit": 1,
+   "t0": 8.160000000000917,
+   "t1": 8.260000000000861,
+   "done": true,
+   "exit": "切换:{'satisfied': ['back'], 'hold_s': 0.1}",
+   "to": "out",
+   "f_at_switch": 2.6210995884633546,
+   "rows": [
+    {
+     "id": "back",
+     "pass": true,
+     "measured": [
+      -0.0397
+     ]
+    },
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "out",
+   "visit": 2,
+   "t0": 8.260000000000861,
+   "t1": 9.300000000000285,
+   "done": true,
+   "exit": "切换:{'satisfied': ['out'], 'hold_s': 0.1}",
+   "to": "back",
+   "f_at_switch": 2.77628629006484,
+   "retried": true,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      2.684
+     ]
+    },
+    {
+     "id": "out",
+     "pass": false,
+     "measured": [
+      0.0344
+     ]
+    }
+   ]
+  },
+  {
+   "id": "out",
+   "visit": 2,
+   "t0": 9.300000000000285,
+   "t1": 9.780000000000019,
+   "done": true,
+   "exit": "切换:{'satisfied': ['out'], 'hold_s': 0.1}",
+   "to": "back",
+   "f_at_switch": 8.598830363566346,
+   "rows": [
+    {
+     "id": "press",
+     "pass": false,
+     "measured": [
+      4.8673
+     ]
+    },
+    {
+     "id": "out",
+     "pass": false,
+     "measured": [
+      0.0451
+     ]
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": [
+  {
+   "stage": "press",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['press']"
+   ]
+  },
+  {
+   "stage": "out",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['press', 'out']"
+   ]
+  },
+  {
+   "stage": "back",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['press', 'back']"
+   ]
+  },
+  {
+   "stage": "out",
+   "attempt": 1,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['out']",
+    "规则判补偿无效 ['out']"
+   ]
+  },
+  {
+   "stage": "out",
+   "attempt": 2,
+   "level": "stop",
+   "why": [
+    "阶段 out 需要 L2 但预算用尽:[\"阶段末仍不达标 ['press', 'out']\", \"策略项压着 [{'source': 'strategy', 'kind': '硬约束项', 'id': '_hold_z', 'frac': 1.0}]\"]"
+   ]
+  }
+ ],
+ "hmr_replans": [
+  {
+   "diagnosis": "out 阶段只把 x 固定住，而没有约束 z（压深）：规划器为了沿 y 把工具拖出去，会用 z 上的抬/压来换取 y 方向的进度，压深一变，法向力就冲出容差（实测 4.5~5.1 N）；过大的法向力又在摩擦下把工具沿 -y 顶回，使 out 残差持续向下漂（s_lo 0.255→0.479），每一轮都重复这个过程。因此给 y 加 comp 只是把计划点往前挪，下一拍又被顶回来，局部补偿解决不了这种「力-深度-摩擦」耦合。",
+   "changed": true,
+   "stage_patch": null,
+   "error": null
+  }
+ ],
+ "cost_usd": 0.01568,
+ "wall_s": 339.9
+}

@@ -1,0 +1,436 @@
+{
+ "id": 26,
+ "arm": "full",
+ "inst": {
+  "id": 26,
+  "kind": "disturb",
+  "run_seed": 422,
+  "task": "seq_long",
+  "disturb": "press_hold,1.10,0.61,-8.3,-3.6,-29.6"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1b",
+ "level_path": [
+  "L0",
+  "L1",
+  "L1",
+  "L1",
+  "L1b",
+  "L1",
+  "L1b",
+  "L1b",
+  "L1",
+  "L1b",
+  "L1b",
+  "L1b"
+ ],
+ "final_report": [
+  {
+   "id": "order",
+   "cat": "T1",
+   "kind": "sequence",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "deviation": null,
+   "pass": true,
+   "target": [
+    "descend",
+    "press_hold",
+    "lift"
+   ],
+   "exits": [
+    [
+     "descend",
+     "trigger"
+    ],
+    [
+     "press_hold",
+     "time"
+    ],
+    [
+     "lift",
+     "time"
+    ]
+   ]
+  },
+  {
+   "id": "touch",
+   "cat": "T3",
+   "kind": "trigger",
+   "unit": "N",
+   "tol": 0.6,
+   "measured": 2.1464,
+   "deviation": 0.1464,
+   "pass": true,
+   "target": 2.0,
+   "exit": "trigger"
+  },
+  {
+   "id": "hold",
+   "cat": "T2",
+   "kind": "duration",
+   "unit": "s",
+   "tol": 0.15,
+   "measured": 6.0,
+   "deviation": -0.0,
+   "pass": true,
+   "target": 6.0
+  },
+  {
+   "id": "keep",
+   "cat": "C1",
+   "kind": "contact",
+   "unit": "-",
+   "tol": 0.05,
+   "measured": 1.0,
+   "deviation": 0.0,
+   "pass": true,
+   "target": 1.0
+  },
+  {
+   "id": "press2",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    4.8682
+   ],
+   "deviation": [
+    -0.1318
+   ],
+   "pass": true,
+   "target": 5.0
+  },
+  {
+   "id": "spot",
+   "cat": "C2",
+   "kind": "contact_at",
+   "unit": "m",
+   "tol": 0.004,
+   "measured": [
+    -0.0494,
+    0.0003
+   ],
+   "deviation": [
+    0.0006,
+    0.0003
+   ],
+   "pass": true,
+   "target": [
+    -0.05,
+    0.0
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 3,
+  "cost_usd": 0.01183
+ },
+ "sim_s": 212.5,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "20ee6b40e4ff",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['force', 'force']"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['keep', 'press2', 'spot']"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 2,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep', 'press2', 'spot']"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 3,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep', 'press2']"
+   ]
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 4,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['keep']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 17.86,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      -5.0
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      5.0
+     ]
+    }
+   ],
+   "R": 2.333,
+   "problems": []
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 19.86,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      -5.0
+     ],
+     "c_old": [
+      5.0
+     ],
+     "g_raw": [
+      0.0
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.000 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 2.333
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "t": 21.06,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      -5.0
+     ],
+     "c_old": [
+      5.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      10.0
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 2,
+   "t": 23.86,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      -5.0
+     ],
+     "c_old": [
+      10.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      15.0
+     ]
+    }
+   ],
+   "R": 2.333,
+   "problems": []
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 2,
+   "t": 25.86,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      -5.0
+     ],
+     "c_old": [
+      15.0
+     ],
+     "g_raw": [
+      0.0
+     ],
+     "fail": "分量 0 灵敏度 ĝ = 0.000 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 2.333
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 3,
+   "t": 29.86,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "press2",
+     "e": [
+      19.9773
+     ],
+     "c_old": [
+      20.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      14.0
+     ]
+    }
+   ],
+   "R": 11.249,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "press_hold",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "press2",
+     "field": "comp",
+     "value": 20.0
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 50.28,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "keep",
+     "field": "comp",
+     "value": 0.0772
+    },
+    {
+     "id": "press2",
+     "field": "comp",
+     "value": -0.1601
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 61.39,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 3,
+   "patch": [
+    {
+     "id": "keep",
+     "field": "comp",
+     "value": -0.1733
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 24.54,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 8.814,
+   "kind": "force",
+   "peak": 33.1929,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 0,
+   "t": 9.424,
+   "kind": "force",
+   "peak": 5.0,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 3,
+   "t": 31.816,
+   "kind": "force",
+   "peak": 7.2813,
+   "thr": 3.0
+  },
+  {
+   "stage": "press_hold",
+   "attempt": 4,
+   "t": 34.296,
+   "kind": "force",
+   "peak": 4.8399,
+   "thr": 3.0
+  }
+ ],
+ "aborted": false,
+ "abort_reason": null
+}

@@ -1,0 +1,764 @@
+{
+ "task": "wipe",
+ "instruction": "在桌面 A 点上用 3 牛左右的压力,沿桌面 y 方向往返擦拭三次(每次从 y = −4 厘米擦到 y = +4 厘米再回来),擦完把工具抬到离桌面 5 厘米。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 0,
+ "scene": "table",
+ "hmr": "off",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 145.9
+  }
+ ],
+ "write_cost_usd": 0.00765,
+ "doc": {
+  "entries": [
+   {
+    "id": "xy_align",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05,
+      -0.04
+     ],
+     "tolerance": 0.003
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "align",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "_hold_z_align",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.02
+     ],
+     "tolerance": 0.005
+    },
+    "temporal": {
+     "stage": "align"
+    },
+    "verify": false
+   },
+   {
+    "id": "_descend_z",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.01
+     ],
+     "tolerance": 0.002
+    },
+    "temporal": {
+     "stage": "descend"
+    },
+    "verify": false
+   },
+   {
+    "id": "x_at_A_wipe",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "descend",
+     "also_stages": [
+      "press",
+      "stroke_pos",
+      "stroke_neg"
+     ]
+    }
+   },
+   {
+    "id": "y_to_neg",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "descend",
+     "also_stages": [
+      "press",
+      "stroke_neg"
+     ],
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "y_to_pos",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.04
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "stroke_pos",
+     "timing": "terminal"
+    }
+   },
+   {
+    "id": "press_ramp",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 3.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3.0
+    },
+    "temporal": {
+     "stage": "press",
+     "profile": "ramp",
+     "t_ramp": 0.2
+    }
+   },
+   {
+    "id": "press_keep",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 3.0,
+     "tolerance": 1.0
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 3.0
+    },
+    "temporal": {
+     "stage": "stroke_pos",
+     "also_stages": [
+      "stroke_neg"
+     ]
+    }
+   },
+   {
+    "id": "lift_to_5cm",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task"
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.5
+    }
+   },
+   {
+    "id": "_hold_xy_lift",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.05,
+      -0.04
+     ],
+     "tolerance": 0.01
+    },
+    "temporal": {
+     "stage": "lift"
+    },
+    "verify": false
+   }
+  ],
+  "stages": [
+   {
+    "id": "align",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "xy_align"
+       ],
+       "hold_s": 0.2
+      },
+      "to": "descend"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "descend",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.0
+      },
+      "to": "press"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "press",
+    "transitions": [
+     {
+      "when": {
+       "all": [
+        {
+         "force_ge": 2.0
+        },
+        {
+         "time_ge": 0.2
+        }
+       ]
+      },
+      "to": "stroke_pos"
+     }
+    ],
+    "timeout_s": 3,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "stroke_pos",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "y_to_pos"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "stroke_neg"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "stroke_neg",
+    "transitions": [
+     {
+      "when": {
+       "all": [
+        {
+         "satisfied": [
+          "y_to_neg"
+         ],
+         "hold_s": 0.1
+        },
+        {
+         "visits_ge": 3
+        }
+       ]
+      },
+      "to": "lift"
+     },
+     {
+      "when": {
+       "satisfied": [
+        "y_to_neg"
+       ],
+       "hold_s": 0.1
+      },
+      "to": "stroke_pos"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail",
+    "max_visits": 5
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift_to_5cm"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 4,
+    "on_timeout": "fail"
+   }
+  ],
+  "start": "align",
+  "max_time_s": 60
+ },
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "0c298aa29ea2",
+   "pms": "0b4da6377050",
+   "exp_xemb": "eeb17154c640"
+  }
+ },
+ "status": "end",
+ "oracle_ok": true,
+ "oracle": {
+  "y_range": [
+   -0.0403,
+   0.0408
+  ],
+  "reversals": 7,
+  "mean_fn": 3.05,
+  "h_end": 0.0491,
+  "status": "end"
+ },
+ "spec_all_pass": false,
+ "stages": [
+  {
+   "id": "align",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 3.5199999999997234,
+   "done": true,
+   "exit": "切换:{'satisfied': ['xy_align'], 'hold_s': 0.2}",
+   "to": "descend",
+   "f_at_switch": -0.0,
+   "rows": [
+    {
+     "id": "xy_align",
+     "pass": true,
+     "measured": [
+      -0.0514,
+      -0.0416
+     ]
+    }
+   ]
+  },
+  {
+   "id": "descend",
+   "visit": 1,
+   "t0": 3.5199999999997234,
+   "t1": 5.140000000000051,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.0}",
+   "to": "press",
+   "f_at_switch": 1.950098050478266,
+   "rows": [
+    {
+     "id": "x_at_A_wipe",
+     "pass": true,
+     "measured": [
+      -0.0508
+     ]
+    },
+    {
+     "id": "y_to_neg",
+     "pass": true,
+     "measured": [
+      -0.04
+     ]
+    }
+   ]
+  },
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 5.140000000000051,
+   "t1": 5.340000000000118,
+   "done": true,
+   "exit": "切换:{'all': [{'force_ge': 2.0}, {'time_ge': 0.2}]}",
+   "to": "stroke_pos",
+   "f_at_switch": 2.993701602236342,
+   "rows": [
+    {
+     "id": "y_to_neg",
+     "pass": true,
+     "measured": [
+      -0.04
+     ]
+    },
+    {
+     "id": "x_at_A_wipe",
+     "pass": null,
+     "measured": null
+    },
+    {
+     "id": "press_ramp",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "stroke_pos",
+   "visit": 1,
+   "t0": 5.340000000000118,
+   "t1": 6.380000000000465,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_to_pos'], 'hold_s': 0.1}",
+   "to": "stroke_neg",
+   "f_at_switch": 2.3311821731175586,
+   "rows": [
+    {
+     "id": "x_at_A_wipe",
+     "pass": true,
+     "measured": [
+      -0.0495
+     ]
+    },
+    {
+     "id": "y_to_pos",
+     "pass": false,
+     "measured": [
+      0.0348
+     ]
+    },
+    {
+     "id": "press_keep",
+     "pass": true,
+     "measured": [
+      2.2161
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stroke_neg",
+   "visit": 1,
+   "t0": 6.380000000000465,
+   "t1": 7.400000000000806,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_to_neg'], 'hold_s': 0.1}",
+   "to": "stroke_pos",
+   "f_at_switch": 1.9603485907808635,
+   "rows": [
+    {
+     "id": "x_at_A_wipe",
+     "pass": true,
+     "measured": [
+      -0.0495
+     ]
+    },
+    {
+     "id": "y_to_neg",
+     "pass": false,
+     "measured": [
+      -0.034
+     ]
+    },
+    {
+     "id": "press_keep",
+     "pass": true,
+     "measured": [
+      2.9412
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stroke_pos",
+   "visit": 2,
+   "t0": 7.400000000000806,
+   "t1": 8.420000000000773,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_to_pos'], 'hold_s': 0.1}",
+   "to": "stroke_neg",
+   "f_at_switch": 2.625373036709832,
+   "rows": [
+    {
+     "id": "x_at_A_wipe",
+     "pass": true,
+     "measured": [
+      -0.0493
+     ]
+    },
+    {
+     "id": "y_to_pos",
+     "pass": false,
+     "measured": [
+      0.0349
+     ]
+    },
+    {
+     "id": "press_keep",
+     "pass": true,
+     "measured": [
+      2.9363
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stroke_neg",
+   "visit": 2,
+   "t0": 8.420000000000773,
+   "t1": 9.460000000000196,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_to_neg'], 'hold_s': 0.1}",
+   "to": "stroke_pos",
+   "f_at_switch": 3.029765788452753,
+   "rows": [
+    {
+     "id": "x_at_A_wipe",
+     "pass": true,
+     "measured": [
+      -0.0501
+     ]
+    },
+    {
+     "id": "y_to_neg",
+     "pass": false,
+     "measured": [
+      -0.0342
+     ]
+    },
+    {
+     "id": "press_keep",
+     "pass": true,
+     "measured": [
+      2.7103
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stroke_pos",
+   "visit": 3,
+   "t0": 9.460000000000196,
+   "t1": 10.49999999999962,
+   "done": true,
+   "exit": "切换:{'satisfied': ['y_to_pos'], 'hold_s': 0.1}",
+   "to": "stroke_neg",
+   "f_at_switch": 1.8287219492246187,
+   "rows": [
+    {
+     "id": "x_at_A_wipe",
+     "pass": true,
+     "measured": [
+      -0.051
+     ]
+    },
+    {
+     "id": "y_to_pos",
+     "pass": false,
+     "measured": [
+      0.034
+     ]
+    },
+    {
+     "id": "press_keep",
+     "pass": true,
+     "measured": [
+      2.1498
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stroke_neg",
+   "visit": 3,
+   "t0": 10.49999999999962,
+   "t1": 11.519999999999055,
+   "done": true,
+   "exit": "切换:{'all': [{'satisfied': ['y_to_neg'], 'hold_s': 0.1}, {'visits_ge': 3}]}",
+   "to": "lift",
+   "f_at_switch": 2.143309339173955,
+   "rows": [
+    {
+     "id": "x_at_A_wipe",
+     "pass": true,
+     "measured": [
+      -0.0492
+     ]
+    },
+    {
+     "id": "y_to_neg",
+     "pass": false,
+     "measured": [
+      -0.0341
+     ]
+    },
+    {
+     "id": "press_keep",
+     "pass": true,
+     "measured": [
+      3.3218
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 11.519999999999055,
+   "t1": 12.319999999998611,
+   "done": true,
+   "exit": "切换:{'satisfied': ['lift_to_5cm'], 'hold_s': 0.3}",
+   "to": "end",
+   "f_at_switch": 3.5097324107444734e-34,
+   "rows": [
+    {
+     "id": "lift_to_5cm",
+     "pass": true,
+     "measured": [
+      0.049
+     ]
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": null,
+ "hmr_replans": null,
+ "hmr_llm_calls": 0,
+ "cost_usd": 0.0,
+ "wall_s": 18.5
+}

@@ -1,0 +1,377 @@
+{
+ "probe": "twist",
+ "family": "n121",
+ "task": "twist",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "full",
+ "llm": {
+  "calls": 2,
+  "cost_usd": 0.00063,
+  "tokens": 2256,
+  "latency_s": 10.4,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L1b",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": true,
+ "final_report": [
+  {
+   "id": "twist",
+   "cat": "C4",
+   "kind": "torque",
+   "unit": "N*m",
+   "tol": 0.015,
+   "measured": 0.0781,
+   "deviation": -0.0019,
+   "pass": true,
+   "target": 0.08,
+   "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+  },
+  {
+   "id": "press3",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    5.0168
+   ],
+   "deviation": [
+    0.0168
+   ],
+   "pass": true,
+   "target": 5.0
+  }
+ ],
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  },
+  {
+   "id": "twist",
+   "t0": 13.499999999997957,
+   "t1": 17.499999999998405,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "twist",
+     "t0": 5.500000000000171,
+     "t1": 9.500000000000174,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "twist",
+     "t0": 9.500000000000174,
+     "t1": 13.499999999997957,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 42.1,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['twist']"
+   ]
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['twist']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "twist",
+     "field": "comp",
+     "value": -0.04
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 2.8,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "twist",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "twist",
+     "field": "comp",
+     "value": -0.0267
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 7.58,
+   "error": null,
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.07,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0022,
+     "force": 5.0
+    },
+    "resets": 1
+   },
+   "action": "next"
+  },
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 9.500000000000174,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.12,
+     "deviation": 0.04,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      4.9823
+     ],
+     "deviation": [
+      -0.0177
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 1.97,
+     "p95": 4.21,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0029,
+     "force": 1.4217
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "t0": 9.500000000000174,
+   "t1": 13.499999999997957,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0598,
+     "deviation": -0.0202,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.017
+     ],
+     "deviation": [
+      0.017
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.15,
+     "p95": 4.81,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.003,
+     "force": 0.1931
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "twist",
+   "attempt": 2,
+   "t0": 13.499999999997957,
+   "t1": 17.499999999998405,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0781,
+     "deviation": -0.0019,
+     "pass": true,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      5.0168
+     ],
+     "deviation": [
+      0.0168
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.08,
+     "p95": 4.71,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0014,
+     "force": 0.2458
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ]
+}

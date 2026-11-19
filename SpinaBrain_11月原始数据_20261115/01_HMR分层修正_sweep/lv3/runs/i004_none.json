@@ -1,0 +1,91 @@
+{
+ "id": 4,
+ "arm": "none",
+ "inst": {
+  "id": 4,
+  "kind": "comp",
+  "run_seed": 1,
+  "task": "tip_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.0,
+    0.0,
+    0.02932066057575892
+   ],
+   "id": "tip"
+  },
+  "mag_tol": 3.67
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "tip",
+   "cat": "D4",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    0.0001,
+    0.0014,
+    0.058
+   ],
+   "deviation": [
+    0.0001,
+    0.0014,
+    0.028
+   ],
+   "pass": false,
+   "target": [
+    0.0,
+    0.0,
+    0.03
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 24.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "79470dbe2ae0",
+   "exp_xemb": "eeb17154c640"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "需要L2",
+   "why": [
+    "阶段末仍不达标 ['tip']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "单层臂:这一层修不好 阶段末仍不达标 ['tip']"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:这一层修不好 阶段末仍不达标 ['tip']"
+}

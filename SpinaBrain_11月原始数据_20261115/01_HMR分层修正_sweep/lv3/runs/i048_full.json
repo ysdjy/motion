@@ -1,0 +1,60 @@
+{
+ "id": 48,
+ "arm": "full",
+ "inst": {
+  "id": 48,
+  "kind": "comp",
+  "run_seed": 602,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.0187046941481323,
+   "id": "near"
+  },
+  "mag_tol": 3.74
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "none",
+ "level_path": [],
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.0167
+   ],
+   "deviation": [
+    -0.0133
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 20.8,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

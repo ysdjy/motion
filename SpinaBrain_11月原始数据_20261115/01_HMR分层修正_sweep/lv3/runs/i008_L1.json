@@ -1,0 +1,393 @@
+{
+ "id": 8,
+ "arm": "L1",
+ "inst": {
+  "id": 8,
+  "kind": "comp",
+  "run_seed": 958,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.20387394522094,
+   "id": "align"
+  },
+  "mag_tol": 5.1
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0,
+    -0.0047,
+    0.0985
+   ],
+   "deviation": [
+    -0.0,
+    -0.0047,
+    -0.0015
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.1
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.1722
+   ],
+   "deviation": [
+    -0.0278
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 74.2,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "cdb674261930",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "ef4dfc5d96cc"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['align']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['follow']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "align",
+     "e": [
+      0.1934
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.16
+     ]
+    }
+   ],
+   "R": 4.484,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.2,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.68 / 1.33)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.2,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "align",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.63 / 1.59)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.22,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "align",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.81 / 1.84)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 10.24,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "align",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.92 / 1.81)"
+    }
+   ],
+   "R": 0.015
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 11.26,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "align",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.99 / 1.48)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 11.34,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "align",
+     "e": [
+      0.0489
+     ],
+     "c_old": [
+      -0.16
+     ],
+     "g_raw": [
+      0.903
+     ],
+     "g": [
+      0.903
+     ],
+     "c_new": [
+      -0.2142
+     ]
+    }
+   ],
+   "R": 0.002,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 12.84,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "align",
+     "e": [
+      -0.0508
+     ],
+     "c_old": [
+      -0.2142
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.1634
+     ]
+    }
+   ],
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 16.34,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      0.0137,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0137,
+      0.0
+     ]
+    },
+    {
+     "id": "align",
+     "e": [
+      0.0702
+     ],
+     "c_old": [
+      -0.1634
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.2336
+     ]
+    }
+   ],
+   "R": 1.307,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 18.34,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0202,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0137,
+      0.0
+     ],
+     "g_raw": [
+      2.475
+     ],
+     "g": [
+      1.0,
+      2.475,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0055,
+      0.0
+     ]
+    }
+   ],
+   "R": 0.974,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 20.34,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "follow",
+     "skip": "非平稳,不补:前后两半不都超差(v = 1.81 / 0.63)"
+    }
+   ],
+   "R": 1.374
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 24.84,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      0.0,
+      -0.0095,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      -0.0137,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      -0.0042,
+      0.0
+     ]
+    }
+   ],
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

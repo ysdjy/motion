@@ -1,0 +1,6 @@
+  b1 wipe_two_spots {"A.force": 2.5, "B.force": 5} → end;验收行 27 条,没过 0 条;
+  b2 pick_and_place {"clearance": 0.14, "place/up.height": 0.06} → end;验收行 5 条,没过 0 条;{'ok': True, 'dxy_mm': 1.0, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  c2 pick_and_place {"pick/grasp.settle": 2} → end;验收行 5 条,没过 0 条;{'ok': True, 'dxy_mm': 0.3, 'dz_mm': 0.1, 'grip_cm': 8.0}
+  d1 pick_place_then_wipe {} → end;验收行 19 条,没过 0 条;{'ok': False, 'dxy_mm': 0.6, 'dz_mm': 0.1, 'grip_cm': 0.0, 'note': '擦完后夹爪是合上的,只看方块位置'}
+  d3 wipe_table_default_twice_3N_then_5N {} → end;验收行 26 条,没过 0 条;
+exit 0

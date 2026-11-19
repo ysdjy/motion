@@ -1,0 +1,992 @@
+{
+ "probe": "i_high",
+ "family": "infeasible",
+ "task": "follow_long",
+ "seed": 0,
+ "mode": "llm",
+ "cond": "llm_l1",
+ "llm": {
+  "calls": 7,
+  "cost_usd": 0.06281,
+  "tokens": 143638,
+  "latency_s": 1321.8,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "first_level": "L1b",
+ "level_path": [
+  "L1b",
+  "L0",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L1b",
+  "L2",
+  "L1b",
+  "L1b",
+  "L2"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "c43ef2cefd91",
+   "exp_xemb": "e9ae4d1d0c51"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.1015,
+    0.004,
+    0.4556
+   ],
+   "deviation": [
+    -0.1015,
+    0.004,
+    -0.1444
+   ],
+   "pass": false,
+   "target": [
+    0.0,
+    0.0,
+    0.6
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.0264
+   ],
+   "deviation": [
+    -0.1736
+   ],
+   "pass": false,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 60.01999999995082,
+   "t1": 72.01999999997983,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0,
+   "attempts": [
+    {
+     "id": "track",
+     "t0": 0.0,
+     "t1": 11.999999999998789,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "track",
+     "t0": 11.999999999998789,
+     "t1": 24.00000000000635,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "track",
+     "t0": 24.020000000006373,
+     "t1": 36.02000000000675,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "track",
+     "t0": 36.02000000000675,
+     "t1": 48.019999999978786,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    },
+    {
+     "id": "track",
+     "t0": 48.019999999978786,
+     "t1": 60.01999999995082,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null,
+     "extension_s": 0.0
+    }
+   ]
+  }
+ ],
+ "sim_s": 1515.5,
+ "exec_alarms": 5,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['follow', 'align']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['drift_reset', 'track', 'track']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['follow', 'align']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 3,
+   "level": "L2",
+   "why": [
+    "阶段末仍不达标 ['follow', 'align']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 4,
+   "level": "L1b",
+   "why": [
+    "规则管不了 ['follow', 'align']"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 5,
+   "level": "stop",
+   "why": [
+    "阶段 track 需要 L2 但预算用尽:[\"阶段末仍不达标 ['follow', 'align']\"]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "阶段末仍不达标 ['follow', 'align']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    },
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [
+    {
+     "id": "follow",
+     "reason": "物体坐标系 +z 向的可达位置在约 0.49 m 处饱和(四次测量 0.4977 / 0.4926 / 0.4945,与 comp 取值无关),与 0.6±0.008 相差约 0.10 m(≈13 倍容差);这是臂/腕在该接近姿态下的可达极限,改补偿或换数值都推不动,过大的补偿还会引发饱和振荡。"
+    },
+    {
+     "id": "align",
+     "reason": "工具轴与物体法向的最小可达夹角约 0.285 rad,目标是 0.2±0.04 rad,四次最好也就到 0.285(残差曲线在 z≈1.0 处反复停滞),属腕部姿态极限;comp 从 -0.21 到 -0.96 都未能突破该下界。"
+    }
+   ],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "follow 的 z 残差在四次里都落在 0.49 附近(0.4977 / 0.4926 / 0.4945),把 comp 从 +0.10 一路改到 -3.27 也几乎不动,说明这不是标定偏置,而是物体坐标系 +z 方向的硬几何/可达极限截断;而把 comp 量级放到 0.29 / -3.27 反而让规划器进入饱和振荡(执行一致性 track 峰值 0.084 > 0.015 阈值,drift 反复复位),把末态冲到了 -0.34,越补越糟。align 四次的下界稳定在 0.285~0.365 rad,最小 0.285 rad,离 0.2 rad 仍差约 2 倍容差,且残差曲线在 z≈1.0 处反复停滞,这是腕部姿态极限而非零点偏置。两者都发生在同一个朝下接近姿态上,继续只调 comp 既推不动饱和量,又会被规划器裁剪/放大成振荡,必须换姿态与可达偏置的做法。",
+   "comp_patch": [
+    {
+     "id": "follow",
+     "field": "comp",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "id": "align",
+     "field": "comp",
+     "value": 0.0
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 141.56,
+   "helpers_after": [],
+   "later_changed": []
+  }
+ ],
+ "repairs": [
+  {
+   "stage": "track",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "follow",
+     "field": "comp",
+     "value": [
+      0.0282,
+      -0.0016,
+      0.1023
+     ]
+    },
+    {
+     "id": "align",
+     "field": "comp",
+     "value": -0.2143
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 13.97,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "follow",
+     "field": "comp",
+     "value": [
+      -0.021435,
+      -0.000188,
+      -3.270403
+     ]
+    },
+    {
+     "id": "align",
+     "field": "comp",
+     "value": -0.9648
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 50.88,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "track",
+   "attempt": 3,
+   "patch": [
+    {
+     "id": "follow",
+     "field": "comp",
+     "value": [
+      -0.023644,
+      -0.000502,
+      0.291587
+     ]
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "align",
+     "reason": "历史显示该夹角存在约0.285 rad的不可消除最小值，无法进入目标0.2±0.04范围"
+    }
+   ],
+   "latency_s": 718.14,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "patch": [
+    {
+     "id": "follow",
+     "field": "comp",
+     "value": [
+      -0.013,
+      0.0,
+      0.455
+     ]
+    },
+    {
+     "id": "align",
+     "field": "comp",
+     "value": -1.623
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [],
+   "latency_s": 79.02,
+   "error": null,
+   "level": "L1b"
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "patch": [
+    {
+     "id": "align",
+     "field": "comp",
+     "value": -1.017746
+    }
+   ],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "follow",
+     "reason": "目标 z=0.6 m 超出可达范围；在正、负大补偿下实测 z 始终被限制在约 -0.34 至 0.50 m，无法达到 0.6±0.008 m。"
+    }
+   ],
+   "latency_s": 318.22,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1b"
+  }
+ ],
+ "exec_events": [
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 14.3,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 14.793,
+   "kind": "track",
+   "peak": 0.0181,
+   "thr": 0.015
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.648,
+   "kind": "track",
+   "peak": 0.0156,
+   "thr": 0.015
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "t": 29.98,
+   "kind": "drift_reset",
+   "peak": 2,
+   "thr": 2
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "t": 30.077,
+   "kind": "track",
+   "peak": 0.0838,
+   "thr": 0.015
+  }
+ ],
+ "aborted": true,
+ "abort_reason": "阶段 track 需要 L2 但预算用尽:[\"阶段末仍不达标 ['follow', 'align']\"]",
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 11.999999999998789,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.0282,
+      0.0016,
+      0.4977
+     ],
+     "deviation": [
+      -0.0282,
+      0.0016,
+      -0.1023
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.6
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.4143
+     ],
+     "deviation": [
+      0.2143
+     ],
+     "pass": false,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.54,
+      "stall": 2.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.58,
+      "stall": 2.26
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 22.5,
+     "p95": 36.26,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0157,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t0": 11.999999999998789,
+   "t1": 24.00000000000635,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.0469,
+      0.0029,
+      0.4926
+     ],
+     "deviation": [
+      -0.0469,
+      0.0029,
+      -0.1074
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.6
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.3645
+     ],
+     "deviation": [
+      0.1645
+     ],
+     "pass": false,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 13.52,
+      "pred_ok": 13.52,
+      "drift": 13.52,
+      "stall": 14.0
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 13.52,
+      "pred_ok": 13.52,
+      "drift": 13.56,
+      "stall": 14.1
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 13.23,
+     "p95": 28.46,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [
+     {
+      "t": 14.3,
+      "kind": "drift_reset",
+      "peak": 2,
+      "thr": 2
+     },
+     {
+      "t": 14.793,
+      "kind": "track",
+      "peak": 0.0181,
+      "thr": 0.015
+     },
+     {
+      "t": 15.648,
+      "kind": "track",
+      "peak": 0.0156,
+      "thr": 0.015
+     }
+    ],
+    "peak": {
+     "track": 0.0396,
+     "force": 0.0
+    },
+    "resets": 2
+   },
+   "action": "L0+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 2,
+   "t0": 24.020000000006373,
+   "t1": 36.02000000000675,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.0653,
+      -0.012,
+      0.4945
+     ],
+     "deviation": [
+      -0.0653,
+      -0.012,
+      -0.1055
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.6
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.3667
+     ],
+     "deviation": [
+      0.1667
+     ],
+     "pass": false,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 25.54,
+      "pred_ok": 25.54,
+      "drift": 25.56,
+      "stall": 26.02
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 25.54,
+      "pred_ok": 25.54,
+      "drift": 25.66,
+      "stall": 26.02
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 21.07,
+     "p95": 41.76,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [
+     {
+      "t": 29.98,
+      "kind": "drift_reset",
+      "peak": 2,
+      "thr": 2
+     },
+     {
+      "t": 30.077,
+      "kind": "track",
+      "peak": 0.0838,
+      "thr": 0.015
+     }
+    ],
+    "peak": {
+     "track": 0.0838,
+     "force": 0.0
+    },
+    "resets": 9
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 3,
+   "t0": 36.02000000000675,
+   "t1": 48.019999999978786,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      0.0246,
+      -0.0337,
+      -0.3427
+     ],
+     "deviation": [
+      0.0246,
+      -0.0337,
+      -0.9427
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.6
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.285
+     ],
+     "deviation": [
+      0.085
+     ],
+     "pass": false,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 37.54,
+      "pred_ok": 37.54,
+      "drift": 37.54,
+      "stall": 38.02
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 37.54,
+      "pred_ok": 37.54,
+      "drift": 37.56,
+      "stall": 38.64
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 15.79,
+     "p95": 26.55,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0226,
+     "force": 0.0
+    },
+    "resets": 1
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 4,
+   "t0": 48.019999999978786,
+   "t1": 60.01999999995082,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.035,
+      -0.0054,
+      0.4892
+     ],
+     "deviation": [
+      -0.035,
+      -0.0054,
+      -0.1108
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.6
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.4017
+     ],
+     "deviation": [
+      0.2017
+     ],
+     "pass": false,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 49.54,
+      "pred_ok": 49.54,
+      "drift": 49.54,
+      "stall": 50.84
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 49.54,
+      "pred_ok": 49.54,
+      "drift": 49.56,
+      "stall": 51.08
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 26.01,
+     "p95": 35.11,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0146,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L1b+retry"
+  },
+  {
+   "stage": "track",
+   "attempt": 5,
+   "t0": 60.01999999995082,
+   "t1": 72.01999999997983,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.1015,
+      0.004,
+      0.4556
+     ],
+     "deviation": [
+      -0.1015,
+      0.004,
+      -0.1444
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.6
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.0264
+     ],
+     "deviation": [
+      -0.1736
+     ],
+     "pass": false,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 61.54,
+      "pred_ok": 61.54,
+      "drift": 61.54,
+      "stall": 62.02
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "align": {
+     "final_pass": false,
+     "samples": 525,
+     "first_alarm": {
+      "meas_ok": 61.54,
+      "pred_ok": 61.54,
+      "drift": 61.72,
+      "stall": 62.02
+     },
+     "fail_lead_s": 10.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 25.78,
+     "p95": 34.89,
+     "calls": 600
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0134,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 budget)"
+  }
+ ]
+}

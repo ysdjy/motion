@@ -1,0 +1,234 @@
+{
+ "id": 8,
+ "arm": "noA",
+ "inst": {
+  "id": 8,
+  "kind": "mixed",
+  "run_seed": 63,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.02594561653217703,
+   "id": "near"
+  },
+  "mag_tol": 5.19,
+  "disturb": "track,1.96,0.57,34.5,25.9,-7.7"
+ },
+ "final_pass": true,
+ "status": "ok",
+ "reached": "solver",
+ "level_path": [
+  "L1",
+  "L1",
+  "solver",
+  "L1",
+  "L1"
+ ],
+ "final_report": [
+  {
+   "id": "near",
+   "cat": "D3",
+   "kind": "upper",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.03
+   ],
+   "deviation": [
+    0.0
+   ],
+   "pass": true,
+   "ub": 0.03
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 46.6,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "20ee6b40e4ff",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差不变 0.30 → 0.27,持续 1.5 s",
+    "没有约束压着,疑似采样退化 []"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['near']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0649
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.02
+     ]
+    }
+   ],
+   "R": 11.437,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = 1.41 / 0.67)"
+    }
+   ],
+   "R": 0.408
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 6.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "skip": "非平稳,不补:前后两半不都超差(v = 1.37 / 0.47)"
+    }
+   ],
+   "R": 0.367
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 7.38,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0079
+     ],
+     "c_old": [
+      -0.02
+     ],
+     "g_raw": [
+      2.85
+     ],
+     "g": [
+      2.85
+     ],
+     "c_new": [
+      -0.0228
+     ]
+    }
+   ],
+   "R": 0.301,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 9.4,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0089
+     ],
+     "c_old": [
+      -0.0228
+     ],
+     "g_raw": [
+      -0.354
+     ],
+     "fail": "分量 0 灵敏度 ĝ = -0.354 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 0.221
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 13.22,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "near",
+     "e": [
+      0.0088
+     ],
+     "c_old": [
+      -0.0228
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.0316
+     ]
+    }
+   ],
+   "problems": []
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 11.72,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差不变 0.30 → 0.27,持续 1.5 s"
+   ],
+   "active": [],
+   "pred_bad": [
+    "near"
+   ],
+   "cost_min": 15575.8603515625,
+   "ess": 48.704769134521484,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  }
+ ],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

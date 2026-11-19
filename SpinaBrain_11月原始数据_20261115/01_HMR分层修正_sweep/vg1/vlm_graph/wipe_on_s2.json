@@ -1,0 +1,324 @@
+{
+ "task": "wipe",
+ "instruction": "在桌面 A 点上用 3 牛左右的压力,沿桌面 y 方向往返擦拭三次(每次从 y = −4 厘米擦到 y = +4 厘米再回来),擦完把工具抬到离桌面 5 厘米。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 2,
+ "hmr": "on",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 116.3
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "_sink",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "velocity",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      -0.02
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "preference",
+     "weight": 1
+    },
+    "temporal": {
+     "stage": "approach"
+    },
+    "verify": false
+   },
+   {
+    "id": "press",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "force",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": 3.0,
+     "tolerance": 0.8
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 5,
+     "loss": "huber"
+    },
+    "temporal": {
+     "stage": "press",
+     "also_stages": [
+      "wipe"
+     ],
+     "profile": "ramp",
+     "t_ramp": 0.3
+    }
+   },
+   {
+    "id": "wipe_path",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y"
+     ]
+    },
+    "goal": {
+     "kind": "path",
+     "waypoints": [
+      [
+       -0.05,
+       -0.04
+      ],
+      [
+       -0.05,
+       0.04
+      ],
+      [
+       -0.05,
+       -0.04
+      ],
+      [
+       -0.05,
+       0.04
+      ],
+      [
+       -0.05,
+       -0.04
+      ],
+      [
+       -0.05,
+       0.04
+      ],
+      [
+       -0.05,
+       -0.04
+      ]
+     ],
+     "speed": 0.05,
+     "tolerance": 0.01
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 5
+    },
+    "temporal": {
+     "stage": "wipe"
+    }
+   },
+   {
+    "id": "lift",
+    "control": {
+     "entity": "tool"
+    },
+    "reference": {
+     "frame": "surface:table"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0.05
+     ],
+     "tolerance": 0.005
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 5
+    },
+    "temporal": {
+     "stage": "lift",
+     "timing": "terminal",
+     "profile": "ramp",
+     "t_ramp": 0.5
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "approach",
+    "gripper": "close",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 1.5
+      },
+      "to": "press"
+     }
+    ],
+    "timeout_s": 5,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "press",
+    "transitions": [
+     {
+      "when": {
+       "force_ge": 2.5
+      },
+      "to": "wipe"
+     }
+    ],
+    "timeout_s": 3,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "wipe",
+    "transitions": [
+     {
+      "when": {
+       "time_ge": 13.0
+      },
+      "to": "lift"
+     }
+    ],
+    "timeout_s": 25,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "lift",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "lift"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 3,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "approach",
+  "max_time_s": 60
+ },
+ "status": "end",
+ "oracle_ok": true,
+ "oracle": {
+  "y_range": [
+   -0.0401,
+   0.0394
+  ],
+  "reversals": 13,
+  "mean_fn": 3.13,
+  "h_end": 0.0517
+ },
+ "spec_all_pass": true,
+ "stages": [
+  {
+   "id": "approach",
+   "visit": 1,
+   "t0": 2.9999999999997806,
+   "t1": 4.039999999999684,
+   "done": true,
+   "exit": "切换:{'force_ge': 1.5}",
+   "to": "press",
+   "f_at_switch": 4.2517347158215255,
+   "rows": []
+  },
+  {
+   "id": "press",
+   "visit": 1,
+   "t0": 4.039999999999684,
+   "t1": 4.0599999999996905,
+   "done": true,
+   "exit": "切换:{'force_ge': 2.5}",
+   "to": "wipe",
+   "f_at_switch": 5.396215190812774,
+   "rows": [
+    {
+     "id": "press",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "wipe",
+   "visit": 1,
+   "t0": 4.0599999999996905,
+   "t1": 17.059999999997867,
+   "done": true,
+   "exit": "切换:{'time_ge': 13.0}",
+   "to": "lift",
+   "f_at_switch": 3.0110206780872497,
+   "rows": [
+    {
+     "id": "press",
+     "pass": true,
+     "measured": [
+      2.7867
+     ]
+    },
+    {
+     "id": "wipe_path",
+     "pass": true,
+     "measured": 0.001
+    }
+   ]
+  },
+  {
+   "id": "lift",
+   "visit": 1,
+   "t0": 17.059999999997867,
+   "t1": 17.759999999998723,
+   "done": true,
+   "exit": "切换:{'satisfied': ['lift'], 'hold_s': 0.3}",
+   "to": "end",
+   "f_at_switch": 2.737230660125881e-28,
+   "rows": [
+    {
+     "id": "lift",
+     "pass": true,
+     "measured": [
+      0.0526
+     ]
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": [],
+ "hmr_replans": [],
+ "cost_usd": 0.00588,
+ "wall_s": 140.7
+}

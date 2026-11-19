@@ -1,0 +1,392 @@
+{
+ "id": 4,
+ "arm": "full",
+ "inst": {
+  "id": 4,
+  "kind": "comp",
+  "run_seed": 577,
+  "task": "tip_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.0015610128712238922,
+    -0.02094011038560429,
+    0.020464020925845542
+   ],
+   "id": "tip"
+  },
+  "mag_tol": 3.67
+ },
+ "final_pass": true,
+ "reached": "L2",
+ "level_path": [
+  "L1",
+  "solver",
+  "L2",
+  "L1",
+  "L1",
+  "L1",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "tip",
+   "cat": "D4",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0017,
+    -0.0053,
+    0.0275
+   ],
+   "deviation": [
+    -0.0017,
+    -0.0053,
+    -0.0025
+   ],
+   "pass": true,
+   "target": [
+    0.0,
+    0.0,
+    0.03
+   ]
+  }
+ ],
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00211
+ },
+ "sim_s": 68.7,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "0c298aa29ea2",
+   "pms": "8acec675a135",
+   "exp_xemb": "eeb17154c640"
+  }
+ },
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "补偿后整体残差变大 0.24 → 0.87,持续 0.5 s(已撤回这次补偿)",
+    "没有约束压着,疑似采样退化 []"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "补偿后整体残差变大 0.87 → 1.23,持续 0.5 s(已撤回这次补偿)",
+    "压着的约束 []"
+   ]
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "level": "L1-规则(阶段间)",
+   "why": [
+    "不达标 ['tip']"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      -0.0124,
+      0.0181
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0124,
+      -0.0181
+     ]
+    }
+   ],
+   "R": 1.344,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半不都超差(v = 0.80 / 2.09)"
+    }
+   ],
+   "R": 0.0
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 15.0,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, -0.0241, 0.0202] / [0.0, -0.0102, 0.0232])"
+    }
+   ],
+   "R": 2.015
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 16.02,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "skip": "非平稳,不补:前后两半偏差大小差一半以上([0.0, -0.02, 0.0212] / [0.0, -0.008, 0.0225])"
+    }
+   ],
+   "R": 1.653
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 16.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      -0.0139,
+      0.0218
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0139,
+      -0.0218
+     ]
+    }
+   ],
+   "R": 1.687,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 18.52,
+   "where": "阶段内",
+   "applied": false,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      -0.0178,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0139,
+      -0.0218
+     ],
+     "g_raw": [
+      -0.282
+     ],
+     "fail": "分量 1 灵敏度 ĝ = -0.282 不在 [0.3, 3.0]"
+    }
+   ],
+   "R": 1.02
+  },
+  {
+   "stage": "track",
+   "attempt": 1,
+   "t": 23.48,
+   "where": "阶段间",
+   "applied": true,
+   "items": [
+    {
+     "id": "tip",
+     "e": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "c_old": [
+      0.0,
+      0.0139,
+      -0.0218
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.0,
+      0.0139,
+      -0.0218
+     ]
+    }
+   ],
+   "problems": []
+  }
+ ],
+ "diagnoses": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 8.94,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 0.24 → 0.87,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [],
+   "pred_bad": [
+    "tip"
+   ],
+   "cost_min": 234.33889770507812,
+   "ess": 54.41480255126953,
+   "action": "求解器补救:采样噪声 ×3.0,2.0 s"
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 11.48,
+   "where": "阶段内",
+   "why": [
+    "补偿后整体残差变大 0.87 → 1.23,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "active": [],
+   "pred_bad": [
+    "tip"
+   ],
+   "cost_min": 197.801025390625,
+   "ess": 54.70042037963867,
+   "action": "升级 L2(求解器补救后仍不降)"
+  }
+ ],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "补偿后整体残差变大 0.87 → 1.23,持续 0.5 s(已撤回这次补偿)",
+    "压着的约束 []"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "_tool_down 把工具姿态锁在竖直 5.7° 锥内(ub=0.1,weight=2),tip 又是 TCP 沿工具 z 前方 8 cm,于是腕部只能被顶在目标点正上方约 11 cm 处,手臂接近全伸展/工作空间边缘;实时 z 曲线在 0.3~4 倍容差间周期性摆动并反复 stall/drift,说明规划器在『满足姿态硬约束』和『跟上移动物体』之间来回放弃, tip 的 y 向 11.7 mm 偏差始终收不回来。这是几何可达性冲突,改 tip 的 comp 只是平移目标点,振荡和不收敛的根源不变,所以局部补偿无效。",
+   "comp_patch": [
+    {
+     "id": "tip",
+     "field": "comp",
+     "value": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "source_patch": [],
+   "latency_s": 17.09,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.6,
+     "sigma": 0.2,
+     "weight": 1
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": false,
+ "abort_reason": null
+}

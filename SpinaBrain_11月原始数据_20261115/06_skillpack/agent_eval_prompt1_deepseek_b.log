@@ -1,0 +1,30 @@
+  deepseek-v4.1-flash    expand b7 对  调用 1 展开 0 打包 0 打回 0 输入   4676 tok  
+  deepseek-v4.1-flash    expand f1 错  调用 1 展开 0 打包 0 打回 0 输入   4692 tok  第 4 条叶子 move_above.t_move:得到 2.5,应为 3.5
+  deepseek-v4.1-flash    expand f2 对  调用 2 展开 1 打包 0 打回 0 输入  10570 tok  
+  deepseek-v4.1-flash    expand f3 错  调用 1 展开 0 打包 0 打回 0 输入   4687 tok  第 7 条叶子 lift_off.dwell:得到 0.75,应为 1.25
+  deepseek-v4.1-flash    expand f4 错  调用 1 展开 0 打包 0 打回 0 输入   4692 tok  第 11 条叶子 lift_off.t_ramp:得到 0.75,应为 1.8
+  deepseek-v4.1-flash    cards  b7 对  调用 1 展开 0 打包 0 打回 0 输入   4587 tok  
+  deepseek-v4.1-flash    cards  f1 错  调用 1 展开 0 打包 0 打回 0 输入   4603 tok  第 4 条叶子 move_above.t_move:得到 2.5,应为 3.5
+  deepseek-v4.1-flash    cards  f2 错  调用 1 展开 0 打包 0 打回 0 输入   4600 tok  第 3 条叶子 lift_off.dwell:得到 0.5,应为 2.0
+  deepseek-v4.1-flash    cards  f3 错  调用 1 展开 0 打包 0 打回 0 输入   4598 tok  第 7 条叶子 lift_off.dwell:得到 0.75,应为 1.25
+  deepseek-v4.1-flash    cards  f4 错  调用 1 展开 0 打包 0 打回 0 输入   4603 tok  第 11 条叶子 lift_off.t_ramp:得到 0.75,应为 1.8
+  deepseek-v4.1-flash    tree   b7 对  调用 1 展开 0 打包 0 打回 0 输入  20162 tok  
+  deepseek-v4.1-flash    tree   f1 对  调用 1 展开 0 打包 0 打回 0 输入  20178 tok  
+  deepseek-v4.1-flash    tree   f2 对  调用 1 展开 0 打包 0 打回 0 输入  20175 tok  
+  deepseek-v4.1-flash    tree   f3 对  调用 1 展开 0 打包 0 打回 0 输入  20173 tok  
+  deepseek-v4.1-flash    tree   f4 对  调用 1 展开 0 打包 0 打回 0 输入  20178 tok  
+模型                    给法        L0     L1     L2     Lr     L3      R    合计   平均调用  平均展开  打回   输入 token(每条)  标价 $
+deepseek-v4.1-flash     expand    6/6    7/7    4/4    1/4    4/4    4/4   26/29     1.41     0.24     0         6965      0.0283
+deepseek-v4.1-flash     cards     6/6    7/7    4/4    0/4    4/4    4/4   25/29     1.17     0.00     0         5436      0.0304
+deepseek-v4.1-flash     tree      6/6    7/7    4/4    4/4    3/4    4/4   28/29     1.10     0.00     0        22294      0.0515
+没过的:
+  deepseek-v4.1-flash cards f1(Lr):第 4 条叶子 move_above.t_move:得到 2.5,应为 3.5
+  deepseek-v4.1-flash cards f2(Lr):第 3 条叶子 lift_off.dwell:得到 0.5,应为 2.0
+  deepseek-v4.1-flash cards f3(Lr):第 7 条叶子 lift_off.dwell:得到 0.75,应为 1.25
+  deepseek-v4.1-flash cards f4(Lr):第 11 条叶子 lift_off.t_ramp:得到 0.75,应为 1.8
+  deepseek-v4.1-flash expand f1(Lr):第 4 条叶子 move_above.t_move:得到 2.5,应为 3.5
+  deepseek-v4.1-flash expand f3(Lr):第 7 条叶子 lift_off.dwell:得到 0.75,应为 1.25
+  deepseek-v4.1-flash expand f4(Lr):第 11 条叶子 lift_off.t_ramp:得到 0.75,应为 1.8
+  deepseek-v4.1-flash tree d3(L3):叶子序列不同:['descend_to_contact', 'wipe_strokes', 'lift_off', 'move_above', 'descend_to_contact', 'wipe_strokes', 'lift_off'] ≠ ['descend_to_contact', 'wi
+本次进程累计: {"calls": 16, "prompt_tokens": 153174, "completion_tokens": 7417, "reasoning_tokens": 6876, "list_cost": 0.02181173, "errors": 0}
+exit 0

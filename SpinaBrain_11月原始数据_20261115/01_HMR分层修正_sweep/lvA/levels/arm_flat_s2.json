@@ -1,0 +1,249 @@
+{
+ "probe": "arm",
+ "family": "n121",
+ "task": "config_long",
+ "seed": 2,
+ "mode": "llm",
+ "cond": "flat",
+ "llm": {
+  "calls": 1,
+  "cost_usd": 0.00608,
+  "tokens": 11824,
+  "latency_s": 98.6,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L1b"
+ ],
+ "reached": "L2",
+ "first_level": "L2",
+ "level_path": [
+  "L2"
+ ],
+ "decision_ok": false,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "7710687fae12",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "center",
+   "deviation": null,
+   "pass": false,
+   "target": "left",
+   "elbow_y": -0.0
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.307,
+    0.0,
+    0.4869
+   ],
+   "deviation": [
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "id": "go",
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 111.8,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "L2 判定换做法也达不到:[{'id': 'arm', 'reason': 'arm 是构型类别项，而 hold3 把末端固定在基座坐标系 y≈0 的对称面上（tol=0.005 m）。该臂的手臂平面必须同时经过基座轴和腕心，当腕心落在 y=0 平面上时，手肘被强制在 y=0，只会被判为 center；left 需要末端明显离开该平面（厘米级），与 hold3 的 5 mm 保持容差直接冲突，改策略项或 comp 都无法同时满足两项。'}]"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "go",
+   "trigger": [
+    "阶段末仍不达标 ['arm']"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": false,
+   "infeasible": [
+    {
+     "id": "arm",
+     "reason": "arm 是构型类别项，而 hold3 把末端固定在基座坐标系 y≈0 的对称面上（tol=0.005 m）。该臂的手臂平面必须同时经过基座轴和腕心，当腕心落在 y=0 平面上时，手肘被强制在 y=0，只会被判为 center；left 需要末端明显离开该平面（厘米级），与 hold3 的 5 mm 保持容差直接冲突，改策略项或 comp 都无法同时满足两项。"
+    }
+   ],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "arm 要求手肘落在基座 +y 一侧，但 hold3 把 TCP 固定在基座 y≈0 的对称面上（容差只有 5 mm）；本体手臂平面必须同时包含基座轴和腕心，当腕心落在这张平面上时，手肘必然在 y=0 的退化分支上，构型分类只能是 center，left 解在几何上不存在。要得到 left，必须把保持点移出该平面（厘米级），这远超 hold3 的 5 mm 容差，所以只修改 comp（毫米级）永远不会改变构型分支；这不是局部补偿能解决的问题。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 98.6,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    }
+   ],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "L2 判定换做法也达不到:[{'id': 'arm', 'reason': 'arm 是构型类别项，而 hold3 把末端固定在基座坐标系 y≈0 的对称面上（tol=0.005 m）。该臂的手臂平面必须同时经过基座轴和腕心，当腕心落在 y=0 平面上时，手肘被强制在 y=0，只会被判为 center；left 需要末端明显离开该平面（厘米级），与 hold3 的 5 mm 保持容差直接冲突，改策略项或 comp 都无法同时满足两项。'}]",
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "center",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": -0.0
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.307,
+      0.0,
+      0.4869
+     ],
+     "deviation": [
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 325,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 6.1,
+     "p95": 10.07,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0002,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 infeasible)"
+  }
+ ]
+}

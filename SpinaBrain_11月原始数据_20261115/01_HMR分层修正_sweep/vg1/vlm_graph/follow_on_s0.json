@@ -1,0 +1,145 @@
+{
+ "task": "follow",
+ "instruction": "让工具跟着移动的物体,一直保持在物体正上方 10 厘米处,跟 6 秒后结束。",
+ "model": "oc:deepseek-v4.1-flash",
+ "seed": 0,
+ "hmr": "on",
+ "write_tries": [
+  {
+   "errors": [],
+   "latency_s": 15.6
+  }
+ ],
+ "doc": {
+  "entries": [
+   {
+    "id": "above_object",
+    "desc": "TCP 保持在移动物体坐标系原点正上方 10 cm",
+    "control": {
+     "entity": "tool",
+     "feature": {
+      "type": "point"
+     }
+    },
+    "reference": {
+     "frame": "object:mov",
+     "binding": "live"
+    },
+    "physical": {
+     "quantity": "position",
+     "axes": [
+      "x",
+      "y",
+      "z"
+     ]
+    },
+    "goal": {
+     "kind": "target",
+     "value": [
+      0,
+      0,
+      0.1
+     ],
+     "tolerance": 0.02
+    },
+    "hierarchy": {
+     "level": "soft",
+     "priority": "task",
+     "weight": 1.0
+    },
+    "temporal": {
+     "stage": "align",
+     "also_stages": [
+      "follow"
+     ],
+     "profile": "hold"
+    }
+   }
+  ],
+  "stages": [
+   {
+    "id": "align",
+    "transitions": [
+     {
+      "when": {
+       "satisfied": [
+        "above_object"
+       ],
+       "hold_s": 0.3
+      },
+      "to": "follow"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "fail"
+   },
+   {
+    "id": "follow",
+    "transitions": [
+     {
+      "when": {
+       "time_ge": 6.0
+      },
+      "to": "end"
+     }
+    ],
+    "timeout_s": 8,
+    "on_timeout": "end"
+   }
+  ],
+  "start": "align",
+  "max_time_s": 20
+ },
+ "status": "end",
+ "oracle_ok": true,
+ "oracle": {
+  "mean_err": 0.0017,
+  "duration": 6.8
+ },
+ "spec_all_pass": true,
+ "stages": [
+  {
+   "id": "align",
+   "visit": 1,
+   "t0": 0.0,
+   "t1": 0.8000000000000006,
+   "done": true,
+   "exit": "切换:{'satisfied': ['above_object'], 'hold_s': 0.3}",
+   "to": "follow",
+   "f_at_switch": -0.0,
+   "rows": [
+    {
+     "id": "above_object",
+     "pass": null,
+     "measured": null
+    }
+   ]
+  },
+  {
+   "id": "follow",
+   "visit": 1,
+   "t0": 0.8000000000000006,
+   "t1": 6.800000000000606,
+   "done": true,
+   "exit": "切换:{'time_ge': 6.0}",
+   "to": "end",
+   "f_at_switch": -0.0,
+   "rows": [
+    {
+     "id": "above_object",
+     "pass": true,
+     "measured": [
+      -0.0001,
+      -0.0015,
+      0.0997
+     ]
+    }
+   ]
+  }
+ ],
+ "interrupts": [],
+ "hmr_levels": [],
+ "hmr_replans": [],
+ "cost_usd": 0.001,
+ "wall_s": 26.3
+}

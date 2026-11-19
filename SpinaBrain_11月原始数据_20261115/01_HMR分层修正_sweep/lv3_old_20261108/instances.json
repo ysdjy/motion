@@ -1,0 +1,537 @@
+[
+ {
+  "id": 0,
+  "kind": "strategy",
+  "run_seed": 606,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.06964698263998123
+  ]
+ },
+ {
+  "id": 1,
+  "kind": "mixed",
+  "run_seed": 432,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.1701403799204073,
+   "id": "align"
+  },
+  "mag_tol": 4.25,
+  "disturb": "track,1.15,0.58,-16.9,-14.9,16.5"
+ },
+ {
+  "id": 2,
+  "kind": "strategy",
+  "run_seed": 227,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.06520669031045358
+  ]
+ },
+ {
+  "id": 3,
+  "kind": "mixed",
+  "run_seed": 731,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.11022501836071336,
+   "id": "align"
+  },
+  "mag_tol": 2.76,
+  "disturb": "track,1.67,0.57,-6.4,20.0,24.6"
+ },
+ {
+  "id": 4,
+  "kind": "comp",
+  "run_seed": 577,
+  "task": "tip_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.0015610128712238922,
+    -0.02094011038560429,
+    0.020464020925845542
+   ],
+   "id": "tip"
+  },
+  "mag_tol": 3.67
+ },
+ {
+  "id": 5,
+  "kind": "disturb",
+  "run_seed": 326,
+  "task": "slide_long",
+  "disturb": "slide,2.33,0.43,-10.6,-18.9,-19.2"
+ },
+ {
+  "id": 6,
+  "kind": "n121",
+  "run_seed": 567,
+  "task": "period",
+  "bias": "tap"
+ },
+ {
+  "id": 7,
+  "kind": "comp",
+  "run_seed": 520,
+  "task": "slide_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.020387394522094,
+   "id": "vy"
+  },
+  "mag_tol": 5.1
+ },
+ {
+  "id": 8,
+  "kind": "comp",
+  "run_seed": 620,
+  "task": "twist",
+  "bias_raw": {
+   "kind": "add",
+   "value": 8.33037255790006,
+   "id": "press3"
+  },
+  "mag_tol": 5.55
+ },
+ {
+  "id": 9,
+  "kind": "comp",
+  "run_seed": 160,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.02011375265367645,
+    0.03864167956309374,
+    0.015700380754593044
+   ],
+   "id": "follow"
+  },
+  "mag_tol": 5.79
+ },
+ {
+  "id": 10,
+  "kind": "comp",
+  "run_seed": 671,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.012673833437660594,
+    -0.0017469205072553728,
+    0.015042491297435111
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 3.95
+ },
+ {
+  "id": 11,
+  "kind": "n121",
+  "run_seed": 491,
+  "task": "twist",
+  "bias": "twist"
+ },
+ {
+  "id": 12,
+  "kind": "comp",
+  "run_seed": 572,
+  "task": "slide_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.01702438182184855,
+   "id": "vy"
+  },
+  "mag_tol": 4.26
+ },
+ {
+  "id": 13,
+  "kind": "mixed",
+  "run_seed": 733,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -8.652725216823207,
+   "id": "press2"
+  },
+  "mag_tol": 5.77,
+  "disturb": "press_hold,1.08,0.54,-7.6,-33.1,26.3"
+ },
+ {
+  "id": 14,
+  "kind": "disturb",
+  "run_seed": 591,
+  "task": "near_long",
+  "disturb": "track,0.67,0.54,2.2,38.4,-7.2"
+ },
+ {
+  "id": 15,
+  "kind": "disturb",
+  "run_seed": 471,
+  "task": "near_long",
+  "disturb": "track,2.17,0.35,-0.8,26.6,-10.0"
+ },
+ {
+  "id": 16,
+  "kind": "disturb",
+  "run_seed": 993,
+  "task": "seq_long",
+  "disturb": "press_hold,1.79,0.56,8.5,20.0,-14.0"
+ },
+ {
+  "id": 17,
+  "kind": "comp",
+  "run_seed": 318,
+  "task": "twist",
+  "bias_raw": {
+   "kind": "add",
+   "value": 5.1303660875312325,
+   "id": "press3"
+  },
+  "mag_tol": 3.42
+ },
+ {
+  "id": 18,
+  "kind": "strategy",
+  "run_seed": 313,
+  "task": "follow_long",
+  "strategy": "ceiling"
+ },
+ {
+  "id": 19,
+  "kind": "mixed",
+  "run_seed": 706,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.018751367587630546,
+    -0.007684270787990335,
+    -0.011425253256560871
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 4.65,
+  "disturb": "go,1.04,0.56,23.4,16.2,31.3"
+ },
+ {
+  "id": 20,
+  "kind": "comp",
+  "run_seed": 343,
+  "task": "near_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": 0.026844558594470515,
+   "id": "near"
+  },
+  "mag_tol": 5.37
+ },
+ {
+  "id": 21,
+  "kind": "n121",
+  "run_seed": 688,
+  "task": "seq_long",
+  "bias": "hold"
+ },
+ {
+  "id": 22,
+  "kind": "strategy",
+  "run_seed": 604,
+  "task": "config_long",
+  "strategy": "elbow_lock"
+ },
+ {
+  "id": 23,
+  "kind": "comp",
+  "run_seed": 2,
+  "task": "slide_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.009626972113314614,
+   "id": "vy"
+  },
+  "mag_tol": 2.41
+ },
+ {
+  "id": 24,
+  "kind": "mixed",
+  "run_seed": 100,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.015199254720254237,
+    -0.0377079588888311,
+    0.023243988533809424
+   ],
+   "id": "follow"
+  },
+  "mag_tol": 5.85,
+  "disturb": "track,1.10,0.57,3.2,7.7,-33.6"
+ },
+ {
+  "id": 25,
+  "kind": "mixed",
+  "run_seed": 422,
+  "task": "seq_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -7.73885629965303,
+   "id": "press2"
+  },
+  "mag_tol": 5.16,
+  "disturb": "press_hold,1.10,0.61,-8.3,-3.6,-29.6"
+ },
+ {
+  "id": 26,
+  "kind": "disturb",
+  "run_seed": 365,
+  "task": "seq_long",
+  "disturb": "press_hold,1.66,0.38,10.5,15.7,13.1"
+ },
+ {
+  "id": 27,
+  "kind": "disturb",
+  "run_seed": 335,
+  "task": "config_long",
+  "disturb": "go,2.63,0.37,-14.1,12.1,11.4"
+ },
+ {
+  "id": 28,
+  "kind": "comp",
+  "run_seed": 811,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.014023160181596031,
+    -0.009268203327789153,
+    -0.01915307626371322
+   ],
+   "id": "follow"
+  },
+  "mag_tol": 3.19
+ },
+ {
+  "id": 29,
+  "kind": "strategy",
+  "run_seed": 979,
+  "task": "follow_long",
+  "helper_p": [
+   "y_lock",
+   0.007754808528630017
+  ]
+ },
+ {
+  "id": 30,
+  "kind": "comp",
+  "run_seed": 628,
+  "task": "tip_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.02675937846625574,
+    0.014897520090551215,
+    0.025191770372975323
+   ],
+   "id": "tip"
+  },
+  "mag_tol": 4.96
+ },
+ {
+  "id": 31,
+  "kind": "strategy",
+  "run_seed": 161,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.06351585326495723
+  ]
+ },
+ {
+  "id": 32,
+  "kind": "disturb",
+  "run_seed": 461,
+  "task": "config_long",
+  "disturb": "go,2.13,0.38,7.8,-2.1,-38.5"
+ },
+ {
+  "id": 33,
+  "kind": "disturb",
+  "run_seed": 744,
+  "task": "near_long",
+  "disturb": "track,2.74,0.65,4.4,3.4,-24.7"
+ },
+ {
+  "id": 34,
+  "kind": "comp",
+  "run_seed": 205,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    0.012563398977456348,
+    0.03109106295442614,
+    0.0027252456754175824
+   ],
+   "id": "follow"
+  },
+  "mag_tol": 4.21
+ },
+ {
+  "id": 35,
+  "kind": "strategy",
+  "run_seed": 270,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.009514782945712445
+  ]
+ },
+ {
+  "id": 36,
+  "kind": "disturb",
+  "run_seed": 587,
+  "task": "follow_long",
+  "disturb": "track,1.83,0.47,-16.3,24.9,20.1"
+ },
+ {
+  "id": 37,
+  "kind": "comp",
+  "run_seed": 105,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": -0.17199992140830206,
+   "id": "align"
+  },
+  "mag_tol": 4.3
+ },
+ {
+  "id": 38,
+  "kind": "disturb",
+  "run_seed": 646,
+  "task": "near_long",
+  "disturb": "track,2.66,0.53,-24.9,2.3,2.4"
+ },
+ {
+  "id": 39,
+  "kind": "n121",
+  "run_seed": 510,
+  "task": "period",
+  "bias": "tap"
+ },
+ {
+  "id": 40,
+  "kind": "strategy",
+  "run_seed": 747,
+  "task": "slide_long",
+  "helper_p": [
+   "slow_lock",
+   0.005771594277337004
+  ]
+ },
+ {
+  "id": 41,
+  "kind": "n121",
+  "run_seed": 716,
+  "task": "seq_long",
+  "bias": "hold"
+ },
+ {
+  "id": 42,
+  "kind": "comp",
+  "run_seed": 277,
+  "task": "follow_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.0053825691650856685,
+    -0.020917486737187223,
+    -0.02071575706343152
+   ],
+   "id": "follow"
+  },
+  "mag_tol": 3.74
+ },
+ {
+  "id": 43,
+  "kind": "strategy",
+  "run_seed": 357,
+  "task": "seq_long",
+  "helper_p": [
+   "box_lock",
+   -0.0758549283499848
+  ]
+ },
+ {
+  "id": 44,
+  "kind": "strategy",
+  "run_seed": 315,
+  "task": "follow_long",
+  "helper_p": [
+   "y_lock",
+   0.009946567055580882
+  ]
+ },
+ {
+  "id": 45,
+  "kind": "n121",
+  "run_seed": 835,
+  "task": "slide_long",
+  "bias": "keep2"
+ },
+ {
+  "id": 46,
+  "kind": "mixed",
+  "run_seed": 915,
+  "task": "config_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.011282605651879805,
+    0.006238775988767561,
+    0.007055201837250525
+   ],
+   "id": "hold3"
+  },
+  "mag_tol": 2.94,
+  "disturb": "go,2.94,0.52,26.7,31.9,12.3"
+ },
+ {
+  "id": 47,
+  "kind": "n121",
+  "run_seed": 986,
+  "task": "slide_long",
+  "bias": "keep2"
+ },
+ {
+  "id": 48,
+  "kind": "comp",
+  "run_seed": 505,
+  "task": "tip_long",
+  "bias_raw": {
+   "kind": "add",
+   "value": [
+    -0.003691159159365685,
+    0.010714408228063244,
+    0.02785468156094727
+   ],
+   "id": "tip"
+  },
+  "mag_tol": 3.76
+ },
+ {
+  "id": 49,
+  "kind": "n121",
+  "run_seed": 514,
+  "task": "seq_long",
+  "bias": "hold"
+ }
+]

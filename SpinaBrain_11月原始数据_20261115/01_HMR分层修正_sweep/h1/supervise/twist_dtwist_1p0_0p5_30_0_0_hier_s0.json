@@ -1,0 +1,3856 @@
+{
+ "task": "twist",
+ "probe": null,
+ "intent_probe": null,
+ "strategy_probe": null,
+ "disturb": "twist,1.0,0.5,30,0,0",
+ "disturb_log": [
+  {
+   "t": 6.5,
+   "stage": "twist",
+   "on": true
+  },
+  {
+   "t": 7.0,
+   "stage": "twist",
+   "on": false
+  }
+ ],
+ "bias": null,
+ "seed": 0,
+ "instruction": "用 5 N 压住桌面,同时绕桌面法向拧 0.08 N·m 的力矩。",
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  },
+  {
+   "id": "twist",
+   "t0": 9.520000000000163,
+   "t1": 13.519999999997946,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "attempts": [
+    {
+     "id": "twist",
+     "t0": 5.500000000000171,
+     "t1": 9.500000000000174,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null
+    }
+   ]
+  }
+ ],
+ "final_report": [
+  {
+   "id": "twist",
+   "cat": "C4",
+   "kind": "torque",
+   "unit": "N*m",
+   "tol": 0.015,
+   "measured": 0.0754,
+   "deviation": -0.0046,
+   "pass": true,
+   "target": 0.08,
+   "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+  },
+  {
+   "id": "press3",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    4.9604
+   ],
+   "deviation": [
+    -0.0396
+   ],
+   "pass": true,
+   "target": 5.0
+  }
+ ],
+ "final_all_pass": true,
+ "source_unchanged": true,
+ "final_helpers_override": {},
+ "sim_s": 21.0,
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0022,
+     "force": 5.0
+    },
+    "resets": 1
+   },
+   "action": "next"
+  },
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t0": 5.500000000000171,
+   "t1": 9.500000000000174,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0489,
+     "deviation": -0.0311,
+     "pass": false,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      3.2932
+     ],
+     "deviation": [
+      -1.7068
+     ],
+     "pass": false,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": false,
+     "samples": 125,
+     "first_alarm": {
+      "meas_ok": 7.02,
+      "drift": 7.12,
+      "stall": 7.5
+     },
+     "fail_lead_s": 2.48,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 1.57,
+     "p95": 2.72,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [
+     {
+      "t": 6.687,
+      "kind": "force",
+      "peak": 5.0,
+      "thr": 3.0
+     },
+     {
+      "t": 6.952,
+      "kind": "force",
+      "peak": 5.0,
+      "thr": 3.0
+     }
+    ],
+    "peak": {
+     "track": 0.0201,
+     "force": 36.9045
+    },
+    "resets": 4
+   },
+   "action": "L0+retry"
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "t0": 9.520000000000163,
+   "t1": 13.519999999997946,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "twist",
+     "cat": "C4",
+     "kind": "torque",
+     "unit": "N*m",
+     "tol": 0.015,
+     "measured": 0.0754,
+     "deviation": -0.0046,
+     "pass": true,
+     "target": 0.08,
+     "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+    },
+    {
+     "id": "press3",
+     "cat": "C3",
+     "kind": "target",
+     "unit": "N",
+     "tol": 1.5,
+     "measured": [
+      4.9604
+     ],
+     "deviation": [
+      -0.0396
+     ],
+     "pass": true,
+     "target": 5.0
+    }
+   ],
+   "monitor": {
+    "press3": {
+     "final_pass": true,
+     "samples": 125,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 1.59,
+     "p95": 2.86,
+     "calls": 200
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0073,
+     "force": 0.5489
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ],
+ "audits": [],
+ "repairs": [],
+ "events": [
+  {
+   "t": 7.02,
+   "stage": "twist",
+   "id": "press3",
+   "kind": "meas_ok",
+   "value": false,
+   "measured": [
+    0.0
+   ],
+   "deviation": [
+    -5.0
+   ]
+  },
+  {
+   "t": 7.12,
+   "stage": "twist",
+   "id": "press3",
+   "kind": "drift",
+   "value": "down",
+   "s_up": 0.0,
+   "s_lo": 0.28
+  },
+  {
+   "t": 7.5,
+   "stage": "twist",
+   "id": "press3",
+   "kind": "stall",
+   "value": true,
+   "z": 3.333,
+   "z_before": 3.333
+  },
+  {
+   "t": 7.88,
+   "stage": "twist",
+   "id": "press3",
+   "kind": "stall",
+   "value": false,
+   "z": 0.828,
+   "z_before": 3.333
+  }
+ ],
+ "timeline": [
+  {
+   "stage": "twist",
+   "t": 7.02,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.047,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.04,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.093,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.06,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.14,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.08,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.187,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.1,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.233,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.12,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.28,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.14,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.327,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.16,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.373,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.18,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.42,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.2,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.467,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.22,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.513,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.24,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.56,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.26,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.607,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.28,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.653,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.3,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.7,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.32,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.747,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.34,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.793,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.36,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.84,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.38,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.887,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.4,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.933,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.42,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 0.98,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.44,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.027,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.46,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.073,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.48,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.12,
+   "drift": "down",
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 7.5,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.167,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.52,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.213,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.54,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.26,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.56,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.307,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.58,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.353,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.6,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.4,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.62,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.447,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.64,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.493,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.66,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.54,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.68,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.587,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.7,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.633,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.72,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.68,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.74,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.727,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.76,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.773,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.78,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.82,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.8,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.867,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.82,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.913,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.84,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 1.96,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.86,
+   "id": "press3",
+   "meas": [
+    0.0
+   ],
+   "meas_ok": false,
+   "z": 3.333,
+   "s_up": 0.0,
+   "s_lo": 2.007,
+   "drift": "down",
+   "stall": true
+  },
+  {
+   "stage": "twist",
+   "t": 7.88,
+   "id": "press3",
+   "meas": [
+    0.0854
+   ],
+   "meas_ok": false,
+   "z": 0.828,
+   "s_up": 0.0,
+   "s_lo": 2.003,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 7.9,
+   "id": "press3",
+   "meas": [
+    0.164
+   ],
+   "meas_ok": false,
+   "z": 0.918,
+   "s_up": 0.0,
+   "s_lo": 2.002,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 7.92,
+   "id": "press3",
+   "meas": [
+    0.2374
+   ],
+   "meas_ok": false,
+   "z": 0.973,
+   "s_up": 0.0,
+   "s_lo": 2.001,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 7.94,
+   "id": "press3",
+   "meas": [
+    0.318
+   ],
+   "meas_ok": false,
+   "z": 0.65,
+   "s_up": 0.0,
+   "s_lo": 1.994,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 7.96,
+   "id": "press3",
+   "meas": [
+    0.4197
+   ],
+   "meas_ok": false,
+   "z": 0.132,
+   "s_up": 0.0,
+   "s_lo": 1.971,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 7.98,
+   "id": "press3",
+   "meas": [
+    0.535
+   ],
+   "meas_ok": false,
+   "z": 0.715,
+   "s_up": 0.0,
+   "s_lo": 1.937,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.0,
+   "id": "press3",
+   "meas": [
+    0.6416
+   ],
+   "meas_ok": false,
+   "z": 0.578,
+   "s_up": 0.0,
+   "s_lo": 1.906,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.02,
+   "id": "press3",
+   "meas": [
+    0.7367
+   ],
+   "meas_ok": false,
+   "z": 0.325,
+   "s_up": 0.0,
+   "s_lo": 1.879,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.04,
+   "id": "press3",
+   "meas": [
+    0.8226
+   ],
+   "meas_ok": false,
+   "z": 0.138,
+   "s_up": 0.0,
+   "s_lo": 1.856,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.06,
+   "id": "press3",
+   "meas": [
+    0.9008
+   ],
+   "meas_ok": false,
+   "z": 0.024,
+   "s_up": 0.0,
+   "s_lo": 1.837,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.08,
+   "id": "press3",
+   "meas": [
+    0.9719
+   ],
+   "meas_ok": false,
+   "z": 0.173,
+   "s_up": 0.0,
+   "s_lo": 1.82,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.1,
+   "id": "press3",
+   "meas": [
+    1.0369
+   ],
+   "meas_ok": false,
+   "z": 0.303,
+   "s_up": 0.0,
+   "s_lo": 1.806,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.12,
+   "id": "press3",
+   "meas": [
+    1.0957
+   ],
+   "meas_ok": false,
+   "z": 0.446,
+   "s_up": 0.0,
+   "s_lo": 1.795,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.14,
+   "id": "press3",
+   "meas": [
+    1.1496
+   ],
+   "meas_ok": false,
+   "z": 0.553,
+   "s_up": 0.0,
+   "s_lo": 1.786,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.16,
+   "id": "press3",
+   "meas": [
+    1.2014
+   ],
+   "meas_ok": false,
+   "z": 0.566,
+   "s_up": 0.0,
+   "s_lo": 1.778,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.18,
+   "id": "press3",
+   "meas": [
+    1.2532
+   ],
+   "meas_ok": false,
+   "z": 0.493,
+   "s_up": 0.0,
+   "s_lo": 1.767,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.2,
+   "id": "press3",
+   "meas": [
+    1.3079
+   ],
+   "meas_ok": false,
+   "z": 0.31,
+   "s_up": 0.0,
+   "s_lo": 1.754,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.22,
+   "id": "press3",
+   "meas": [
+    1.3663
+   ],
+   "meas_ok": false,
+   "z": 0.09,
+   "s_up": 0.0,
+   "s_lo": 1.735,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.24,
+   "id": "press3",
+   "meas": [
+    1.4298
+   ],
+   "meas_ok": false,
+   "z": 0.202,
+   "s_up": 0.0,
+   "s_lo": 1.711,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.26,
+   "id": "press3",
+   "meas": [
+    1.4983
+   ],
+   "meas_ok": false,
+   "z": 0.498,
+   "s_up": 0.0,
+   "s_lo": 1.681,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.28,
+   "id": "press3",
+   "meas": [
+    1.5698
+   ],
+   "meas_ok": false,
+   "z": 0.716,
+   "s_up": 0.0,
+   "s_lo": 1.647,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.3,
+   "id": "press3",
+   "meas": [
+    1.6414
+   ],
+   "meas_ok": false,
+   "z": 0.817,
+   "s_up": 0.0,
+   "s_lo": 1.611,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.32,
+   "id": "press3",
+   "meas": [
+    1.7112
+   ],
+   "meas_ok": false,
+   "z": 0.833,
+   "s_up": 0.0,
+   "s_lo": 1.574,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.34,
+   "id": "press3",
+   "meas": [
+    1.7813
+   ],
+   "meas_ok": false,
+   "z": 0.939,
+   "s_up": 0.0,
+   "s_lo": 1.535,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.36,
+   "id": "press3",
+   "meas": [
+    1.8512
+   ],
+   "meas_ok": false,
+   "z": 1.021,
+   "s_up": 0.0,
+   "s_lo": 1.495,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.38,
+   "id": "press3",
+   "meas": [
+    1.9176
+   ],
+   "meas_ok": false,
+   "z": 0.953,
+   "s_up": 0.0,
+   "s_lo": 1.456,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.4,
+   "id": "press3",
+   "meas": [
+    1.9785
+   ],
+   "meas_ok": false,
+   "z": 0.791,
+   "s_up": 0.0,
+   "s_lo": 1.42,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.42,
+   "id": "press3",
+   "meas": [
+    2.0349
+   ],
+   "meas_ok": false,
+   "z": 0.655,
+   "s_up": 0.0,
+   "s_lo": 1.387,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.44,
+   "id": "press3",
+   "meas": [
+    2.0871
+   ],
+   "meas_ok": false,
+   "z": 0.526,
+   "s_up": 0.0,
+   "s_lo": 1.356,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.46,
+   "id": "press3",
+   "meas": [
+    2.1359
+   ],
+   "meas_ok": false,
+   "z": 0.432,
+   "s_up": 0.0,
+   "s_lo": 1.328,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.48,
+   "id": "press3",
+   "meas": [
+    2.1822
+   ],
+   "meas_ok": false,
+   "z": 0.375,
+   "s_up": 0.0,
+   "s_lo": 1.3,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.5,
+   "id": "press3",
+   "meas": [
+    2.2276
+   ],
+   "meas_ok": false,
+   "z": 0.395,
+   "s_up": 0.0,
+   "s_lo": 1.272,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.52,
+   "id": "press3",
+   "meas": [
+    2.2737
+   ],
+   "meas_ok": false,
+   "z": 0.488,
+   "s_up": 0.0,
+   "s_lo": 1.243,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.54,
+   "id": "press3",
+   "meas": [
+    2.32
+   ],
+   "meas_ok": false,
+   "z": 0.557,
+   "s_up": 0.0,
+   "s_lo": 1.211,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.56,
+   "id": "press3",
+   "meas": [
+    2.3598
+   ],
+   "meas_ok": false,
+   "z": 0.284,
+   "s_up": 0.0,
+   "s_lo": 1.186,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.58,
+   "id": "press3",
+   "meas": [
+    2.3864
+   ],
+   "meas_ok": false,
+   "z": 0.359,
+   "s_up": 0.0,
+   "s_lo": 1.173,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.6,
+   "id": "press3",
+   "meas": [
+    2.4084
+   ],
+   "meas_ok": false,
+   "z": 0.572,
+   "s_up": 0.0,
+   "s_lo": 1.164,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.62,
+   "id": "press3",
+   "meas": [
+    2.4418
+   ],
+   "meas_ok": false,
+   "z": 0.079,
+   "s_up": 0.0,
+   "s_lo": 1.143,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.64,
+   "id": "press3",
+   "meas": [
+    2.4727
+   ],
+   "meas_ok": false,
+   "z": 0.019,
+   "s_up": 0.0,
+   "s_lo": 1.123,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.66,
+   "id": "press3",
+   "meas": [
+    2.5054
+   ],
+   "meas_ok": false,
+   "z": 0.125,
+   "s_up": 0.0,
+   "s_lo": 1.101,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.68,
+   "id": "press3",
+   "meas": [
+    2.5374
+   ],
+   "meas_ok": false,
+   "z": 0.13,
+   "s_up": 0.0,
+   "s_lo": 1.078,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.7,
+   "id": "press3",
+   "meas": [
+    2.5569
+   ],
+   "meas_ok": false,
+   "z": 0.537,
+   "s_up": 0.0,
+   "s_lo": 1.069,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.72,
+   "id": "press3",
+   "meas": [
+    2.5807
+   ],
+   "meas_ok": false,
+   "z": 0.261,
+   "s_up": 0.0,
+   "s_lo": 1.054,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.74,
+   "id": "press3",
+   "meas": [
+    2.599
+   ],
+   "meas_ok": false,
+   "z": 0.555,
+   "s_up": 0.0,
+   "s_lo": 1.045,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.76,
+   "id": "press3",
+   "meas": [
+    2.6201
+   ],
+   "meas_ok": false,
+   "z": 0.362,
+   "s_up": 0.0,
+   "s_lo": 1.032,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.78,
+   "id": "press3",
+   "meas": [
+    2.6413
+   ],
+   "meas_ok": false,
+   "z": 0.328,
+   "s_up": 0.0,
+   "s_lo": 1.019,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.8,
+   "id": "press3",
+   "meas": [
+    2.6614
+   ],
+   "meas_ok": false,
+   "z": 0.367,
+   "s_up": 0.0,
+   "s_lo": 1.006,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.82,
+   "id": "press3",
+   "meas": [
+    2.6807
+   ],
+   "meas_ok": false,
+   "z": 0.391,
+   "s_up": 0.0,
+   "s_lo": 0.994,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.84,
+   "id": "press3",
+   "meas": [
+    2.7043
+   ],
+   "meas_ok": false,
+   "z": 0.096,
+   "s_up": 0.0,
+   "s_lo": 0.976,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.86,
+   "id": "press3",
+   "meas": [
+    2.7236
+   ],
+   "meas_ok": false,
+   "z": 0.333,
+   "s_up": 0.0,
+   "s_lo": 0.963,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.88,
+   "id": "press3",
+   "meas": [
+    2.7422
+   ],
+   "meas_ok": false,
+   "z": 0.35,
+   "s_up": 0.0,
+   "s_lo": 0.95,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.9,
+   "id": "press3",
+   "meas": [
+    2.7606
+   ],
+   "meas_ok": false,
+   "z": 0.345,
+   "s_up": 0.0,
+   "s_lo": 0.937,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.92,
+   "id": "press3",
+   "meas": [
+    2.78
+   ],
+   "meas_ok": false,
+   "z": 0.253,
+   "s_up": 0.0,
+   "s_lo": 0.922,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.94,
+   "id": "press3",
+   "meas": [
+    2.7981
+   ],
+   "meas_ok": false,
+   "z": 0.309,
+   "s_up": 0.0,
+   "s_lo": 0.908,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.96,
+   "id": "press3",
+   "meas": [
+    2.8153
+   ],
+   "meas_ok": false,
+   "z": 0.34,
+   "s_up": 0.0,
+   "s_lo": 0.895,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 8.98,
+   "id": "press3",
+   "meas": [
+    2.832
+   ],
+   "meas_ok": false,
+   "z": 0.358,
+   "s_up": 0.0,
+   "s_lo": 0.882,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.0,
+   "id": "press3",
+   "meas": [
+    2.8495
+   ],
+   "meas_ok": false,
+   "z": 0.276,
+   "s_up": 0.0,
+   "s_lo": 0.867,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.02,
+   "id": "press3",
+   "meas": [
+    2.8676
+   ],
+   "meas_ok": false,
+   "z": 0.216,
+   "s_up": 0.0,
+   "s_lo": 0.852,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.04,
+   "id": "press3",
+   "meas": [
+    2.8872
+   ],
+   "meas_ok": false,
+   "z": 0.089,
+   "s_up": 0.0,
+   "s_lo": 0.833,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.06,
+   "id": "press3",
+   "meas": [
+    2.9062
+   ],
+   "meas_ok": false,
+   "z": 0.102,
+   "s_up": 0.0,
+   "s_lo": 0.815,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.08,
+   "id": "press3",
+   "meas": [
+    2.9241
+   ],
+   "meas_ok": false,
+   "z": 0.158,
+   "s_up": 0.0,
+   "s_lo": 0.799,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.1,
+   "id": "press3",
+   "meas": [
+    2.9415
+   ],
+   "meas_ok": false,
+   "z": 0.165,
+   "s_up": 0.0,
+   "s_lo": 0.782,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.12,
+   "id": "press3",
+   "meas": [
+    2.9598
+   ],
+   "meas_ok": false,
+   "z": 0.082,
+   "s_up": 0.0,
+   "s_lo": 0.764,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.14,
+   "id": "press3",
+   "meas": [
+    2.9784
+   ],
+   "meas_ok": false,
+   "z": 0.029,
+   "s_up": 0.0,
+   "s_lo": 0.744,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.16,
+   "id": "press3",
+   "meas": [
+    2.9976
+   ],
+   "meas_ok": false,
+   "z": 0.031,
+   "s_up": 0.0,
+   "s_lo": 0.723,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.18,
+   "id": "press3",
+   "meas": [
+    3.0173
+   ],
+   "meas_ok": false,
+   "z": 0.101,
+   "s_up": 0.0,
+   "s_lo": 0.701,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.2,
+   "id": "press3",
+   "meas": [
+    3.0376
+   ],
+   "meas_ok": false,
+   "z": 0.163,
+   "s_up": 0.0,
+   "s_lo": 0.678,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.22,
+   "id": "press3",
+   "meas": [
+    3.0576
+   ],
+   "meas_ok": false,
+   "z": 0.175,
+   "s_up": 0.0,
+   "s_lo": 0.655,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.24,
+   "id": "press3",
+   "meas": [
+    3.0772
+   ],
+   "meas_ok": false,
+   "z": 0.167,
+   "s_up": 0.0,
+   "s_lo": 0.631,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.26,
+   "id": "press3",
+   "meas": [
+    3.0962
+   ],
+   "meas_ok": false,
+   "z": 0.152,
+   "s_up": 0.0,
+   "s_lo": 0.608,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.28,
+   "id": "press3",
+   "meas": [
+    3.1149
+   ],
+   "meas_ok": false,
+   "z": 0.147,
+   "s_up": 0.0,
+   "s_lo": 0.585,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.3,
+   "id": "press3",
+   "meas": [
+    3.1335
+   ],
+   "meas_ok": false,
+   "z": 0.174,
+   "s_up": 0.0,
+   "s_lo": 0.562,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.32,
+   "id": "press3",
+   "meas": [
+    3.1525
+   ],
+   "meas_ok": false,
+   "z": 0.219,
+   "s_up": 0.0,
+   "s_lo": 0.538,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.34,
+   "id": "press3",
+   "meas": [
+    3.1706
+   ],
+   "meas_ok": false,
+   "z": 0.187,
+   "s_up": 0.0,
+   "s_lo": 0.514,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.36,
+   "id": "press3",
+   "meas": [
+    3.1879
+   ],
+   "meas_ok": false,
+   "z": 0.139,
+   "s_up": 0.0,
+   "s_lo": 0.491,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.38,
+   "id": "press3",
+   "meas": [
+    3.2046
+   ],
+   "meas_ok": false,
+   "z": 0.116,
+   "s_up": 0.0,
+   "s_lo": 0.469,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.4,
+   "id": "press3",
+   "meas": [
+    3.2208
+   ],
+   "meas_ok": false,
+   "z": 0.103,
+   "s_up": 0.0,
+   "s_lo": 0.447,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.42,
+   "id": "press3",
+   "meas": [
+    3.2364
+   ],
+   "meas_ok": false,
+   "z": 0.072,
+   "s_up": 0.0,
+   "s_lo": 0.425,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.44,
+   "id": "press3",
+   "meas": [
+    3.2513
+   ],
+   "meas_ok": false,
+   "z": 0.031,
+   "s_up": 0.0,
+   "s_lo": 0.405,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.46,
+   "id": "press3",
+   "meas": [
+    3.2654
+   ],
+   "meas_ok": false,
+   "z": 0.01,
+   "s_up": 0.0,
+   "s_lo": 0.385,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.48,
+   "id": "press3",
+   "meas": [
+    3.2792
+   ],
+   "meas_ok": false,
+   "z": 0.013,
+   "s_up": 0.0,
+   "s_lo": 0.365,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 9.5,
+   "id": "press3",
+   "meas": [
+    3.2932
+   ],
+   "meas_ok": false,
+   "z": 0.015,
+   "s_up": 0.0,
+   "s_lo": 0.345,
+   "drift": "down",
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.04,
+   "id": "press3",
+   "meas": [
+    4.8666
+   ],
+   "meas_ok": true,
+   "z": 0.089,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.06,
+   "id": "press3",
+   "meas": [
+    4.8687
+   ],
+   "meas_ok": true,
+   "z": 0.086,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.08,
+   "id": "press3",
+   "meas": [
+    4.852
+   ],
+   "meas_ok": true,
+   "z": 0.121,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.1,
+   "id": "press3",
+   "meas": [
+    4.836
+   ],
+   "meas_ok": true,
+   "z": 0.141,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.12,
+   "id": "press3",
+   "meas": [
+    4.8318
+   ],
+   "meas_ok": true,
+   "z": 0.123,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.14,
+   "id": "press3",
+   "meas": [
+    4.8314
+   ],
+   "meas_ok": true,
+   "z": 0.114,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.16,
+   "id": "press3",
+   "meas": [
+    4.8323
+   ],
+   "meas_ok": true,
+   "z": 0.108,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.18,
+   "id": "press3",
+   "meas": [
+    4.8273
+   ],
+   "meas_ok": true,
+   "z": 0.139,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.2,
+   "id": "press3",
+   "meas": [
+    4.8181
+   ],
+   "meas_ok": true,
+   "z": 0.17,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.22,
+   "id": "press3",
+   "meas": [
+    4.8037
+   ],
+   "meas_ok": true,
+   "z": 0.218,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.24,
+   "id": "press3",
+   "meas": [
+    4.7848
+   ],
+   "meas_ok": true,
+   "z": 0.269,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.26,
+   "id": "press3",
+   "meas": [
+    4.766
+   ],
+   "meas_ok": true,
+   "z": 0.294,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.28,
+   "id": "press3",
+   "meas": [
+    4.7467
+   ],
+   "meas_ok": true,
+   "z": 0.323,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.3,
+   "id": "press3",
+   "meas": [
+    4.7319
+   ],
+   "meas_ok": true,
+   "z": 0.307,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.32,
+   "id": "press3",
+   "meas": [
+    4.7236
+   ],
+   "meas_ok": true,
+   "z": 0.262,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.34,
+   "id": "press3",
+   "meas": [
+    4.7156
+   ],
+   "meas_ok": true,
+   "z": 0.27,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.36,
+   "id": "press3",
+   "meas": [
+    4.7064
+   ],
+   "meas_ok": true,
+   "z": 0.293,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.38,
+   "id": "press3",
+   "meas": [
+    4.6959
+   ],
+   "meas_ok": true,
+   "z": 0.322,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.4,
+   "id": "press3",
+   "meas": [
+    4.684
+   ],
+   "meas_ok": true,
+   "z": 0.354,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.42,
+   "id": "press3",
+   "meas": [
+    4.6728
+   ],
+   "meas_ok": true,
+   "z": 0.36,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.44,
+   "id": "press3",
+   "meas": [
+    4.6644
+   ],
+   "meas_ok": true,
+   "z": 0.335,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.46,
+   "id": "press3",
+   "meas": [
+    4.6606
+   ],
+   "meas_ok": true,
+   "z": 0.279,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.48,
+   "id": "press3",
+   "meas": [
+    4.6644
+   ],
+   "meas_ok": true,
+   "z": 0.168,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.5,
+   "id": "press3",
+   "meas": [
+    4.6741
+   ],
+   "meas_ok": true,
+   "z": 0.07,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "twist",
+   "t": 11.52,
+   "id": "press3",
+   "meas": [
+    4.6852
+   ],
+   "meas_ok": true,
+   "z": 0.031,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.54,
+   "id": "press3",
+   "meas": [
+    4.6973
+   ],
+   "meas_ok": true,
+   "z": 0.0,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.56,
+   "id": "press3",
+   "meas": [
+    4.7083
+   ],
+   "meas_ok": true,
+   "z": 0.005,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.58,
+   "id": "press3",
+   "meas": [
+    4.7157
+   ],
+   "meas_ok": true,
+   "z": 0.055,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.6,
+   "id": "press3",
+   "meas": [
+    4.7197
+   ],
+   "meas_ok": true,
+   "z": 0.112,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.62,
+   "id": "press3",
+   "meas": [
+    4.7218
+   ],
+   "meas_ok": true,
+   "z": 0.145,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.64,
+   "id": "press3",
+   "meas": [
+    4.7233
+   ],
+   "meas_ok": true,
+   "z": 0.154,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.66,
+   "id": "press3",
+   "meas": [
+    4.7256
+   ],
+   "meas_ok": true,
+   "z": 0.137,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.68,
+   "id": "press3",
+   "meas": [
+    4.7287
+   ],
+   "meas_ok": true,
+   "z": 0.114,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.7,
+   "id": "press3",
+   "meas": [
+    4.7329
+   ],
+   "meas_ok": true,
+   "z": 0.085,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.72,
+   "id": "press3",
+   "meas": [
+    4.7382
+   ],
+   "meas_ok": true,
+   "z": 0.055,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.74,
+   "id": "press3",
+   "meas": [
+    4.744
+   ],
+   "meas_ok": true,
+   "z": 0.036,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.76,
+   "id": "press3",
+   "meas": [
+    4.7502
+   ],
+   "meas_ok": true,
+   "z": 0.017,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.78,
+   "id": "press3",
+   "meas": [
+    4.7568
+   ],
+   "meas_ok": true,
+   "z": 0.001,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.8,
+   "id": "press3",
+   "meas": [
+    4.7637
+   ],
+   "meas_ok": true,
+   "z": 0.016,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.82,
+   "id": "press3",
+   "meas": [
+    4.7706
+   ],
+   "meas_ok": true,
+   "z": 0.027,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.84,
+   "id": "press3",
+   "meas": [
+    4.7776
+   ],
+   "meas_ok": true,
+   "z": 0.04,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.86,
+   "id": "press3",
+   "meas": [
+    4.7854
+   ],
+   "meas_ok": true,
+   "z": 0.07,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.88,
+   "id": "press3",
+   "meas": [
+    4.7945
+   ],
+   "meas_ok": true,
+   "z": 0.115,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.9,
+   "id": "press3",
+   "meas": [
+    4.8037
+   ],
+   "meas_ok": true,
+   "z": 0.133,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.92,
+   "id": "press3",
+   "meas": [
+    4.8129
+   ],
+   "meas_ok": true,
+   "z": 0.147,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.94,
+   "id": "press3",
+   "meas": [
+    4.8216
+   ],
+   "meas_ok": true,
+   "z": 0.143,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.96,
+   "id": "press3",
+   "meas": [
+    4.8291
+   ],
+   "meas_ok": true,
+   "z": 0.116,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 11.98,
+   "id": "press3",
+   "meas": [
+    4.8359
+   ],
+   "meas_ok": true,
+   "z": 0.101,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.0,
+   "id": "press3",
+   "meas": [
+    4.8424
+   ],
+   "meas_ok": true,
+   "z": 0.103,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.02,
+   "id": "press3",
+   "meas": [
+    4.8485
+   ],
+   "meas_ok": true,
+   "z": 0.1,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.04,
+   "id": "press3",
+   "meas": [
+    4.8541
+   ],
+   "meas_ok": true,
+   "z": 0.087,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.06,
+   "id": "press3",
+   "meas": [
+    4.859
+   ],
+   "meas_ok": true,
+   "z": 0.075,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.08,
+   "id": "press3",
+   "meas": [
+    4.8636
+   ],
+   "meas_ok": true,
+   "z": 0.069,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.1,
+   "id": "press3",
+   "meas": [
+    4.868
+   ],
+   "meas_ok": true,
+   "z": 0.066,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.12,
+   "id": "press3",
+   "meas": [
+    4.8721
+   ],
+   "meas_ok": true,
+   "z": 0.061,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.14,
+   "id": "press3",
+   "meas": [
+    4.876
+   ],
+   "meas_ok": true,
+   "z": 0.06,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.16,
+   "id": "press3",
+   "meas": [
+    4.8799
+   ],
+   "meas_ok": true,
+   "z": 0.065,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.18,
+   "id": "press3",
+   "meas": [
+    4.8836
+   ],
+   "meas_ok": true,
+   "z": 0.066,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.2,
+   "id": "press3",
+   "meas": [
+    4.8874
+   ],
+   "meas_ok": true,
+   "z": 0.07,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.22,
+   "id": "press3",
+   "meas": [
+    4.8911
+   ],
+   "meas_ok": true,
+   "z": 0.075,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.24,
+   "id": "press3",
+   "meas": [
+    4.8948
+   ],
+   "meas_ok": true,
+   "z": 0.077,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.26,
+   "id": "press3",
+   "meas": [
+    4.8982
+   ],
+   "meas_ok": true,
+   "z": 0.071,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.28,
+   "id": "press3",
+   "meas": [
+    4.9013
+   ],
+   "meas_ok": true,
+   "z": 0.061,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.3,
+   "id": "press3",
+   "meas": [
+    4.904
+   ],
+   "meas_ok": true,
+   "z": 0.049,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.32,
+   "id": "press3",
+   "meas": [
+    4.9062
+   ],
+   "meas_ok": true,
+   "z": 0.034,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.34,
+   "id": "press3",
+   "meas": [
+    4.9082
+   ],
+   "meas_ok": true,
+   "z": 0.023,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.36,
+   "id": "press3",
+   "meas": [
+    4.9097
+   ],
+   "meas_ok": true,
+   "z": 0.009,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.38,
+   "id": "press3",
+   "meas": [
+    4.911
+   ],
+   "meas_ok": true,
+   "z": 0.003,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.4,
+   "id": "press3",
+   "meas": [
+    4.912
+   ],
+   "meas_ok": true,
+   "z": 0.015,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.42,
+   "id": "press3",
+   "meas": [
+    4.9127
+   ],
+   "meas_ok": true,
+   "z": 0.027,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.44,
+   "id": "press3",
+   "meas": [
+    4.913
+   ],
+   "meas_ok": true,
+   "z": 0.04,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.46,
+   "id": "press3",
+   "meas": [
+    4.9131
+   ],
+   "meas_ok": true,
+   "z": 0.053,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.48,
+   "id": "press3",
+   "meas": [
+    4.9131
+   ],
+   "meas_ok": true,
+   "z": 0.061,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.5,
+   "id": "press3",
+   "meas": [
+    4.9129
+   ],
+   "meas_ok": true,
+   "z": 0.066,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.52,
+   "id": "press3",
+   "meas": [
+    4.9128
+   ],
+   "meas_ok": true,
+   "z": 0.065,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.54,
+   "id": "press3",
+   "meas": [
+    4.9128
+   ],
+   "meas_ok": true,
+   "z": 0.06,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.56,
+   "id": "press3",
+   "meas": [
+    4.9128
+   ],
+   "meas_ok": true,
+   "z": 0.055,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.58,
+   "id": "press3",
+   "meas": [
+    4.9129
+   ],
+   "meas_ok": true,
+   "z": 0.053,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.6,
+   "id": "press3",
+   "meas": [
+    4.9131
+   ],
+   "meas_ok": true,
+   "z": 0.048,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.62,
+   "id": "press3",
+   "meas": [
+    4.9135
+   ],
+   "meas_ok": true,
+   "z": 0.04,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.64,
+   "id": "press3",
+   "meas": [
+    4.9141
+   ],
+   "meas_ok": true,
+   "z": 0.025,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.66,
+   "id": "press3",
+   "meas": [
+    4.9148
+   ],
+   "meas_ok": true,
+   "z": 0.014,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.68,
+   "id": "press3",
+   "meas": [
+    4.9157
+   ],
+   "meas_ok": true,
+   "z": 0.011,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.7,
+   "id": "press3",
+   "meas": [
+    4.9166
+   ],
+   "meas_ok": true,
+   "z": 0.006,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.72,
+   "id": "press3",
+   "meas": [
+    4.9176
+   ],
+   "meas_ok": true,
+   "z": 0.004,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.74,
+   "id": "press3",
+   "meas": [
+    4.9188
+   ],
+   "meas_ok": true,
+   "z": 0.014,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.76,
+   "id": "press3",
+   "meas": [
+    4.92
+   ],
+   "meas_ok": true,
+   "z": 0.016,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.78,
+   "id": "press3",
+   "meas": [
+    4.9212
+   ],
+   "meas_ok": true,
+   "z": 0.015,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.8,
+   "id": "press3",
+   "meas": [
+    4.9222
+   ],
+   "meas_ok": true,
+   "z": 0.005,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.82,
+   "id": "press3",
+   "meas": [
+    4.923
+   ],
+   "meas_ok": true,
+   "z": 0.0,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.84,
+   "id": "press3",
+   "meas": [
+    4.9238
+   ],
+   "meas_ok": true,
+   "z": 0.007,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.86,
+   "id": "press3",
+   "meas": [
+    4.9244
+   ],
+   "meas_ok": true,
+   "z": 0.011,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.88,
+   "id": "press3",
+   "meas": [
+    4.925
+   ],
+   "meas_ok": true,
+   "z": 0.014,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.9,
+   "id": "press3",
+   "meas": [
+    4.9256
+   ],
+   "meas_ok": true,
+   "z": 0.011,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.92,
+   "id": "press3",
+   "meas": [
+    4.9262
+   ],
+   "meas_ok": true,
+   "z": 0.011,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.94,
+   "id": "press3",
+   "meas": [
+    4.9269
+   ],
+   "meas_ok": true,
+   "z": 0.009,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.96,
+   "id": "press3",
+   "meas": [
+    4.9275
+   ],
+   "meas_ok": true,
+   "z": 0.004,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 12.98,
+   "id": "press3",
+   "meas": [
+    4.9283
+   ],
+   "meas_ok": true,
+   "z": 0.001,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.0,
+   "id": "press3",
+   "meas": [
+    4.929
+   ],
+   "meas_ok": true,
+   "z": 0.003,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.02,
+   "id": "press3",
+   "meas": [
+    4.9298
+   ],
+   "meas_ok": true,
+   "z": 0.005,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.04,
+   "id": "press3",
+   "meas": [
+    4.9306
+   ],
+   "meas_ok": true,
+   "z": 0.007,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.06,
+   "id": "press3",
+   "meas": [
+    4.9314
+   ],
+   "meas_ok": true,
+   "z": 0.004,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.08,
+   "id": "press3",
+   "meas": [
+    4.9321
+   ],
+   "meas_ok": true,
+   "z": 0.005,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.1,
+   "id": "press3",
+   "meas": [
+    4.9329
+   ],
+   "meas_ok": true,
+   "z": 0.01,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.12,
+   "id": "press3",
+   "meas": [
+    4.9337
+   ],
+   "meas_ok": true,
+   "z": 0.013,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.14,
+   "id": "press3",
+   "meas": [
+    4.9346
+   ],
+   "meas_ok": true,
+   "z": 0.018,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.16,
+   "id": "press3",
+   "meas": [
+    4.9356
+   ],
+   "meas_ok": true,
+   "z": 0.027,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.18,
+   "id": "press3",
+   "meas": [
+    4.9366
+   ],
+   "meas_ok": true,
+   "z": 0.028,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.2,
+   "id": "press3",
+   "meas": [
+    4.9376
+   ],
+   "meas_ok": true,
+   "z": 0.031,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.22,
+   "id": "press3",
+   "meas": [
+    4.9386
+   ],
+   "meas_ok": true,
+   "z": 0.031,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.24,
+   "id": "press3",
+   "meas": [
+    4.9397
+   ],
+   "meas_ok": true,
+   "z": 0.042,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.26,
+   "id": "press3",
+   "meas": [
+    4.9411
+   ],
+   "meas_ok": true,
+   "z": 0.063,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.28,
+   "id": "press3",
+   "meas": [
+    4.9426
+   ],
+   "meas_ok": true,
+   "z": 0.078,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.3,
+   "id": "press3",
+   "meas": [
+    4.9442
+   ],
+   "meas_ok": true,
+   "z": 0.083,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.32,
+   "id": "press3",
+   "meas": [
+    4.9458
+   ],
+   "meas_ok": true,
+   "z": 0.084,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.34,
+   "id": "press3",
+   "meas": [
+    4.9474
+   ],
+   "meas_ok": true,
+   "z": 0.082,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.36,
+   "id": "press3",
+   "meas": [
+    4.9489
+   ],
+   "meas_ok": true,
+   "z": 0.085,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.38,
+   "id": "press3",
+   "meas": [
+    4.9504
+   ],
+   "meas_ok": true,
+   "z": 0.085,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.4,
+   "id": "press3",
+   "meas": [
+    4.9519
+   ],
+   "meas_ok": true,
+   "z": 0.088,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.42,
+   "id": "press3",
+   "meas": [
+    4.9535
+   ],
+   "meas_ok": true,
+   "z": 0.092,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.44,
+   "id": "press3",
+   "meas": [
+    4.955
+   ],
+   "meas_ok": true,
+   "z": 0.094,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.46,
+   "id": "press3",
+   "meas": [
+    4.9566
+   ],
+   "meas_ok": true,
+   "z": 0.095,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.48,
+   "id": "press3",
+   "meas": [
+    4.9579
+   ],
+   "meas_ok": true,
+   "z": 0.079,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.5,
+   "id": "press3",
+   "meas": [
+    4.9591
+   ],
+   "meas_ok": true,
+   "z": 0.074,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "twist",
+   "t": 13.52,
+   "id": "press3",
+   "meas": [
+    4.9604
+   ],
+   "meas_ok": true,
+   "z": 0.08,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  }
+ ],
+ "levels": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "level": "L0",
+   "why": [
+    "执行一致性报警 ['force', 'force']"
+   ]
+  }
+ ],
+ "replans": [],
+ "exec_events": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t": 6.687,
+   "kind": "force",
+   "peak": 5.0,
+   "thr": 3.0
+  },
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "t": 6.952,
+   "kind": "force",
+   "peak": 5.0,
+   "thr": 3.0
+  }
+ ],
+ "early_stops": [],
+ "recoveries": [
+  {
+   "stage": "twist",
+   "max_s": 1.5,
+   "t_start": 9.5,
+   "t_end": 9.52,
+   "ok": true
+  }
+ ],
+ "config": {
+  "monitor_cycles": 1,
+  "drift_h": 0.25,
+  "on_fail": "hier",
+  "max_retries": 2,
+  "audit_model": null,
+  "audit_votes": 3,
+  "on_veto": "record",
+  "exec_monitor": true,
+  "exec_pos_m": 0.015,
+  "exec_force_n": 3.0,
+  "exec_hold_s": 0.15,
+  "stall_win_s": 0.5,
+  "stall_frac": 0.05,
+  "early_stop_s": null,
+  "l0_max": 1,
+  "l1_max": 3,
+  "l2_max": 1,
+  "no_progress": 0.2,
+  "replan_model": "gemini-3.8-flash",
+  "l1_escalate_flag": false
+ }
+}

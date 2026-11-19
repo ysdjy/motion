@@ -1,0 +1,91 @@
+[
+ {
+  "id": "acc_force",
+  "dim": "force",
+  "target": 10.0,
+  "lb": 8.0,
+  "ub": 12.0,
+  "level": "tcp_force",
+  "attr": "force",
+  "frame": "surface:table",
+  "axes": [
+   "z"
+  ],
+  "mode": "target+range",
+  "sigma": 1.0,
+  "mask": "mid"
+ },
+ {
+  "id": "acc_speed",
+  "dim": "speed",
+  "target": 0.06,
+  "lb": 0.048,
+  "ub": 0.072,
+  "level": "tcp_motion",
+  "attr": "speed",
+  "frame": "base",
+  "point": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "mode": "range",
+  "sigma": 0.001,
+  "mask": "mid"
+ },
+ {
+  "id": "acc_tilt",
+  "dim": "tilt",
+  "target": 0.2617993877991494,
+  "lb": 0.2094395102393195,
+  "ub": 0.3141592653589793,
+  "level": "tcp_motion",
+  "attr": "ori_cone",
+  "frame": "base",
+  "tool_axis": [
+   0,
+   0,
+   1
+  ],
+  "ref_axis": [
+   0,
+   0,
+   -1
+  ],
+  "mode": "range",
+  "sigma": 0.02,
+  "mask": "on"
+ },
+ {
+  "id": "acc_elbow",
+  "dim": "elbow",
+  "target": 0.1,
+  "lb": 0.060000000000000005,
+  "ub": 0.14,
+  "level": "joint",
+  "attr": "link_pos",
+  "link": 4,
+  "axes": [
+   "y"
+  ],
+  "mode": "target+range",
+  "sigma": 0.02,
+  "mask": "on"
+ },
+ {
+  "id": "acc_path",
+  "dim": "path",
+  "target": 0.0,
+  "lb": -0.003,
+  "ub": 0.003,
+  "level": "tcp_motion",
+  "attr": "pos",
+  "frame": "surface:table",
+  "axes": [
+   "x"
+  ],
+  "mode": "target+range",
+  "sigma": 0.001,
+  "mask": "mid"
+ }
+]

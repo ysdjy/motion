@@ -1,0 +1,3913 @@
+{
+ "deepseek-v4.1-flash|expand|a1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "a1",
+  "level": "L0",
+  "text": "用 5 N 的力擦桌面上 x = 0.05、y = 0.02 的位置,来回擦 2 趟。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "x": 0.05,
+   "y": 0.02,
+   "force": 5,
+   "passes": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4769,
+  "completion_tokens": 236,
+  "cost": 0.0017139,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "x": 0.05,
+     "y": 0.02,
+     "force": 5,
+     "passes": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8172,
+  "ok": true,
+  "why": "",
+  "wall_s": 29.3
+ },
+ "deepseek-v4.1-flash|expand|a2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "a2",
+  "level": "L0",
+  "text": "把 cube2 这个方块搬到 goal 目标点。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube2",
+   "goal": "object:goal"
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4748,
+  "completion_tokens": 193,
+  "cost": 0.00030125,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube2",
+     "goal": "object:goal"
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8153,
+  "ok": true,
+  "why": "",
+  "wall_s": 7.3
+ },
+ "deepseek-v4.1-flash|expand|a3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "a3",
+  "level": "L0",
+  "text": "擦两处:A 点在 (−0.08, 0),B 点在 (0.08, 0.03),法向力都用 4 N,每处来回擦 2 趟。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "xa": -0.08,
+   "ya": 0,
+   "xb": 0.08,
+   "yb": 0.03,
+   "force": 4,
+   "passes": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4780,
+  "completion_tokens": 176,
+  "cost": 0.00029045,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "xa": -0.08,
+     "ya": 0,
+     "xb": 0.08,
+     "yb": 0.03,
+     "force": 4,
+     "passes": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8187,
+  "ok": true,
+  "why": "",
+  "wall_s": 5.3
+ },
+ "deepseek-v4.1-flash|expand|a4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "a4",
+  "level": "L0",
+  "text": "在桌面 (0, 0.05) 处往下压住,目标力 6 N;力超过 10 N 就撤。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "press_guarded",
+  "values": {
+   "x": 0,
+   "y": 0.05,
+   "force": 6,
+   "f_max": 10
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4767,
+  "completion_tokens": 185,
+  "cost": 0.0016521,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "press_guarded",
+    "values": {
+     "x": 0,
+     "y": 0.05,
+     "force": 6,
+     "f_max": 10
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8169,
+  "ok": true,
+  "why": "",
+  "wall_s": 9.5
+ },
+ "deepseek-v4.1-flash|expand|a5": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "a5",
+  "level": "L0",
+  "text": "先把 cube 搬到 goal2,再把 cube2 搬到 goal。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "obj_a": "object:cube",
+   "goal_a": "object:goal2",
+   "obj_b": "object:cube2",
+   "goal_b": "object:goal"
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4750,
+  "completion_tokens": 146,
+  "cost": 0.00024545,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "obj_a": "object:cube",
+     "goal_a": "object:goal2",
+     "obj_b": "object:cube2",
+     "goal_b": "object:goal"
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8163,
+  "ok": true,
+  "why": "",
+  "wall_s": 4.4
+ },
+ "deepseek-v4.1-flash|expand|a6": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "a6",
+  "level": "L0",
+  "text": "把 cube 搬到 goal,动作尽量稳,慢一点没关系。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "care": 1
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4750,
+  "completion_tokens": 133,
+  "cost": 0.00019222,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "care": 1
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8157,
+  "ok": true,
+  "why": "",
+  "wall_s": 6.6
+ },
+ "deepseek-v4.1-flash|expand|b1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "b1",
+  "level": "L1",
+  "text": "擦两处(位置用默认的),A 处用 2.5 N 的力,B 处用 5 N 的力。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "A.force": 2.5,
+   "B.force": 5
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4768,
+  "completion_tokens": 2151,
+  "cost": 0.00261922,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "A.force": 2.5,
+     "B.force": 5
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8167,
+  "ok": true,
+  "why": "",
+  "wall_s": 27.8
+ },
+ "deepseek-v4.1-flash|expand|b2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "b2",
+  "level": "L1",
+  "text": "把 cube 搬到 goal。抓之前在方块上方 14 cm 悬停,抓到后也抬到 14 cm;放下松手后只抬 6 cm。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "pick.hover": 0.14,
+   "place.retreat": 0.06
+  },
+  "reason": null,
+  "calls": 2,
+  "expands": 1,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 9945,
+  "completion_tokens": 753,
+  "cost": 0.00110234,
+  "steps": [
+   {
+    "action": "expand",
+    "skill": "pick_and_place",
+    "path": ""
+   },
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "pick.hover": 0.14,
+     "place.retreat": 0.06
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8188,
+  "ok": true,
+  "why": "",
+  "wall_s": 17.7
+ },
+ "deepseek-v4.1-flash|expand|b3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "b3",
+  "level": "L1",
+  "text": "擦桌面,下探的位置用默认的不要动;擦的时候不对称:往外擦到 y = +0.06,往回擦到 y = −0.02。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "wipe.y_out": 0.06,
+   "wipe.y_back": -0.02
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4772,
+  "completion_tokens": 814,
+  "cost": 0.00105365,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "wipe.y_out": 0.06,
+     "wipe.y_back": -0.02
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8184,
+  "ok": true,
+  "why": "",
+  "wall_s": 12.4
+ },
+ "deepseek-v4.1-flash|expand|b4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "b4",
+  "level": "L1",
+  "text": "搬两个方块(物体和目标点都用默认的),第二个方块用 35 N 的夹持力,第一个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "B.grip_force": 35
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4762,
+  "completion_tokens": 614,
+  "cost": 0.00081065,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "B.grip_force": 35
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8171,
+  "ok": true,
+  "why": "",
+  "wall_s": 10.5
+ },
+ "deepseek-v4.1-flash|expand|b5": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "b5",
+  "level": "L1",
+  "text": "擦桌面默认的位置,把「判定碰到台面」的力改成 3 N,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "down.f_contact": 3
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4759,
+  "completion_tokens": 345,
+  "cost": 0.00044932,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "down.f_contact": 3
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8162,
+  "ok": true,
+  "why": "",
+  "wall_s": 7.9
+ },
+ "deepseek-v4.1-flash|expand|b6": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "b6",
+  "level": "L1",
+  "text": "擦两处(位置用默认的),A 处擦完抬起 8 cm,B 处擦完抬起 4 cm。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "A.lift_height": 0.08,
+   "B.lift_height": 0.04
+  },
+  "reason": null,
+  "calls": 3,
+  "expands": 1,
+  "packs": 0,
+  "rejected": 1,
+  "prompt_tokens": 15393,
+  "completion_tokens": 813,
+  "cost": 0.00141636,
+  "steps": [
+   {
+    "action": "run",
+    "ok": false,
+    "error": "取值键没有对上任何旋钮 / 槽位 / 字段:['A.lift.height', 'B.lift.height']",
+    "raw": {
+     "action": "run",
+     "skill": "wipe_two_spots",
+     "values": {
+      "A.lift.height": 0.08,
+      "B.lift.height": 0.04
+     }
+    }
+   },
+   {
+    "action": "expand",
+    "skill": "wipe_two_spots",
+    "path": ""
+   },
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "A.lift_height": 0.08,
+     "B.lift_height": 0.04
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8167,
+  "ok": true,
+  "why": "",
+  "wall_s": 21.6
+ },
+ "deepseek-v4.1-flash|expand|b7": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "b7",
+  "level": "L1",
+  "text": "用 7 N 的法向力擦桌面默认的位置。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "wipe.force": 7
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4749,
+  "completion_tokens": 524,
+  "cost": 0.00066112,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "wipe.force": 7
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8148,
+  "ok": true,
+  "why": "",
+  "wall_s": 10.8
+ },
+ "deepseek-v4.1-flash|expand|c1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "c1",
+  "level": "L2",
+  "text": "擦两处(位置用默认的),只把 B 处「往外擦」那一段的时间改成 2 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "B/wipe.t_out": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4767,
+  "completion_tokens": 651,
+  "cost": 0.00081892,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "B/wipe.t_out": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8171,
+  "ok": true,
+  "why": "",
+  "wall_s": 11.8
+ },
+ "deepseek-v4.1-flash|expand|c2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "c2",
+  "level": "L2",
+  "text": "把 cube 搬到 goal。合爪以后多等一会儿再判断有没有夹住:等 2 秒。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "pick/grasp.settle": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4760,
+  "completion_tokens": 750,
+  "cost": 0.00093562,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "pick/grasp.settle": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8168,
+  "ok": true,
+  "why": "",
+  "wall_s": 12.9
+ },
+ "deepseek-v4.1-flash|expand|c3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "c3",
+  "level": "L2",
+  "text": "搬两个方块(都用默认的)。第一个方块放下张爪以后多停一会:停 2 秒再抬手;第二个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "A/place/release.dwell": 2
+  },
+  "reason": null,
+  "calls": 4,
+  "expands": 3,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 22704,
+  "completion_tokens": 1000,
+  "cost": 0.00202772,
+  "steps": [
+   {
+    "action": "expand",
+    "skill": "move_two",
+    "path": ""
+   },
+   {
+    "action": "expand",
+    "skill": "move_two",
+    "path": "A"
+   },
+   {
+    "action": "expand",
+    "skill": "move_two",
+    "path": "A/place"
+   },
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "A/place/release.dwell": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8173,
+  "ok": true,
+  "why": "",
+  "wall_s": 45.4
+ },
+ "deepseek-v4.1-flash|expand|c4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "c4",
+  "level": "L2",
+  "text": "把 cube 搬到 goal。搬到目标点上方那一步的到位容差放宽到 1 cm,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "place/carry.tol": 0.01
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4762,
+  "completion_tokens": 784,
+  "cost": 0.00097702,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "place/carry.tol": 0.01
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8174,
+  "ok": true,
+  "why": "",
+  "wall_s": 12.6
+ },
+ "deepseek-v4.1-flash|expand|f1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "f1",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。搬到目标点上方那一步的移动时间,在现在的基础上再加 1 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "place/carry.t_move": 3.5
+  },
+  "reason": null,
+  "calls": 3,
+  "expands": 2,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 16207,
+  "completion_tokens": 625,
+  "cost": 0.00132206,
+  "steps": [
+   {
+    "action": "expand",
+    "skill": "pick_and_place",
+    "path": ""
+   },
+   {
+    "action": "expand",
+    "skill": "pick_and_place",
+    "path": "place"
+   },
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "place/carry.t_move": 3.5
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8180,
+  "ok": true,
+  "why": "",
+  "wall_s": 20.9
+ },
+ "deepseek-v4.1-flash|expand|f2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "f2",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。抓到方块抬起以后,原地停留的时间比现在少 1 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "pick/lift.dwell": 2
+  },
+  "reason": null,
+  "calls": 3,
+  "expands": 2,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 16288,
+  "completion_tokens": 894,
+  "cost": 0.0016691599999999998,
+  "steps": [
+   {
+    "action": "expand",
+    "skill": "pick_and_place",
+    "path": ""
+   },
+   {
+    "action": "expand",
+    "skill": "pick_and_place",
+    "path": "pick"
+   },
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "pick/lift.dwell": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8175,
+  "ok": true,
+  "why": "",
+  "wall_s": 23.3
+ },
+ "deepseek-v4.1-flash|expand|f3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "f3",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。放下松手后抬手那一步,停留时间减到现在的一半,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "place/up.dwell": 1.25
+  },
+  "reason": null,
+  "calls": 2,
+  "expands": 1,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 10617,
+  "completion_tokens": 837,
+  "cost": 0.0014047399999999998,
+  "steps": [
+   {
+    "action": "expand",
+    "skill": "pick_and_place",
+    "path": "place"
+   },
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "place/up.dwell": 1.25
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8173,
+  "ok": true,
+  "why": "",
+  "wall_s": 20.2
+ },
+ "deepseek-v4.1-flash|expand|f4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "f4",
+  "level": "Lr",
+  "text": "搬两个方块(都用默认的)。第二个方块抓起后抬升的斜坡时间改成现在的 1.5 倍,第一个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "B/pick/lift.t_ramp": 1.8
+  },
+  "reason": null,
+  "calls": 4,
+  "expands": 3,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 22864,
+  "completion_tokens": 1149,
+  "cost": 0.00221689,
+  "steps": [
+   {
+    "action": "expand",
+    "skill": "move_two",
+    "path": ""
+   },
+   {
+    "action": "expand",
+    "skill": "move_two",
+    "path": "B"
+   },
+   {
+    "action": "expand",
+    "skill": "move_two",
+    "path": "B/pick"
+   },
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "B/pick/lift.t_ramp": 1.8
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8175,
+  "ok": true,
+  "why": "",
+  "wall_s": 28.8
+ },
+ "deepseek-v4.1-flash|expand|d1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "d1",
+  "level": "L3",
+  "text": "先把 cube 搬到 goal;然后合着夹爪移到桌面 (0.05, 0) 上方 2 cm 处;再擦这个位置,法向力 4 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "place_cube_then_wipe_spot",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9873,
+  "completion_tokens": 2057,
+  "cost": 0.00264554,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "place_cube_then_wipe_spot",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "place_cube_then_wipe_spot",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "place_cube_then_wipe_spot",
+    "desc": "把 cube 搬到 goal,然后合着夹爪移到桌面 (0.05,0) 上方 2 cm,再在该处以 4 N 法向力擦台面",
+    "children": [
+     {
+      "as": "A",
+      "skill": "pick_and_place",
+      "bind": {
+       "obj": "object:cube",
+       "goal": "object:goal"
+      }
+     },
+     {
+      "as": "B",
+      "skill": "move_above",
+      "bind": {
+       "frame": "surface:table",
+       "x": 0.05,
+       "y": 0,
+       "height": 0.02,
+       "gripper": "close"
+      }
+     },
+     {
+      "as": "C",
+      "skill": "wipe_table",
+      "bind": {
+       "surface": "surface:table",
+       "x": 0.05,
+       "y": 0,
+       "force": 4
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 8191,
+  "ok": true,
+  "why": "",
+  "wall_s": 27.0
+ },
+ "deepseek-v4.1-flash|expand|d2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "d2",
+  "level": "L3",
+  "text": "在桌面两处各压一次:先压 (−0.05, 0);抬起后移到 (0.05, 0) 上方 2 cm;再压 (0.05, 0)。两处目标力都是 5 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "press_two_spots",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9881,
+  "completion_tokens": 1545,
+  "cost": 0.00207117,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "press_two_spots",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "press_two_spots",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "press_two_spots",
+    "desc": "先在 (-0.05,0) 压一次，抬起后移到 (0.05,0) 上方 2 cm，再在 (0.05,0) 压一次；两处目标力均为 5 N",
+    "children": [
+     {
+      "as": "A",
+      "skill": "press_guarded",
+      "bind": {
+       "x": -0.05,
+       "y": 0,
+       "force": 5
+      }
+     },
+     {
+      "as": "M",
+      "skill": "move_above",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "height": 0.02
+      }
+     },
+     {
+      "as": "B",
+      "skill": "press_guarded",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "force": 5
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 8202,
+  "ok": true,
+  "why": "",
+  "wall_s": 22.8
+ },
+ "deepseek-v4.1-flash|expand|d3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "d3",
+  "level": "L3",
+  "text": "桌面默认的位置连擦两遍:第一遍法向力 3 N,第二遍 5 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_twice",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9699,
+  "completion_tokens": 648,
+  "cost": 0.00094017,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "wipe_twice",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "wipe_twice",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "wipe_twice",
+    "desc": "在台面默认位置连续擦两遍:第一遍法向力 3 N,第二遍法向力 5 N",
+    "children": [
+     {
+      "as": "first",
+      "skill": "wipe_table",
+      "bind": {
+       "force": 3
+      }
+     },
+     {
+      "as": "second",
+      "skill": "wipe_table",
+      "bind": {
+       "force": 5
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 8160,
+  "ok": true,
+  "why": "",
+  "wall_s": 26.7
+ },
+ "deepseek-v4.1-flash|expand|d4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "d4",
+  "level": "L3",
+  "text": "先把 cube 搬到 goal2,再把 cube2 搬到 goal,最后把手移到桌面 (0, 0) 上方 10 cm 处停住。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two_then_home",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9765,
+  "completion_tokens": 936,
+  "cost": 0.00126794,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "move_two_then_home",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "move_two_then_home",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "move_two_then_home",
+    "desc": "先把 cube 搬到 goal2，再把 cube2 搬到 goal，最后把手移到桌面 (0,0) 上方 10 cm 处停住",
+    "children": [
+     {
+      "as": "move",
+      "skill": "move_two",
+      "bind": {
+       "obj_a": "object:cube",
+       "goal_a": "object:goal2",
+       "obj_b": "object:cube2",
+       "goal_b": "object:goal"
+      }
+     },
+     {
+      "as": "final",
+      "skill": "move_above",
+      "bind": {
+       "frame": "surface:table",
+       "x": 0,
+       "y": 0,
+       "height": 0.1
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 8192,
+  "ok": true,
+  "why": "",
+  "wall_s": 37.3
+ },
+ "deepseek-v4.1-flash|expand|e1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "e1",
+  "level": "R",
+  "text": "把桌子下面的抽屉拉开。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "技能库里没有能拉开抽屉的技能。现有技能只覆盖擦台面、按压、抓取/搬运物体和放置,没有任何技能能勾住或夹住抽屉把手并沿水平方向拉出;也没有能表示抽屉把手位置的坐标系(库里只有 surface:table、object:cube、object:cube2、object:goal、object:goal2,均在桌面上方)。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4742,
+  "completion_tokens": 132,
+  "cost": 0.00022625,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "技能库里没有能拉开抽屉的技能。现有技能只覆盖擦台面、按压、抓取/搬运物体和放置,没有任何技能能勾住或夹住抽屉把手并沿水平方向拉出;也没有能表示抽屉把手位置的坐标系(库里只有 surface:table、object:cube、object:cube2、object:goal、object:goal2,均在桌面上方)。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8140,
+  "ok": true,
+  "why": "",
+  "wall_s": 5.0
+ },
+ "deepseek-v4.1-flash|expand|e2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "e2",
+  "level": "R",
+  "text": "用 30 N 的法向力擦桌面默认的位置。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "擦桌面的技能法向力上限只有 6 N（底层擦除技能也仅到 8 N），无法实现 30 N 的擦拭力，且该数值在任何一层都超出允许范围。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4749,
+  "completion_tokens": 197,
+  "cost": 0.00026872,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "擦桌面的技能法向力上限只有 6 N（底层擦除技能也仅到 8 N），无法实现 30 N 的擦拭力，且该数值在任何一层都超出允许范围。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8149,
+  "ok": true,
+  "why": "",
+  "wall_s": 7.7
+ },
+ "deepseek-v4.1-flash|expand|e3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "e3",
+  "level": "R",
+  "text": "把 cube 搬到 goal,每根手指的夹持力用 100 N。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "夹持力 100 N 超出范围：pick_and_place 的 grip_force 只允许 10–40 N，最底层 grasp_close 的 grip_force 也只允许 5–60 N，哪一层都到不了 100 N，无法在不超范围的情况下完成。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4754,
+  "completion_tokens": 154,
+  "cost": 0.00021862,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "夹持力 100 N 超出范围：pick_and_place 的 grip_force 只允许 10–40 N，最底层 grasp_close 的 grip_force 也只允许 5–60 N，哪一层都到不了 100 N，无法在不超范围的情况下完成。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8160,
+  "ok": true,
+  "why": "",
+  "wall_s": 6.6
+ },
+ "deepseek-v4.1-flash|expand|e4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "expand",
+  "task": "e4",
+  "level": "R",
+  "text": "把桌上的瓶盖拧开(绕竖直轴转 90 度)。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "技能库里没有任何能绕竖直轴旋转或拧瓶盖的技能——现有技能只有下探、擦拭、按压、抓取、放置、搬运这类平移/力控动作，没有旋转自由度控制，也拼不出来",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4752,
+  "completion_tokens": 88,
+  "cost": 0.00017645,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "技能库里没有任何能绕竖直轴旋转或拧瓶盖的技能——现有技能只有下探、擦拭、按压、抓取、放置、搬运这类平移/力控动作，没有旋转自由度控制，也拼不出来"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 8150,
+  "ok": true,
+  "why": "",
+  "wall_s": 6.4
+ },
+ "deepseek-v4.1-flash|cards|a1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "a1",
+  "level": "L0",
+  "text": "用 5 N 的力擦桌面上 x = 0.05、y = 0.02 的位置,来回擦 2 趟。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "x": 0.05,
+   "y": 0.02,
+   "force": 5,
+   "passes": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4650,
+  "completion_tokens": 186,
+  "cost": 0.0016182,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "x": 0.05,
+     "y": 0.02,
+     "force": 5,
+     "passes": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7964,
+  "ok": true,
+  "why": "",
+  "wall_s": 33.9
+ },
+ "deepseek-v4.1-flash|cards|a2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "a2",
+  "level": "L0",
+  "text": "把 cube2 这个方块搬到 goal 目标点。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube2",
+   "goal": "object:goal"
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4629,
+  "completion_tokens": 180,
+  "cost": 0.00024995,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube2",
+     "goal": "object:goal"
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7945,
+  "ok": true,
+  "why": "",
+  "wall_s": 5.9
+ },
+ "deepseek-v4.1-flash|cards|a3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "a3",
+  "level": "L0",
+  "text": "擦两处:A 点在 (−0.08, 0),B 点在 (0.08, 0.03),法向力都用 4 N,每处来回擦 2 趟。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "xa": -0.08,
+   "ya": 0,
+   "xb": 0.08,
+   "yb": 0.03,
+   "force": 4,
+   "passes": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4661,
+  "completion_tokens": 180,
+  "cost": 0.0016143,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "xa": -0.08,
+     "ya": 0,
+     "xb": 0.08,
+     "yb": 0.03,
+     "force": 4,
+     "passes": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7979,
+  "ok": true,
+  "why": "",
+  "wall_s": 21.7
+ },
+ "deepseek-v4.1-flash|cards|a4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "a4",
+  "level": "L0",
+  "text": "在桌面 (0, 0.05) 处往下压住,目标力 6 N;力超过 10 N 就撤。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "press_guarded",
+  "values": {
+   "x": 0,
+   "y": 0.05,
+   "force": 6,
+   "f_max": 10
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4648,
+  "completion_tokens": 231,
+  "cost": 0.0016716,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "press_guarded",
+    "values": {
+     "x": 0,
+     "y": 0.05,
+     "force": 6,
+     "f_max": 10
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7961,
+  "ok": true,
+  "why": "",
+  "wall_s": 6.6
+ },
+ "deepseek-v4.1-flash|cards|a5": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "a5",
+  "level": "L0",
+  "text": "先把 cube 搬到 goal2,再把 cube2 搬到 goal。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "obj_a": "object:cube",
+   "goal_a": "object:goal2",
+   "obj_b": "object:cube2",
+   "goal_b": "object:goal"
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4631,
+  "completion_tokens": 192,
+  "cost": 0.0016197,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "obj_a": "object:cube",
+     "goal_a": "object:goal2",
+     "obj_b": "object:cube2",
+     "goal_b": "object:goal"
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7955,
+  "ok": true,
+  "why": "",
+  "wall_s": 7.7
+ },
+ "deepseek-v4.1-flash|cards|a6": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "a6",
+  "level": "L0",
+  "text": "把 cube 搬到 goal,动作尽量稳,慢一点没关系。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "care": 1
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4631,
+  "completion_tokens": 180,
+  "cost": 0.0016053,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "care": 1
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7949,
+  "ok": true,
+  "why": "",
+  "wall_s": 8.4
+ },
+ "deepseek-v4.1-flash|cards|b1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "b1",
+  "level": "L1",
+  "text": "擦两处(位置用默认的),A 处用 2.5 N 的力,B 处用 5 N 的力。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_forces",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9505,
+  "completion_tokens": 2418,
+  "cost": 0.0043983500000000005,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "wipe_two_forces",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "wipe_two_forces",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "wipe_two_forces",
+    "desc": "先擦默认 A 点(2.5 N),空中移到默认 B 点上方,再擦默认 B 点(5 N)",
+    "children": [
+     {
+      "as": "A",
+      "skill": "wipe_table",
+      "bind": {
+       "force": 2.5
+      }
+     },
+     {
+      "as": "move",
+      "skill": "move_above",
+      "bind": {
+       "x": 0.05,
+       "y": 0
+      }
+     },
+     {
+      "as": "B",
+      "skill": "wipe_table",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "force": 5
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7959,
+  "ok": true,
+  "why": "",
+  "wall_s": 32.6
+ },
+ "deepseek-v4.1-flash|cards|b2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "b2",
+  "level": "L1",
+  "text": "把 cube 搬到 goal。抓之前在方块上方 14 cm 悬停,抓到后也抬到 14 cm;放下松手后只抬 6 cm。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_place_two_heights",
+  "values": {
+   "pick.obj": "object:cube",
+   "place.goal": "object:goal"
+  },
+  "reason": null,
+  "calls": 3,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 1,
+  "prompt_tokens": 14406,
+  "completion_tokens": 1037,
+  "cost": 0.00281907,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "pick_place_two_heights",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "ok": false,
+    "error": "取值键没有对上任何旋钮 / 槽位 / 字段:['goal', 'obj']",
+    "raw": {
+     "action": "run",
+     "skill": "pick_place_two_heights",
+     "values": {
+      "obj": "object:cube",
+      "goal": "object:goal"
+     }
+    }
+   },
+   {
+    "action": "run",
+    "skill": "pick_place_two_heights",
+    "values": {
+     "pick.obj": "object:cube",
+     "place.goal": "object:goal"
+    },
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "pick_place_two_heights",
+    "desc": "把物体搬到目标点:抓前悬停与抓后抬起 14 cm,放下松手后抬起 6 cm",
+    "children": [
+     {
+      "as": "pick",
+      "skill": "pick",
+      "bind": {
+       "hover": 0.14
+      }
+     },
+     {
+      "as": "place",
+      "skill": "place",
+      "bind": {
+       "retreat": 0.06
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7980,
+  "ok": true,
+  "why": "",
+  "wall_s": 26.3
+ },
+ "deepseek-v4.1-flash|cards|b3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "b3",
+  "level": "L1",
+  "text": "擦桌面,下探的位置用默认的不要动;擦的时候不对称:往外擦到 y = +0.06,往回擦到 y = −0.02。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "wipe.y_out": 0.06,
+   "wipe.y_back": -0.02
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4653,
+  "completion_tokens": 1315,
+  "cost": 0.0029739,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "wipe.y_out": 0.06,
+     "wipe.y_back": -0.02
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7976,
+  "ok": true,
+  "why": "",
+  "wall_s": 18.9
+ },
+ "deepseek-v4.1-flash|cards|b4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "b4",
+  "level": "L1",
+  "text": "搬两个方块(物体和目标点都用默认的),第二个方块用 35 N 的夹持力,第一个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two_diff_grip",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9472,
+  "completion_tokens": 1406,
+  "cost": 0.0018192999999999998,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "move_two_diff_grip",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "move_two_diff_grip",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "move_two_diff_grip",
+    "desc": "搬两个方块到各自默认目标点：第一个用默认夹持力，第二个用 35 N 夹持力",
+    "children": [
+     {
+      "as": "A",
+      "skill": "pick_and_place",
+      "bind": {}
+     },
+     {
+      "as": "B",
+      "skill": "pick_and_place",
+      "bind": {
+       "obj": "object:cube2",
+       "goal": "object:goal2",
+       "grip_force": 35
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7963,
+  "ok": true,
+  "why": "",
+  "wall_s": 23.7
+ },
+ "deepseek-v4.1-flash|cards|b5": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "b5",
+  "level": "L1",
+  "text": "擦桌面默认的位置,把「判定碰到台面」的力改成 3 N,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "down.f_contact": 3
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4640,
+  "completion_tokens": 276,
+  "cost": 0.0017232,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "down.f_contact": 3
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7954,
+  "ok": true,
+  "why": "",
+  "wall_s": 8.1
+ },
+ "deepseek-v4.1-flash|cards|b6": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "b6",
+  "level": "L1",
+  "text": "擦两处(位置用默认的),A 处擦完抬起 8 cm,B 处擦完抬起 4 cm。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots_diff_lift",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9508,
+  "completion_tokens": 3303,
+  "cost": 0.00546125,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "wipe_two_spots_diff_lift",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "wipe_two_spots_diff_lift",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "wipe_two_spots_diff_lift",
+    "desc": "先擦 A 处(默认位置)并抬起 8 cm,空中移到 B 处上方,再擦 B 处(默认位置)并抬起 4 cm",
+    "children": [
+     {
+      "as": "A",
+      "skill": "wipe_table",
+      "bind": {
+       "lift_height": 0.08
+      }
+     },
+     {
+      "as": "move",
+      "skill": "move_above"
+     },
+     {
+      "as": "B",
+      "skill": "wipe_table",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "lift_height": 0.04
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7959,
+  "ok": true,
+  "why": "",
+  "wall_s": 41.3
+ },
+ "deepseek-v4.1-flash|cards|b7": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "b7",
+  "level": "L1",
+  "text": "用 7 N 的法向力擦桌面默认的位置。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "wipe.force": 7
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4630,
+  "completion_tokens": 617,
+  "cost": 0.0021294,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "wipe.force": 7
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7940,
+  "ok": true,
+  "why": "",
+  "wall_s": 13.0
+ },
+ "deepseek-v4.1-flash|cards|c1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "c1",
+  "level": "L2",
+  "text": "擦两处(位置用默认的),只把 B 处「往外擦」那一段的时间改成 2 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "B/wipe.t_out": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4648,
+  "completion_tokens": 420,
+  "cost": 0.0018984,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "B/wipe.t_out": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7963,
+  "ok": true,
+  "why": "",
+  "wall_s": 11.9
+ },
+ "deepseek-v4.1-flash|cards|c2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "c2",
+  "level": "L2",
+  "text": "把 cube 搬到 goal。合爪以后多等一会儿再判断有没有夹住:等 2 秒。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "pick/grasp.settle": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4641,
+  "completion_tokens": 609,
+  "cost": 0.0021231,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "pick/grasp.settle": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7960,
+  "ok": true,
+  "why": "",
+  "wall_s": 42.0
+ },
+ "deepseek-v4.1-flash|cards|c3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "c3",
+  "level": "L2",
+  "text": "搬两个方块(都用默认的)。第一个方块放下张爪以后多停一会:停 2 秒再抬手;第二个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two_dwell_first",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9812,
+  "completion_tokens": 5858,
+  "cost": 0.0072637,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "move_two_dwell_first",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "move_two_dwell_first",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "move_two_dwell_first",
+    "desc": "搬两个默认方块：第一个放到目标点后张爪停 2 秒再抬起，第二个保持默认。",
+    "children": [
+     {
+      "as": "pick1",
+      "skill": "pick",
+      "bind": {
+       "obj": "object:cube"
+      }
+     },
+     {
+      "as": "move_above1",
+      "skill": "move_above",
+      "bind": {
+       "frame": "object:goal",
+       "x": 0,
+       "y": 0,
+       "height": 0.06,
+       "gripper": "keep"
+      }
+     },
+     {
+      "as": "down1",
+      "skill": "descend_to_contact",
+      "bind": {
+       "frame": "object:goal",
+       "x": 0,
+       "y": 0,
+       "gripper": "keep"
+      }
+     },
+     {
+      "as": "release1",
+      "skill": "release_open",
+      "bind": {
+       "frame": "object:goal",
+       "x": 0,
+       "y": 0,
+       "width": 0.08,
+       "dwell": 2
+      }
+     },
+     {
+      "as": "lift1",
+      "skill": "lift_off",
+      "bind": {
+       "frame": "object:goal",
+       "height": 0.1
+      }
+     },
+     {
+      "as": "pick2",
+      "skill": "pick",
+      "bind": {
+       "obj": "object:cube2"
+      }
+     },
+     {
+      "as": "move_above2",
+      "skill": "move_above",
+      "bind": {
+       "frame": "object:goal2",
+       "x": 0,
+       "y": 0,
+       "height": 0.06,
+       "gripper": "keep"
+      }
+     },
+     {
+      "as": "down2",
+      "skill": "descend_to_contact",
+      "bind": {
+       "frame": "object:goal2",
+       "x": 0,
+       "y": 0,
+       "gripper": "keep"
+      }
+     },
+     {
+      "as": "release2",
+      "skill": "release_open",
+      "bind": {
+       "frame": "object:goal2",
+       "x": 0,
+       "y": 0,
+       "width": 0.08,
+       "dwell": 1
+      }
+     },
+     {
+      "as": "lift2",
+      "skill": "lift_off",
+      "bind": {
+       "frame": "object:goal2",
+       "height": 0.1
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7965,
+  "ok": false,
+  "why": "第 4 条叶子 move_above.t_move:得到 1.5,应为 2.5;第 4 条叶子 move_above.timeout:得到 6,应为 8;第 5 条叶子 descend_to_contact.timeout:得到 6,应为 12;第 7 条叶子 lift_off.t_ramp:得到 0.5,应为 0.8",
+  "wall_s": 68.8
+ },
+ "deepseek-v4.1-flash|cards|c4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "c4",
+  "level": "L2",
+  "text": "把 cube 搬到 goal。搬到目标点上方那一步的到位容差放宽到 1 cm,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "place/carry.tol": 0.01
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4643,
+  "completion_tokens": 881,
+  "cost": 0.00109535,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "place/carry.tol": 0.01
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7966,
+  "ok": true,
+  "why": "",
+  "wall_s": 13.8
+ },
+ "deepseek-v4.1-flash|cards|f1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "f1",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。搬到目标点上方那一步的移动时间,在现在的基础上再加 1 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "place/carry.t_move": 2.5
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4646,
+  "completion_tokens": 1243,
+  "cost": 0.00153065,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "place/carry.t_move": 2.5
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7972,
+  "ok": false,
+  "why": "第 4 条叶子 move_above.t_move:得到 2.5,应为 3.5",
+  "wall_s": 15.1
+ },
+ "deepseek-v4.1-flash|cards|f2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "f2",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。抓到方块抬起以后,原地停留的时间比现在少 1 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "pick/lift.dwell": 0.5
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4643,
+  "completion_tokens": 1272,
+  "cost": 0.00156455,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "pick/lift.dwell": 0.5
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7967,
+  "ok": false,
+  "why": "第 3 条叶子 lift_off.dwell:得到 0.5,应为 2.0",
+  "wall_s": 17.8
+ },
+ "deepseek-v4.1-flash|cards|f3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "f3",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。放下松手后抬手那一步,停留时间减到现在的一半,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "place/up.dwell": 0.75
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4641,
+  "completion_tokens": 768,
+  "cost": 0.00095915,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "place/up.dwell": 0.75
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7965,
+  "ok": false,
+  "why": "第 7 条叶子 lift_off.dwell:得到 0.75,应为 1.25",
+  "wall_s": 15.8
+ },
+ "deepseek-v4.1-flash|cards|f4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "f4",
+  "level": "Lr",
+  "text": "搬两个方块(都用默认的)。第二个方块抓起后抬升的斜坡时间改成现在的 1.5 倍,第一个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {},
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4646,
+  "completion_tokens": 4807,
+  "cost": 0.00580745,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7967,
+  "ok": false,
+  "why": "叶子序列不同:['move_above', 'move_above', 'grasp_close', 'lift_off', 'move_above', 'descend_to_contact', 'release_open', 'lift_off'] ≠ ['move_above', 'move_above', 'grasp_close', 'lift_off', 'move_above', 'descend_to_contact', 'release_open', 'lift_off', 'move_above', 'move_above', 'grasp_close', 'lift_off', 'move_above', 'descend_to_contact', 'release_open', 'lift_off']",
+  "wall_s": 56.4
+ },
+ "deepseek-v4.1-flash|cards|d1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "d1",
+  "level": "L3",
+  "text": "先把 cube 搬到 goal;然后合着夹爪移到桌面 (0.05, 0) 上方 2 cm 处;再擦这个位置,法向力 4 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "cube_goal_move_wipe",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9594,
+  "completion_tokens": 1157,
+  "cost": 0.0015571,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "cube_goal_move_wipe",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "cube_goal_move_wipe",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "cube_goal_move_wipe",
+    "desc": "把 cube 搬到 goal,合上夹爪移到桌面上方 (0.05, 0) 2 cm 处,再在该位置以 4 N 法向力擦拭",
+    "children": [
+     {
+      "as": "place",
+      "skill": "pick_and_place",
+      "bind": {
+       "obj": "object:cube",
+       "goal": "object:goal"
+      }
+     },
+     {
+      "as": "move",
+      "skill": "move_above",
+      "bind": {
+       "frame": "surface:table",
+       "x": 0.05,
+       "y": 0,
+       "height": 0.02,
+       "gripper": "close"
+      }
+     },
+     {
+      "as": "wipe",
+      "skill": "wipe_table",
+      "bind": {
+       "surface": "surface:table",
+       "x": 0.05,
+       "y": 0,
+       "force": 4
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7983,
+  "ok": true,
+  "why": "",
+  "wall_s": 17.6
+ },
+ "deepseek-v4.1-flash|cards|d2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "d2",
+  "level": "L3",
+  "text": "在桌面两处各压一次:先压 (−0.05, 0);抬起后移到 (0.05, 0) 上方 2 cm;再压 (0.05, 0)。两处目标力都是 5 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "press_two_spots",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9614,
+  "completion_tokens": 1979,
+  "cost": 0.0025495,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "press_two_spots",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "press_two_spots",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "press_two_spots",
+    "desc": "在桌面两点各压一次：先压 (-0.05,0)，抬起后空中移到 (0.05,0) 上方 2 cm，再压 (0.05,0)，两处目标法向力均为 5 N。",
+    "children": [
+     {
+      "as": "A",
+      "skill": "press_guarded",
+      "bind": {
+       "x": -0.05,
+       "y": 0,
+       "force": 5
+      }
+     },
+     {
+      "as": "move",
+      "skill": "move_above",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "height": 0.02
+      }
+     },
+     {
+      "as": "B",
+      "skill": "press_guarded",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "force": 5
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7994,
+  "ok": true,
+  "why": "",
+  "wall_s": 26.0
+ },
+ "deepseek-v4.1-flash|cards|d3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "d3",
+  "level": "L3",
+  "text": "桌面默认的位置连擦两遍:第一遍法向力 3 N,第二遍 5 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_same_spot_twice",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9480,
+  "completion_tokens": 684,
+  "cost": 0.0009553,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "wipe_same_spot_twice",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "wipe_same_spot_twice",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "wipe_same_spot_twice",
+    "desc": "在桌面默认位置连续擦两遍：第一遍法向力 3 N，第二遍法向力 5 N，其余参数用默认值。",
+    "children": [
+     {
+      "as": "first",
+      "skill": "wipe_table",
+      "bind": {
+       "force": 3
+      }
+     },
+     {
+      "as": "second",
+      "skill": "wipe_table",
+      "bind": {
+       "force": 5
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7952,
+  "ok": true,
+  "why": "",
+  "wall_s": 14.7
+ },
+ "deepseek-v4.1-flash|cards|d4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "d4",
+  "level": "L3",
+  "text": "先把 cube 搬到 goal2,再把 cube2 搬到 goal,最后把手移到桌面 (0, 0) 上方 10 cm 处停住。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two_then_center_hover",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 9550,
+  "completion_tokens": 1167,
+  "cost": 0.0015558999999999998,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "move_two_then_center_hover",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "move_two_then_center_hover",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "move_two_then_center_hover",
+    "desc": "先把 cube 搬到 goal2，再把 cube2 搬到 goal，最后在空中移到桌面中心上方 10 cm 停住",
+    "children": [
+     {
+      "as": "move",
+      "skill": "move_two",
+      "bind": {
+       "obj_a": "object:cube",
+       "goal_a": "object:goal2",
+       "obj_b": "object:cube2",
+       "goal_b": "object:goal"
+      }
+     },
+     {
+      "as": "home",
+      "skill": "move_above",
+      "bind": {
+       "frame": "surface:table",
+       "x": 0,
+       "y": 0,
+       "height": 0.1
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 7984,
+  "ok": true,
+  "why": "",
+  "wall_s": 20.4
+ },
+ "deepseek-v4.1-flash|cards|e1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "e1",
+  "level": "R",
+  "text": "把桌子下面的抽屉拉开。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "技能库里没有能拉开抽屉的技能：现有技能只有擦拭、按压、抓取/放置方块等，均无法定位并拉动桌下抽屉（也没有抽屉对应的坐标系或开门/拉抽屉动作）。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4623,
+  "completion_tokens": 100,
+  "cost": 0.00015215,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "技能库里没有能拉开抽屉的技能：现有技能只有擦拭、按压、抓取/放置方块等，均无法定位并拉动桌下抽屉（也没有抽屉对应的坐标系或开门/拉抽屉动作）。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7932,
+  "ok": true,
+  "why": "",
+  "wall_s": 4.5
+ },
+ "deepseek-v4.1-flash|cards|e2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "e2",
+  "level": "R",
+  "text": "用 30 N 的法向力擦桌面默认的位置。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "擦拭法向力 30 N 超出可用范围：wipe_table 的 force 范围为 [2, 6] N，底层 wipe_strokes 的 force 范围也只有 [1, 8] N，无法在任意一层设置到 30 N。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4630,
+  "completion_tokens": 183,
+  "cost": 0.00025385,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "擦拭法向力 30 N 超出可用范围：wipe_table 的 force 范围为 [2, 6] N，底层 wipe_strokes 的 force 范围也只有 [1, 8] N，无法在任意一层设置到 30 N。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7941,
+  "ok": true,
+  "why": "",
+  "wall_s": 5.9
+ },
+ "deepseek-v4.1-flash|cards|e3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "e3",
+  "level": "R",
+  "text": "把 cube 搬到 goal,每根手指的夹持力用 100 N。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "每根手指 100 N 的夹持力超出技能库允许范围:pick_and_place 的 grip_force 上限 40 N,最底层 grasp_close 的 grip_force 上限也只有 60 N,没有任何一层能表达 100 N。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4635,
+  "completion_tokens": 203,
+  "cost": 0.00027935,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "每根手指 100 N 的夹持力超出技能库允许范围:pick_and_place 的 grip_force 上限 40 N,最底层 grasp_close 的 grip_force 上限也只有 60 N,没有任何一层能表达 100 N。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7952,
+  "ok": true,
+  "why": "",
+  "wall_s": 5.5
+ },
+ "deepseek-v4.1-flash|cards|e4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "cards",
+  "task": "e4",
+  "level": "R",
+  "text": "把桌上的瓶盖拧开(绕竖直轴转 90 度)。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "技能库里没有任何能绕竖直轴旋转的技能:现有的下探、擦拭、按压、抓取、放置都只做直线运动或开合夹爪,无法实现拧瓶盖所需的绕竖直轴转 90 度。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 4633,
+  "completion_tokens": 121,
+  "cost": 0.00018035,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "技能库里没有任何能绕竖直轴旋转的技能:现有的下探、擦拭、按压、抓取、放置都只做直线运动或开合夹爪,无法实现拧瓶盖所需的绕竖直轴转 90 度。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 7942,
+  "ok": true,
+  "why": "",
+  "wall_s": 4.6
+ },
+ "deepseek-v4.1-flash|tree|a1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "a1",
+  "level": "L0",
+  "text": "用 5 N 的力擦桌面上 x = 0.05、y = 0.02 的位置,来回擦 2 趟。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "x": 0.05,
+   "y": 0.02,
+   "force": 5,
+   "passes": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20222,
+  "completion_tokens": 230,
+  "cost": 0.0063426,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "x": 0.05,
+     "y": 0.02,
+     "force": 5,
+     "passes": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37029,
+  "ok": true,
+  "why": "",
+  "wall_s": 15.2
+ },
+ "deepseek-v4.1-flash|tree|a2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "a2",
+  "level": "L0",
+  "text": "把 cube2 这个方块搬到 goal 目标点。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube2",
+   "goal": "object:goal"
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20201,
+  "completion_tokens": 153,
+  "cost": 0.0062439,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube2",
+     "goal": "object:goal"
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37010,
+  "ok": true,
+  "why": "",
+  "wall_s": 2.5
+ },
+ "deepseek-v4.1-flash|tree|a3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "a3",
+  "level": "L0",
+  "text": "擦两处:A 点在 (−0.08, 0),B 点在 (0.08, 0.03),法向力都用 4 N,每处来回擦 2 趟。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "xa": -0.08,
+   "ya": 0,
+   "xb": 0.08,
+   "yb": 0.03,
+   "force": 4,
+   "passes": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20233,
+  "completion_tokens": 283,
+  "cost": 0.00050128,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "xa": -0.08,
+     "ya": 0,
+     "xb": 0.08,
+     "yb": 0.03,
+     "force": 4,
+     "passes": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37044,
+  "ok": true,
+  "why": "",
+  "wall_s": 3.8
+ },
+ "deepseek-v4.1-flash|tree|a4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "a4",
+  "level": "L0",
+  "text": "在桌面 (0, 0.05) 处往下压住,目标力 6 N;力超过 10 N 就撤。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "press_guarded",
+  "values": {
+   "x": 0,
+   "y": 0.05,
+   "force": 6,
+   "f_max": 10
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20220,
+  "completion_tokens": 229,
+  "cost": 0.00043258,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "press_guarded",
+    "values": {
+     "x": 0,
+     "y": 0.05,
+     "force": 6,
+     "f_max": 10
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37026,
+  "ok": true,
+  "why": "",
+  "wall_s": 2.6
+ },
+ "deepseek-v4.1-flash|tree|a5": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "a5",
+  "level": "L0",
+  "text": "先把 cube 搬到 goal2,再把 cube2 搬到 goal。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "obj_a": "object:cube",
+   "goal_a": "object:goal2",
+   "obj_b": "object:cube2",
+   "goal_b": "object:goal"
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20203,
+  "completion_tokens": 171,
+  "cost": 0.00035788,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "obj_a": "object:cube",
+     "goal_a": "object:goal2",
+     "obj_b": "object:cube2",
+     "goal_b": "object:goal"
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37020,
+  "ok": true,
+  "why": "",
+  "wall_s": 2.4
+ },
+ "deepseek-v4.1-flash|tree|a6": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "a6",
+  "level": "L0",
+  "text": "把 cube 搬到 goal,动作尽量稳,慢一点没关系。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "care": 1
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20203,
+  "completion_tokens": 99,
+  "cost": 0.00027148,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "care": 1
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37014,
+  "ok": true,
+  "why": "",
+  "wall_s": 2.2
+ },
+ "deepseek-v4.1-flash|tree|b1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "b1",
+  "level": "L1",
+  "text": "擦两处(位置用默认的),A 处用 2.5 N 的力,B 处用 5 N 的力。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "A.force": 2.5,
+   "B.force": 5
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20221,
+  "completion_tokens": 637,
+  "cost": 0.00092248,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "A.force": 2.5,
+     "B.force": 5
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37024,
+  "ok": true,
+  "why": "",
+  "wall_s": 5.8
+ },
+ "deepseek-v4.1-flash|tree|b2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "b2",
+  "level": "L1",
+  "text": "把 cube 搬到 goal。抓之前在方块上方 14 cm 悬停,抓到后也抬到 14 cm;放下松手后只抬 6 cm。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "clearance": 0.14,
+   "place.retreat": 0.06
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20225,
+  "completion_tokens": 919,
+  "cost": 0.00126208,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "clearance": 0.14,
+     "place.retreat": 0.06
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37045,
+  "ok": true,
+  "why": "",
+  "wall_s": 7.5
+ },
+ "deepseek-v4.1-flash|tree|b3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "b3",
+  "level": "L1",
+  "text": "擦桌面,下探的位置用默认的不要动;擦的时候不对称:往外擦到 y = +0.06,往回擦到 y = −0.02。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "y": 0.02,
+   "stroke": 0.04,
+   "down.y": 0
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20225,
+  "completion_tokens": 821,
+  "cost": 0.00114448,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "y": 0.02,
+     "stroke": 0.04,
+     "down.y": 0
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37041,
+  "ok": true,
+  "why": "",
+  "wall_s": 6.7
+ },
+ "deepseek-v4.1-flash|tree|b4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "b4",
+  "level": "L1",
+  "text": "搬两个方块(物体和目标点都用默认的),第二个方块用 35 N 的夹持力,第一个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "B.grip_force": 35
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20215,
+  "completion_tokens": 194,
+  "cost": 0.00038908,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "B.grip_force": 35
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37028,
+  "ok": true,
+  "why": "",
+  "wall_s": 2.8
+ },
+ "deepseek-v4.1-flash|tree|b5": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "b5",
+  "level": "L1",
+  "text": "擦桌面默认的位置,把「判定碰到台面」的力改成 3 N,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "down.f_contact": 3
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20212,
+  "completion_tokens": 143,
+  "cost": 0.00032698,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "down.f_contact": 3
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37019,
+  "ok": true,
+  "why": "",
+  "wall_s": 2.6
+ },
+ "deepseek-v4.1-flash|tree|b6": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "b6",
+  "level": "L1",
+  "text": "擦两处(位置用默认的),A 处擦完抬起 8 cm,B 处擦完抬起 4 cm。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "A.lift_height": 0.08,
+   "B.lift_height": 0.04
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20217,
+  "completion_tokens": 650,
+  "cost": 0.00093688,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "A.lift_height": 0.08,
+     "B.lift_height": 0.04
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37024,
+  "ok": true,
+  "why": "",
+  "wall_s": 5.5
+ },
+ "deepseek-v4.1-flash|tree|b7": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "b7",
+  "level": "L1",
+  "text": "用 7 N 的法向力擦桌面默认的位置。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table",
+  "values": {
+   "wipe.force": 7
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20202,
+  "completion_tokens": 269,
+  "cost": 0.00047518,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_table",
+    "values": {
+     "wipe.force": 7
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37005,
+  "ok": true,
+  "why": "",
+  "wall_s": 3.1
+ },
+ "deepseek-v4.1-flash|tree|c1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "c1",
+  "level": "L2",
+  "text": "擦两处(位置用默认的),只把 B 处「往外擦」那一段的时间改成 2 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_two_spots",
+  "values": {
+   "B/wipe.t_out": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20220,
+  "completion_tokens": 455,
+  "cost": 0.00070378,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "wipe_two_spots",
+    "values": {
+     "B/wipe.t_out": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37028,
+  "ok": true,
+  "why": "",
+  "wall_s": 4.2
+ },
+ "deepseek-v4.1-flash|tree|c2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "c2",
+  "level": "L2",
+  "text": "把 cube 搬到 goal。合爪以后多等一会儿再判断有没有夹住:等 2 秒。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "pick/grasp.settle": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20213,
+  "completion_tokens": 253,
+  "cost": 0.00045928,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "pick/grasp.settle": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37025,
+  "ok": true,
+  "why": "",
+  "wall_s": 3.0
+ },
+ "deepseek-v4.1-flash|tree|c3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "c3",
+  "level": "L2",
+  "text": "搬两个方块(都用默认的)。第一个方块放下张爪以后多停一会:停 2 秒再抬手;第二个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "A/place/release.dwell": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20218,
+  "completion_tokens": 251,
+  "cost": 0.00045838,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "A/place/release.dwell": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37030,
+  "ok": true,
+  "why": "",
+  "wall_s": 3.0
+ },
+ "deepseek-v4.1-flash|tree|c4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "c4",
+  "level": "L2",
+  "text": "把 cube 搬到 goal。搬到目标点上方那一步的到位容差放宽到 1 cm,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "place/carry.tol": 0.01
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20215,
+  "completion_tokens": 298,
+  "cost": 0.00051388,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "place/carry.tol": 0.01
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37031,
+  "ok": true,
+  "why": "",
+  "wall_s": 5.3
+ },
+ "deepseek-v4.1-flash|tree|f1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "f1",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。搬到目标点上方那一步的移动时间,在现在的基础上再加 1 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "place/carry.t_move": 3.5
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20218,
+  "completion_tokens": 555,
+  "cost": 0.00082318,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "place/carry.t_move": 3.5
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37037,
+  "ok": true,
+  "why": "",
+  "wall_s": 4.6
+ },
+ "deepseek-v4.1-flash|tree|f2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "f2",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。抓到方块抬起以后,原地停留的时间比现在少 1 秒,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "pick/lift.dwell": 2
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20215,
+  "completion_tokens": 817,
+  "cost": 0.00113668,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "pick/lift.dwell": 2
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37032,
+  "ok": true,
+  "why": "",
+  "wall_s": 6.3
+ },
+ "deepseek-v4.1-flash|tree|f3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "f3",
+  "level": "Lr",
+  "text": "把 cube 搬到 goal。放下松手后抬手那一步,停留时间减到现在的一半,别的都不动。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "pick_and_place",
+  "values": {
+   "obj": "object:cube",
+   "goal": "object:goal",
+   "place/up.dwell": 1.25
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20213,
+  "completion_tokens": 854,
+  "cost": 0.00118048,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "pick_and_place",
+    "values": {
+     "obj": "object:cube",
+     "goal": "object:goal",
+     "place/up.dwell": 1.25
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37030,
+  "ok": true,
+  "why": "",
+  "wall_s": 6.9
+ },
+ "deepseek-v4.1-flash|tree|f4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "f4",
+  "level": "Lr",
+  "text": "搬两个方块(都用默认的)。第二个方块抓起后抬升的斜坡时间改成现在的 1.5 倍,第一个不变。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "move_two",
+  "values": {
+   "B/pick/lift.t_ramp": 1.8
+  },
+  "reason": null,
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20218,
+  "completion_tokens": 704,
+  "cost": 0.00100198,
+  "steps": [
+   {
+    "action": "run",
+    "skill": "move_two",
+    "values": {
+     "B/pick/lift.t_ramp": 1.8
+    },
+    "ok": true
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37032,
+  "ok": true,
+  "why": "",
+  "wall_s": 6.1
+ },
+ "deepseek-v4.1-flash|tree|d1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "d1",
+  "level": "L3",
+  "text": "先把 cube 搬到 goal;然后合着夹爪移到桌面 (0.05, 0) 上方 2 cm 处;再擦这个位置,法向力 4 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "place_then_wipe",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 40757,
+  "completion_tokens": 885,
+  "cost": 0.00143502,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "place_then_wipe",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "place_then_wipe",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "place_then_wipe",
+    "desc": "先把 cube 搬到 goal,再合着夹爪移到桌面 (0.05, 0) 上方 2 cm,最后在该位置以 4 N 法向力擦拭",
+    "children": [
+     {
+      "as": "p",
+      "skill": "pick_and_place",
+      "bind": {
+       "obj": "object:cube",
+       "goal": "object:goal"
+      }
+     },
+     {
+      "as": "m",
+      "skill": "move_above",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "height": 0.02,
+       "gripper": "close"
+      }
+     },
+     {
+      "as": "w",
+      "skill": "wipe_table",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "force": 4
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 37048,
+  "ok": true,
+  "why": "",
+  "wall_s": 7.9
+ },
+ "deepseek-v4.1-flash|tree|d2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "d2",
+  "level": "L3",
+  "text": "在桌面两处各压一次:先压 (−0.05, 0);抬起后移到 (0.05, 0) 上方 2 cm;再压 (0.05, 0)。两处目标力都是 5 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "press_two_spots",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 40781,
+  "completion_tokens": 1283,
+  "cost": 0.00191982,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "press_two_spots",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "press_two_spots",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "press_two_spots",
+    "desc": "先压 A 点 (−0.05,0),抬起后空中移到 B 点 (0.05,0) 上方 2 cm,再压 B 点;两处目标力均为 5 N",
+    "children": [
+     {
+      "as": "A",
+      "skill": "press_guarded",
+      "bind": {
+       "x": -0.05,
+       "y": 0,
+       "force": 5
+      }
+     },
+     {
+      "as": "move",
+      "skill": "move_above",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "height": 0.02
+      }
+     },
+     {
+      "as": "B",
+      "skill": "press_guarded",
+      "bind": {
+       "x": 0.05,
+       "y": 0,
+       "force": 5
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 37059,
+  "ok": true,
+  "why": "",
+  "wall_s": 10.4
+ },
+ "deepseek-v4.1-flash|tree|d3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "d3",
+  "level": "L3",
+  "text": "桌面默认的位置连擦两遍:第一遍法向力 3 N,第二遍 5 N。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "wipe_table_twice_forces",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 40590,
+  "completion_tokens": 734,
+  "cost": 0.00124136,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "wipe_table_twice_forces",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "wipe_table_twice_forces",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "wipe_table_twice_forces",
+    "desc": "在桌面默认位置连擦两遍:第一遍法向力 3 N,第二遍法向力 5 N",
+    "children": [
+     {
+      "as": "first",
+      "skill": "wipe_table",
+      "bind": {
+       "force": 3
+      }
+     },
+     {
+      "as": "second",
+      "skill": "wipe_table",
+      "bind": {
+       "force": 5
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 37017,
+  "ok": true,
+  "why": "",
+  "wall_s": 7.9
+ },
+ "deepseek-v4.1-flash|tree|d4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "d4",
+  "level": "L3",
+  "text": "先把 cube 搬到 goal2,再把 cube2 搬到 goal,最后把手移到桌面 (0, 0) 上方 10 cm 处停住。",
+  "prompt_version": 2,
+  "final": "run",
+  "skill": "swap_move_cubes_then_hover_center",
+  "values": {},
+  "reason": null,
+  "calls": 2,
+  "expands": 0,
+  "packs": 1,
+  "rejected": 0,
+  "prompt_tokens": 40686,
+  "completion_tokens": 1437,
+  "cost": 0.00211376,
+  "steps": [
+   {
+    "action": "pack",
+    "name": "swap_move_cubes_then_hover_center",
+    "ok": true
+   },
+   {
+    "action": "run",
+    "skill": "swap_move_cubes_then_hover_center",
+    "values": {},
+    "ok": true
+   }
+  ],
+  "packed": [
+   {
+    "name": "swap_move_cubes_then_hover_center",
+    "desc": "先把 cube 搬到 goal2、cube2 搬到 goal，最后把手移到桌面中心 (0,0) 上方 10 cm 处停住。",
+    "children": [
+     {
+      "as": "moves",
+      "skill": "move_two",
+      "bind": {
+       "obj_a": "object:cube",
+       "goal_a": "object:goal2",
+       "obj_b": "object:cube2",
+       "goal_b": "object:goal"
+      }
+     },
+     {
+      "as": "final_hover",
+      "skill": "move_above",
+      "bind": {
+       "frame": "surface:table",
+       "x": 0,
+       "y": 0,
+       "height": 0.1
+      }
+     }
+    ],
+    "params": null,
+    "links": null
+   }
+  ],
+  "first_prompt_chars": 37049,
+  "ok": true,
+  "why": "",
+  "wall_s": 12.5
+ },
+ "deepseek-v4.1-flash|tree|e1": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "e1",
+  "level": "R",
+  "text": "把桌子下面的抽屉拉开。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "技能库里没有能拉开抽屉的技能：现有技能只有擦拭、按压、抓取/放置方块等，没有可以钩住/夹住抽屉把手并沿水平方向拉开的动作，也没有抽屉这一对象及其坐标系。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20195,
+  "completion_tokens": 109,
+  "cost": 0.00028108,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "技能库里没有能拉开抽屉的技能：现有技能只有擦拭、按压、抓取/放置方块等，没有可以钩住/夹住抽屉把手并沿水平方向拉开的动作，也没有抽屉这一对象及其坐标系。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 36997,
+  "ok": true,
+  "why": "",
+  "wall_s": 2.2
+ },
+ "deepseek-v4.1-flash|tree|e2": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "e2",
+  "level": "R",
+  "text": "用 30 N 的法向力擦桌面默认的位置。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "擦桌子技能的法向力上限是 6 N(底层 wipe_strokes 最多也只能到 8 N),30 N 在哪一层都超出允许范围,无法完成。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20202,
+  "completion_tokens": 110,
+  "cost": 0.00028438,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "擦桌子技能的法向力上限是 6 N(底层 wipe_strokes 最多也只能到 8 N),30 N 在哪一层都超出允许范围,无法完成。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37006,
+  "ok": true,
+  "why": "",
+  "wall_s": 1.9
+ },
+ "deepseek-v4.1-flash|tree|e3": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "e3",
+  "level": "R",
+  "text": "把 cube 搬到 goal,每根手指的夹持力用 100 N。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "夹持力 100 N 超出了所有层允许的范围:pick_and_place 的 grip_force 范围是 [10, 40] N,grasp_close 的 grip_force 范围是 [5, 60] N,100 N 在哪一层都超出上限,无法执行。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20207,
+  "completion_tokens": 175,
+  "cost": 0.00036388,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "夹持力 100 N 超出了所有层允许的范围:pick_and_place 的 grip_force 范围是 [10, 40] N,grasp_close 的 grip_force 范围是 [5, 60] N,100 N 在哪一层都超出上限,无法执行。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37017,
+  "ok": true,
+  "why": "",
+  "wall_s": 2.9
+ },
+ "deepseek-v4.1-flash|tree|e4": {
+  "model": "deepseek-v4.1-flash",
+  "arm": "tree",
+  "task": "e4",
+  "level": "R",
+  "text": "把桌上的瓶盖拧开(绕竖直轴转 90 度)。",
+  "prompt_version": 2,
+  "final": "refuse",
+  "skill": null,
+  "values": null,
+  "reason": "技能库中没有能绕竖直轴旋转(拧瓶盖)的技能:现有技能只有下探、擦拭、按压、抓取、放置、搬运等平移/力控动作,没有任何绕轴转动的能力,无法完成拧开瓶盖。",
+  "calls": 1,
+  "expands": 0,
+  "packs": 0,
+  "rejected": 0,
+  "prompt_tokens": 20205,
+  "completion_tokens": 101,
+  "cost": 0.00027448,
+  "steps": [
+   {
+    "action": "refuse",
+    "reason": "技能库中没有能绕竖直轴旋转(拧瓶盖)的技能:现有技能只有下探、擦拭、按压、抓取、放置、搬运等平移/力控动作,没有任何绕轴转动的能力,无法完成拧开瓶盖。"
+   }
+  ],
+  "packed": [],
+  "first_prompt_chars": 37007,
+  "ok": true,
+  "why": "",
+  "wall_s": 1.9
+ }
+}

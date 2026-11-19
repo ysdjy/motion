@@ -1,0 +1,29 @@
+运行状态 {'uni': {'ok': 180}, 'dec': {'ok': 180}}
+fr3    conflict | uni 全过 9/15 逐维 fo15 sp15 ti13 el11 pa15 偏差/容差中位 0.05 0.03 0.12 0.38 0.06 | dec 全过 15/15 逐维 fo15 sp15 ti15 el15 pa15 偏差/容差中位 0.08 0.02 0.00 0.35 0.01
+fr3    couple   | uni 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.06 0.03 0.14 0.27 0.02 | dec 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.14 0.09 0.00 0.41 0.01
+fr3    dev      | uni 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.05 0.05 0.17 0.17 0.04 | dec 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.11 0.05 0.01 0.29 0.04
+fr3    limit    | uni 全过 12/12 逐维 fo12 sp12 ti12 el12 pa12 偏差/容差中位 0.06 0.03 0.17 0.38 0.09 | dec 全过 9/12 逐维 fo12 sp12 ti12 el9 pa12 偏差/容差中位 0.17 0.03 0.00 0.49 0.03
+fr3    std      | uni 全过 15/15 逐维 fo15 sp15 ti15 el15 pa15 偏差/容差中位 0.20 0.02 0.13 0.23 0.04 | dec 全过 12/15 逐维 fo12 sp14 ti15 el15 pa15 偏差/容差中位 0.23 0.05 0.00 0.35 0.04
+iiwa   conflict | uni 全过 8/15 逐维 fo15 sp15 ti14 el9 pa15 偏差/容差中位 0.07 0.05 0.07 0.85 0.07 | dec 全过 15/15 逐维 fo15 sp15 ti15 el15 pa15 偏差/容差中位 0.13 0.04 0.00 0.02 0.01
+iiwa   couple   | uni 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.12 0.05 0.11 0.33 0.12 | dec 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.12 0.11 0.00 0.01 0.02
+iiwa   dev      | uni 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.20 0.05 0.21 0.22 0.19 | dec 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.23 0.14 0.00 0.00 0.04
+iiwa   limit    | uni 全过 9/12 逐维 fo12 sp12 ti12 el9 pa12 偏差/容差中位 0.06 0.04 0.09 0.34 0.09 | dec 全过 12/12 逐维 fo12 sp12 ti12 el12 pa12 偏差/容差中位 0.18 0.09 0.00 0.03 0.02
+iiwa   std      | uni 全过 15/15 逐维 fo15 sp15 ti15 el15 pa15 偏差/容差中位 0.07 0.03 0.20 0.25 0.10 | dec 全过 15/15 逐维 fo15 sp15 ti15 el15 pa15 偏差/容差中位 0.16 0.11 0.00 0.01 0.01
+xarm7  conflict | uni 全过 10/15 逐维 fo15 sp15 ti13 el12 pa15 偏差/容差中位 0.07 0.04 0.10 0.59 0.11 | dec 全过 12/15 逐维 fo15 sp15 ti15 el12 pa15 偏差/容差中位 0.13 0.08 0.01 0.62 0.03
+xarm7  couple   | uni 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.03 0.03 0.17 0.17 0.07 | dec 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.15 0.07 0.00 0.65 0.03
+xarm7  dev      | uni 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.09 0.04 0.22 0.13 0.11 | dec 全过 9/9 逐维 fo9 sp9 ti9 el9 pa9 偏差/容差中位 0.26 0.06 0.01 0.29 0.07
+xarm7  limit    | uni 全过 7/12 逐维 fo12 sp12 ti12 el7 pa12 偏差/容差中位 0.08 0.03 0.14 0.71 0.05 | dec 全过 9/12 逐维 fo12 sp12 ti12 el9 pa12 偏差/容差中位 0.29 0.09 0.00 0.61 0.05
+xarm7  std      | uni 全过 15/15 逐维 fo15 sp15 ti15 el15 pa15 偏差/容差中位 0.05 0.05 0.39 0.13 0.13 | dec 全过 14/15 逐维 fo14 sp15 ti15 el15 pa15 偏差/容差中位 0.20 0.12 0.01 0.27 0.04
+
+测试集逐种子配对 153:只统一过 7,只分开过 20(种子之间相关,只作参考)
+  fr3 cf_elbow_long: 统一 ['elbow']  分开 过
+  fr3 cf_fast_long: 统一 ['tilt']  分开 过
+  fr3 cf_tilt_long: 统一 ['elbow']  分开 过
+  fr3 lim_elbow2: 统一 过  分开 ['elbow']
+  fr3 std_light: 统一 过  分开 ['force', 'speed']
+  iiwa cf_elbow_long: 统一 ['elbow']  分开 过
+  iiwa cf_tilt_long: 统一 ['elbow']  分开 过
+  iiwa lim_long: 统一 ['elbow']  分开 过
+  xarm7 cf_fast_long: 统一 ['tilt']  分开 过
+  xarm7 lim_long: 统一 ['elbow']  分开 过
+按 机器人×情形 多数票 51 组:只统一过 2,只分开过 8(符号检验看这两个数)

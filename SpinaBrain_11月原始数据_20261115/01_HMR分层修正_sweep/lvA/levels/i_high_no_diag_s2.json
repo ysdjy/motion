@@ -1,0 +1,333 @@
+{
+ "probe": "i_high",
+ "family": "infeasible",
+ "task": "follow_long",
+ "seed": 2,
+ "mode": "llm",
+ "cond": "no_diag",
+ "llm": {
+  "calls": 2,
+  "cost_usd": 0.0146,
+  "tokens": 30901,
+  "latency_s": 265.4,
+  "errors": 0
+ },
+ "model": "oc:deepseek-v4.1-flash",
+ "expect": [
+  "L2"
+ ],
+ "reached": "L2",
+ "first_level": "L1",
+ "level_path": [
+  "L1",
+  "L1",
+  "L2"
+ ],
+ "decision_ok": true,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "7710687fae12",
+   "exp_xemb": "a70cc137f84a"
+  }
+ },
+ "final_pass": false,
+ "final_report": [
+  {
+   "id": "follow",
+   "cat": "D1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.008,
+   "measured": [
+    -0.0342,
+    -0.0073,
+    0.4629
+   ],
+   "deviation": [
+    -0.0342,
+    -0.0073,
+    -0.1371
+   ],
+   "pass": false,
+   "target": [
+    0.0,
+    0.0,
+    0.6
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "D2",
+   "kind": "target",
+   "unit": "rad",
+   "tol": 0.04,
+   "measured": [
+    0.1732
+   ],
+   "deviation": [
+    -0.0268
+   ],
+   "pass": true,
+   "target": 0.2
+  }
+ ],
+ "stages": [
+  {
+   "id": "track",
+   "t0": 0.0,
+   "t1": 8.020000000000994,
+   "done": false,
+   "exit": "supervisor:L2: 补偿后整体残差变大 15.49 → 17.69,持续 0.5 s(已撤回这次补偿)",
+   "f_at_switch": null,
+   "extension_s": 0.0
+  }
+ ],
+ "sim_s": 281.0,
+ "exec_alarms": 0,
+ "levels": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "level": "stop",
+   "why": [
+    "L2 判定换做法也达不到:[{'id': 'follow', 'reason': '要求在物体坐标系 +z 方向 0.6 m 处保持 8 mm 精度，同时工具轴几乎沿该轴反向（−z，0.2 rad 内），该状态位于手臂工作空间顶端边缘：渲染图 1 显示臂已接近全伸展仍差约 0.10~0.15 m，且残差随物体运动单调增长、全程多次 stall；换接近方向或调整肘部构型都会破坏 align 的 −z 指向，也无法增加朝上的可达高度，故该 target/tol 组合在运动物体上不可达。'}]"
+   ]
+  }
+ ],
+ "rule_updates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 3.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      -0.0386,
+      0.0,
+      -0.1049
+     ],
+     "c_old": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "g": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "c_new": [
+      0.032,
+      0.0,
+      0.032
+     ]
+    },
+    {
+     "id": "align",
+     "e": [
+      0.1821
+     ],
+     "c_old": [
+      0.0
+     ],
+     "g": [
+      1.0
+     ],
+     "c_new": [
+      -0.16
+     ]
+    }
+   ],
+   "R": 15.185,
+   "problems": []
+  },
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t": 5.52,
+   "where": "阶段内",
+   "applied": true,
+   "items": [
+    {
+     "id": "follow",
+     "e": [
+      -0.0244,
+      -0.0106,
+      -0.1203
+     ],
+     "c_old": [
+      0.032,
+      0.0,
+      0.032
+     ],
+     "g_raw": [
+      0.443,
+      -0.481
+     ],
+     "fail": "分量 2 灵敏度 ĝ = -0.481 不在 [0.3, 3.0]"
+    },
+    {
+     "id": "align",
+     "e": [
+      0.0896
+     ],
+     "c_old": [
+      -0.16
+     ],
+     "g_raw": [
+      0.578
+     ],
+     "g": [
+      0.578
+     ],
+     "c_new": [
+      -0.3151
+     ]
+    }
+   ],
+   "R": 15.485,
+   "problems": []
+  }
+ ],
+ "diagnoses": [],
+ "replans": [
+  {
+   "stage": "track",
+   "trigger": [
+    "补偿后整体残差变大 15.49 → 17.69,持续 0.5 s(已撤回这次补偿)"
+   ],
+   "veto": false,
+   "model": "oc:deepseek-v4.1-flash",
+   "helpers_before": [],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    },
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": false,
+   "infeasible": [
+    {
+     "id": "follow",
+     "reason": "要求在物体坐标系 +z 方向 0.6 m 处保持 8 mm 精度，同时工具轴几乎沿该轴反向（−z，0.2 rad 内），该状态位于手臂工作空间顶端边缘：渲染图 1 显示臂已接近全伸展仍差约 0.10~0.15 m，且残差随物体运动单调增长、全程多次 stall；换接近方向或调整肘部构型都会破坏 align 的 −z 指向，也无法增加朝上的可达高度，故该 target/tol 组合在运动物体上不可达。"
+    }
+   ],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {},
+   "later_helpers_after": {},
+   "diagnosis": "follow 的 z 残差是动态饱和问题，并非常量偏置：同一阶段里 align 从 z≈4.6 收敛到 ≈0.3，而 follow 的残差从 12.6 一路涨到 18，并反复 stall；全程没有低于 12.6（约 0.10 m，17 倍容差）。这说明规划器和执行器有能力收敛，真正卡住的是几何可达性：契约要求工具位于物体 +z 方向 0.6 m 处，同时工具轴又必须沿物体 −z（0.2 rad 内），等价于让手臂在接近全伸展（渲染图 1）的状态下，把腕部举到工作空间顶端再向下指；朝上的可用高度不足，物体一移动，残差只会被拉大，而 align 的 −0.16 comp 又把姿态目标压到 0.04 rad（比容差还紧 4 倍），腕部为守住这个角度占掉了本可用于伸展的行程，因此每次 align 残差下探（t=3.86、5.94），follow 残差就跳到 18~20，位置与姿态相互耦合。继续把 comp 往 +z 加，只会把目标点推得更高更远；实测整体残差从 15.49 变成 17.69，就是这种已经饱和、不能再增加的直接证据。因此任何常量补偿都消不掉它。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 265.41,
+   "helpers_after": [],
+   "later_changed": []
+  }
+ ],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "L2 判定换做法也达不到:[{'id': 'follow', 'reason': '要求在物体坐标系 +z 方向 0.6 m 处保持 8 mm 精度，同时工具轴几乎沿该轴反向（−z，0.2 rad 内），该状态位于手臂工作空间顶端边缘：渲染图 1 显示臂已接近全伸展仍差约 0.10~0.15 m，且残差随物体运动单调增长、全程多次 stall；换接近方向或调整肘部构型都会破坏 align 的 −z 指向，也无法增加朝上的可达高度，故该 target/tol 组合在运动物体上不可达。'}]",
+ "gates": [
+  {
+   "stage": "track",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 8.020000000000994,
+   "exit": "supervisor:L2: 补偿后整体残差变大 15.49 → 17.69,持续 0.5 s(已撤回这次补偿)",
+   "pass": false,
+   "rows": [
+    {
+     "id": "follow",
+     "cat": "D1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.008,
+     "measured": [
+      -0.0342,
+      -0.0073,
+      0.4629
+     ],
+     "deviation": [
+      -0.0342,
+      -0.0073,
+      -0.1371
+     ],
+     "pass": false,
+     "target": [
+      0.0,
+      0.0,
+      0.6
+     ]
+    },
+    {
+     "id": "align",
+     "cat": "D2",
+     "kind": "target",
+     "unit": "rad",
+     "tol": 0.04,
+     "measured": [
+      0.1732
+     ],
+     "deviation": [
+      -0.0268
+     ],
+     "pass": true,
+     "target": 0.2
+    }
+   ],
+   "monitor": {
+    "follow": {
+     "final_pass": false,
+     "samples": 326,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.54,
+      "stall": 2.0
+     },
+     "fail_lead_s": 6.5,
+     "error": null
+    },
+    "align": {
+     "final_pass": true,
+     "samples": 326,
+     "first_alarm": {
+      "meas_ok": 1.52,
+      "pred_ok": 1.52,
+      "drift": 1.58,
+      "stall": 2.0
+     },
+     "fail_lead_s": 6.5,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 13.17,
+     "p95": 18.32,
+     "calls": 401
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0162,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "abort(L2 infeasible)"
+  }
+ ]
+}

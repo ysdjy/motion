@@ -1,0 +1,157 @@
+[
+ {
+  "values": {
+   "y": 0.06,
+   "w.care": 1.0
+  },
+  "tag": "care=1",
+  "status": "end",
+  "all_pass": true,
+  "forces": [
+   3.07,
+   2.95,
+   2.99,
+   3.02,
+   2.89,
+   3.02
+  ],
+  "bad": []
+ },
+ {
+  "values": {
+   "y": -0.06,
+   "w.care": 1.0
+  },
+  "tag": "care=1",
+  "status": "end",
+  "all_pass": true,
+  "forces": [
+   3.31,
+   2.95,
+   3.0,
+   3.03,
+   3.04,
+   2.98
+  ],
+  "bad": []
+ },
+ {
+  "values": {
+   "y": 0.06,
+   "w/wipe.w_force": 6
+  },
+  "tag": "力项权重 6",
+  "status": "end",
+  "all_pass": false,
+  "forces": [
+   2.08,
+   3.73,
+   0.63,
+   0.0,
+   0.0,
+   3.3
+  ],
+  "bad": [
+   "press@out#2",
+   "press@back#2",
+   "press@out#3"
+  ]
+ },
+ {
+  "values": {
+   "y": -0.06,
+   "w/wipe.w_force": 6
+  },
+  "tag": "力项权重 6",
+  "status": "end",
+  "all_pass": true,
+  "forces": [
+   3.02,
+   2.97,
+   3.32,
+   3.02,
+   3.03,
+   3.13
+  ],
+  "bad": []
+ },
+ {
+  "values": {
+   "y": 0.06,
+   "w.stroke": 0.02
+  },
+  "tag": "行程 2 cm",
+  "status": "end",
+  "all_pass": false,
+  "forces": [
+   1.78,
+   3.84,
+   2.47,
+   4.36,
+   0.73,
+   3.25
+  ],
+  "bad": [
+   "press@out#3"
+  ]
+ },
+ {
+  "values": {
+   "y": -0.06,
+   "w.stroke": 0.02
+  },
+  "tag": "行程 2 cm",
+  "status": "end",
+  "all_pass": false,
+  "forces": [
+   3.12,
+   2.71,
+   4.52,
+   1.19,
+   3.35,
+   2.63
+  ],
+  "bad": [
+   "press@out#2",
+   "press@back#2"
+  ]
+ },
+ {
+  "values": {
+   "y": 0.06,
+   "w.care": 1.0,
+   "w/wipe.w_force": 6
+  },
+  "tag": "care=1 + 权重 6",
+  "status": "end",
+  "all_pass": true,
+  "forces": [
+   2.71,
+   3.03,
+   2.94,
+   3.01,
+   2.92,
+   3.02
+  ],
+  "bad": []
+ },
+ {
+  "values": {
+   "y": -0.06,
+   "w.care": 1.0,
+   "w/wipe.w_force": 6
+  },
+  "tag": "care=1 + 权重 6",
+  "status": "end",
+  "all_pass": true,
+  "forces": [
+   3.25,
+   3.0,
+   3.1,
+   2.99,
+   3.08,
+   2.98
+  ],
+  "bad": []
+ }
+]

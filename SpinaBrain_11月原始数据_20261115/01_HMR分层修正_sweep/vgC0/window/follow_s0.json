@@ -1,0 +1,657 @@
+{
+ "task": "follow",
+ "seed": 0,
+ "model": "oc:deepseek-v4.1-flash",
+ "window_s": 1.0,
+ "declared_done": true,
+ "oracle_ok": true,
+ "oracle": {
+  "mean_err": 0.0016,
+  "duration": 6.0
+ },
+ "calls": [
+  {
+   "t": 0.0,
+   "latency_s": 20.3,
+   "ok": true,
+   "errors": []
+  },
+  {
+   "t": 1.0,
+   "latency_s": 16.9,
+   "ok": true,
+   "errors": []
+  },
+  {
+   "t": 2.0,
+   "latency_s": 16.9,
+   "ok": true,
+   "errors": []
+  },
+  {
+   "t": 3.0,
+   "latency_s": 10.9,
+   "ok": true,
+   "errors": []
+  },
+  {
+   "t": 4.0,
+   "latency_s": 8.0,
+   "ok": true,
+   "errors": []
+  },
+  {
+   "t": 5.0,
+   "latency_s": 9.5,
+   "ok": true,
+   "errors": []
+  },
+  {
+   "t": 6.0,
+   "latency_s": 6.2,
+   "ok": true,
+   "errors": []
+  }
+ ],
+ "segments": [
+  {
+   "t": 0.0,
+   "entries": [
+    {
+     "id": "track_above",
+     "desc": "TCP 保持在物体坐标系正上方 10 cm",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "x",
+       "y",
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "target",
+      "value": [
+       0.0,
+       0.0,
+       0.1
+      ],
+      "tolerance": 0.02
+     },
+     "hierarchy": {
+      "level": "soft",
+      "priority": "task",
+      "weight": 5.0,
+      "loss": "quadratic"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "ramp",
+      "t_ramp": 0.5
+     }
+    },
+    {
+     "id": "clearance",
+     "desc": "不压到物体表面,至少留 5 cm",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "set",
+      "lower": 0.05,
+      "tolerance": 0.005
+     },
+     "hierarchy": {
+      "level": "hard",
+      "priority": "task"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    }
+   ],
+   "done": false,
+   "memo": "任务:工具跟踪移动物体 object:mov,始终在其正上方 0.10 m,共 6 s,每次调用覆盖约 1 s。第 1 s:从物体系 [-0.12,0,0.15] 起步,已下发 position target [0,0,0.10](live 绑定)+ 硬约束 z>=0.05。后续每段沿用同一条 position target(容差 0.02,ramp 0.5)与 clearance 硬约束;若验收误差 <0.02 且速度平稳即继续 hold;第 6 s 末置 done=true。无需改变姿态要求。"
+  },
+  {
+   "t": 1.0,
+   "entries": [
+    {
+     "id": "track_above",
+     "desc": "TCP 保持在物体坐标系正上方 0.10 m(live 跟随)",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "x",
+       "y",
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "target",
+      "value": [
+       0.0,
+       0.0,
+       0.1
+      ],
+      "tolerance": 0.02
+     },
+     "hierarchy": {
+      "level": "soft",
+      "priority": "task",
+      "weight": 5.0,
+      "loss": "quadratic"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "ramp",
+      "t_ramp": 0.3
+     }
+    },
+    {
+     "id": "clearance",
+     "desc": "始终高于物体上表面至少 5 cm",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "set",
+      "lower": 0.05,
+      "tolerance": 0.005
+     },
+     "hierarchy": {
+      "level": "hard",
+      "priority": "task"
+     },
+     "temporal": {
+      "stage": "w"
+     }
+    }
+   ],
+   "done": false,
+   "memo": "任务:工具跟踪 object:mov 正上方 0.10 m,共 6 s(约 6 次调用,每次 1 s)。现约 t=1.0 s:前一段 x 滞后 -0.039、z 偏高 +0.018,故本段 ramp 收紧到 0.3 加速收敛。后续每段沿用同一条 live position 目标 [0,0,0.10](tol 0.02)+ 硬约束 z>=0.05;若验收偏差 <0.02 且速度平稳则 profile 改 hold;t≈6 s 时置 done=true。"
+  },
+  {
+   "t": 2.0,
+   "entries": [
+    {
+     "id": "track_above",
+     "desc": "工具保持在物体:mov正上方 10 cm(跟随)",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "x",
+       "y",
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "target",
+      "value": [
+       0.0,
+       0.0,
+       0.1
+      ],
+      "tolerance": 0.02
+     },
+     "hierarchy": {
+      "level": "soft",
+      "priority": "task",
+      "weight": 5.0,
+      "loss": "quadratic"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    },
+    {
+     "id": "clearance",
+     "desc": "工具始终高于物体表面至少 5 cm",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live",
+      "axis": [
+       0,
+       0,
+       1
+      ]
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "set",
+      "lower": 0.05,
+      "tolerance": 0.005
+     },
+     "hierarchy": {
+      "level": "hard",
+      "priority": "task"
+     },
+     "temporal": {
+      "stage": "w"
+     }
+    }
+   ],
+   "done": false,
+   "memo": "任务:工具跟踪 object:mov 正上方 0.10 m,总时长 6 s(约 6 次调用)。现 t=3.0 s:上段验收全通过,残余偏差约 1.5 mm,z 保持在 0.10,已可 profile=hold。后续每段沿用同一组规格:live position 目标 [0,0,0.10](tol 0.02)+ 硬约束 z>=0.05;t≈6 s 时置 done=true。"
+  },
+  {
+   "t": 3.0,
+   "entries": [
+    {
+     "id": "track_above",
+     "desc": "工具保持在物体正上方 0.10 m(物体系,实时跟随)",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point",
+       "offset": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "x",
+       "y",
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "target",
+      "value": [
+       0.0,
+       0.0,
+       0.1
+      ],
+      "tolerance": 0.02
+     },
+     "hierarchy": {
+      "level": "soft",
+      "priority": "task",
+      "weight": 5,
+      "loss": "quadratic"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    },
+    {
+     "id": "clearance",
+     "desc": "不与物体表面过近,物体系竖直方向至少 0.05 m",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point",
+       "offset": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "set",
+      "lower": 0.05,
+      "tolerance": 0.005
+     },
+     "hierarchy": {
+      "level": "hard",
+      "priority": "task"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    }
+   ],
+   "done": false,
+   "memo": "任务:工具跟踪 object:mov 正上方 0.10 m,总时长 6 s(约 6 次调用)。现 t=3.0 s:上段验收全通过,偏差约 1.5 mm,z=0.0997 稳定。后续每段沿用同一组规格:live position 目标 [0,0,0.10](tol 0.02)+ 硬约束 z>=0.05;t≈6 s 时置 done=true。下次(t≈4 s)继续 hold。"
+  },
+  {
+   "t": 4.0,
+   "entries": [
+    {
+     "id": "track_above",
+     "desc": "工具保持在移动物体正上方 10 cm（跟随）",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "x",
+       "y",
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "target",
+      "value": [
+       0.0,
+       0.0,
+       0.1
+      ],
+      "tolerance": 0.02
+     },
+     "hierarchy": {
+      "level": "soft",
+      "priority": "task",
+      "weight": 5.0,
+      "loss": "quadratic"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    },
+    {
+     "id": "clearance",
+     "desc": "工具始终高于物体表面至少 5 cm",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "set",
+      "lower": 0.05,
+      "tolerance": 0.005
+     },
+     "hierarchy": {
+      "level": "hard",
+      "priority": "task"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    }
+   ],
+   "done": false,
+   "memo": "任务:工具跟踪 object:mov 正上方 0.10 m,总时长 6 s(约 6 次调用)。现 t=4.0 s:上段验收全通过,物体系内偏差约 1.4 mm,z=0.100 稳定,速度 0.013 m/s。后续沿用同一组规格:live position 目标 [0,0,0.10](tol 0.02)+ 硬约束 z>=0.05。下次(t≈5 s)继续 hold;t≈6 s 时置 done=true。"
+  },
+  {
+   "t": 5.0,
+   "entries": [
+    {
+     "id": "track_above",
+     "desc": "工具保持在移动物体正上方 10 cm(跟随物体系)",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point",
+       "offset": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "x",
+       "y",
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "target",
+      "value": [
+       0,
+       0,
+       0.1
+      ],
+      "tolerance": 0.02
+     },
+     "hierarchy": {
+      "level": "soft",
+      "priority": "task",
+      "weight": 5.0,
+      "loss": "quadratic"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    },
+    {
+     "id": "clearance",
+     "desc": "沿物体法向始终不低于 5 cm,避免碰撞",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point",
+       "offset": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live",
+      "axis": [
+       0,
+       0,
+       1
+      ]
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "set",
+      "lower": 0.05,
+      "tolerance": 0.005
+     },
+     "hierarchy": {
+      "level": "hard",
+      "priority": "task"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    }
+   ],
+   "done": false,
+   "memo": "任务:工具跟踪 object:mov 正上方 0.10 m,总时长 6 s(约 6 次调用)。现 t=5.0 s:上段验收全通过,物体系内偏差约 0.1 mm(x)、2 mm(y),z=0.0998 稳定,速度 0.045 m/s(随物体摆动)。后续沿用同一组规格:live position 目标 [0,0,0.10](tol 0.02)+ 硬约束 z>=0.05。下次调用 t≈6.0 s:任务已完成,直接输出同一组规格并置 done=true。"
+  },
+  {
+   "t": 6.0,
+   "entries": [
+    {
+     "id": "track_above",
+     "desc": "工具保持在物体正上方 10 cm(跟随移动物体)",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "x",
+       "y",
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "target",
+      "value": [
+       0.0,
+       0.0,
+       0.1
+      ],
+      "tolerance": 0.02
+     },
+     "hierarchy": {
+      "level": "soft",
+      "priority": "task"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    },
+    {
+     "id": "clearance",
+     "desc": "工具始终不低于物体上表面 5 cm",
+     "control": {
+      "entity": "tool",
+      "feature": {
+       "type": "point"
+      }
+     },
+     "reference": {
+      "frame": "object:mov",
+      "binding": "live"
+     },
+     "physical": {
+      "quantity": "position",
+      "axes": [
+       "z"
+      ]
+     },
+     "goal": {
+      "kind": "set",
+      "lower": 0.05,
+      "tolerance": 0.005
+     },
+     "hierarchy": {
+      "level": "hard",
+      "priority": "task"
+     },
+     "temporal": {
+      "stage": "w",
+      "profile": "hold"
+     }
+    }
+   ],
+   "done": true,
+   "memo": "任务完成:t=6.0 s 达到总时长 6 s,物体系内位置误差约 0.1–2 mm,z≈0.0997,clearance 0.0992 均通过验收。跟踪规格(live position [0,0,0.10] tol 0.02 + 硬约束 z>=0.05)保持不变,无需继续执行。"
+  }
+ ],
+ "llm_calls": 7,
+ "cost_usd": 0.00537,
+ "wall_s": 97.2,
+ "llm_latency_s": 88.7
+}

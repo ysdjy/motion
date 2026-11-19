@@ -1,0 +1,1159 @@
+{
+ "task": "period",
+ "probe": null,
+ "intent_probe": "spot",
+ "strategy_probe": null,
+ "disturb": null,
+ "disturb_log": null,
+ "bias": null,
+ "seed": 0,
+ "instruction": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上先压稳,然后以 1.2 秒为周期在 2 N 和 6 N 之间反复按压桌面。",
+ "stages": [
+  {
+   "id": "settle",
+   "t0": 5.500000000000171,
+   "t1": 8.000000000001005,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "attempts": [
+    {
+     "id": "settle",
+     "t0": 2.9999999999997806,
+     "t1": 5.500000000000171,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null
+    }
+   ]
+  },
+  {
+   "id": "tap",
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null
+  }
+ ],
+ "final_report": [
+  {
+   "id": "tap",
+   "cat": "T4",
+   "kind": "period",
+   "unit": "s",
+   "tol": 0.1,
+   "measured": 1.2022,
+   "deviation": 0.0022,
+   "pass": true,
+   "target": 1.2,
+   "method": "自相关中第一个高于最高峰 70% 的峰"
+  }
+ ],
+ "final_all_pass": true,
+ "source_unchanged": true,
+ "final_helpers_override": {
+  "settle": [
+   {
+    "id": "_f1",
+    "level": "tcp_force",
+    "attr": "force",
+    "frame": "surface:table",
+    "axes": [
+     "z"
+    ],
+    "mode": "target",
+    "target": 2.0,
+    "sigma": 2.0,
+    "weight": 3
+   },
+   {
+    "id": "_xy",
+    "level": "tcp_motion",
+    "attr": "pos",
+    "frame": "surface:table",
+    "axes": [
+     "x",
+     "y"
+    ],
+    "mode": "target",
+    "target": [
+     -0.05,
+     0.0
+    ],
+    "sigma": 0.005,
+    "weight": 2
+   },
+   {
+    "id": "_keep_ori",
+    "level": "tcp_motion",
+    "attr": "ori",
+    "frame": "start_tool",
+    "axes": [
+     "rx",
+     "ry",
+     "rz"
+    ],
+    "mode": "target",
+    "target": [
+     0,
+     0,
+     0
+    ],
+    "sigma": 0.02,
+    "weight": 4
+   }
+  ],
+  "tap": [
+   {
+    "id": "_xy",
+    "level": "tcp_motion",
+    "attr": "pos",
+    "frame": "surface:table",
+    "axes": [
+     "x",
+     "y"
+    ],
+    "mode": "target",
+    "target": [
+     -0.05,
+     0.0
+    ],
+    "sigma": 0.005,
+    "weight": 2
+   },
+   {
+    "id": "_keep_ori",
+    "level": "tcp_motion",
+    "attr": "ori",
+    "frame": "start_tool",
+    "axes": [
+     "rx",
+     "ry",
+     "rz"
+    ],
+    "mode": "target",
+    "target": [
+     0,
+     0,
+     0
+    ],
+    "sigma": 0.02,
+    "weight": 4
+   }
+  ]
+ },
+ "sim_s": 75.2,
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "t0": 2.9999999999997806,
+   "t1": 5.500000000000171,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.05,
+     "p95": 0.06,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0065,
+     "force": 3.3801
+    },
+    "resets": 4
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "settle",
+   "attempt": 1,
+   "t0": 5.500000000000171,
+   "t1": 8.000000000001005,
+   "exit": "time",
+   "pass": true,
+   "rows": [],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.08,
+     "calls": 125
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0075,
+     "force": 6.3775
+    },
+    "resets": 5
+   },
+   "action": "next"
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "t0": 8.000000000001005,
+   "t1": 15.999999999996572,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "tap",
+     "cat": "T4",
+     "kind": "period",
+     "unit": "s",
+     "tol": 0.1,
+     "measured": 1.2022,
+     "deviation": 0.0022,
+     "pass": true,
+     "target": 1.2,
+     "method": "自相关中第一个高于最高峰 70% 的峰"
+    }
+   ],
+   "monitor": {
+    "_cost_ms": {
+     "mean": 0.06,
+     "p95": 0.08,
+     "calls": 400
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.0047,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ],
+ "audits": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "veto",
+   "veto": true,
+   "n_ok": 0,
+   "n_veto": 3,
+   "n_error": 0,
+   "reason": "在 A 点压稳阶段，实测 x 坐标为 -2.17 cm，与要求的 -5 cm 偏差超出了 5 cm 的容差范围。",
+   "checks": [
+    {
+     "requirement": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上",
+     "evidence": "tcp_in_frames_m['surface:table']: [-0.0217, 0.0003, 0.0088]",
+     "quantity": "position_m",
+     "expected": [
+      -0.05,
+      0.0
+     ],
+     "measured": [
+      -0.0217,
+      0.0003
+     ],
+     "tolerance": 0.05,
+     "ok": false,
+     "rule_ok": false
+    },
+    {
+     "requirement": "先压稳",
+     "evidence": "normal_force_on_table_N: 1.1, touching_table: true",
+     "quantity": "force_N",
+     "expected": null,
+     "measured": 1.1,
+     "tolerance": null,
+     "ok": true,
+     "rule_ok": null
+    }
+   ],
+   "missing_requirements": [
+    "在 A 点先压稳"
+   ],
+   "suspect_items": [],
+   "error": null,
+   "raw": null,
+   "votes": [
+    {
+     "verdict": "veto",
+     "reason": "在 A 点压稳阶段，实测 x 坐标为 -2.17 cm，与要求的 -5 cm 偏差超出了 5 cm 的容差范围。",
+     "checks": [
+      {
+       "requirement": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上",
+       "evidence": "tcp_in_frames_m['surface:table']: [-0.0217, 0.0003, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0217,
+        0.0003
+       ],
+       "tolerance": 0.05,
+       "ok": false,
+       "rule_ok": false
+      },
+      {
+       "requirement": "先压稳",
+       "evidence": "normal_force_on_table_N: 1.1, touching_table: true",
+       "quantity": "force_N",
+       "expected": null,
+       "measured": 1.1,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "在 A 点先压稳"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "veto",
+     "reason": "机械臂在 settle 阶段停留在桌面上的位置（x = -0.022 m）与用户原话要求的 A 点（x = -0.05 m）存在明显偏差，超出了 5 cm 的容差范围。",
+     "checks": [
+      {
+       "requirement": "在 A 点(x = -0.05m, y = 0)压稳",
+       "evidence": "tcp_in_frames_m.surface:table: [-0.022, 0.0003, 0.0092]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.022,
+        0.0003
+       ],
+       "tolerance": 0.05,
+       "ok": false,
+       "rule_ok": false
+      },
+      {
+       "requirement": "接触桌面并压稳",
+       "evidence": "touching_table: true, normal_force_on_table_N: 1.1",
+       "quantity": "force_N",
+       "expected": null,
+       "measured": 1.1,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "在 A 点先压稳的具体坐标要求未在验收表中体现"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "veto",
+     "reason": "当前阶段要求在桌面 A 点（x = -5 cm, y = 0）压稳，但实测 A 点位置的 x 坐标为 -2.2 cm，超出 5 mm 的位置容差。",
+     "checks": [
+      {
+       "requirement": "在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上",
+       "evidence": "tcp_in_frames_m.surface:table = [-0.022, 0.0003, 0.0092] (x = -2.2 cm, 与期望的 -5 cm 存在一定偏差)",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.022,
+        0.0003
+       ],
+       "tolerance": 0.005,
+       "ok": false,
+       "rule_ok": false
+      },
+      {
+       "requirement": "先压稳",
+       "evidence": "touching_table = true, normal_force_on_table_N = 1.1",
+       "quantity": "force_N",
+       "expected": null,
+       "measured": 1.1,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)的精确定位验收项"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    }
+   ],
+   "observation": {
+    "t_s": 5.5,
+    "tcp_base_m": [
+     0.5283,
+     0.0003,
+     0.1088
+    ],
+    "tool_tilt_from_down_deg": 0.2,
+    "normal_force_on_table_N": 1.1,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.2213,
+      -0.0002,
+      0.3781
+     ],
+     "surface:table": [
+      -0.0217,
+      0.0003,
+      0.0088
+     ]
+    },
+    "stage_stats": {
+     "window_s": [
+      4.0,
+      5.5
+     ],
+     "tcp_in_frames_m": {
+      "start_tool": {
+       "mean": [
+        0.221,
+        -0.0002,
+        0.3777
+       ],
+       "max_abs_dev_from_mean": [
+        0.0038,
+        0.0003,
+        0.0038
+       ]
+      },
+      "surface:table": {
+       "mean": [
+        -0.022,
+        0.0003,
+        0.0092
+       ],
+       "max_abs_dev_from_mean": [
+        0.0038,
+        0.0003,
+        0.0038
+       ]
+      }
+     }
+    },
+    "robot_min_gap_to_table_mm": -0.1,
+    "touching_table": true
+   },
+   "latency_s": 3.07,
+   "suggestion": "重装源规格(补项 / 改契约),不改验收"
+  },
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "ok",
+   "veto": false,
+   "n_ok": 3,
+   "n_veto": 0,
+   "n_error": 0,
+   "reason": "当前阶段为 settle，要求在桌面 A 点压稳。实测位置符合 A 点坐标，且保持接触和稳定压力。",
+   "checks": [
+    {
+     "requirement": "笔尖在桌面 A 点(桌面坐标系 x = -5 cm、y = 0)上",
+     "evidence": "tcp_in_frames_m.surface:table = [-0.0488, -0.0001, 0.0088]",
+     "quantity": "position_m",
+     "expected": [
+      -0.05,
+      0.0
+     ],
+     "measured": [
+      -0.0488,
+      -0.0001
+     ],
+     "tolerance": 0.005,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "压稳在 A 点",
+     "evidence": "touching_table = true, normal_force_on_table_N = 2.06",
+     "quantity": "force_N",
+     "expected": null,
+     "measured": 2.06,
+     "tolerance": null,
+     "ok": true,
+     "rule_ok": null
+    }
+   ],
+   "missing_requirements": [
+    "在桌面 A 点压稳的具体位置和力控要求未体现在验收表中"
+   ],
+   "suspect_items": [],
+   "error": null,
+   "raw": null,
+   "votes": [
+    {
+     "verdict": "ok",
+     "reason": "当前阶段为 settle，要求在桌面 A 点压稳。实测位置符合 A 点坐标，且保持接触和稳定压力。",
+     "checks": [
+      {
+       "requirement": "笔尖在桌面 A 点(桌面坐标系 x = -5 cm、y = 0)上",
+       "evidence": "tcp_in_frames_m.surface:table = [-0.0488, -0.0001, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0488,
+        -0.0001
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "压稳在 A 点",
+       "evidence": "touching_table = true, normal_force_on_table_N = 2.06",
+       "quantity": "force_N",
+       "expected": null,
+       "measured": 2.06,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "在桌面 A 点压稳的具体位置和力控要求未体现在验收表中"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前处于 settle 阶段，工具已准确到达桌面 A 点并保持接触与稳定压紧，符合要求。",
+     "checks": [
+      {
+       "requirement": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上",
+       "evidence": "tcp_in_frames_m['surface:table']: [-0.0488, -0.0001, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0488,
+        -0.0001
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "压稳在 A 点（接触桌面）",
+       "evidence": "touching_table: true, normal_force_on_table_N: 2.06",
+       "quantity": "force_N",
+       "expected": null,
+       "measured": 2.06,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "笔尖在桌面 A 点先压稳"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "当前处于 settle 阶段，机械臂已准确到达桌面 A 点（x=-4.88 cm, y=-0.01 cm），与桌面接触并保持压稳状态，符合原话要求。",
+     "checks": [
+      {
+       "requirement": "笔尖在桌面 A 点(桌面坐标系 x = −5 cm、y = 0)上",
+       "evidence": "tcp_in_frames_m['surface:table'] = [-0.0488, -0.0001, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0488,
+        -0.0001
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "在 A 点先压稳",
+       "evidence": "touching_table = true, normal_force_on_table_N = 2.06",
+       "quantity": "force_N",
+       "expected": null,
+       "measured": 2.06,
+       "tolerance": null,
+       "ok": true,
+       "rule_ok": null
+      }
+     ],
+     "missing_requirements": [
+      "笔尖在桌面 A 点的定位和压稳要求未体现在逐项验收表中"
+     ],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    }
+   ],
+   "observation": {
+    "t_s": 8.0,
+    "tcp_base_m": [
+     0.5012,
+     -0.0001,
+     0.1088
+    ],
+    "tool_tilt_from_down_deg": 0.2,
+    "normal_force_on_table_N": 2.06,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.1942,
+      0.0001,
+      0.3781
+     ],
+     "surface:table": [
+      -0.0488,
+      -0.0001,
+      0.0088
+     ]
+    },
+    "stage_stats": {
+     "window_s": [
+      6.5,
+      8.0
+     ],
+     "tcp_in_frames_m": {
+      "start_tool": {
+       "mean": [
+        0.1943,
+        0.0003,
+        0.3779
+       ],
+       "max_abs_dev_from_mean": [
+        0.0008,
+        0.0002,
+        0.0023
+       ]
+      },
+      "surface:table": {
+       "mean": [
+        -0.0487,
+        -0.0002,
+        0.0089
+       ],
+       "max_abs_dev_from_mean": [
+        0.0008,
+        0.0002,
+        0.0023
+       ]
+      }
+     }
+    },
+    "robot_min_gap_to_table_mm": -0.1,
+    "touching_table": true
+   },
+   "latency_s": 13.91,
+   "suggestion": null
+  },
+  {
+   "stage": "tap",
+   "attempt": 0,
+   "model": "gemini-flash-lite-latest",
+   "verdict": "ok",
+   "veto": false,
+   "n_ok": 3,
+   "n_veto": 0,
+   "n_error": 0,
+   "reason": "当前阶段成功在 A 点以 1.2 秒为周期进行按压，周期与位置均符合要求。",
+   "checks": [
+    {
+     "requirement": "在 A 点按 1.2 s 周期反复按压",
+     "evidence": "measured period: 1.2022 s, target: 1.2 s",
+     "quantity": "time_s",
+     "expected": 1.2,
+     "measured": 1.2022,
+     "tolerance": 0.1,
+     "ok": true,
+     "rule_ok": true
+    },
+    {
+     "requirement": "保持在 A 点位置（桌面坐标系 x = -5 cm, y = 0）",
+     "evidence": "surface:table mean position: [-0.0501, 0.0, 0.0088]",
+     "quantity": "position_m",
+     "expected": [
+      -0.05,
+      0.0
+     ],
+     "measured": [
+      -0.0501,
+      0.0
+     ],
+     "tolerance": 0.005,
+     "ok": true,
+     "rule_ok": true
+    }
+   ],
+   "missing_requirements": [
+    "在 2 N 和 6 N 之间反复按压的力幅值验收项未在验收表中体现"
+   ],
+   "suspect_items": [
+    {
+     "id": "tap",
+     "reason": "验收表仅检查了周期，未包含 2 N 到 6 N 的力范围验收项"
+    }
+   ],
+   "error": null,
+   "raw": null,
+   "votes": [
+    {
+     "verdict": "ok",
+     "reason": "当前阶段成功在 A 点以 1.2 秒为周期进行按压，周期与位置均符合要求。",
+     "checks": [
+      {
+       "requirement": "在 A 点按 1.2 s 周期反复按压",
+       "evidence": "measured period: 1.2022 s, target: 1.2 s",
+       "quantity": "time_s",
+       "expected": 1.2,
+       "measured": 1.2022,
+       "tolerance": 0.1,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "保持在 A 点位置（桌面坐标系 x = -5 cm, y = 0）",
+       "evidence": "surface:table mean position: [-0.0501, 0.0, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0501,
+        0.0
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [
+      "在 2 N 和 6 N 之间反复按压的力幅值验收项未在验收表中体现"
+     ],
+     "suspect_items": [
+      {
+       "id": "tap",
+       "reason": "验收表仅检查了周期，未包含 2 N 到 6 N 的力范围验收项"
+      }
+     ],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "各项指标均符合原话要求，按压周期和位置准确。",
+     "checks": [
+      {
+       "requirement": "在 A 点（桌面坐标系 x = -5 cm、y = 0）进行按压",
+       "evidence": "tcp_in_frames_m surface:table mean: [-0.0501, 0.0, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0501,
+        0.0
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "周期为 1.2 秒",
+       "evidence": "measured 1.2022 s, target 1.2 s",
+       "quantity": "time_s",
+       "expected": 1.2,
+       "measured": 1.2022,
+       "tolerance": 0.1,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [
+      "在 2 N 和 6 N 之间反复按压的力幅值范围验收项未在验收表中体现"
+     ],
+     "suspect_items": [
+      {
+       "id": "tap",
+       "reason": "验收表仅包含了周期项，缺少对 2 N 和 6 N 力幅值范围的直接验收项"
+      }
+     ],
+     "error": null,
+     "raw": null
+    },
+    {
+     "verdict": "ok",
+     "reason": "按压周期和位置均符合原话要求，且验收通过。",
+     "checks": [
+      {
+       "requirement": "在 A 点以 1.2 秒为周期反复按压",
+       "evidence": "period measured = 1.2022 s",
+       "quantity": "time_s",
+       "expected": 1.2,
+       "measured": 1.2022,
+       "tolerance": 0.1,
+       "ok": true,
+       "rule_ok": true
+      },
+      {
+       "requirement": "在 A 点位置（桌面坐标系 x = -5 cm, y = 0）进行按压",
+       "evidence": "tcp_in_frames_m surface:table mean = [-0.0501, 0.0, 0.0088]",
+       "quantity": "position_m",
+       "expected": [
+        -0.05,
+        0.0
+       ],
+       "measured": [
+        -0.0501,
+        0.0
+       ],
+       "tolerance": 0.005,
+       "ok": true,
+       "rule_ok": true
+      }
+     ],
+     "missing_requirements": [],
+     "suspect_items": [],
+     "error": null,
+     "raw": null
+    }
+   ],
+   "observation": {
+    "t_s": 16.0,
+    "tcp_base_m": [
+     0.4989,
+     0.0,
+     0.1088
+    ],
+    "tool_tilt_from_down_deg": 0.1,
+    "normal_force_on_table_N": 3.31,
+    "tcp_in_frames_m": {
+     "start_tool": [
+      0.1919,
+      0.0,
+      0.3781
+     ],
+     "surface:table": [
+      -0.0511,
+      0.0,
+      0.0088
+     ]
+    },
+    "stage_stats": {
+     "window_s": [
+      9.0,
+      16.0
+     ],
+     "tcp_in_frames_m": {
+      "start_tool": {
+       "mean": [
+        0.1928,
+        0.0001,
+        0.3781
+       ],
+       "max_abs_dev_from_mean": [
+        0.0011,
+        0.0001,
+        0.0
+       ]
+      },
+      "surface:table": {
+       "mean": [
+        -0.0501,
+        0.0,
+        0.0088
+       ],
+       "max_abs_dev_from_mean": [
+        0.0011,
+        0.0001,
+        0.0
+       ]
+      }
+     }
+    },
+    "robot_min_gap_to_table_mm": -0.1,
+    "touching_table": true
+   },
+   "latency_s": 3.02,
+   "suggestion": null
+  }
+ ],
+ "repairs": [],
+ "events": [],
+ "timeline": [],
+ "levels": [
+  {
+   "stage": "settle",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "意图审计否决"
+   ]
+  }
+ ],
+ "replans": [
+  {
+   "stage": "settle",
+   "trigger": [
+    "意图审计否决"
+   ],
+   "veto": true,
+   "model": "gemini-3.5-flash",
+   "helpers_before": [
+    {
+     "id": "_f1",
+     "level": "tcp_force",
+     "attr": "force",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": 2.0,
+     "sigma": 2.0,
+     "weight": 3
+    },
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.02,
+      0.0
+     ],
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "later_helpers_before": {
+    "tap": [
+     {
+      "id": "_xy",
+      "level": "tcp_motion",
+      "attr": "pos",
+      "frame": "surface:table",
+      "axes": [
+       "x",
+       "y"
+      ],
+      "mode": "target",
+      "target": [
+       -0.02,
+       0.0
+      ],
+      "sigma": 0.005,
+      "weight": 2
+     },
+     {
+      "id": "_keep_ori",
+      "level": "tcp_motion",
+      "attr": "ori",
+      "frame": "start_tool",
+      "axes": [
+       "rx",
+       "ry",
+       "rz"
+      ],
+      "mode": "target",
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "sigma": 0.02,
+      "weight": 4
+     }
+    ]
+   },
+   "later_helpers_after": {
+    "tap": [
+     {
+      "id": "_xy",
+      "level": "tcp_motion",
+      "attr": "pos",
+      "frame": "surface:table",
+      "axes": [
+       "x",
+       "y"
+      ],
+      "mode": "target",
+      "target": [
+       -0.05,
+       0.0
+      ],
+      "sigma": 0.005,
+      "weight": 2
+     },
+     {
+      "id": "_keep_ori",
+      "level": "tcp_motion",
+      "attr": "ori",
+      "frame": "start_tool",
+      "axes": [
+       "rx",
+       "ry",
+       "rz"
+      ],
+      "mode": "target",
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "sigma": 0.02,
+      "weight": 4
+     }
+    ]
+   },
+   "diagnosis": "策略项中 A 点的 x 坐标设为了 -0.02 m（-2 cm），而用户原话明确要求 A 点 x 坐标为 -5 cm（-0.05 m），导致机械臂在错误的位置上按压。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 25.76,
+   "helpers_after": [
+    {
+     "id": "_f1",
+     "level": "tcp_force",
+     "attr": "force",
+     "frame": "surface:table",
+     "axes": [
+      "z"
+     ],
+     "mode": "target",
+     "target": 2.0,
+     "sigma": 2.0,
+     "weight": 3
+    },
+    {
+     "id": "_xy",
+     "level": "tcp_motion",
+     "attr": "pos",
+     "frame": "surface:table",
+     "axes": [
+      "x",
+      "y"
+     ],
+     "mode": "target",
+     "target": [
+      -0.05,
+      0.0
+     ],
+     "sigma": 0.005,
+     "weight": 2
+    },
+    {
+     "id": "_keep_ori",
+     "level": "tcp_motion",
+     "attr": "ori",
+     "frame": "start_tool",
+     "axes": [
+      "rx",
+      "ry",
+      "rz"
+     ],
+     "mode": "target",
+     "target": [
+      0,
+      0,
+      0
+     ],
+     "sigma": 0.02,
+     "weight": 4
+    }
+   ],
+   "later_changed": [
+    "tap"
+   ]
+  }
+ ],
+ "exec_events": [],
+ "early_stops": [],
+ "recoveries": [],
+ "config": {
+  "monitor_cycles": 1,
+  "drift_h": 0.25,
+  "on_fail": "hier",
+  "max_retries": 2,
+  "audit_model": "gemini-flash-lite-latest",
+  "audit_votes": 3,
+  "on_veto": "replan",
+  "exec_monitor": true,
+  "exec_pos_m": 0.015,
+  "exec_force_n": 3.0,
+  "exec_hold_s": 0.15,
+  "stall_win_s": 0.5,
+  "stall_frac": 0.05,
+  "early_stop_s": null,
+  "l0_max": 1,
+  "l1_max": 3,
+  "l2_max": 1,
+  "no_progress": 0.2,
+  "replan_model": "gemini-3.5-flash",
+  "l1_escalate_flag": false
+ }
+}

@@ -1,0 +1,3704 @@
+{
+ "task": "config",
+ "probe": null,
+ "intent_probe": null,
+ "strategy_probe": "elbow_lock",
+ "disturb": null,
+ "disturb_log": null,
+ "bias": null,
+ "seed": 0,
+ "instruction": "末端保持在起始位置不动,把手肘摆到左侧(基座 +y 一侧)。",
+ "stages": [
+  {
+   "id": "go",
+   "t0": 2.9999999999997806,
+   "t1": 6.000000000000338,
+   "done": true,
+   "exit": "time",
+   "f_at_switch": null,
+   "attempts": [
+    {
+     "id": "go",
+     "t0": 0.0,
+     "t1": 2.9999999999997806,
+     "done": true,
+     "exit": "time",
+     "f_at_switch": null
+    }
+   ]
+  }
+ ],
+ "final_report": [
+  {
+   "id": "arm",
+   "cat": "J4",
+   "kind": "config",
+   "unit": "-",
+   "tol": 0.0,
+   "measured": "left",
+   "deviation": null,
+   "pass": true,
+   "target": "left",
+   "elbow_y": 0.0711
+  },
+  {
+   "id": "hold3",
+   "cat": "G1",
+   "kind": "target",
+   "unit": "m",
+   "tol": 0.005,
+   "measured": [
+    0.3072,
+    0.0002,
+    0.4869
+   ],
+   "deviation": [
+    0.0002,
+    0.0002,
+    0.0001
+   ],
+   "pass": true,
+   "target": [
+    0.307,
+    -0.0,
+    0.4869
+   ]
+  }
+ ],
+ "final_all_pass": true,
+ "source_unchanged": true,
+ "final_helpers_override": {
+  "go": [
+   {
+    "id": "_tool_down",
+    "level": "tcp_motion",
+    "attr": "ori_cone",
+    "frame": "base",
+    "ref_axis": [
+     0,
+     0,
+     -1
+    ],
+    "tool_axis": [
+     0,
+     0,
+     1
+    ],
+    "mode": "upper",
+    "ub": 0.1,
+    "sigma": 0.05,
+    "weight": 2
+   },
+   {
+    "id": "_elbow_side",
+    "level": "joint",
+    "attr": "link_pos",
+    "link": 4,
+    "axes": [
+     "y"
+    ],
+    "mode": "lower",
+    "lb": 0.04,
+    "sigma": 0.01,
+    "weight": 4
+   }
+  ]
+ },
+ "sim_s": 31.5,
+ "aborted": false,
+ "abort_reason": null,
+ "gates": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "t0": 0.0,
+   "t1": 2.9999999999997806,
+   "exit": "time",
+   "pass": false,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "right",
+     "deviation": null,
+     "pass": false,
+     "target": "left",
+     "elbow_y": -0.0421
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3068,
+      -0.0002,
+      0.4872
+     ],
+     "deviation": [
+      -0.0002,
+      -0.0002,
+      0.0003
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 75,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.1,
+     "p95": 4.38,
+     "calls": 150
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.008,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "L2+retry"
+  },
+  {
+   "stage": "go",
+   "attempt": 1,
+   "t0": 2.9999999999997806,
+   "t1": 6.000000000000338,
+   "exit": "time",
+   "pass": true,
+   "rows": [
+    {
+     "id": "arm",
+     "cat": "J4",
+     "kind": "config",
+     "unit": "-",
+     "tol": 0.0,
+     "measured": "left",
+     "deviation": null,
+     "pass": true,
+     "target": "left",
+     "elbow_y": 0.0711
+    },
+    {
+     "id": "hold3",
+     "cat": "G1",
+     "kind": "target",
+     "unit": "m",
+     "tol": 0.005,
+     "measured": [
+      0.3072,
+      0.0002,
+      0.4869
+     ],
+     "deviation": [
+      0.0002,
+      0.0002,
+      0.0001
+     ],
+     "pass": true,
+     "target": [
+      0.307,
+      -0.0,
+      0.4869
+     ]
+    }
+   ],
+   "monitor": {
+    "hold3": {
+     "final_pass": true,
+     "samples": 75,
+     "first_alarm": {},
+     "fail_lead_s": null,
+     "error": null
+    },
+    "_cost_ms": {
+     "mean": 2.11,
+     "p95": 4.45,
+     "calls": 150
+    }
+   },
+   "exec": {
+    "alarms": [],
+    "peak": {
+     "track": 0.005,
+     "force": 0.0
+    },
+    "resets": 0
+   },
+   "action": "next"
+  }
+ ],
+ "audits": [],
+ "repairs": [
+  {
+   "stage": "go",
+   "attempt": 1,
+   "patch": [],
+   "dropped": [],
+   "problems": [],
+   "infeasible": [
+    {
+     "id": "arm",
+     "reason": "目标手臂构型(left)无法满足，实测手肘位置处于右侧(elbow_y = -0.0421 < 0)，无法逆解或到达左侧构型。"
+    }
+   ],
+   "latency_s": 11.48,
+   "error": null,
+   "note": "大模型声明不可达;仍按补丁重跑一次,结果以复验为准",
+   "level": "L1"
+  }
+ ],
+ "events": [],
+ "timeline": [
+  {
+   "stage": "go",
+   "t": 1.52,
+   "id": "hold3",
+   "meas": [
+    0.3076,
+    0.001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3076,
+    -0.0003,
+    0.4892
+   ],
+   "pred_ok": true,
+   "z": 0.206,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.54,
+   "id": "hold3",
+   "meas": [
+    0.3076,
+    0.001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3075,
+    -0.0003,
+    0.4889
+   ],
+   "pred_ok": true,
+   "z": 0.192,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.56,
+   "id": "hold3",
+   "meas": [
+    0.3076,
+    0.001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3075,
+    -0.0002,
+    0.489
+   ],
+   "pred_ok": true,
+   "z": 0.18,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.58,
+   "id": "hold3",
+   "meas": [
+    0.3076,
+    0.0009,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3075,
+    -0.0002,
+    0.4887
+   ],
+   "pred_ok": true,
+   "z": 0.168,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.6,
+   "id": "hold3",
+   "meas": [
+    0.3076,
+    0.0009,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3074,
+    -0.0002,
+    0.4886
+   ],
+   "pred_ok": true,
+   "z": 0.158,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.62,
+   "id": "hold3",
+   "meas": [
+    0.3075,
+    0.0009,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3076,
+    -0.0002,
+    0.4886
+   ],
+   "pred_ok": true,
+   "z": 0.147,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.64,
+   "id": "hold3",
+   "meas": [
+    0.3075,
+    0.0008,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3075,
+    -0.0001,
+    0.4886
+   ],
+   "pred_ok": true,
+   "z": 0.137,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.66,
+   "id": "hold3",
+   "meas": [
+    0.3075,
+    0.0008,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3075,
+    -0.0004,
+    0.4885
+   ],
+   "pred_ok": true,
+   "z": 0.127,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.68,
+   "id": "hold3",
+   "meas": [
+    0.3075,
+    0.0008,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3075,
+    -0.0002,
+    0.4883
+   ],
+   "pred_ok": true,
+   "z": 0.116,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.7,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0008,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3073,
+    -0.0001,
+    0.4884
+   ],
+   "pred_ok": true,
+   "z": 0.105,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.72,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0007,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3073,
+    -0.0002,
+    0.4886
+   ],
+   "pred_ok": true,
+   "z": 0.094,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.74,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0007,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3074,
+    -0.0002,
+    0.4886
+   ],
+   "pred_ok": true,
+   "z": 0.083,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.76,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0007,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3074,
+    -0.0002,
+    0.4885
+   ],
+   "pred_ok": true,
+   "z": 0.073,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.78,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0007,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3075,
+    -0.0001,
+    0.4883
+   ],
+   "pred_ok": true,
+   "z": 0.063,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.8,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0006,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3075,
+    -0.0001,
+    0.4882
+   ],
+   "pred_ok": true,
+   "z": 0.061,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.82,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0006,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3074,
+    -0.0001,
+    0.4883
+   ],
+   "pred_ok": true,
+   "z": 0.062,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.84,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0006,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3073,
+    -0.0002,
+    0.4882
+   ],
+   "pred_ok": true,
+   "z": 0.063,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.86,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0006,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    0.0,
+    0.4882
+   ],
+   "pred_ok": true,
+   "z": 0.064,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.88,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0005,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0001,
+    0.4881
+   ],
+   "pred_ok": true,
+   "z": 0.064,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.9,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0005,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0,
+    0.488
+   ],
+   "pred_ok": true,
+   "z": 0.066,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.92,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0005,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0,
+    0.488
+   ],
+   "pred_ok": true,
+   "z": 0.067,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.94,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0005,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0001,
+    0.488
+   ],
+   "pred_ok": true,
+   "z": 0.069,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.96,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0004,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3073,
+    -0.0002,
+    0.4878
+   ],
+   "pred_ok": true,
+   "z": 0.071,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 1.98,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0004,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3073,
+    -0.0001,
+    0.4877
+   ],
+   "pred_ok": true,
+   "z": 0.073,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 2.0,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0004,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0002,
+    0.4878
+   ],
+   "pred_ok": true,
+   "z": 0.073,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.02,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0004,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0,
+    0.4879
+   ],
+   "pred_ok": true,
+   "z": 0.072,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.04,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0003,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    0.0001,
+    0.4879
+   ],
+   "pred_ok": true,
+   "z": 0.069,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.06,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0003,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    0.0,
+    0.4879
+   ],
+   "pred_ok": true,
+   "z": 0.066,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.08,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0003,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0001,
+    0.4878
+   ],
+   "pred_ok": true,
+   "z": 0.064,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.1,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0003,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0002,
+    0.4878
+   ],
+   "pred_ok": true,
+   "z": 0.062,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.12,
+   "id": "hold3",
+   "meas": [
+    0.3071,
+    0.0003,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0002,
+    0.4877
+   ],
+   "pred_ok": true,
+   "z": 0.061,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.14,
+   "id": "hold3",
+   "meas": [
+    0.3071,
+    0.0003,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0002,
+    0.4876
+   ],
+   "pred_ok": true,
+   "z": 0.06,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.16,
+   "id": "hold3",
+   "meas": [
+    0.3071,
+    0.0002,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.307,
+    -0.0001,
+    0.4876
+   ],
+   "pred_ok": true,
+   "z": 0.059,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.18,
+   "id": "hold3",
+   "meas": [
+    0.3071,
+    0.0002,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.307,
+    -0.0,
+    0.4876
+   ],
+   "pred_ok": true,
+   "z": 0.059,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.2,
+   "id": "hold3",
+   "meas": [
+    0.3071,
+    0.0002,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4876
+   ],
+   "pred_ok": true,
+   "z": 0.063,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.22,
+   "id": "hold3",
+   "meas": [
+    0.3071,
+    0.0002,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0001,
+    0.4876
+   ],
+   "pred_ok": true,
+   "z": 0.07,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.24,
+   "id": "hold3",
+   "meas": [
+    0.3071,
+    0.0002,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4876
+   ],
+   "pred_ok": true,
+   "z": 0.077,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.26,
+   "id": "hold3",
+   "meas": [
+    0.3071,
+    0.0002,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0,
+    0.4876
+   ],
+   "pred_ok": true,
+   "z": 0.083,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.28,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0002,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.086,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.3,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    0.0,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.088,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.32,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.09,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.34,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.307,
+    -0.0,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.091,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.36,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0002,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.092,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.38,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.307,
+    -0.0002,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.093,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.4,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.307,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.093,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.42,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.307,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.094,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.44,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.095,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.46,
+   "id": "hold3",
+   "meas": [
+    0.307,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.096,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.48,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.097,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.5,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.098,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.52,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.098,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.54,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.099,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.56,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.1,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.58,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.1,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.6,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.101,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.62,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.102,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.64,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.103,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.66,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.103,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.68,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.104,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.7,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.104,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.72,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.104,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.74,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3072,
+    -0.0,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.105,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.76,
+   "id": "hold3",
+   "meas": [
+    0.3069,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.106,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.78,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.106,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.8,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.106,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.82,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.105,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.84,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0,
+    0.4875
+   ],
+   "pred_ok": true,
+   "z": 0.106,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.86,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.107,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.88,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4874
+   ],
+   "pred_ok": true,
+   "z": 0.108,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.9,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4873
+   ],
+   "pred_ok": true,
+   "z": 0.109,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.92,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4872
+   ],
+   "pred_ok": true,
+   "z": 0.11,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.94,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0001,
+    0.4872
+   ],
+   "pred_ok": true,
+   "z": 0.11,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.96,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    0.0,
+    0.4872
+   ],
+   "pred_ok": true,
+   "z": 0.11,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 2.98,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0,
+    0.4873
+   ],
+   "pred_ok": true,
+   "z": 0.111,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 3.0,
+   "id": "hold3",
+   "meas": [
+    0.3068,
+    -0.0002,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3071,
+    -0.0,
+    0.4873
+   ],
+   "pred_ok": true,
+   "z": 0.112,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 4.52,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3052,
+    0.0011,
+    0.4856
+   ],
+   "pred_ok": true,
+   "z": 0.077,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.54,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3053,
+    0.0011,
+    0.4856
+   ],
+   "pred_ok": true,
+   "z": 0.081,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.56,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3053,
+    0.001,
+    0.4857
+   ],
+   "pred_ok": true,
+   "z": 0.084,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.58,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3054,
+    0.001,
+    0.4858
+   ],
+   "pred_ok": true,
+   "z": 0.086,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.6,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3055,
+    0.001,
+    0.4858
+   ],
+   "pred_ok": true,
+   "z": 0.088,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.62,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3055,
+    0.001,
+    0.4858
+   ],
+   "pred_ok": true,
+   "z": 0.088,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.64,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3056,
+    0.0009,
+    0.4858
+   ],
+   "pred_ok": true,
+   "z": 0.088,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.66,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3056,
+    0.0009,
+    0.4859
+   ],
+   "pred_ok": true,
+   "z": 0.088,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.68,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3057,
+    0.0009,
+    0.486
+   ],
+   "pred_ok": true,
+   "z": 0.087,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.7,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3057,
+    0.0008,
+    0.4859
+   ],
+   "pred_ok": true,
+   "z": 0.086,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.72,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    -0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3057,
+    0.0008,
+    0.4859
+   ],
+   "pred_ok": true,
+   "z": 0.084,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.74,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3058,
+    0.0008,
+    0.4859
+   ],
+   "pred_ok": true,
+   "z": 0.081,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.76,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3058,
+    0.0007,
+    0.486
+   ],
+   "pred_ok": true,
+   "z": 0.078,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.78,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3059,
+    0.0007,
+    0.486
+   ],
+   "pred_ok": true,
+   "z": 0.08,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.8,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3059,
+    0.0008,
+    0.4859
+   ],
+   "pred_ok": true,
+   "z": 0.08,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.82,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3059,
+    0.0007,
+    0.486
+   ],
+   "pred_ok": true,
+   "z": 0.08,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.84,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3059,
+    0.0007,
+    0.486
+   ],
+   "pred_ok": true,
+   "z": 0.078,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.86,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3059,
+    0.0007,
+    0.486
+   ],
+   "pred_ok": true,
+   "z": 0.075,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.88,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.306,
+    0.0007,
+    0.4861
+   ],
+   "pred_ok": true,
+   "z": 0.071,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.9,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.306,
+    0.0006,
+    0.4861
+   ],
+   "pred_ok": true,
+   "z": 0.067,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.92,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.306,
+    0.0006,
+    0.4861
+   ],
+   "pred_ok": true,
+   "z": 0.065,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.94,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.306,
+    0.0006,
+    0.4861
+   ],
+   "pred_ok": true,
+   "z": 0.064,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.96,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3061,
+    0.0006,
+    0.4861
+   ],
+   "pred_ok": true,
+   "z": 0.064,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 4.98,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3061,
+    0.0006,
+    0.4861
+   ],
+   "pred_ok": true,
+   "z": 0.063,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": null
+  },
+  {
+   "stage": "go",
+   "t": 5.0,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3061,
+    0.0006,
+    0.4861
+   ],
+   "pred_ok": true,
+   "z": 0.063,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.02,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3061,
+    0.0006,
+    0.4861
+   ],
+   "pred_ok": true,
+   "z": 0.061,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.04,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3061,
+    0.0006,
+    0.4862
+   ],
+   "pred_ok": true,
+   "z": 0.06,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.06,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3061,
+    0.0006,
+    0.4862
+   ],
+   "pred_ok": true,
+   "z": 0.059,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.08,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3061,
+    0.0005,
+    0.4862
+   ],
+   "pred_ok": true,
+   "z": 0.058,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.1,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3062,
+    0.0005,
+    0.4862
+   ],
+   "pred_ok": true,
+   "z": 0.057,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.12,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3062,
+    0.0005,
+    0.4862
+   ],
+   "pred_ok": true,
+   "z": 0.057,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.14,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3062,
+    0.0005,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.061,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.16,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3062,
+    0.0005,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.063,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.18,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4872
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3062,
+    0.0005,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.065,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.2,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0005,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.067,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.22,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0005,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.068,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.24,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.069,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.26,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.07,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.28,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.071,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.3,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0001,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0005,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.072,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.32,
+   "id": "hold3",
+   "meas": [
+    0.3074,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.073,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.34,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.075,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.36,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4863
+   ],
+   "pred_ok": true,
+   "z": 0.076,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.38,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.078,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.4,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.079,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.42,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3063,
+    0.0004,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.079,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.44,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0004,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.078,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.46,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0004,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.077,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.48,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.4871
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0004,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.075,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.5,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0003,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.072,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.52,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0003,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.07,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.54,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.068,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.56,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0003,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.066,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.58,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0003,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.064,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.6,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3064,
+    0.0003,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.062,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.62,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.06,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.64,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4864
+   ],
+   "pred_ok": true,
+   "z": 0.057,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.66,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.054,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.68,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.051,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.7,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.048,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.72,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.045,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.74,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.043,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.76,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.042,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.78,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.041,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.8,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.04,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.82,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.039,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.84,
+   "id": "hold3",
+   "meas": [
+    0.3073,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.038,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.86,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3065,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.039,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.88,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3066,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.039,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.9,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0002,
+    0.487
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3066,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.04,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.92,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0002,
+    0.4869
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3066,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.04,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.94,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0002,
+    0.4869
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3066,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.041,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.96,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0002,
+    0.4869
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3066,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.04,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 5.98,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0002,
+    0.4869
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3066,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.039,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  },
+  {
+   "stage": "go",
+   "t": 6.0,
+   "id": "hold3",
+   "meas": [
+    0.3072,
+    0.0002,
+    0.4869
+   ],
+   "meas_ok": true,
+   "pred": [
+    0.3066,
+    0.0003,
+    0.4865
+   ],
+   "pred_ok": true,
+   "z": 0.037,
+   "s_up": 0.0,
+   "s_lo": 0.0,
+   "drift": null,
+   "stall": false
+  }
+ ],
+ "levels": [
+  {
+   "stage": "go",
+   "attempt": 0,
+   "level": "L2",
+   "why": [
+    "L1 声明不可达 ['arm']",
+    "L1 给不出可用补丁(补丁为空或全部被拒)"
+   ]
+  }
+ ],
+ "replans": [
+  {
+   "stage": "go",
+   "trigger": [
+    "L1 声明不可达 ['arm']",
+    "L1 给不出可用补丁(补丁为空或全部被拒)"
+   ],
+   "veto": false,
+   "model": "gemini-3.5-flash",
+   "helpers_before": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    },
+    {
+     "id": "_elbow_side",
+     "level": "joint",
+     "attr": "link_pos",
+     "link": 4,
+     "axes": [
+      "y"
+     ],
+     "mode": "upper",
+     "ub": -0.04,
+     "sigma": 0.01,
+     "weight": 4,
+     "penalty": "hard"
+    }
+   ],
+   "calls": [
+    {
+     "error": null,
+     "text": null
+    }
+   ],
+   "error": null,
+   "changed": true,
+   "infeasible": [],
+   "source_rejected": [],
+   "problems": [],
+   "diagnosis": "当前策略项 `_elbow_side` 误设置了硬界 `ub: -0.04`（限制手肘只能在 -y 右侧），与契约要求的左侧（+y 一侧）冲突，导致无法逆解到左侧构型。",
+   "comp_patch": [],
+   "source_patch": [],
+   "latency_s": 12.16,
+   "helpers_after": [
+    {
+     "id": "_tool_down",
+     "level": "tcp_motion",
+     "attr": "ori_cone",
+     "frame": "base",
+     "ref_axis": [
+      0,
+      0,
+      -1
+     ],
+     "tool_axis": [
+      0,
+      0,
+      1
+     ],
+     "mode": "upper",
+     "ub": 0.1,
+     "sigma": 0.05,
+     "weight": 2
+    },
+    {
+     "id": "_elbow_side",
+     "level": "joint",
+     "attr": "link_pos",
+     "link": 4,
+     "axes": [
+      "y"
+     ],
+     "mode": "lower",
+     "lb": 0.04,
+     "sigma": 0.01,
+     "weight": 4
+    }
+   ]
+  }
+ ],
+ "exec_events": [],
+ "early_stops": [],
+ "recoveries": [],
+ "config": {
+  "monitor_cycles": 1,
+  "drift_h": 0.25,
+  "on_fail": "hier",
+  "max_retries": 2,
+  "audit_model": null,
+  "audit_votes": 3,
+  "on_veto": "record",
+  "exec_monitor": true,
+  "exec_pos_m": 0.015,
+  "exec_force_n": 3.0,
+  "exec_hold_s": 0.15,
+  "stall_win_s": 0.5,
+  "stall_frac": 0.05,
+  "early_stop_s": null,
+  "l0_max": 1,
+  "l1_max": 3,
+  "l2_max": 1,
+  "no_progress": 0.2,
+  "replan_model": "gemini-3.5-flash",
+  "l1_escalate_flag": false
+ }
+}

@@ -1,0 +1,100 @@
+{
+ "id": 9,
+ "arm": "solver",
+ "inst": {
+  "id": 9,
+  "kind": "comp",
+  "run_seed": 298,
+  "task": "twist",
+  "bias_raw": {
+   "kind": "add",
+   "value": 6.725612791200296,
+   "id": "press3"
+  },
+  "mag_tol": 4.48
+ },
+ "final_pass": false,
+ "status": "ok",
+ "reached": "L2",
+ "level_path": [
+  "solver",
+  "L2"
+ ],
+ "final_report": [
+  {
+   "id": "twist",
+   "cat": "C4",
+   "kind": "torque",
+   "unit": "N*m",
+   "tol": 0.015,
+   "measured": 0.0667,
+   "deviation": -0.0133,
+   "pass": true,
+   "target": 0.08,
+   "note": "实测绕桌面法向的力矩(机器人对桌面,含扭转摩擦),阶段内均值"
+  },
+  {
+   "id": "press3",
+   "cat": "C3",
+   "kind": "target",
+   "unit": "N",
+   "tol": 1.5,
+   "measured": [
+    11.7833
+   ],
+   "deviation": [
+    6.7833
+   ],
+   "pass": false,
+   "target": 5.0
+  }
+ ],
+ "llm": {
+  "calls": 0,
+  "cost_usd": 0.0
+ },
+ "sim_s": 22.4,
+ "prov": {
+  "host": "SPRL6201012107U",
+  "gpu": "Quadro RTX 8000",
+  "code": {
+   "cost_layers": "b5a4f51b16fd",
+   "exp_sweep": "dcc1f3b95db4",
+   "pms": "20ee6b40e4ff",
+   "exp_xemb": "f4922cd3a21f"
+  }
+ },
+ "levels": [
+  {
+   "stage": "twist",
+   "attempt": 0,
+   "level": "L1-求解器",
+   "why": [
+    "单层臂:重跑一次、全程噪声放大"
+   ]
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "level": "需要L2",
+   "why": [
+    "补救后仍不过"
+   ]
+  },
+  {
+   "stage": "twist",
+   "attempt": 1,
+   "level": "stop",
+   "why": [
+    "单层臂:求解器补救修不好"
+   ]
+  }
+ ],
+ "rule_updates": [],
+ "diagnoses": [],
+ "replans": [],
+ "repairs": [],
+ "exec_events": [],
+ "aborted": true,
+ "abort_reason": "单层臂:求解器补救修不好"
+}
