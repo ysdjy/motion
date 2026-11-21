@@ -1,0 +1,687 @@
+{
+ "gates": {
+  "r2_bitid": {
+   "ok": true,
+   "host": "SPRL6201012107U",
+   "at": "2026-10-26T16:37:47",
+   "dir": "results/exp_exec_weighted/sims/SPRL6201012107U/fr3_a_52872939d519c8b1",
+   "r2": "results/exp_edit_breadth/sims/fr3_a_946b2e6a83c1a7a3",
+   "entry_sha16": "62d74c65093642e0"
+  },
+  "G4": {
+   "by_class": {
+    "H": {
+     "n": 9,
+     "valid": 9,
+     "rate": 1.0
+    },
+    "N": {
+     "n": 4,
+     "valid": 4,
+     "rate": 1.0
+    },
+    "C": {
+     "n": 6,
+     "valid": 6,
+     "rate": 1.0
+    }
+   },
+   "ok": true
+  }
+ },
+ "updated_at": "2026-10-26T17:16:08",
+ "version": "xw2",
+ "decided_at": "2026-10-26T17:15:16",
+ "b3": {
+  "H": {
+   "chosen": [
+    0.3,
+    1.0,
+    "barrier"
+   ],
+   "score": -0.4296636226595372,
+   "ties": [
+    [
+     0.3,
+     0.3,
+     "barrier"
+    ],
+    [
+     0.3,
+     1.0,
+     "barrier"
+    ],
+    [
+     0.3,
+     10.0,
+     "barrier"
+    ],
+    [
+     1.0,
+     0.3,
+     "barrier"
+    ],
+    [
+     1.0,
+     1.0,
+     "barrier"
+    ],
+    [
+     1.0,
+     10.0,
+     "barrier"
+    ]
+   ],
+   "table": [
+    {
+     "cfg": [
+      0.1,
+      0.3,
+      "quad"
+     ],
+     "score": -0.6712047692653231,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.3190320899093937,
+      "CAL|HS|fr3_b|lower|0.6": -0.7221916172617533,
+      "CAL|HS|iiwa_a|upper|0.6": -0.5534062496295551,
+      "CAL|HS|iiwa_b|lower|0.4": -0.393434609160936,
+      "CAL|HS|xarm_a|lower|0.6": -0.5626015314124437,
+      "CAL|HS|xarm_b|upper|0.4": -0.32330526419144334,
+      "CAL|H|fr3_b|elbow_lower": -1.9265818417072282,
+      "CAL|H|iiwa_b|q1_tighten": -0.47232116085001774,
+      "CAL|H|xarm_b|force_upper": -0.7679685592651371
+     }
+    },
+    {
+     "cfg": [
+      0.1,
+      0.3,
+      "barrier"
+     ],
+     "score": -0.45446533693241986,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.08090622184611895,
+      "CAL|HS|fr3_b|lower|0.6": -0.7221916172617533,
+      "CAL|HS|iiwa_a|upper|0.6": -0.07334981890979542,
+      "CAL|HS|iiwa_b|lower|0.4": 0.05148647469463441,
+      "CAL|HS|xarm_a|lower|0.6": -0.549306568193014,
+      "CAL|HS|xarm_b|upper|0.4": 0.03996603077850125,
+      "CAL|H|fr3_b|elbow_lower": -1.924731862545012,
+      "CAL|H|iiwa_b|q1_tighten": -0.22499833353632148,
+      "CAL|H|xarm_b|force_upper": -0.7679685592651371
+     }
+    },
+    {
+     "cfg": [
+      0.1,
+      1.0,
+      "quad"
+     ],
+     "score": -0.6450754230979214,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.2630228311679961,
+      "CAL|HS|fr3_b|lower|0.6": -0.7221916172617533,
+      "CAL|HS|iiwa_a|upper|0.6": -0.495684320953778,
+      "CAL|HS|iiwa_b|lower|0.4": -0.3357553691674706,
+      "CAL|HS|xarm_a|lower|0.6": -0.5571066442251684,
+      "CAL|HS|xarm_b|upper|0.4": -0.27156401990765744,
+      "CAL|H|fr3_b|elbow_lower": -1.9261161804199205,
+      "CAL|H|iiwa_b|q1_tighten": -0.4662692655124112,
+      "CAL|H|xarm_b|force_upper": -0.7679685592651371
+     }
+    },
+    {
+     "cfg": [
+      0.1,
+      1.0,
+      "barrier"
+     ],
+     "score": -0.450870095501527,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.07986803309227675,
+      "CAL|HS|fr3_b|lower|0.6": -0.7221916172617533,
+      "CAL|HS|iiwa_a|upper|0.6": -0.07334981890979542,
+      "CAL|HS|iiwa_b|lower|0.4": 0.051892870950249304,
+      "CAL|HS|xarm_a|lower|0.6": -0.5446586244628193,
+      "CAL|HS|xarm_b|upper|0.4": 0.04131840823416333,
+      "CAL|H|fr3_b|elbow_lower": -1.9204939723014818,
+      "CAL|H|iiwa_b|q1_tighten": -0.20224757958944517,
+      "CAL|H|xarm_b|force_upper": -0.7679685592651371
+     }
+    },
+    {
+     "cfg": [
+      0.1,
+      10.0,
+      "quad"
+     ],
+     "score": -0.5599420616401615,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.1350148408382008,
+      "CAL|HS|fr3_b|lower|0.6": -0.7221916172617533,
+      "CAL|HS|iiwa_a|upper|0.6": -0.2997808351794724,
+      "CAL|HS|iiwa_b|lower|0.4": -0.12734666079651724,
+      "CAL|HS|xarm_a|lower|0.6": -0.5463303132621817,
+      "CAL|HS|xarm_b|upper|0.4": -0.108621319520541,
+      "CAL|H|fr3_b|elbow_lower": -1.9204939723014818,
+      "CAL|H|iiwa_b|q1_tighten": -0.41173043633616846,
+      "CAL|H|xarm_b|force_upper": -0.7679685592651371
+     }
+    },
+    {
+     "cfg": [
+      0.1,
+      10.0,
+      "barrier"
+     ],
+     "score": -0.45018536449510904,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.07920379719549331,
+      "CAL|HS|fr3_b|lower|0.6": -0.7221916172617533,
+      "CAL|HS|iiwa_a|upper|0.6": -0.07334981890979542,
+      "CAL|HS|iiwa_b|lower|0.4": 0.0521447341758936,
+      "CAL|HS|xarm_a|lower|0.6": -0.5457309641625123,
+      "CAL|HS|xarm_b|upper|0.4": 0.04117668180888501,
+      "CAL|H|fr3_b|elbow_lower": -1.915632468461989,
+      "CAL|H|iiwa_b|q1_tighten": -0.19932006557506599,
+      "CAL|H|xarm_b|force_upper": -0.7679685592651371
+     }
+    },
+    {
+     "cfg": [
+      0.3,
+      0.3,
+      "quad"
+     ],
+     "score": -0.6673109665971855,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.4396037117803342,
+      "CAL|HS|fr3_b|lower|0.6": -0.6965638937222192,
+      "CAL|HS|iiwa_a|upper|0.6": -0.5433419658875422,
+      "CAL|HS|iiwa_b|lower|0.4": -0.392604741176779,
+      "CAL|HS|xarm_a|lower|0.6": -0.661652934755967,
+      "CAL|HS|xarm_b|upper|0.4": -0.3094340037607939,
+      "CAL|H|fr3_b|elbow_lower": -1.8209884881973253,
+      "CAL|H|iiwa_b|q1_tighten": -0.42512069410249653,
+      "CAL|H|xarm_b|force_upper": -0.7164882659912113
+     }
+    },
+    {
+     "cfg": [
+      0.3,
+      0.3,
+      "barrier"
+     ],
+     "score": -0.429285932288145,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.057321578642064,
+      "CAL|HS|fr3_b|lower|0.6": -0.6965638937222192,
+      "CAL|HS|iiwa_a|upper|0.6": -0.028846013825283734,
+      "CAL|HS|iiwa_b|lower|0.4": 0.13650610816201336,
+      "CAL|HS|xarm_a|lower|0.6": -0.6505999811315952,
+      "CAL|HS|xarm_b|upper|0.4": 0.03880831371418303,
+      "CAL|H|fr3_b|elbow_lower": -1.8174733042716966,
+      "CAL|H|iiwa_b|q1_tighten": -0.18623793216955953,
+      "CAL|H|xarm_b|force_upper": -0.7164882659912113
+     }
+    },
+    {
+     "cfg": [
+      0.3,
+      1.0,
+      "quad"
+     ],
+     "score": -0.6391407759309685,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.3594531494175275,
+      "CAL|HS|fr3_b|lower|0.6": -0.6965638937222192,
+      "CAL|HS|iiwa_a|upper|0.6": -0.49128567912828913,
+      "CAL|HS|iiwa_b|lower|0.4": -0.3362992229801325,
+      "CAL|HS|xarm_a|lower|0.6": -0.6583488307449734,
+      "CAL|HS|xarm_b|upper|0.4": -0.2596760756572518,
+      "CAL|H|fr3_b|elbow_lower": -1.8199141144752489,
+      "CAL|H|iiwa_b|q1_tighten": -0.41423775126186335,
+      "CAL|H|xarm_b|force_upper": -0.7164882659912113
+     }
+    },
+    {
+     "cfg": [
+      0.3,
+      1.0,
+      "barrier"
+     ],
+     "score": -0.4296636226595372,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.0543572765422784,
+      "CAL|HS|fr3_b|lower|0.6": -0.6965638937222192,
+      "CAL|HS|iiwa_a|upper|0.6": -0.028846013825283734,
+      "CAL|HS|iiwa_b|lower|0.4": 0.13758186295629038,
+      "CAL|HS|xarm_a|lower|0.6": -0.6463516034678456,
+      "CAL|HS|xarm_b|upper|0.4": 0.04010775720377957,
+      "CAL|H|fr3_b|elbow_lower": -1.8165293157100664,
+      "CAL|H|iiwa_b|q1_tighten": -0.1942404079215576,
+      "CAL|H|xarm_b|force_upper": -0.7164882659912113
+     }
+    },
+    {
+     "cfg": [
+      0.3,
+      10.0,
+      "quad"
+     ],
+     "score": -0.5481602500922226,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.19398157149021422,
+      "CAL|HS|fr3_b|lower|0.6": -0.6965638937222192,
+      "CAL|HS|iiwa_a|upper|0.6": -0.29106892889312164,
+      "CAL|HS|iiwa_b|lower|0.4": -0.1367970812868755,
+      "CAL|HS|xarm_a|lower|0.6": -0.6476527545047333,
+      "CAL|HS|xarm_b|upper|0.4": -0.10166135675629917,
+      "CAL|H|fr3_b|elbow_lower": -1.8165293157100664,
+      "CAL|H|iiwa_b|q1_tighten": -0.3326990824752629,
+      "CAL|H|xarm_b|force_upper": -0.7164882659912113
+     }
+    },
+    {
+     "cfg": [
+      0.3,
+      10.0,
+      "barrier"
+     ],
+     "score": -0.42690172955497757,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.05404479538775142,
+      "CAL|HS|fr3_b|lower|0.6": -0.6965638937222192,
+      "CAL|HS|iiwa_a|upper|0.6": -0.02913629686501018,
+      "CAL|HS|iiwa_b|lower|0.4": 0.13738976388588497,
+      "CAL|HS|xarm_a|lower|0.6": -0.6475810375184494,
+      "CAL|HS|xarm_b|upper|0.4": 0.04099824311681921,
+      "CAL|H|fr3_b|elbow_lower": -1.814333629608153,
+      "CAL|H|iiwa_b|q1_tighten": -0.17044524468021072,
+      "CAL|H|xarm_b|force_upper": -0.7164882659912113
+     }
+    },
+    {
+     "cfg": [
+      1.0,
+      0.3,
+      "quad"
+     ],
+     "score": -0.623492199012344,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.3735352919388024,
+      "CAL|HS|fr3_b|lower|0.6": -0.7040958848294494,
+      "CAL|HS|iiwa_a|upper|0.6": -0.5240620494078883,
+      "CAL|HS|iiwa_b|lower|0.4": -0.34062956291391977,
+      "CAL|HS|xarm_a|lower|0.6": -0.7643670270419136,
+      "CAL|HS|xarm_b|upper|0.4": -0.29162172417904664,
+      "CAL|H|fr3_b|elbow_lower": -1.8316562294960008,
+      "CAL|H|iiwa_b|q1_tighten": -0.18243400616735572,
+      "CAL|H|xarm_b|force_upper": -0.5990280151367191
+     }
+    },
+    {
+     "cfg": [
+      1.0,
+      0.3,
+      "barrier"
+     ],
+     "score": -0.4165658882134485,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.07464464592450959,
+      "CAL|HS|fr3_b|lower|0.6": -0.7040958848294494,
+      "CAL|HS|iiwa_a|upper|0.6": -0.011160946516827863,
+      "CAL|HS|iiwa_b|lower|0.4": 0.1451497125566661,
+      "CAL|HS|xarm_a|lower|0.6": -0.7643670270419136,
+      "CAL|HS|xarm_b|upper|0.4": 0.056747805569221654,
+      "CAL|H|fr3_b|elbow_lower": -1.8257210969924913,
+      "CAL|H|iiwa_b|q1_tighten": -0.12126218745403206,
+      "CAL|H|xarm_b|force_upper": -0.5990280151367191
+     }
+    },
+    {
+     "cfg": [
+      1.0,
+      1.0,
+      "quad"
+     ],
+     "score": -0.5997749854167274,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.30606497577012526,
+      "CAL|HS|fr3_b|lower|0.6": -0.7040958848294494,
+      "CAL|HS|iiwa_a|upper|0.6": -0.47601166859684874,
+      "CAL|HS|iiwa_b|lower|0.4": -0.29151367259235883,
+      "CAL|HS|xarm_a|lower|0.6": -0.7643670270419136,
+      "CAL|HS|xarm_b|upper|0.4": -0.24893901828199105,
+      "CAL|H|fr3_b|elbow_lower": -1.8279264688491808,
+      "CAL|H|iiwa_b|q1_tighten": -0.18002813765195969,
+      "CAL|H|xarm_b|force_upper": -0.5990280151367191
+     }
+    },
+    {
+     "cfg": [
+      1.0,
+      1.0,
+      "barrier"
+     ],
+     "score": -0.41814845772186326,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.07732378762644743,
+      "CAL|HS|fr3_b|lower|0.6": -0.7040958848294494,
+      "CAL|HS|iiwa_a|upper|0.6": -0.011160946516827863,
+      "CAL|HS|iiwa_b|lower|0.4": 0.14559111353177734,
+      "CAL|HS|xarm_a|lower|0.6": -0.7643670270419136,
+      "CAL|HS|xarm_b|upper|0.4": 0.056302135725879054,
+      "CAL|H|fr3_b|elbow_lower": -1.82395605444908,
+      "CAL|H|iiwa_b|q1_tighten": -0.13994522840688361,
+      "CAL|H|xarm_b|force_upper": -0.5990280151367191
+     }
+    },
+    {
+     "cfg": [
+      1.0,
+      10.0,
+      "quad"
+     ],
+     "score": -0.5238276777430956,
+     "all_pass": 0,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": -0.1641677957631078,
+      "CAL|HS|fr3_b|lower|0.6": -0.7040958848294494,
+      "CAL|HS|iiwa_a|upper|0.6": -0.2854476832062005,
+      "CAL|HS|iiwa_b|lower|0.4": -0.115994032622309,
+      "CAL|HS|xarm_a|lower|0.6": -0.7643670270419136,
+      "CAL|HS|xarm_b|upper|0.4": -0.08899733226144946,
+      "CAL|H|fr3_b|elbow_lower": -1.82395605444908,
+      "CAL|H|iiwa_b|q1_tighten": -0.1683952743776307,
+      "CAL|H|xarm_b|force_upper": -0.5990280151367191
+     }
+    },
+    {
+     "cfg": [
+      1.0,
+      10.0,
+      "barrier"
+     ],
+     "score": -0.41839125068445804,
+     "all_pass": 3,
+     "n": 9,
+     "unit_scores": {
+      "CAL|HS|fr3_a|upper|0.4": 0.07614899508920381,
+      "CAL|HS|fr3_b|lower|0.6": -0.7040958848294494,
+      "CAL|HS|iiwa_a|upper|0.6": -0.011160946516827863,
+      "CAL|HS|iiwa_b|lower|0.4": 0.14779982595463004,
+      "CAL|HS|xarm_a|lower|0.6": -0.7643670270419136,
+      "CAL|HS|xarm_b|upper|0.4": 0.057086753706784066,
+      "CAL|H|fr3_b|elbow_lower": -1.8227118074893938,
+      "CAL|H|iiwa_b|q1_tighten": -0.1451931498964365,
+      "CAL|H|xarm_b|force_upper": -0.5990280151367191
+     }
+    }
+   ],
+   "equals": null
+  },
+  "N": {
+   "chosen": [
+    0.1,
+    1.0,
+    "barrier"
+   ],
+   "score": 0.7419668787788279,
+   "ties": [
+    [
+     0.1,
+     1.0,
+     "barrier"
+    ],
+    [
+     0.3,
+     1.0,
+     "barrier"
+    ],
+    [
+     1.0,
+     1.0,
+     "barrier"
+    ]
+   ],
+   "table": [
+    {
+     "cfg": [
+      0.1,
+      1.0,
+      "barrier"
+     ],
+     "score": 0.7419668787788279,
+     "all_pass": 4,
+     "n": 4,
+     "unit_scores": {
+      "CAL|N|fr3_b|tilt": 0.8519055080897638,
+      "CAL|N|iiwa_a|elbow": 0.6493750285321028,
+      "CAL|N|iiwa_b|elbow": 0.8306011739066128,
+      "CAL|N|xarm_b|elbow": 0.635985804586832
+     }
+    },
+    {
+     "cfg": [
+      0.3,
+      1.0,
+      "barrier"
+     ],
+     "score": 0.73015397281004,
+     "all_pass": 4,
+     "n": 4,
+     "unit_scores": {
+      "CAL|N|fr3_b|tilt": 0.8050958352609416,
+      "CAL|N|iiwa_a|elbow": 0.627721057044355,
+      "CAL|N|iiwa_b|elbow": 0.8453721460079248,
+      "CAL|N|xarm_b|elbow": 0.6424268529269389
+     }
+    },
+    {
+     "cfg": [
+      1.0,
+      1.0,
+      "barrier"
+     ],
+     "score": 0.7308799894938167,
+     "all_pass": 4,
+     "n": 4,
+     "unit_scores": {
+      "CAL|N|fr3_b|tilt": 0.8429295738276684,
+      "CAL|N|iiwa_a|elbow": 0.6471781569046495,
+      "CAL|N|iiwa_b|elbow": 0.7939406152762158,
+      "CAL|N|xarm_b|elbow": 0.6394716119667331
+     }
+    }
+   ],
+   "equals": "A"
+  },
+  "C": {
+   "chosen": [
+    0.1,
+    1.0,
+    "barrier"
+   ],
+   "score": 0.659863227491931,
+   "ties": [
+    [
+     0.1,
+     1.0,
+     "barrier"
+    ]
+   ],
+   "table": [
+    {
+     "cfg": [
+      0.1,
+      1.0,
+      "barrier"
+     ],
+     "score": 0.659863227491931,
+     "all_pass": 0,
+     "n": 6,
+     "unit_scores": {
+      "CAL|C|fr3_b|J1": 0.48214666658502736,
+      "CAL|C|fr3_b|J3": 0.6973070330454517,
+      "CAL|C|iiwa_b|J1": 0.8562371188107823,
+      "CAL|C|iiwa_b|J3": 0.5955954138432258,
+      "CAL|C|xarm_b|J1": 0.422148080757727,
+      "CAL|C|xarm_b|J3": 0.9057450519093724
+     }
+    },
+    {
+     "cfg": [
+      0.3,
+      1.0,
+      "barrier"
+     ],
+     "score": 0.2549768951502756,
+     "all_pass": 0,
+     "n": 6,
+     "unit_scores": {
+      "CAL|C|fr3_b|J1": -0.05724274532707015,
+      "CAL|C|fr3_b|J3": 0.2608229893059229,
+      "CAL|C|iiwa_b|J1": 0.8458425904858272,
+      "CAL|C|iiwa_b|J3": 0.18522965885837017,
+      "CAL|C|xarm_b|J1": -0.4290314277492519,
+      "CAL|C|xarm_b|J3": 0.7242403053278554
+     }
+    },
+    {
+     "cfg": [
+      1.0,
+      1.0,
+      "barrier"
+     ],
+     "score": -0.9815438088605924,
+     "all_pass": 0,
+     "n": 6,
+     "unit_scores": {
+      "CAL|C|fr3_b|J1": -3.0,
+      "CAL|C|fr3_b|J3": -0.361546241469739,
+      "CAL|C|iiwa_b|J1": 0.7512381098991311,
+      "CAL|C|iiwa_b|J3": -0.6030537404489712,
+      "CAL|C|xarm_b|J1": -3.0,
+      "CAL|C|xarm_b|J3": 0.3240990188560244
+     }
+    }
+   ],
+   "equals": "A"
+  }
+ },
+ "F3": {
+  "mode": "own",
+  "cfg": [
+   0.3,
+   1.0,
+   "barrier"
+  ],
+  "same_key": {
+   "B1": false,
+   "B2": false
+  }
+ },
+ "G5": {
+  "need_ref": true,
+  "done": true,
+  "ref_stats": {
+   "fr3_a": {
+    "min": 14.00660489792168,
+    "max": 16.395121196901492
+   },
+   "fr3_b": {
+    "min": 8.50343610627778,
+    "max": 10.760935716598409
+   },
+   "iiwa_a": {
+    "min": 14.86700297389454,
+    "max": 15.57529871346674
+   },
+   "iiwa_b": {
+    "min": 9.67648011509245,
+    "max": 10.749478074265713
+   },
+   "xarm_a": {
+    "min": 16.134918310280685,
+    "max": 16.695444614706954
+   },
+   "xarm_b": {
+    "min": 10.704801806904658,
+    "max": 11.436609618920981
+   }
+  },
+  "F3_units": [
+   "HS|fr3_a|upper|0.25",
+   "HS|fr3_a|upper|0.5",
+   "HS|fr3_a|upper|0.75",
+   "HS|fr3_a|lower|0.25",
+   "HS|fr3_a|lower|0.5",
+   "HS|fr3_a|lower|0.75",
+   "HS|fr3_b|upper|0.25",
+   "HS|fr3_b|upper|0.5",
+   "HS|fr3_b|upper|0.75",
+   "HS|fr3_b|lower|0.25",
+   "HS|fr3_b|lower|0.5",
+   "HS|fr3_b|lower|0.75",
+   "HS|iiwa_a|upper|0.25",
+   "HS|iiwa_a|upper|0.5",
+   "HS|iiwa_a|upper|0.75",
+   "HS|iiwa_a|lower|0.25",
+   "HS|iiwa_a|lower|0.5",
+   "HS|iiwa_a|lower|0.75",
+   "HS|iiwa_b|upper|0.25",
+   "HS|iiwa_b|upper|0.5",
+   "HS|iiwa_b|upper|0.75",
+   "HS|iiwa_b|lower|0.25",
+   "HS|iiwa_b|lower|0.5",
+   "HS|iiwa_b|lower|0.75",
+   "HS|xarm_a|upper|0.5",
+   "HS|xarm_a|upper|0.75",
+   "HS|xarm_a|lower|0.25",
+   "HS|xarm_b|upper|0.25",
+   "HS|xarm_b|upper|0.5",
+   "HS|xarm_b|upper|0.75",
+   "HS|xarm_b|lower|0.25",
+   "HS|xarm_b|lower|0.5",
+   "HS|xarm_b|lower|0.75"
+  ],
+  "n_clusters": 12
+ },
+ "cal_infra_excluded": {},
+ "frozen": true,
+ "frozen_at": "2026-10-26T17:16:08"
+}
